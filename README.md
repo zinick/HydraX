@@ -1,7 +1,8 @@
 HydraX
 ======
 
-A water rendering library for Ogre3D
+A water rendering library for Ogre3D.
+NOTE: If you are looking for the Push Button engine port, please go here: https://github.com/dionjwa/Hydrax
 
 Latest stable version: 0.5.1
 
@@ -42,10 +43,36 @@ Hydrax has a modular interface wich allows any kind of water geometry. At presen
 Credits
 -------
 
-The original creator of HydraX is xaviyiy, AKA Xavier Verguín González (xavyiy@gmail.com). The official repository for his work can be found here: http://modclub.rigsofrods.com/xavi/
+The original creator of HydraX is xaviyiy, AKA Xavier Verguín González (xavyiy@gmail.com).
 
-The project appears to be abandoned by xaviyiy as of 14th Deceomber 2010. For support, it is recommended to refer to the HydraX section of the Ogre3D forum:
+The project appears to be abandoned by xaviyiy as of 14th Deceomber 2010. For support, it is recommended to refer to the HydraX section of the Ogre3D forum (see "Links" below).
 
+The code from the last official stable release has been moved to GitHub so that the many fixes proposed on the forums can be centrally managed and distributed to ongoing HydraX users.
+
+TODO:
+-----
+
+Short-term:
+* Native Ogre3D 1.8.1 support
+* More demos
+
+0.6:
+* Improve underwater rendering. Update underwater depth calculations based on the distance, like the Crysis (Crytek) approach.
+* Improve Perlin and FFT normal map generator shaders
+* GLSL shaders
+* Multi-camera rendering support
+
+Examples / tutorials:
+* using custom textures for depth calculations (0.5 version feature)
+* creating ship trails (decals) 
+* creating custom geometry and noise modules 
+
+Links
+-----
+xavyiy's file store:
+http://modclub.rigsofrods.com/xavi/
+
+Ogre3D HydraX forum:
 http://www.ogre3d.org/addonforums/viewforum.php?f=20
 
 Screenshots
