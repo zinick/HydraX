@@ -1,0 +1,187 @@
+\hypertarget{class_hydrax_1_1_module_1_1_simple_grid}{
+\section{Hydrax::Module::SimpleGrid Class Reference}
+\label{class_hydrax_1_1_module_1_1_simple_grid}\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+}
+{\tt \#include $<$SimpleGrid.h$>$}
+
+Inheritance diagram for Hydrax::Module::SimpleGrid::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_hydrax_1_1_module_1_1_simple_grid}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_simple_grid_1576c59a302b3c24ac3d7dd8598e608c}{SimpleGrid} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h, \hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$n, const \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{MaterialManager::NormalMode} \&NormalMode)
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_simple_grid_ae091cd103798dcc8f8b92af7dbfccef}{SimpleGrid} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h, \hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$n, const \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{MaterialManager::NormalMode} \&NormalMode, const \hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options})
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_simple_grid_a697faa687d55e5f211bae56e0ec9d14}{$\sim$SimpleGrid} ()
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_7e52fb7497f6a2d27666a384d7a1d003}{create} ()
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_ca3e257313599b797b8a65442cecd3cc}{remove} ()
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_aa120d4f487785136a3134cc8980fb16}{update} (const Ogre::Real \&timeSinceLastFrame)
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_6b83cb95b2803b068a53bf76afaa9ac4}{setOptions} (const \hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options})
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_f79cb3a457da1fe8b015d9d7b5a6a376}{saveCfg} (Ogre::String \&Data)
+\item 
+bool \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_3741ec1a3df1863e730711fd9d3b14e1}{loadCfg} (Ogre::ConfigFile \&CfgFile)
+\item 
+float \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_9a9e5bba632f0317c82370fa433559ac}{getHeigth} (const Ogre::Vector2 \&Position)
+\item 
+const \hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options} \& \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_bcc8d6a849224e8558162adb8f3baf69}{getOptions} () const 
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} simple grid module 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_1576c59a302b3c24ac3d7dd8598e608c}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!SimpleGrid@{SimpleGrid}}
+\index{SimpleGrid@{SimpleGrid}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{SimpleGrid}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::SimpleGrid::SimpleGrid ({\bf Hydrax} $\ast$ {\em h}, \/  {\bf Noise::Noise} $\ast$ {\em n}, \/  const {\bf MaterialManager::NormalMode} \& {\em NormalMode})}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_1576c59a302b3c24ac3d7dd8598e608c}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} manager pointer \item[{\em n}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} noise module \item[{\em NormalMode}]Switch between \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296ffe4d6257f673cf503a9905fb2576288f}{MaterialManager::NM\_\-VERTEX} and Materialmanager::NM\_\-RTT \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_ae091cd103798dcc8f8b92af7dbfccef}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!SimpleGrid@{SimpleGrid}}
+\index{SimpleGrid@{SimpleGrid}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{SimpleGrid}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::SimpleGrid::SimpleGrid ({\bf Hydrax} $\ast$ {\em h}, \/  {\bf Noise::Noise} $\ast$ {\em n}, \/  const {\bf MaterialManager::NormalMode} \& {\em NormalMode}, \/  const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_ae091cd103798dcc8f8b92af7dbfccef}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} manager pointer \item[{\em n}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} noise module \item[{\em NormalMode}]Switch between \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296ffe4d6257f673cf503a9905fb2576288f}{MaterialManager::NM\_\-VERTEX} and Materialmanager::NM\_\-RTT \item[{\em \hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options}}]Perlin options \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_a697faa687d55e5f211bae56e0ec9d14}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!$\sim$SimpleGrid@{$\sim$SimpleGrid}}
+\index{$\sim$SimpleGrid@{$\sim$SimpleGrid}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{$\sim$SimpleGrid}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::SimpleGrid::$\sim$SimpleGrid ()}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_a697faa687d55e5f211bae56e0ec9d14}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_7e52fb7497f6a2d27666a384d7a1d003}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!create@{create}}
+\index{create@{create}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::SimpleGrid::create ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_7e52fb7497f6a2d27666a384d7a1d003}
+
+
+Create 
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_4b696328c3fc1496f757e929f44f3258}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_9a9e5bba632f0317c82370fa433559ac}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!getHeigth@{getHeigth}}
+\index{getHeigth@{getHeigth}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{getHeigth}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Module::SimpleGrid::getHeigth (const Ogre::Vector2 \& {\em Position})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_9a9e5bba632f0317c82370fa433559ac}
+
+
+Get the current heigth at a especified world-space point \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]X/Z World position \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Heigth at the given position in y-World coordinates, if it's outside of the water return -1 \end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_c61f89589d3b1bc7256731ddb7af7d0b}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_bcc8d6a849224e8558162adb8f3baf69}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!getOptions@{getOptions}}
+\index{getOptions@{getOptions}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{getOptions}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Options}\& Hydrax::Module::SimpleGrid::getOptions () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_bcc8d6a849224e8558162adb8f3baf69}
+
+
+Get current options \begin{Desc}
+\item[Returns:]Current options \end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_3741ec1a3df1863e730711fd9d3b14e1}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!loadCfg@{loadCfg}}
+\index{loadCfg@{loadCfg}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{loadCfg}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Module::SimpleGrid::loadCfg (Ogre::ConfigFile \& {\em CfgFile})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_3741ec1a3df1863e730711fd9d3b14e1}
+
+
+Load config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CgfFile}]Ogre::ConfigFile reference \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]True if is the correct module config \end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_bedb96357608c0744bb7816ae1c2b0bb}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_ca3e257313599b797b8a65442cecd3cc}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!remove@{remove}}
+\index{remove@{remove}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::SimpleGrid::remove ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_ca3e257313599b797b8a65442cecd3cc}
+
+
+Remove 
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_21f60a53a99d72ff00d3fe5565518165}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_f79cb3a457da1fe8b015d9d7b5a6a376}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!saveCfg@{saveCfg}}
+\index{saveCfg@{saveCfg}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{saveCfg}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::SimpleGrid::saveCfg (Ogre::String \& {\em Data})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_f79cb3a457da1fe8b015d9d7b5a6a376}
+
+
+Save config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]String reference \end{description}
+\end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_998a5baf42f57b02ca7bc20bc12f95a9}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_6b83cb95b2803b068a53bf76afaa9ac4}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!setOptions@{setOptions}}
+\index{setOptions@{setOptions}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{setOptions}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::SimpleGrid::setOptions (const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_6b83cb95b2803b068a53bf76afaa9ac4}
+
+
+Set options \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options}}]\hyperlink{struct_hydrax_1_1_module_1_1_simple_grid_1_1_options}{Options} \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_simple_grid_aa120d4f487785136a3134cc8980fb16}{
+\index{Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}!update@{update}}
+\index{update@{update}!Hydrax::Module::SimpleGrid@{Hydrax::Module::SimpleGrid}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::SimpleGrid::update (const Ogre::Real \& {\em timeSinceLastFrame})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_simple_grid_aa120d4f487785136a3134cc8980fb16}
+
+
+Call it each frame \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timeSinceLastFrame}]Time since last frame(delta) \end{description}
+\end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_2042d450f99d9348fa4b7bd29ba89df3}{Hydrax::Module::Module}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Modules/SimpleGrid/\hyperlink{_simple_grid_8h}{SimpleGrid.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Modules/SimpleGrid/\hyperlink{_simple_grid_8cpp}{SimpleGrid.cpp}\end{CompactItemize}

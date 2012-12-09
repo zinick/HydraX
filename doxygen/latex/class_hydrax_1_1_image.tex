@@ -1,0 +1,326 @@
+\hypertarget{class_hydrax_1_1_image}{
+\section{Hydrax::Image Class Reference}
+\label{class_hydrax_1_1_image}\index{Hydrax::Image@{Hydrax::Image}}
+}
+{\tt \#include $<$Image.h$>$}
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel}
+\end{CompactItemize}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}{Type} \{ \hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced0005ca8acae970d6e2aea78df6087ce0}{TYPE\_\-ONE\_\-CHANNEL} =  1, 
+\hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defcedfa652c739734702bc8738e9a989672e6}{TYPE\_\-TWO\_\-CHANNELS} =  2, 
+\hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defcede6aa04418ddf53d58974d5980ce9ab77}{TYPE\_\-RGB} =  3, 
+\hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced98576fbc1837f352a444c285b23256a9}{TYPE\_\-RGBA} =  4
+ \}
+\item 
+enum \hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df}{Channel} \{ \hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dfdbdae7c5095db273399c45b557cacb9a}{CHANNEL\_\-R} =  0, 
+\hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dffb55f5daa6768334b30df6acd4fdc187}{CHANNEL\_\-G} =  1, 
+\hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df8428597f99b12aa89b84ee3b4f1d890f}{CHANNEL\_\-B} =  2, 
+\hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dfb2a24a10095096c774be74557d8b66e5}{CHANNEL\_\-A} =  3
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_image_631e057134038b76a40a9cf3692d4fec}{Image} (const \hyperlink{struct_hydrax_1_1_size}{Size} \&\hyperlink{struct_hydrax_1_1_size}{Size})
+\item 
+\hyperlink{class_hydrax_1_1_image_964018639ef80bf7274ec3eb564bc5e1}{Image} (const \hyperlink{struct_hydrax_1_1_size}{Size} \&\hyperlink{struct_hydrax_1_1_size}{Size}, const \hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}{Type} \&\hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}{Type})
+\item 
+\hyperlink{class_hydrax_1_1_image_3ebb813438f174afb0a2034df4103ced}{Image} (const \hyperlink{struct_hydrax_1_1_size}{Size} \&\hyperlink{struct_hydrax_1_1_size}{Size}, const \hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}{Type} \&\hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}{Type}, const float \&v)
+\item 
+\hyperlink{class_hydrax_1_1_image_326c283842e93944fabea025b26a50f7}{$\sim$Image} ()
+\item 
+const float \& \hyperlink{class_hydrax_1_1_image_3e05904d8904baf193e6687c938d1d5b}{getValue} (const int \&x, const int \&y, const int \&c) const 
+\item 
+float \hyperlink{class_hydrax_1_1_image_ac15faab325f8dc9df4961e78228a6f8}{getValueLI} (const float \&x, const float \&y, const int \&c) const 
+\item 
+const float \& \hyperlink{class_hydrax_1_1_image_1a021dc1afd9074172f512ecc2fe4d2e}{getValue} (const int \&x, const int \&y, const \hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df}{Channel} \&c) const 
+\item 
+float \hyperlink{class_hydrax_1_1_image_75d101bcf467cee66dbafc8c28479c2b}{getValueLI} (const float \&x, const float \&y, const \hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df}{Channel} \&c) const 
+\item 
+\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} \hyperlink{class_hydrax_1_1_image_866bdef55697fe70add44705d5e076ab}{getPixel} (const int \&x, const int \&y) const 
+\item 
+\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} \hyperlink{class_hydrax_1_1_image_433e71c1e9630bbaddbcef5795f50bfa}{getPixelLI} (const float \&x, const float \&y) const 
+\item 
+void \hyperlink{class_hydrax_1_1_image_ddfd822a7b6663233d1bb1c3e691bb50}{setValue} (const int \&x, const int \&y, const int \&c, const float \&v)
+\item 
+void \hyperlink{class_hydrax_1_1_image_51f4bfd3291592dac969f51c52ca1009}{setValue} (const int \&x, const int \&y, const \hyperlink{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df}{Channel} \&c, const float \&v)
+\item 
+void \hyperlink{class_hydrax_1_1_image_57b7ae07e51805b2744b5d21c0412ecd}{setPixel} (const int \&x, const int \&y, const \hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} \&p)
+\item 
+\hyperlink{struct_hydrax_1_1_size}{Size} \hyperlink{class_hydrax_1_1_image_06a882ca6cfb5f4c65d64b820e55c384}{getSize} () const 
+\item 
+\hyperlink{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}{Type} \hyperlink{class_hydrax_1_1_image_b39de4a80c2c0bf18c7128a8de80c048}{getType} () const 
+\item 
+const int \& \hyperlink{class_hydrax_1_1_image_f11bfbc9071c67c038dd0835628908f2}{getNumberOfChannels} () const 
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for store variable channels of an image 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df}{
+\index{Hydrax::Image@{Hydrax::Image}!Channel@{Channel}}
+\index{Channel@{Channel}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{Channel}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::Image::Channel}}}
+\label{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df}
+
+
+Channel enum \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{CHANNEL\_\-R@{CHANNEL\_\-R}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!CHANNEL\_\-R@{CHANNEL\_\-R}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dfdbdae7c5095db273399c45b557cacb9a}{
+CHANNEL\_\-R}
+\label{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dfdbdae7c5095db273399c45b557cacb9a}
+}]\index{CHANNEL\_\-G@{CHANNEL\_\-G}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!CHANNEL\_\-G@{CHANNEL\_\-G}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dffb55f5daa6768334b30df6acd4fdc187}{
+CHANNEL\_\-G}
+\label{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dffb55f5daa6768334b30df6acd4fdc187}
+}]\index{CHANNEL\_\-B@{CHANNEL\_\-B}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!CHANNEL\_\-B@{CHANNEL\_\-B}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df8428597f99b12aa89b84ee3b4f1d890f}{
+CHANNEL\_\-B}
+\label{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344df8428597f99b12aa89b84ee3b4f1d890f}
+}]\index{CHANNEL\_\-A@{CHANNEL\_\-A}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!CHANNEL\_\-A@{CHANNEL\_\-A}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dfb2a24a10095096c774be74557d8b66e5}{
+CHANNEL\_\-A}
+\label{class_hydrax_1_1_image_89b5fe40f19103fd27240511665344dfb2a24a10095096c774be74557d8b66e5}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}{
+\index{Hydrax::Image@{Hydrax::Image}!Type@{Type}}
+\index{Type@{Type}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::Image::Type}}}
+\label{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced}
+
+
+\hyperlink{class_hydrax_1_1_image}{Image} type enum \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{TYPE\_\-ONE\_\-CHANNEL@{TYPE\_\-ONE\_\-CHANNEL}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!TYPE\_\-ONE\_\-CHANNEL@{TYPE\_\-ONE\_\-CHANNEL}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced0005ca8acae970d6e2aea78df6087ce0}{
+TYPE\_\-ONE\_\-CHANNEL}
+\label{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced0005ca8acae970d6e2aea78df6087ce0}
+}]\index{TYPE\_\-TWO\_\-CHANNELS@{TYPE\_\-TWO\_\-CHANNELS}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!TYPE\_\-TWO\_\-CHANNELS@{TYPE\_\-TWO\_\-CHANNELS}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defcedfa652c739734702bc8738e9a989672e6}{
+TYPE\_\-TWO\_\-CHANNELS}
+\label{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defcedfa652c739734702bc8738e9a989672e6}
+}]\index{TYPE\_\-RGB@{TYPE\_\-RGB}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!TYPE\_\-RGB@{TYPE\_\-RGB}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defcede6aa04418ddf53d58974d5980ce9ab77}{
+TYPE\_\-RGB}
+\label{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defcede6aa04418ddf53d58974d5980ce9ab77}
+}]\index{TYPE\_\-RGBA@{TYPE\_\-RGBA}!Hydrax::Image@{Hydrax::Image}}\index{Hydrax::Image@{Hydrax::Image}!TYPE\_\-RGBA@{TYPE\_\-RGBA}}\item[{\em 
+\hypertarget{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced98576fbc1837f352a444c285b23256a9}{
+TYPE\_\-RGBA}
+\label{class_hydrax_1_1_image_1dab7f4b50bbbf4eb5a5b55c46defced98576fbc1837f352a444c285b23256a9}
+}]Default. \end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_image_631e057134038b76a40a9cf3692d4fec}{
+\index{Hydrax::Image@{Hydrax::Image}!Image@{Image}}
+\index{Image@{Image}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{Image}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Image::Image (const {\bf Size} \& {\em Size})}}
+\label{class_hydrax_1_1_image_631e057134038b76a40a9cf3692d4fec}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_size}{Size}}]\hyperlink{class_hydrax_1_1_image}{Image} size \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_image_964018639ef80bf7274ec3eb564bc5e1}{
+\index{Hydrax::Image@{Hydrax::Image}!Image@{Image}}
+\index{Image@{Image}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{Image}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Image::Image (const {\bf Size} \& {\em Size}, \/  const {\bf Type} \& {\em Type})}}
+\label{class_hydrax_1_1_image_964018639ef80bf7274ec3eb564bc5e1}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_size}{Size}}]\hyperlink{class_hydrax_1_1_image}{Image} size \item[{\em Type}]\hyperlink{class_hydrax_1_1_image}{Image} type \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_image_3ebb813438f174afb0a2034df4103ced}{
+\index{Hydrax::Image@{Hydrax::Image}!Image@{Image}}
+\index{Image@{Image}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{Image}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Image::Image (const {\bf Size} \& {\em Size}, \/  const {\bf Type} \& {\em Type}, \/  const float \& {\em v})}}
+\label{class_hydrax_1_1_image_3ebb813438f174afb0a2034df4103ced}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_size}{Size}}]\hyperlink{class_hydrax_1_1_image}{Image} size \item[{\em Type}]\hyperlink{class_hydrax_1_1_image}{Image} type \item[{\em v}]Initial channel values \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_image_326c283842e93944fabea025b26a50f7}{
+\index{Hydrax::Image@{Hydrax::Image}!$\sim$Image@{$\sim$Image}}
+\index{$\sim$Image@{$\sim$Image}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{$\sim$Image}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Image::$\sim$Image ()}}
+\label{class_hydrax_1_1_image_326c283842e93944fabea025b26a50f7}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_image_f11bfbc9071c67c038dd0835628908f2}{
+\index{Hydrax::Image@{Hydrax::Image}!getNumberOfChannels@{getNumberOfChannels}}
+\index{getNumberOfChannels@{getNumberOfChannels}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getNumberOfChannels}]{\setlength{\rightskip}{0pt plus 5cm}const int\& Hydrax::Image::getNumberOfChannels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_image_f11bfbc9071c67c038dd0835628908f2}
+
+
+Get number of channels \begin{Desc}
+\item[Returns:]Number of channels \end{Desc}
+\hypertarget{class_hydrax_1_1_image_866bdef55697fe70add44705d5e076ab}{
+\index{Hydrax::Image@{Hydrax::Image}!getPixel@{getPixel}}
+\index{getPixel@{getPixel}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getPixel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image::Pixel} Hydrax::Image::getPixel (const int \& {\em x}, \/  const int \& {\em y}) const}}
+\label{class_hydrax_1_1_image_866bdef55697fe70add44705d5e076ab}
+
+
+Get a pixel \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} \end{Desc}
+\hypertarget{class_hydrax_1_1_image_433e71c1e9630bbaddbcef5795f50bfa}{
+\index{Hydrax::Image@{Hydrax::Image}!getPixelLI@{getPixelLI}}
+\index{getPixelLI@{getPixelLI}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getPixelLI}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image::Pixel} Hydrax::Image::getPixelLI (const float \& {\em x}, \/  const float \& {\em y}) const}}
+\label{class_hydrax_1_1_image_433e71c1e9630bbaddbcef5795f50bfa}
+
+
+Get a pixel with linear interpolation, like x = 4.56, y = 8.34 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} \end{Desc}
+\hypertarget{class_hydrax_1_1_image_06a882ca6cfb5f4c65d64b820e55c384}{
+\index{Hydrax::Image@{Hydrax::Image}!getSize@{getSize}}
+\index{getSize@{getSize}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getSize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Size} Hydrax::Image::getSize () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_image_06a882ca6cfb5f4c65d64b820e55c384}
+
+
+Get image size \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_image}{Image} size \end{Desc}
+\hypertarget{class_hydrax_1_1_image_b39de4a80c2c0bf18c7128a8de80c048}{
+\index{Hydrax::Image@{Hydrax::Image}!getType@{getType}}
+\index{getType@{getType}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getType}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Type} Hydrax::Image::getType () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_image_b39de4a80c2c0bf18c7128a8de80c048}
+
+
+Get image type \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_image}{Image} type \end{Desc}
+\hypertarget{class_hydrax_1_1_image_1a021dc1afd9074172f512ecc2fe4d2e}{
+\index{Hydrax::Image@{Hydrax::Image}!getValue@{getValue}}
+\index{getValue@{getValue}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getValue}]{\setlength{\rightskip}{0pt plus 5cm}const float\& Hydrax::Image::getValue (const int \& {\em x}, \/  const int \& {\em y}, \/  const {\bf Channel} \& {\em c}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_image_1a021dc1afd9074172f512ecc2fe4d2e}
+
+
+Get a pixel value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \item[{\em c}]Channel \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} channel value \end{Desc}
+\hypertarget{class_hydrax_1_1_image_3e05904d8904baf193e6687c938d1d5b}{
+\index{Hydrax::Image@{Hydrax::Image}!getValue@{getValue}}
+\index{getValue@{getValue}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getValue}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Hydrax::Image::getValue (const int \& {\em x}, \/  const int \& {\em y}, \/  const int \& {\em c}) const}}
+\label{class_hydrax_1_1_image_3e05904d8904baf193e6687c938d1d5b}
+
+
+Get a pixel value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \item[{\em c}]Channel \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} channel value \end{Desc}
+\hypertarget{class_hydrax_1_1_image_75d101bcf467cee66dbafc8c28479c2b}{
+\index{Hydrax::Image@{Hydrax::Image}!getValueLI@{getValueLI}}
+\index{getValueLI@{getValueLI}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getValueLI}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Image::getValueLI (const float \& {\em x}, \/  const float \& {\em y}, \/  const {\bf Channel} \& {\em c}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_image_75d101bcf467cee66dbafc8c28479c2b}
+
+
+Get a pixel value with linear interpolation, like x = 4.56, y = 8.34 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \item[{\em c}]Channel \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} channel value \end{Desc}
+\hypertarget{class_hydrax_1_1_image_ac15faab325f8dc9df4961e78228a6f8}{
+\index{Hydrax::Image@{Hydrax::Image}!getValueLI@{getValueLI}}
+\index{getValueLI@{getValueLI}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{getValueLI}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Image::getValueLI (const float \& {\em x}, \/  const float \& {\em y}, \/  const int \& {\em c}) const}}
+\label{class_hydrax_1_1_image_ac15faab325f8dc9df4961e78228a6f8}
+
+
+Get a pixel value with linear interpolation, like x = 4.56, y = 8.34 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \item[{\em c}]Channel \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} channel value \end{Desc}
+\hypertarget{class_hydrax_1_1_image_57b7ae07e51805b2744b5d21c0412ecd}{
+\index{Hydrax::Image@{Hydrax::Image}!setPixel@{setPixel}}
+\index{setPixel@{setPixel}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{setPixel}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Image::setPixel (const int \& {\em x}, \/  const int \& {\em y}, \/  const {\bf Pixel} \& {\em p})}}
+\label{class_hydrax_1_1_image_57b7ae07e51805b2744b5d21c0412ecd}
+
+
+Set a pixel \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \item[{\em p}]\hyperlink{struct_hydrax_1_1_image_1_1_pixel}{Pixel} \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_image_51f4bfd3291592dac969f51c52ca1009}{
+\index{Hydrax::Image@{Hydrax::Image}!setValue@{setValue}}
+\index{setValue@{setValue}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{setValue}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Image::setValue (const int \& {\em x}, \/  const int \& {\em y}, \/  const {\bf Channel} \& {\em c}, \/  const float \& {\em v})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_image_51f4bfd3291592dac969f51c52ca1009}
+
+
+Set a pixel value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \item[{\em c}]Channel \item[{\em v}]Value \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_image_ddfd822a7b6663233d1bb1c3e691bb50}{
+\index{Hydrax::Image@{Hydrax::Image}!setValue@{setValue}}
+\index{setValue@{setValue}!Hydrax::Image@{Hydrax::Image}}
+\subsubsection[{setValue}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Image::setValue (const int \& {\em x}, \/  const int \& {\em y}, \/  const int \& {\em c}, \/  const float \& {\em v})}}
+\label{class_hydrax_1_1_image_ddfd822a7b6663233d1bb1c3e691bb50}
+
+
+Set a pixel value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X value \item[{\em y}]Y value \item[{\em c}]Channel \item[{\em v}]Value \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_image_8h}{Image.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_image_8cpp}{Image.cpp}\end{CompactItemize}

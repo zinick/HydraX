@@ -1,0 +1,254 @@
+\hypertarget{class_hydrax_1_1_decal}{
+\section{Hydrax::Decal Class Reference}
+\label{class_hydrax_1_1_decal}\index{Hydrax::Decal@{Hydrax::Decal}}
+}
+{\tt \#include $<$DecalsManager.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_decal_85bc65b9ca9265d69693da7a90d3382e}{Decal} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h, const Ogre::String \&TextureName, const int \&Id)
+\item 
+\hyperlink{class_hydrax_1_1_decal_aad4588738304d06a93271d28f2afcdc}{$\sim$Decal} ()
+\item 
+void \hyperlink{class_hydrax_1_1_decal_8c81f3988be73eac2c1c03f947c74ed9}{registerPass} (Ogre::Pass $\ast$\_\-Pass)
+\item 
+void \hyperlink{class_hydrax_1_1_decal_a517fc153970df9ccabffda04b27892c}{unregister} ()
+\item 
+const Ogre::String \& \hyperlink{class_hydrax_1_1_decal_c7645e2aca71f621bace32fd8749db84}{getTextureName} () const 
+\item 
+const int \& \hyperlink{class_hydrax_1_1_decal_616f8a17b1e140b68bc4fda390c4bbf6}{getId} () const 
+\item 
+Ogre::Frustum $\ast$ \hyperlink{class_hydrax_1_1_decal_f10c4fe7b59a31e9dea6d44a94b39322}{getProjector} ()
+\item 
+Ogre::SceneNode $\ast$ \hyperlink{class_hydrax_1_1_decal_c2570f0d1977b11ccb5746a3518210c2}{getSceneNode} ()
+\item 
+Ogre::Pass $\ast$ \hyperlink{class_hydrax_1_1_decal_436d4064d3f5e2b84fbc006db82da935}{getRegisteredPass} ()
+\item 
+const Ogre::Vector2 \& \hyperlink{class_hydrax_1_1_decal_56457d138e4d109486eb83194ce05507}{getPosition} () const 
+\item 
+const Ogre::Vector2 \& \hyperlink{class_hydrax_1_1_decal_2d4f5cfd15c4450a87063e50e178f4ff}{getSize} () const 
+\item 
+const Ogre::Radian \& \hyperlink{class_hydrax_1_1_decal_81f991775c4fb8d026d7c8d4b2f0ef7d}{getOrientation} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_decal_92b9f0ae7ac23d87d9fe6415352c87c7}{getTransparency} () const 
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_decal_8193d57f867ddb8293da95cd1473af42}{isVisible} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_decal_53da5b1cb4fc6d8cd470d23255cbcc7a}{setPosition} (const Ogre::Vector2 \&Position)
+\item 
+void \hyperlink{class_hydrax_1_1_decal_e48299846460ba4022683faba3f826be}{setSize} (const Ogre::Vector2 \&\hyperlink{struct_hydrax_1_1_size}{Size})
+\item 
+void \hyperlink{class_hydrax_1_1_decal_5dc16dca9688e2bb46f0770a7375902c}{setOrientation} (const Ogre::Radian \&Orientation)
+\item 
+void \hyperlink{class_hydrax_1_1_decal_c1f66263a33a56b806ea08fb05b47951}{setTransparency} (const Ogre::Real \&Transparency)
+\item 
+void \hyperlink{class_hydrax_1_1_decal_5c51a36fc2d8c6f320db291805b8401a}{setVisible} (const bool \&Visible)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_hydrax_1_1_decal}{Decal} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_decal_85bc65b9ca9265d69693da7a90d3382e}{
+\index{Hydrax::Decal@{Hydrax::Decal}!Decal@{Decal}}
+\index{Decal@{Decal}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{Decal}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Decal::Decal ({\bf Hydrax} $\ast$ {\em h}, \/  const Ogre::String \& {\em TextureName}, \/  const int \& {\em Id})}}
+\label{class_hydrax_1_1_decal_85bc65b9ca9265d69693da7a90d3382e}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} parent pointer \item[{\em TextureName}]Texture name \item[{\em Id}]\hyperlink{class_hydrax_1_1_decal}{Decal} Id \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decal_aad4588738304d06a93271d28f2afcdc}{
+\index{Hydrax::Decal@{Hydrax::Decal}!$\sim$Decal@{$\sim$Decal}}
+\index{$\sim$Decal@{$\sim$Decal}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{$\sim$Decal}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Decal::$\sim$Decal ()}}
+\label{class_hydrax_1_1_decal_aad4588738304d06a93271d28f2afcdc}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_decal_616f8a17b1e140b68bc4fda390c4bbf6}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getId@{getId}}
+\index{getId@{getId}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getId}]{\setlength{\rightskip}{0pt plus 5cm}const int\& Hydrax::Decal::getId () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_616f8a17b1e140b68bc4fda390c4bbf6}
+
+
+Get the decal Id \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Decal} Id \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_81f991775c4fb8d026d7c8d4b2f0ef7d}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getOrientation@{getOrientation}}
+\index{getOrientation@{getOrientation}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getOrientation}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Radian\& Hydrax::Decal::getOrientation () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_81f991775c4fb8d026d7c8d4b2f0ef7d}
+
+
+Get decal orientation \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Decal} orientation \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_56457d138e4d109486eb83194ce05507}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getPosition}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector2\& Hydrax::Decal::getPosition () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_56457d138e4d109486eb83194ce05507}
+
+
+Get decal position \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Decal} position \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_f10c4fe7b59a31e9dea6d44a94b39322}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getProjector@{getProjector}}
+\index{getProjector@{getProjector}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getProjector}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Frustum$\ast$ Hydrax::Decal::getProjector ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_f10c4fe7b59a31e9dea6d44a94b39322}
+
+
+Get the decal projector \begin{Desc}
+\item[Returns:]Projector frustum \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_436d4064d3f5e2b84fbc006db82da935}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getRegisteredPass@{getRegisteredPass}}
+\index{getRegisteredPass@{getRegisteredPass}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getRegisteredPass}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Pass$\ast$ Hydrax::Decal::getRegisteredPass ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_436d4064d3f5e2b84fbc006db82da935}
+
+
+Get the pass the decal is in \begin{Desc}
+\item[Returns:]Registered pass \end{Desc}
+\begin{Desc}
+\item[Remarks:]return NULL if decal isn't registered \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_c2570f0d1977b11ccb5746a3518210c2}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getSceneNode@{getSceneNode}}
+\index{getSceneNode@{getSceneNode}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getSceneNode}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::SceneNode$\ast$ Hydrax::Decal::getSceneNode ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_c2570f0d1977b11ccb5746a3518210c2}
+
+
+Get the decal scene node \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Decal} scene node \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_2d4f5cfd15c4450a87063e50e178f4ff}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getSize@{getSize}}
+\index{getSize@{getSize}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getSize}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector2\& Hydrax::Decal::getSize () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_2d4f5cfd15c4450a87063e50e178f4ff}
+
+
+Get decal size \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Decal} size \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_c7645e2aca71f621bace32fd8749db84}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getTextureName@{getTextureName}}
+\index{getTextureName@{getTextureName}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getTextureName}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::String\& Hydrax::Decal::getTextureName () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_c7645e2aca71f621bace32fd8749db84}
+
+
+Get decal texture name \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Decal} texture name \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_92b9f0ae7ac23d87d9fe6415352c87c7}{
+\index{Hydrax::Decal@{Hydrax::Decal}!getTransparency@{getTransparency}}
+\index{getTransparency@{getTransparency}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{getTransparency}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Decal::getTransparency () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_92b9f0ae7ac23d87d9fe6415352c87c7}
+
+
+Get decal transparency \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Decal} transparency \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_8193d57f867ddb8293da95cd1473af42}{
+\index{Hydrax::Decal@{Hydrax::Decal}!isVisible@{isVisible}}
+\index{isVisible@{isVisible}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{isVisible}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Decal::isVisible () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decal_8193d57f867ddb8293da95cd1473af42}
+
+
+Is decal visile? \begin{Desc}
+\item[Returns:]true if decal is visible \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_8c81f3988be73eac2c1c03f947c74ed9}{
+\index{Hydrax::Decal@{Hydrax::Decal}!registerPass@{registerPass}}
+\index{registerPass@{registerPass}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{registerPass}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Decal::registerPass (Ogre::Pass $\ast$ {\em \_\-Pass})}}
+\label{class_hydrax_1_1_decal_8c81f3988be73eac2c1c03f947c74ed9}
+
+
+Register the decal int the specified pass \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \_\-Pass}]Pass to be registred \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decal_5dc16dca9688e2bb46f0770a7375902c}{
+\index{Hydrax::Decal@{Hydrax::Decal}!setOrientation@{setOrientation}}
+\index{setOrientation@{setOrientation}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{setOrientation}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Decal::setOrientation (const Ogre::Radian \& {\em Orientation})}}
+\label{class_hydrax_1_1_decal_5dc16dca9688e2bb46f0770a7375902c}
+
+
+Set decal orientation \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Orientation}]\hyperlink{class_hydrax_1_1_decal}{Decal} orientation \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decal_53da5b1cb4fc6d8cd470d23255cbcc7a}{
+\index{Hydrax::Decal@{Hydrax::Decal}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{setPosition}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Decal::setPosition (const Ogre::Vector2 \& {\em Position})}}
+\label{class_hydrax_1_1_decal_53da5b1cb4fc6d8cd470d23255cbcc7a}
+
+
+Set decal position \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]\hyperlink{class_hydrax_1_1_decal}{Decal} position \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decal_e48299846460ba4022683faba3f826be}{
+\index{Hydrax::Decal@{Hydrax::Decal}!setSize@{setSize}}
+\index{setSize@{setSize}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{setSize}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Decal::setSize (const Ogre::Vector2 \& {\em Size})}}
+\label{class_hydrax_1_1_decal_e48299846460ba4022683faba3f826be}
+
+
+Set decal size \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_size}{Size}}]\hyperlink{class_hydrax_1_1_decal}{Decal} size in world coordinates \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decal_c1f66263a33a56b806ea08fb05b47951}{
+\index{Hydrax::Decal@{Hydrax::Decal}!setTransparency@{setTransparency}}
+\index{setTransparency@{setTransparency}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{setTransparency}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Decal::setTransparency (const Ogre::Real \& {\em Transparency})}}
+\label{class_hydrax_1_1_decal_c1f66263a33a56b806ea08fb05b47951}
+
+
+Set decal transparency \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Transparency}]\hyperlink{class_hydrax_1_1_decal}{Decal} transparency in \mbox{[}0,1\mbox{]} range \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]0 = Full transparent, 1 = Full opacity \end{Desc}
+\hypertarget{class_hydrax_1_1_decal_5c51a36fc2d8c6f320db291805b8401a}{
+\index{Hydrax::Decal@{Hydrax::Decal}!setVisible@{setVisible}}
+\index{setVisible@{setVisible}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{setVisible}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Decal::setVisible (const bool \& {\em Visible})}}
+\label{class_hydrax_1_1_decal_5c51a36fc2d8c6f320db291805b8401a}
+
+
+Set decal visibile or not \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Visible}]true if yes, false if not \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decal_a517fc153970df9ccabffda04b27892c}{
+\index{Hydrax::Decal@{Hydrax::Decal}!unregister@{unregister}}
+\index{unregister@{unregister}!Hydrax::Decal@{Hydrax::Decal}}
+\subsubsection[{unregister}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Decal::unregister ()}}
+\label{class_hydrax_1_1_decal_a517fc153970df9ccabffda04b27892c}
+
+
+Unregister from current technique 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_decals_manager_8h}{DecalsManager.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_decals_manager_8cpp}{DecalsManager.cpp}\end{CompactItemize}

@@ -1,0 +1,215 @@
+\hypertarget{_perlin_8h}{
+\section{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Noise/Perlin/Perlin.h File Reference}
+\label{_perlin_8h}\index{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Noise/Perlin/Perlin.h@{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Noise/Perlin/Perlin.h}}
+}
+{\tt \#include \char`\"{}../../Prerequisites.h\char`\"{}}\par
+{\tt \#include \char`\"{}../Noise.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{class_hydrax_1_1_noise_1_1_perlin}{Hydrax::Noise::Perlin}
+\item 
+struct \hyperlink{struct_hydrax_1_1_noise_1_1_perlin_1_1_options}{Hydrax::Noise::Perlin::Perlin::Options}
+\end{CompactItemize}
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespace_hydrax}{Hydrax}
+\item 
+namespace \hyperlink{namespace_hydrax_1_1_noise}{Hydrax::Noise}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{_perlin_8h_dbfaa1117486973b1efd2358b7232a26}{n\_\-bits}~5
+\item 
+\#define \hyperlink{_perlin_8h_d58e7a0c2b19179fd729eff7fa0be8ae}{n\_\-size}~(1$<$$<$(n\_\-bits-1))
+\item 
+\#define \hyperlink{_perlin_8h_ae215e9842697c3647c8630bc4f1844a}{n\_\-size\_\-m1}~(n\_\-size - 1)
+\item 
+\#define \hyperlink{_perlin_8h_a8df8f3870601d41a461d2fb378389fb}{n\_\-size\_\-sq}~(n\_\-size$\ast$n\_\-size)
+\item 
+\#define \hyperlink{_perlin_8h_c7a249934d4db7fac35038ba06da00c1}{n\_\-size\_\-sq\_\-m1}~(n\_\-size\_\-sq - 1)
+\item 
+\#define \hyperlink{_perlin_8h_e8aae1c0b43d6071445087787b966203}{n\_\-packsize}~4
+\item 
+\#define \hyperlink{_perlin_8h_e14f7519170289738dcee98213a0445c}{np\_\-bits}~(n\_\-bits+n\_\-packsize-1)
+\item 
+\#define \hyperlink{_perlin_8h_7dca23204a7219d769b1a94cb9a52b8c}{np\_\-size}~(1$<$$<$(np\_\-bits-1))
+\item 
+\#define \hyperlink{_perlin_8h_cdc1d7a230b33a319b5b524cca4e9889}{np\_\-size\_\-m1}~(np\_\-size-1)
+\item 
+\#define \hyperlink{_perlin_8h_a718c1b064f45bf3a00a66da049a817d}{np\_\-size\_\-sq}~(np\_\-size$\ast$np\_\-size)
+\item 
+\#define \hyperlink{_perlin_8h_6c6f020ddd46da233e700efdf00c0e28}{np\_\-size\_\-sq\_\-m1}~(np\_\-size\_\-sq-1)
+\item 
+\#define \hyperlink{_perlin_8h_cc807ecaff8ec1fc30e7479468d32d95}{n\_\-dec\_\-bits}~12
+\item 
+\#define \hyperlink{_perlin_8h_5175016f5ea124f47a08df1506ecfd1a}{n\_\-dec\_\-magn}~4096
+\item 
+\#define \hyperlink{_perlin_8h_87a0b70cf9413b7263b0817fac1884fc}{n\_\-dec\_\-magn\_\-m1}~4095
+\item 
+\#define \hyperlink{_perlin_8h_34964412e527642dd64d183d9ca40c93}{max\_\-octaves}~32
+\item 
+\#define \hyperlink{_perlin_8h_fb2d100aafe6867c0c90f7a51a7f5690}{noise\_\-frames}~256
+\item 
+\#define \hyperlink{_perlin_8h_4733d9c2a676f9084afd28bce325bc16}{noise\_\-frames\_\-m1}~(noise\_\-frames-1)
+\item 
+\#define \hyperlink{_perlin_8h_344cabe1b92b911f4e90221f6f288ac9}{noise\_\-decimalbits}~15
+\item 
+\#define \hyperlink{_perlin_8h_148244facf3f51cffaa8dc9a358f3efb}{noise\_\-magnitude}~(1$<$$<$(noise\_\-decimalbits-1))
+\item 
+\#define \hyperlink{_perlin_8h_31f39094e9fa34e144721b5c47105f2c}{scale\_\-decimalbits}~15
+\item 
+\#define \hyperlink{_perlin_8h_7cb27fb4177ceea6259785d78658bdb2}{scale\_\-magnitude}~(1$<$$<$(scale\_\-decimalbits-1))
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_perlin_8h_34964412e527642dd64d183d9ca40c93}{
+\index{Perlin.h@{Perlin.h}!max\_\-octaves@{max\_\-octaves}}
+\index{max\_\-octaves@{max\_\-octaves}!Perlin.h@{Perlin.h}}
+\subsubsection[{max\_\-octaves}]{\setlength{\rightskip}{0pt plus 5cm}\#define max\_\-octaves~32}}
+\label{_perlin_8h_34964412e527642dd64d183d9ca40c93}
+
+
+\hypertarget{_perlin_8h_dbfaa1117486973b1efd2358b7232a26}{
+\index{Perlin.h@{Perlin.h}!n\_\-bits@{n\_\-bits}}
+\index{n\_\-bits@{n\_\-bits}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-bits~5}}
+\label{_perlin_8h_dbfaa1117486973b1efd2358b7232a26}
+
+
+\hypertarget{_perlin_8h_cc807ecaff8ec1fc30e7479468d32d95}{
+\index{Perlin.h@{Perlin.h}!n\_\-dec\_\-bits@{n\_\-dec\_\-bits}}
+\index{n\_\-dec\_\-bits@{n\_\-dec\_\-bits}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-dec\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-dec\_\-bits~12}}
+\label{_perlin_8h_cc807ecaff8ec1fc30e7479468d32d95}
+
+
+\hypertarget{_perlin_8h_5175016f5ea124f47a08df1506ecfd1a}{
+\index{Perlin.h@{Perlin.h}!n\_\-dec\_\-magn@{n\_\-dec\_\-magn}}
+\index{n\_\-dec\_\-magn@{n\_\-dec\_\-magn}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-dec\_\-magn}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-dec\_\-magn~4096}}
+\label{_perlin_8h_5175016f5ea124f47a08df1506ecfd1a}
+
+
+\hypertarget{_perlin_8h_87a0b70cf9413b7263b0817fac1884fc}{
+\index{Perlin.h@{Perlin.h}!n\_\-dec\_\-magn\_\-m1@{n\_\-dec\_\-magn\_\-m1}}
+\index{n\_\-dec\_\-magn\_\-m1@{n\_\-dec\_\-magn\_\-m1}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-dec\_\-magn\_\-m1}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-dec\_\-magn\_\-m1~4095}}
+\label{_perlin_8h_87a0b70cf9413b7263b0817fac1884fc}
+
+
+\hypertarget{_perlin_8h_e8aae1c0b43d6071445087787b966203}{
+\index{Perlin.h@{Perlin.h}!n\_\-packsize@{n\_\-packsize}}
+\index{n\_\-packsize@{n\_\-packsize}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-packsize}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-packsize~4}}
+\label{_perlin_8h_e8aae1c0b43d6071445087787b966203}
+
+
+\hypertarget{_perlin_8h_d58e7a0c2b19179fd729eff7fa0be8ae}{
+\index{Perlin.h@{Perlin.h}!n\_\-size@{n\_\-size}}
+\index{n\_\-size@{n\_\-size}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-size~(1$<$$<$(n\_\-bits-1))}}
+\label{_perlin_8h_d58e7a0c2b19179fd729eff7fa0be8ae}
+
+
+\hypertarget{_perlin_8h_ae215e9842697c3647c8630bc4f1844a}{
+\index{Perlin.h@{Perlin.h}!n\_\-size\_\-m1@{n\_\-size\_\-m1}}
+\index{n\_\-size\_\-m1@{n\_\-size\_\-m1}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-size\_\-m1}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-size\_\-m1~(n\_\-size - 1)}}
+\label{_perlin_8h_ae215e9842697c3647c8630bc4f1844a}
+
+
+\hypertarget{_perlin_8h_a8df8f3870601d41a461d2fb378389fb}{
+\index{Perlin.h@{Perlin.h}!n\_\-size\_\-sq@{n\_\-size\_\-sq}}
+\index{n\_\-size\_\-sq@{n\_\-size\_\-sq}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-size\_\-sq}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-size\_\-sq~(n\_\-size$\ast$n\_\-size)}}
+\label{_perlin_8h_a8df8f3870601d41a461d2fb378389fb}
+
+
+\hypertarget{_perlin_8h_c7a249934d4db7fac35038ba06da00c1}{
+\index{Perlin.h@{Perlin.h}!n\_\-size\_\-sq\_\-m1@{n\_\-size\_\-sq\_\-m1}}
+\index{n\_\-size\_\-sq\_\-m1@{n\_\-size\_\-sq\_\-m1}!Perlin.h@{Perlin.h}}
+\subsubsection[{n\_\-size\_\-sq\_\-m1}]{\setlength{\rightskip}{0pt plus 5cm}\#define n\_\-size\_\-sq\_\-m1~(n\_\-size\_\-sq - 1)}}
+\label{_perlin_8h_c7a249934d4db7fac35038ba06da00c1}
+
+
+\hypertarget{_perlin_8h_344cabe1b92b911f4e90221f6f288ac9}{
+\index{Perlin.h@{Perlin.h}!noise\_\-decimalbits@{noise\_\-decimalbits}}
+\index{noise\_\-decimalbits@{noise\_\-decimalbits}!Perlin.h@{Perlin.h}}
+\subsubsection[{noise\_\-decimalbits}]{\setlength{\rightskip}{0pt plus 5cm}\#define noise\_\-decimalbits~15}}
+\label{_perlin_8h_344cabe1b92b911f4e90221f6f288ac9}
+
+
+\hypertarget{_perlin_8h_fb2d100aafe6867c0c90f7a51a7f5690}{
+\index{Perlin.h@{Perlin.h}!noise\_\-frames@{noise\_\-frames}}
+\index{noise\_\-frames@{noise\_\-frames}!Perlin.h@{Perlin.h}}
+\subsubsection[{noise\_\-frames}]{\setlength{\rightskip}{0pt plus 5cm}\#define noise\_\-frames~256}}
+\label{_perlin_8h_fb2d100aafe6867c0c90f7a51a7f5690}
+
+
+\hypertarget{_perlin_8h_4733d9c2a676f9084afd28bce325bc16}{
+\index{Perlin.h@{Perlin.h}!noise\_\-frames\_\-m1@{noise\_\-frames\_\-m1}}
+\index{noise\_\-frames\_\-m1@{noise\_\-frames\_\-m1}!Perlin.h@{Perlin.h}}
+\subsubsection[{noise\_\-frames\_\-m1}]{\setlength{\rightskip}{0pt plus 5cm}\#define noise\_\-frames\_\-m1~(noise\_\-frames-1)}}
+\label{_perlin_8h_4733d9c2a676f9084afd28bce325bc16}
+
+
+\hypertarget{_perlin_8h_148244facf3f51cffaa8dc9a358f3efb}{
+\index{Perlin.h@{Perlin.h}!noise\_\-magnitude@{noise\_\-magnitude}}
+\index{noise\_\-magnitude@{noise\_\-magnitude}!Perlin.h@{Perlin.h}}
+\subsubsection[{noise\_\-magnitude}]{\setlength{\rightskip}{0pt plus 5cm}\#define noise\_\-magnitude~(1$<$$<$(noise\_\-decimalbits-1))}}
+\label{_perlin_8h_148244facf3f51cffaa8dc9a358f3efb}
+
+
+\hypertarget{_perlin_8h_e14f7519170289738dcee98213a0445c}{
+\index{Perlin.h@{Perlin.h}!np\_\-bits@{np\_\-bits}}
+\index{np\_\-bits@{np\_\-bits}!Perlin.h@{Perlin.h}}
+\subsubsection[{np\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}\#define np\_\-bits~(n\_\-bits+n\_\-packsize-1)}}
+\label{_perlin_8h_e14f7519170289738dcee98213a0445c}
+
+
+\hypertarget{_perlin_8h_7dca23204a7219d769b1a94cb9a52b8c}{
+\index{Perlin.h@{Perlin.h}!np\_\-size@{np\_\-size}}
+\index{np\_\-size@{np\_\-size}!Perlin.h@{Perlin.h}}
+\subsubsection[{np\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}\#define np\_\-size~(1$<$$<$(np\_\-bits-1))}}
+\label{_perlin_8h_7dca23204a7219d769b1a94cb9a52b8c}
+
+
+\hypertarget{_perlin_8h_cdc1d7a230b33a319b5b524cca4e9889}{
+\index{Perlin.h@{Perlin.h}!np\_\-size\_\-m1@{np\_\-size\_\-m1}}
+\index{np\_\-size\_\-m1@{np\_\-size\_\-m1}!Perlin.h@{Perlin.h}}
+\subsubsection[{np\_\-size\_\-m1}]{\setlength{\rightskip}{0pt plus 5cm}\#define np\_\-size\_\-m1~(np\_\-size-1)}}
+\label{_perlin_8h_cdc1d7a230b33a319b5b524cca4e9889}
+
+
+\hypertarget{_perlin_8h_a718c1b064f45bf3a00a66da049a817d}{
+\index{Perlin.h@{Perlin.h}!np\_\-size\_\-sq@{np\_\-size\_\-sq}}
+\index{np\_\-size\_\-sq@{np\_\-size\_\-sq}!Perlin.h@{Perlin.h}}
+\subsubsection[{np\_\-size\_\-sq}]{\setlength{\rightskip}{0pt plus 5cm}\#define np\_\-size\_\-sq~(np\_\-size$\ast$np\_\-size)}}
+\label{_perlin_8h_a718c1b064f45bf3a00a66da049a817d}
+
+
+\hypertarget{_perlin_8h_6c6f020ddd46da233e700efdf00c0e28}{
+\index{Perlin.h@{Perlin.h}!np\_\-size\_\-sq\_\-m1@{np\_\-size\_\-sq\_\-m1}}
+\index{np\_\-size\_\-sq\_\-m1@{np\_\-size\_\-sq\_\-m1}!Perlin.h@{Perlin.h}}
+\subsubsection[{np\_\-size\_\-sq\_\-m1}]{\setlength{\rightskip}{0pt plus 5cm}\#define np\_\-size\_\-sq\_\-m1~(np\_\-size\_\-sq-1)}}
+\label{_perlin_8h_6c6f020ddd46da233e700efdf00c0e28}
+
+
+\hypertarget{_perlin_8h_31f39094e9fa34e144721b5c47105f2c}{
+\index{Perlin.h@{Perlin.h}!scale\_\-decimalbits@{scale\_\-decimalbits}}
+\index{scale\_\-decimalbits@{scale\_\-decimalbits}!Perlin.h@{Perlin.h}}
+\subsubsection[{scale\_\-decimalbits}]{\setlength{\rightskip}{0pt plus 5cm}\#define scale\_\-decimalbits~15}}
+\label{_perlin_8h_31f39094e9fa34e144721b5c47105f2c}
+
+
+\hypertarget{_perlin_8h_7cb27fb4177ceea6259785d78658bdb2}{
+\index{Perlin.h@{Perlin.h}!scale\_\-magnitude@{scale\_\-magnitude}}
+\index{scale\_\-magnitude@{scale\_\-magnitude}!Perlin.h@{Perlin.h}}
+\subsubsection[{scale\_\-magnitude}]{\setlength{\rightskip}{0pt plus 5cm}\#define scale\_\-magnitude~(1$<$$<$(scale\_\-decimalbits-1))}}
+\label{_perlin_8h_7cb27fb4177ceea6259785d78658bdb2}
+
+

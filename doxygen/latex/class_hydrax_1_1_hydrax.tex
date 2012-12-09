@@ -1,0 +1,1025 @@
+\hypertarget{class_hydrax_1_1_hydrax}{
+\section{Hydrax::Hydrax Class Reference}
+\label{class_hydrax_1_1_hydrax}\index{Hydrax::Hydrax@{Hydrax::Hydrax}}
+}
+{\tt \#include $<$Hydrax.h$>$}
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \textbf{DeviceListener}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_hydrax_58642a636963c02a5aa689a66827cae8}{Hydrax} (Ogre::SceneManager $\ast$sm, Ogre::Camera $\ast$c, Ogre::Viewport $\ast$v)
+\item 
+\hyperlink{class_hydrax_1_1_hydrax_b340dd13dc9dfc678ef703abf4d37949}{$\sim$Hydrax} ()
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{create} ()
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_02c9bf8f5576332fc836b4929e738529}{remove} ()
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_c584e30a6cbfb5d8884afb182c29d36a}{update} (const Ogre::Real \&timeSinceLastFrame)
+\item 
+bool \hyperlink{class_hydrax_1_1_hydrax_69e3ff9c4de804dec54156453837df95}{isComponent} (const \hyperlink{namespace_hydrax_e8e15abf83a51b0cf514c7d1a133650a}{HydraxComponent} \&Component)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_6fbd6d0808443ba1d2d7569ac6b27583}{setComponents} (const \hyperlink{namespace_hydrax_e8e15abf83a51b0cf514c7d1a133650a}{HydraxComponent} \&Components)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_3f678db49fe45320efb237d145ec63e4}{setModule} (\hyperlink{class_hydrax_1_1_module_1_1_module}{Module::Module} $\ast$Module, const bool \&DeleteOldModule=true)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_9110c2569465617ca22f32fc67da096d}{setPolygonMode} (const Ogre::PolygonMode \&PM)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_187619a5f2ea2e1fe65ac3cd35103203}{setShaderMode} (const \hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fb}{MaterialManager::ShaderMode} \&ShaderMode)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_26f48dec7e37c8f352570192ef38fb90}{setPosition} (const Ogre::Vector3 \&Position)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_35958e296923f17c5eab19840d3711e2}{rotate} (const Ogre::Quaternion \&q)
+\item 
+const bool \hyperlink{class_hydrax_1_1_hydrax_3a812b0ad6d06bdfaa961a1e2caa7eee}{saveCfg} (const Ogre::String \&File, const Ogre::String \&Path=\char`\"{}\char`\"{}) const 
+\item 
+const bool \hyperlink{class_hydrax_1_1_hydrax_1a9a011581dc097e3928511632b534da}{loadCfg} (const Ogre::String \&File) const 
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_336c1b2587e8e26c123af6c5bdbc2400}{setPlanesError} (const Ogre::Real \&PlanesError)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_a1c3ac9b604a3116fbd5b4d55429811d}{\_\-setStrength} (const Ogre::Real \&Strength)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_e4a765e38a2d81a180b9e74a002e8010}{setFullReflectionDistance} (const Ogre::Real \&FullReflectionDistance)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_b601c8008ca2bc47e66d9a5e4e4b63a7}{setGlobalTransparency} (const Ogre::Real \&GlobalTransparency)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_e931996f1e97b983a4e3ea57a30a8d47}{setWaterColor} (const Ogre::Vector3 \&WaterColor)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_b745c19968fdc47b71d65bb88679d447}{setNormalDistortion} (const Ogre::Real \&NormalDistortion)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_86467f51a5b69343a97ff6536c922929}{setSunPosition} (const Ogre::Vector3 \&SunPosition)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_ad0a9050fe394da479b1e0431d99a151}{setSunStrength} (const Ogre::Real \&SunStrength)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_276bb2f6256badf7c3a72fd758732e00}{setSunArea} (const Ogre::Real \&SunArea)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_dc74459b43cd00a19b60b8391531cb17}{setSunColor} (const Ogre::Vector3 \&SunColor)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_7a741e312c15cc17958dd09e39b7f4fe}{setFoamMaxDistance} (const Ogre::Real \&FoamMaxDistance)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_9332262daefd2ba3ee72f8e07b642b98}{setFoamScale} (const Ogre::Real \&FoamScale)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_5eaf61497bb4e306a64ab6828acf95e5}{setFoamStart} (const Ogre::Real \&FoamStart)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_031be3ce2201a6087ecb6185309acc4e}{setFoamTransparency} (const Ogre::Real \&FoamTransparency)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_83f64aa230e64e83d9732290b50f3787}{setDepthLimit} (const Ogre::Real \&DepthLimit)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_a8f4c456888deffc3cbe523c0666a66b}{setSmoothPower} (const Ogre::Real \&SmoothPower)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_a0d4bb8262e28ef9e6ff273503266889}{setCausticsScale} (const Ogre::Real \&CausticsScale)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_78ed497eda748ca0699f170cbc491e13}{setCausticsPower} (const Ogre::Real \&CausticsPower)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_f194156ce3a8647bcb447a2ce8d8c932}{setCausticsEnd} (const Ogre::Real \&CausticsEnd)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_496d60d593ecf694a5a701d5a42f27b1}{setGodRaysExposure} (const Ogre::Vector3 \&GodRaysExposure)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_fbc9ef3ee75b67003c04e67db2ef223e}{setGodRaysIntensity} (const Ogre::Real \&GodRaysIntensity)
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_2ea24fcd2e01968d8dc86c36168a5819}{setUnderwaterCameraSwitchDelta} (const Ogre::Real \&UnderwaterCameraSwitchDelta)
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_hydrax_58b37d035d0391ce7873a21240c83207}{isCreated} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_hydrax_2c6e89c89098c1ae2f152b0cac0ecfde}{setVisible} (const bool \&Visible)
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_hydrax_b573f6c6e548a4c501b80a465659ab61}{isVisible} () const 
+\item 
+Ogre::Camera $\ast$ \hyperlink{class_hydrax_1_1_hydrax_ef185c906434b6dfb7c67a425d678287}{getCamera} ()
+\item 
+Ogre::Viewport $\ast$ \hyperlink{class_hydrax_1_1_hydrax_969555d8f856a43c4ca6c92bb0958bf1}{getViewport} ()
+\item 
+Ogre::SceneManager $\ast$ \hyperlink{class_hydrax_1_1_hydrax_4f6dfef270938f04d0430eaf8e1fa88f}{getSceneManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_mesh}{Mesh} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_1940a144c486915885ed19026839d381}{getMesh} ()
+\item 
+\hyperlink{class_hydrax_1_1_material_manager}{MaterialManager} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_572279649449549c7be3ef809221fbae}{getMaterialManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_rtt_manager}{RttManager} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_86b446e4a8fdb64e71b3f3f71ea2f68a}{getRttManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_texture_manager}{TextureManager} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_d2f92d6e7d0feabcd66d405a7c8d8bc8}{getTextureManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_god_rays_manager}{GodRaysManager} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_50fd9a0cdeb608f8048713dffffe9c55}{getGodRaysManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_decals_manager}{DecalsManager} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_0ed95597b4ad5e33f2ba7f82f3ac4083}{getDecalsManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_38e4600d83e382515265b70e0dcde4d2}{getGPUNormalMapManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_cfg_file_manager}{CfgFileManager} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_5ac35cd3073a581415afb95bef7e7180}{getCfgFileManager} ()
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_module}{Module::Module} $\ast$ \hyperlink{class_hydrax_1_1_hydrax_9ebb3dbda04c58af5affc4156277d681}{getModule} ()
+\item 
+const \hyperlink{namespace_hydrax_e8e15abf83a51b0cf514c7d1a133650a}{HydraxComponent} \& \hyperlink{class_hydrax_1_1_hydrax_af3b15b5c19cd07a6a95c40ee9b3247d}{getComponents} () const 
+\item 
+const Ogre::PolygonMode \& \hyperlink{class_hydrax_1_1_hydrax_f31388148136dfdd563388e3f4ae4b59}{getPolygonMode} () const 
+\item 
+const \hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fb}{MaterialManager::ShaderMode} \& \hyperlink{class_hydrax_1_1_hydrax_a3ca4b94a8cfb1aed6e3a997dc9fac7e}{getShaderMode} () const 
+\item 
+const Ogre::Vector3 \& \hyperlink{class_hydrax_1_1_hydrax_011da649ae072cce9c6db28620b67a42}{getPosition} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_99b530dca1b0ba95e43d4deeec01d7d1}{getPlanesError} () const 
+\item 
+float \hyperlink{class_hydrax_1_1_hydrax_bbfe63c58bc4f56ad625872b19b51a60}{getHeigth} (const Ogre::Vector2 \&Position)
+\item 
+float \hyperlink{class_hydrax_1_1_hydrax_29fbd3e931c36ef924c38cbe329a4be7}{getHeigth} (const Ogre::Vector3 \&Position)
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_ac55c7b84c7d6e067010526a91d1ee00}{getFullReflectionDistance} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_9f71ca1190dd56802a9a0d5e6fe7b73d}{getGlobalTransparency} () const 
+\item 
+const Ogre::Vector3 \& \hyperlink{class_hydrax_1_1_hydrax_6391180e70faf46ee681466620a85f4d}{getSunPosition} () const 
+\item 
+const Ogre::Vector3 \& \hyperlink{class_hydrax_1_1_hydrax_0e0da539fe181e84a115368e97eff0c6}{getWaterColor} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_129ecf4478ecca15299d9f25e9074b90}{getNormalDistortion} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_acad398f575cb867b93eee4c7397c14b}{getSunStrength} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_881b74b5c9a3c830317174cf610d6867}{getSunArea} () const 
+\item 
+const Ogre::Vector3 \& \hyperlink{class_hydrax_1_1_hydrax_7b40b2febde3f65bf5b2532a9cb752ff}{getSunColor} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_942025a1a9f93e24221b618b4130732a}{getFoamMaxDistance} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_23f873e4659628d36274dfce9a76bc5c}{getFoamScale} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_a89f420e1adfd5bf578ba12fa0a3104e}{getFoamStart} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_aa96bcad2550ec7eb1430a6af5a237d3}{getFoamTransparency} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_03b8b82e6223f7e3ec47d845957ec5e3}{getDepthLimit} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_aae88f80029fa6fd3b11e646ae740cd3}{getSmoothPower} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_4e9359d0ee14a3f1aae1776b7144bfab}{getCausticsScale} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_d857d60009cbc99335081bc65a25b719}{getCausticsPower} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_608b120b0ee226cf85b1c5a1720f65a6}{getCausticsEnd} () const 
+\item 
+const Ogre::Vector3 \& \hyperlink{class_hydrax_1_1_hydrax_562ddb88c1218f3eecc5889efb2ff7f3}{getGodRaysExposure} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_7e9e195b0df7b42440d6a93914527186}{getGodRaysIntensity} () const 
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_hydrax_1626067a6e76d34ec5733da9f19615e0}{getUnderwaterCameraSwitchDelta} () const 
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_hydrax_1532419b2859aed22a63d913c527ce21}{\_\-isCurrentFrameUnderwater} () const 
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Main \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} class. \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} is a plugin for the Ogre3D engine whose aim is rendering realistic water scenes. Do not use two instances of the \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_hydrax_58642a636963c02a5aa689a66827cae8}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!Hydrax@{Hydrax}}
+\index{Hydrax@{Hydrax}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{Hydrax}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Hydrax::Hydrax (Ogre::SceneManager $\ast$ {\em sm}, \/  Ogre::Camera $\ast$ {\em c}, \/  Ogre::Viewport $\ast$ {\em v})}}
+\label{class_hydrax_1_1_hydrax_58642a636963c02a5aa689a66827cae8}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sm}]Ogre SceneManager pointer \item[{\em c}]Ogre Camera pointer \item[{\em v}]Ogre Main window viewport pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_b340dd13dc9dfc678ef703abf4d37949}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!$\sim$Hydrax@{$\sim$Hydrax}}
+\index{$\sim$Hydrax@{$\sim$Hydrax}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{$\sim$Hydrax}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Hydrax::$\sim$Hydrax ()}}
+\label{class_hydrax_1_1_hydrax_b340dd13dc9dfc678ef703abf4d37949}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_hydrax_1532419b2859aed22a63d913c527ce21}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!\_\-isCurrentFrameUnderwater@{\_\-isCurrentFrameUnderwater}}
+\index{\_\-isCurrentFrameUnderwater@{\_\-isCurrentFrameUnderwater}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{\_\-isCurrentFrameUnderwater}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Hydrax::\_\-isCurrentFrameUnderwater () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_1532419b2859aed22a63d913c527ce21}
+
+
+Is current frame underwater? \begin{Desc}
+\item[Returns:]true If yes, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_a1c3ac9b604a3116fbd5b4d55429811d}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!\_\-setStrength@{\_\-setStrength}}
+\index{\_\-setStrength@{\_\-setStrength}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{\_\-setStrength}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::\_\-setStrength (const Ogre::Real \& {\em Strength})}}
+\label{class_hydrax_1_1_hydrax_a1c3ac9b604a3116fbd5b4d55429811d}
+
+
+Set water strength GPU param \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Strength}]Water strength GPU param \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!create@{create}}
+\index{create@{create}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::create ()}}
+\label{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}
+
+
+Create all resources according with current \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} components and add \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} to the scene. \begin{Desc}
+\item[Remarks:]Call when all params are set \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_ef185c906434b6dfb7c67a425d678287}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getCamera@{getCamera}}
+\index{getCamera@{getCamera}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getCamera}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Camera$\ast$ Hydrax::Hydrax::getCamera ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_ef185c906434b6dfb7c67a425d678287}
+
+
+Get rendering camera \begin{Desc}
+\item[Returns:]Ogre::Camera pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_608b120b0ee226cf85b1c5a1720f65a6}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getCausticsEnd@{getCausticsEnd}}
+\index{getCausticsEnd@{getCausticsEnd}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getCausticsEnd}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getCausticsEnd () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_608b120b0ee226cf85b1c5a1720f65a6}
+
+
+Get caustics end \begin{Desc}
+\item[Returns:]Caustics end \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_d857d60009cbc99335081bc65a25b719}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getCausticsPower@{getCausticsPower}}
+\index{getCausticsPower@{getCausticsPower}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getCausticsPower}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getCausticsPower () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_d857d60009cbc99335081bc65a25b719}
+
+
+Get caustics power \begin{Desc}
+\item[Returns:]Caustics power \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_4e9359d0ee14a3f1aae1776b7144bfab}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getCausticsScale@{getCausticsScale}}
+\index{getCausticsScale@{getCausticsScale}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getCausticsScale}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getCausticsScale () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_4e9359d0ee14a3f1aae1776b7144bfab}
+
+
+Get caustics scale \begin{Desc}
+\item[Returns:]Caustics scale \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_5ac35cd3073a581415afb95bef7e7180}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getCfgFileManager@{getCfgFileManager}}
+\index{getCfgFileManager@{getCfgFileManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getCfgFileManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CfgFileManager}$\ast$ Hydrax::Hydrax::getCfgFileManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_5ac35cd3073a581415afb95bef7e7180}
+
+
+Get \hyperlink{class_hydrax_1_1_cfg_file_manager}{Hydrax::CfgFileManager} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_cfg_file_manager}{Hydrax::CfgFileManager} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_af3b15b5c19cd07a6a95c40ee9b3247d}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getComponents@{getComponents}}
+\index{getComponents@{getComponents}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getComponents}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf HydraxComponent}\& Hydrax::Hydrax::getComponents () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_af3b15b5c19cd07a6a95c40ee9b3247d}
+
+
+Get hydrax components selected \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} components \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_0ed95597b4ad5e33f2ba7f82f3ac4083}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getDecalsManager@{getDecalsManager}}
+\index{getDecalsManager@{getDecalsManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getDecalsManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DecalsManager}$\ast$ Hydrax::Hydrax::getDecalsManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_0ed95597b4ad5e33f2ba7f82f3ac4083}
+
+
+Get \hyperlink{class_hydrax_1_1_decals_manager}{Hydrax::DecalsManager} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decals_manager}{Hydrax::DecalsManager} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_03b8b82e6223f7e3ec47d845957ec5e3}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getDepthLimit@{getDepthLimit}}
+\index{getDepthLimit@{getDepthLimit}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getDepthLimit}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getDepthLimit () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_03b8b82e6223f7e3ec47d845957ec5e3}
+
+
+Get depth limit \begin{Desc}
+\item[Returns:]Depth limit \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_942025a1a9f93e24221b618b4130732a}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getFoamMaxDistance@{getFoamMaxDistance}}
+\index{getFoamMaxDistance@{getFoamMaxDistance}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getFoamMaxDistance}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getFoamMaxDistance () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_942025a1a9f93e24221b618b4130732a}
+
+
+Get foam max distance \begin{Desc}
+\item[Returns:]Foam max distance \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_23f873e4659628d36274dfce9a76bc5c}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getFoamScale@{getFoamScale}}
+\index{getFoamScale@{getFoamScale}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getFoamScale}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getFoamScale () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_23f873e4659628d36274dfce9a76bc5c}
+
+
+Get foam scale \begin{Desc}
+\item[Returns:]Foam scale \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_a89f420e1adfd5bf578ba12fa0a3104e}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getFoamStart@{getFoamStart}}
+\index{getFoamStart@{getFoamStart}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getFoamStart}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getFoamStart () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_a89f420e1adfd5bf578ba12fa0a3104e}
+
+
+Get foam start \begin{Desc}
+\item[Returns:]Foam start \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_aa96bcad2550ec7eb1430a6af5a237d3}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getFoamTransparency@{getFoamTransparency}}
+\index{getFoamTransparency@{getFoamTransparency}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getFoamTransparency}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getFoamTransparency () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_aa96bcad2550ec7eb1430a6af5a237d3}
+
+
+Get foam transparency \begin{Desc}
+\item[Returns:]Foam scale \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_ac55c7b84c7d6e067010526a91d1ee00}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getFullReflectionDistance@{getFullReflectionDistance}}
+\index{getFullReflectionDistance@{getFullReflectionDistance}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getFullReflectionDistance}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getFullReflectionDistance () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_ac55c7b84c7d6e067010526a91d1ee00}
+
+
+Get full reflection distance \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} water full reflection distance \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_9f71ca1190dd56802a9a0d5e6fe7b73d}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getGlobalTransparency@{getGlobalTransparency}}
+\index{getGlobalTransparency@{getGlobalTransparency}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getGlobalTransparency}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getGlobalTransparency () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_9f71ca1190dd56802a9a0d5e6fe7b73d}
+
+
+Get global transparency \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} water global transparency \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_562ddb88c1218f3eecc5889efb2ff7f3}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getGodRaysExposure@{getGodRaysExposure}}
+\index{getGodRaysExposure@{getGodRaysExposure}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getGodRaysExposure}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector3\& Hydrax::Hydrax::getGodRaysExposure () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_562ddb88c1218f3eecc5889efb2ff7f3}
+
+
+Get God rays exposure factors \begin{Desc}
+\item[Returns:]God rays exposure factors \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_7e9e195b0df7b42440d6a93914527186}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getGodRaysIntensity@{getGodRaysIntensity}}
+\index{getGodRaysIntensity@{getGodRaysIntensity}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getGodRaysIntensity}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getGodRaysIntensity () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_7e9e195b0df7b42440d6a93914527186}
+
+
+Get God rays intensity \begin{Desc}
+\item[Returns:]God rays intensity \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_50fd9a0cdeb608f8048713dffffe9c55}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getGodRaysManager@{getGodRaysManager}}
+\index{getGodRaysManager@{getGodRaysManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getGodRaysManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GodRaysManager}$\ast$ Hydrax::Hydrax::getGodRaysManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_50fd9a0cdeb608f8048713dffffe9c55}
+
+
+Get \hyperlink{class_hydrax_1_1_god_rays_manager}{Hydrax::GodRaysManager} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_god_rays_manager}{Hydrax::GodRaysManager} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_38e4600d83e382515265b70e0dcde4d2}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getGPUNormalMapManager@{getGPUNormalMapManager}}
+\index{getGPUNormalMapManager@{getGPUNormalMapManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getGPUNormalMapManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GPUNormalMapManager}$\ast$ Hydrax::Hydrax::getGPUNormalMapManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_38e4600d83e382515265b70e0dcde4d2}
+
+
+Get \hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{Hydrax::GPUNormalMapManager} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{Hydrax::GPUNormalMapManager} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_29fbd3e931c36ef924c38cbe329a4be7}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getHeigth@{getHeigth}}
+\index{getHeigth@{getHeigth}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getHeigth}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Hydrax::getHeigth (const Ogre::Vector3 \& {\em Position})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_29fbd3e931c36ef924c38cbe329a4be7}
+
+
+Get the current heigth at a especified world-space point \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]X/(Y)/Z World position \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Heigth at the given position in y-World coordinates, if it's outside of the water return -1 \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_bbfe63c58bc4f56ad625872b19b51a60}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getHeigth@{getHeigth}}
+\index{getHeigth@{getHeigth}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getHeigth}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Hydrax::getHeigth (const Ogre::Vector2 \& {\em Position})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_bbfe63c58bc4f56ad625872b19b51a60}
+
+
+Get the current heigth at a especified world-space point \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]X/Z World position \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Heigth at the given position in y-World coordinates, if it's outside of the water return -1 \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_572279649449549c7be3ef809221fbae}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getMaterialManager@{getMaterialManager}}
+\index{getMaterialManager@{getMaterialManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getMaterialManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MaterialManager}$\ast$ Hydrax::Hydrax::getMaterialManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_572279649449549c7be3ef809221fbae}
+
+
+Get \hyperlink{class_hydrax_1_1_material_manager}{Hydrax::MaterialManager} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_material_manager}{Hydrax::MaterialManager} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_1940a144c486915885ed19026839d381}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getMesh@{getMesh}}
+\index{getMesh@{getMesh}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getMesh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh}$\ast$ Hydrax::Hydrax::getMesh ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_1940a144c486915885ed19026839d381}
+
+
+Get \hyperlink{class_hydrax_1_1_mesh}{Hydrax::Mesh} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_mesh}{Hydrax::Mesh} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_9ebb3dbda04c58af5affc4156277d681}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getModule@{getModule}}
+\index{getModule@{getModule}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getModule}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Module::Module}$\ast$ Hydrax::Hydrax::getModule ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_9ebb3dbda04c58af5affc4156277d681}
+
+
+Get our \hyperlink{class_hydrax_1_1_module_1_1_module}{Hydrax::Module::Module} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_module_1_1_module}{Hydrax::Module::Module} pointer or NULL if \hyperlink{namespace_hydrax_1_1_module}{Module} isn't set. \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_129ecf4478ecca15299d9f25e9074b90}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getNormalDistortion@{getNormalDistortion}}
+\index{getNormalDistortion@{getNormalDistortion}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getNormalDistortion}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getNormalDistortion () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_129ecf4478ecca15299d9f25e9074b90}
+
+
+Get normal distortion \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} normal distortion \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_99b530dca1b0ba95e43d4deeec01d7d1}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getPlanesError@{getPlanesError}}
+\index{getPlanesError@{getPlanesError}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getPlanesError}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getPlanesError () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_99b530dca1b0ba95e43d4deeec01d7d1}
+
+
+Get current clip planes error \begin{Desc}
+\item[Returns:]Current clip planes error \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_f31388148136dfdd563388e3f4ae4b59}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getPolygonMode@{getPolygonMode}}
+\index{getPolygonMode@{getPolygonMode}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getPolygonMode}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::PolygonMode\& Hydrax::Hydrax::getPolygonMode () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_f31388148136dfdd563388e3f4ae4b59}
+
+
+Get current polygon mode \begin{Desc}
+\item[Returns:]Current polygon mode \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_011da649ae072cce9c6db28620b67a42}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getPosition}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector3\& Hydrax::Hydrax::getPosition () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_011da649ae072cce9c6db28620b67a42}
+
+
+Get water position \begin{Desc}
+\item[Returns:]Water position \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_86b446e4a8fdb64e71b3f3f71ea2f68a}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getRttManager@{getRttManager}}
+\index{getRttManager@{getRttManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getRttManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RttManager}$\ast$ Hydrax::Hydrax::getRttManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_86b446e4a8fdb64e71b3f3f71ea2f68a}
+
+
+Get \hyperlink{class_hydrax_1_1_rtt_manager}{Hydrax::RttManager} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_rtt_manager}{Hydrax::RttManager} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_4f6dfef270938f04d0430eaf8e1fa88f}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getSceneManager@{getSceneManager}}
+\index{getSceneManager@{getSceneManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getSceneManager}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::SceneManager$\ast$ Hydrax::Hydrax::getSceneManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_4f6dfef270938f04d0430eaf8e1fa88f}
+
+
+Get scene manager \begin{Desc}
+\item[Returns:]Ogre::SceneManager pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_a3ca4b94a8cfb1aed6e3a997dc9fac7e}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getShaderMode@{getShaderMode}}
+\index{getShaderMode@{getShaderMode}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getShaderMode}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf MaterialManager::ShaderMode}\& Hydrax::Hydrax::getShaderMode () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_a3ca4b94a8cfb1aed6e3a997dc9fac7e}
+
+
+Get current shader mode \begin{Desc}
+\item[Returns:]Current shader mode \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_aae88f80029fa6fd3b11e646ae740cd3}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getSmoothPower@{getSmoothPower}}
+\index{getSmoothPower@{getSmoothPower}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getSmoothPower}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getSmoothPower () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_aae88f80029fa6fd3b11e646ae740cd3}
+
+
+Get smooth power \begin{Desc}
+\item[Returns:]Smooth power \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_881b74b5c9a3c830317174cf610d6867}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getSunArea@{getSunArea}}
+\index{getSunArea@{getSunArea}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getSunArea}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getSunArea () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_881b74b5c9a3c830317174cf610d6867}
+
+
+Get sun area \begin{Desc}
+\item[Returns:]Sun area \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_7b40b2febde3f65bf5b2532a9cb752ff}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getSunColor@{getSunColor}}
+\index{getSunColor@{getSunColor}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getSunColor}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector3\& Hydrax::Hydrax::getSunColor () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_7b40b2febde3f65bf5b2532a9cb752ff}
+
+
+Get sun color \begin{Desc}
+\item[Returns:]Sun color \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_6391180e70faf46ee681466620a85f4d}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getSunPosition@{getSunPosition}}
+\index{getSunPosition@{getSunPosition}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getSunPosition}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector3\& Hydrax::Hydrax::getSunPosition () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_6391180e70faf46ee681466620a85f4d}
+
+
+Get sun position \begin{Desc}
+\item[Returns:]Sun position \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_acad398f575cb867b93eee4c7397c14b}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getSunStrength@{getSunStrength}}
+\index{getSunStrength@{getSunStrength}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getSunStrength}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getSunStrength () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_acad398f575cb867b93eee4c7397c14b}
+
+
+Get water strength \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} water strength \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_d2f92d6e7d0feabcd66d405a7c8d8bc8}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getTextureManager@{getTextureManager}}
+\index{getTextureManager@{getTextureManager}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getTextureManager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TextureManager}$\ast$ Hydrax::Hydrax::getTextureManager ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_d2f92d6e7d0feabcd66d405a7c8d8bc8}
+
+
+Get \hyperlink{class_hydrax_1_1_texture_manager}{Hydrax::TextureManager} \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_texture_manager}{Hydrax::TextureManager} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_1626067a6e76d34ec5733da9f19615e0}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getUnderwaterCameraSwitchDelta@{getUnderwaterCameraSwitchDelta}}
+\index{getUnderwaterCameraSwitchDelta@{getUnderwaterCameraSwitchDelta}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getUnderwaterCameraSwitchDelta}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::Hydrax::getUnderwaterCameraSwitchDelta () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_1626067a6e76d34ec5733da9f19615e0}
+
+
+Get the y-displacement under the water needed to change between underwater and overwater mode \begin{Desc}
+\item[Returns:]Underwater camera switch delta \end{Desc}
+\begin{Desc}
+\item[Remarks:]Useful to get a nice underwater-overwater transition, it depends of the world scale \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_969555d8f856a43c4ca6c92bb0958bf1}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getViewport@{getViewport}}
+\index{getViewport@{getViewport}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getViewport}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Viewport$\ast$ Hydrax::Hydrax::getViewport ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_969555d8f856a43c4ca6c92bb0958bf1}
+
+
+Get main window viewport \begin{Desc}
+\item[Returns:]Ogre::Viewport pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_0e0da539fe181e84a115368e97eff0c6}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!getWaterColor@{getWaterColor}}
+\index{getWaterColor@{getWaterColor}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{getWaterColor}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector3\& Hydrax::Hydrax::getWaterColor () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_0e0da539fe181e84a115368e97eff0c6}
+
+
+Get water color \begin{Desc}
+\item[Returns:]Water color \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_69e3ff9c4de804dec54156453837df95}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!isComponent@{isComponent}}
+\index{isComponent@{isComponent}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{isComponent}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Hydrax::isComponent (const {\bf HydraxComponent} \& {\em Component})}}
+\label{class_hydrax_1_1_hydrax_69e3ff9c4de804dec54156453837df95}
+
+
+Returns if the especified component is active \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Component}]Component that we want to check \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_58b37d035d0391ce7873a21240c83207}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!isCreated@{isCreated}}
+\index{isCreated@{isCreated}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{isCreated}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Hydrax::isCreated () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_58b37d035d0391ce7873a21240c83207}
+
+
+Has \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{create()} already called? \begin{Desc}
+\item[Returns:]true is yes, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_b573f6c6e548a4c501b80a465659ab61}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!isVisible@{isVisible}}
+\index{isVisible@{isVisible}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{isVisible}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Hydrax::isVisible () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_b573f6c6e548a4c501b80a465659ab61}
+
+
+Is hydrax water visible? \begin{Desc}
+\item[Returns:]true if yes, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_1a9a011581dc097e3928511632b534da}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!loadCfg@{loadCfg}}
+\index{loadCfg@{loadCfg}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{loadCfg}]{\setlength{\rightskip}{0pt plus 5cm}const bool Hydrax::Hydrax::loadCfg (const Ogre::String \& {\em File}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_1a9a011581dc097e3928511632b534da}
+
+
+Load config from file \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em File}]File name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]false if an error has been ocurred(Check the log file in this case). \end{Desc}
+\begin{Desc}
+\item[Remarks:]The file must be registred in \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} resource group. If module isn't set, or module isn't the same from config file, module options won't be loaded. \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_02c9bf8f5576332fc836b4929e738529}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!remove@{remove}}
+\index{remove@{remove}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::remove ()}}
+\label{class_hydrax_1_1_hydrax_02c9bf8f5576332fc836b4929e738529}
+
+
+Remove hydrax, you can call this method to remove \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} from the scene or release (secondary) \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} memory, call \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{create()} to return \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} to the scene. \hypertarget{class_hydrax_1_1_hydrax_35958e296923f17c5eab19840d3711e2}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!rotate@{rotate}}
+\index{rotate@{rotate}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::rotate (const Ogre::Quaternion \& {\em q})}}
+\label{class_hydrax_1_1_hydrax_35958e296923f17c5eab19840d3711e2}
+
+
+Rotate water and planes \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em q}]const Ogre::Quaternion\& \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_3a812b0ad6d06bdfaa961a1e2caa7eee}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!saveCfg@{saveCfg}}
+\index{saveCfg@{saveCfg}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{saveCfg}]{\setlength{\rightskip}{0pt plus 5cm}const bool Hydrax::Hydrax::saveCfg (const Ogre::String \& {\em File}, \/  const Ogre::String \& {\em Path} = {\tt \char`\"{}\char`\"{}}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_3a812b0ad6d06bdfaa961a1e2caa7eee}
+
+
+Save hydrax config to file \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em File}]File name \item[{\em Path}]File path \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]false if an error has been ocurred(Check the log file in this case). \end{Desc}
+\begin{Desc}
+\item[Remarks:]If module isn't set, module/noise options won't be saved. \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_f194156ce3a8647bcb447a2ce8d8c932}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setCausticsEnd@{setCausticsEnd}}
+\index{setCausticsEnd@{setCausticsEnd}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setCausticsEnd}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setCausticsEnd (const Ogre::Real \& {\em CausticsEnd})}}
+\label{class_hydrax_1_1_hydrax_f194156ce3a8647bcb447a2ce8d8c932}
+
+
+Set caustics end \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CausticsEnd}]Caustics end \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_78ed497eda748ca0699f170cbc491e13}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setCausticsPower@{setCausticsPower}}
+\index{setCausticsPower@{setCausticsPower}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setCausticsPower}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setCausticsPower (const Ogre::Real \& {\em CausticsPower})}}
+\label{class_hydrax_1_1_hydrax_78ed497eda748ca0699f170cbc491e13}
+
+
+Set caustics power \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CausticsPower}]Caustics power \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_a0d4bb8262e28ef9e6ff273503266889}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setCausticsScale@{setCausticsScale}}
+\index{setCausticsScale@{setCausticsScale}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setCausticsScale}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setCausticsScale (const Ogre::Real \& {\em CausticsScale})}}
+\label{class_hydrax_1_1_hydrax_a0d4bb8262e28ef9e6ff273503266889}
+
+
+Set caustics scale \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CausticsScale}]Caustics scale \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_6fbd6d0808443ba1d2d7569ac6b27583}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setComponents@{setComponents}}
+\index{setComponents@{setComponents}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setComponents}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setComponents (const {\bf HydraxComponent} \& {\em Components})}}
+\label{class_hydrax_1_1_hydrax_6fbd6d0808443ba1d2d7569ac6b27583}
+
+
+Set \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} components \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Components}]Components \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]It can be called after \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{create()}, Components will be updated \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_83f64aa230e64e83d9732290b50f3787}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setDepthLimit@{setDepthLimit}}
+\index{setDepthLimit@{setDepthLimit}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setDepthLimit}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setDepthLimit (const Ogre::Real \& {\em DepthLimit})}}
+\label{class_hydrax_1_1_hydrax_83f64aa230e64e83d9732290b50f3787}
+
+
+Set depth limit \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em DepthLimit}]Depth limit \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_7a741e312c15cc17958dd09e39b7f4fe}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setFoamMaxDistance@{setFoamMaxDistance}}
+\index{setFoamMaxDistance@{setFoamMaxDistance}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setFoamMaxDistance}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setFoamMaxDistance (const Ogre::Real \& {\em FoamMaxDistance})}}
+\label{class_hydrax_1_1_hydrax_7a741e312c15cc17958dd09e39b7f4fe}
+
+
+Set foam max distance \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em FoamMaxDistance}]Foam max distance \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_9332262daefd2ba3ee72f8e07b642b98}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setFoamScale@{setFoamScale}}
+\index{setFoamScale@{setFoamScale}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setFoamScale}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setFoamScale (const Ogre::Real \& {\em FoamScale})}}
+\label{class_hydrax_1_1_hydrax_9332262daefd2ba3ee72f8e07b642b98}
+
+
+Set foam scale \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em FoamScale}]Foam scale \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_5eaf61497bb4e306a64ab6828acf95e5}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setFoamStart@{setFoamStart}}
+\index{setFoamStart@{setFoamStart}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setFoamStart}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setFoamStart (const Ogre::Real \& {\em FoamStart})}}
+\label{class_hydrax_1_1_hydrax_5eaf61497bb4e306a64ab6828acf95e5}
+
+
+Set foam start \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em FoamStart}]Foam start \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_031be3ce2201a6087ecb6185309acc4e}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setFoamTransparency@{setFoamTransparency}}
+\index{setFoamTransparency@{setFoamTransparency}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setFoamTransparency}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setFoamTransparency (const Ogre::Real \& {\em FoamTransparency})}}
+\label{class_hydrax_1_1_hydrax_031be3ce2201a6087ecb6185309acc4e}
+
+
+Set foam transparency \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em FoamTransparency}]Foam transparency \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_e4a765e38a2d81a180b9e74a002e8010}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setFullReflectionDistance@{setFullReflectionDistance}}
+\index{setFullReflectionDistance@{setFullReflectionDistance}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setFullReflectionDistance}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setFullReflectionDistance (const Ogre::Real \& {\em FullReflectionDistance})}}
+\label{class_hydrax_1_1_hydrax_e4a765e38a2d81a180b9e74a002e8010}
+
+
+Set full reflection distance \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em FullReflectionDistance}]Full reflection distance \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_b601c8008ca2bc47e66d9a5e4e4b63a7}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setGlobalTransparency@{setGlobalTransparency}}
+\index{setGlobalTransparency@{setGlobalTransparency}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setGlobalTransparency}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setGlobalTransparency (const Ogre::Real \& {\em GlobalTransparency})}}
+\label{class_hydrax_1_1_hydrax_b601c8008ca2bc47e66d9a5e4e4b63a7}
+
+
+Set global transparency \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em GlobalTransparency}]Global transparency distance \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_496d60d593ecf694a5a701d5a42f27b1}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setGodRaysExposure@{setGodRaysExposure}}
+\index{setGodRaysExposure@{setGodRaysExposure}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setGodRaysExposure}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setGodRaysExposure (const Ogre::Vector3 \& {\em GodRaysExposure})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_496d60d593ecf694a5a701d5a42f27b1}
+
+
+Set god rays exposure \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em GodRaysExposure}]God rays exposure \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_fbc9ef3ee75b67003c04e67db2ef223e}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setGodRaysIntensity@{setGodRaysIntensity}}
+\index{setGodRaysIntensity@{setGodRaysIntensity}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setGodRaysIntensity}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setGodRaysIntensity (const Ogre::Real \& {\em GodRaysIntensity})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_fbc9ef3ee75b67003c04e67db2ef223e}
+
+
+Set god rays intensity \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em GodRaysIntensity}]God rays intensity \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_3f678db49fe45320efb237d145ec63e4}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setModule@{setModule}}
+\index{setModule@{setModule}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setModule}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setModule ({\bf Module::Module} $\ast$ {\em Module}, \/  const bool \& {\em DeleteOldModule} = {\tt true})}}
+\label{class_hydrax_1_1_hydrax_3f678db49fe45320efb237d145ec63e4}
+
+
+Set \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} module \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{namespace_hydrax_1_1_module}{Module}}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} module \item[{\em DeleteOldModule}]Delete, if exists, the old module \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]\hyperlink{namespace_hydrax_1_1_module}{Module} will be set before call \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{create()} \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_b745c19968fdc47b71d65bb88679d447}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setNormalDistortion@{setNormalDistortion}}
+\index{setNormalDistortion@{setNormalDistortion}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setNormalDistortion}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setNormalDistortion (const Ogre::Real \& {\em NormalDistortion})}}
+\label{class_hydrax_1_1_hydrax_b745c19968fdc47b71d65bb88679d447}
+
+
+Set normal distortion \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em NormalDistortion}]Normal distortion \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Value will bi very short, like 0.025 \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_336c1b2587e8e26c123af6c5bdbc2400}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setPlanesError@{setPlanesError}}
+\index{setPlanesError@{setPlanesError}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setPlanesError}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setPlanesError (const Ogre::Real \& {\em PlanesError})}}
+\label{class_hydrax_1_1_hydrax_336c1b2587e8e26c123af6c5bdbc2400}
+
+
+Set clip planes error \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em PlanesError}]Clip planes error \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_9110c2569465617ca22f32fc67da096d}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setPolygonMode@{setPolygonMode}}
+\index{setPolygonMode@{setPolygonMode}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setPolygonMode}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setPolygonMode (const Ogre::PolygonMode \& {\em PM})}}
+\label{class_hydrax_1_1_hydrax_9110c2569465617ca22f32fc67da096d}
+
+
+Set polygon mode (Solid, Wireframe, Points) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em PM}]Polygon mode \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_26f48dec7e37c8f352570192ef38fb90}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setPosition}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setPosition (const Ogre::Vector3 \& {\em Position})}}
+\label{class_hydrax_1_1_hydrax_26f48dec7e37c8f352570192ef38fb90}
+
+
+Set water position \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]Water position \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_187619a5f2ea2e1fe65ac3cd35103203}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setShaderMode@{setShaderMode}}
+\index{setShaderMode@{setShaderMode}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setShaderMode}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setShaderMode (const {\bf MaterialManager::ShaderMode} \& {\em ShaderMode})}}
+\label{class_hydrax_1_1_hydrax_187619a5f2ea2e1fe65ac3cd35103203}
+
+
+Set shader mode \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ShaderMode}]Shader mode \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_a8f4c456888deffc3cbe523c0666a66b}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setSmoothPower@{setSmoothPower}}
+\index{setSmoothPower@{setSmoothPower}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setSmoothPower}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setSmoothPower (const Ogre::Real \& {\em SmoothPower})}}
+\label{class_hydrax_1_1_hydrax_a8f4c456888deffc3cbe523c0666a66b}
+
+
+Set smooth power \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em SmoothPower}]Smooth power \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Less values more transition distance, hight values short transition values, 1-50 range(aprox.) \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_276bb2f6256badf7c3a72fd758732e00}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setSunArea@{setSunArea}}
+\index{setSunArea@{setSunArea}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setSunArea}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setSunArea (const Ogre::Real \& {\em SunArea})}}
+\label{class_hydrax_1_1_hydrax_276bb2f6256badf7c3a72fd758732e00}
+
+
+Set sun area \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em SunArea}]Sun area \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_dc74459b43cd00a19b60b8391531cb17}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setSunColor@{setSunColor}}
+\index{setSunColor@{setSunColor}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setSunColor}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setSunColor (const Ogre::Vector3 \& {\em SunColor})}}
+\label{class_hydrax_1_1_hydrax_dc74459b43cd00a19b60b8391531cb17}
+
+
+Set sun color \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em SunColor}]Sun color \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_86467f51a5b69343a97ff6536c922929}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setSunPosition@{setSunPosition}}
+\index{setSunPosition@{setSunPosition}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setSunPosition}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setSunPosition (const Ogre::Vector3 \& {\em SunPosition})}}
+\label{class_hydrax_1_1_hydrax_86467f51a5b69343a97ff6536c922929}
+
+
+Set sun position \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em SunPosition}]Sun position \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_ad0a9050fe394da479b1e0431d99a151}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setSunStrength@{setSunStrength}}
+\index{setSunStrength@{setSunStrength}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setSunStrength}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setSunStrength (const Ogre::Real \& {\em SunStrength})}}
+\label{class_hydrax_1_1_hydrax_ad0a9050fe394da479b1e0431d99a151}
+
+
+Set sun strength \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em SunStrength}]Sun strength \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_2ea24fcd2e01968d8dc86c36168a5819}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setUnderwaterCameraSwitchDelta@{setUnderwaterCameraSwitchDelta}}
+\index{setUnderwaterCameraSwitchDelta@{setUnderwaterCameraSwitchDelta}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setUnderwaterCameraSwitchDelta}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setUnderwaterCameraSwitchDelta (const Ogre::Real \& {\em UnderwaterCameraSwitchDelta})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_hydrax_2ea24fcd2e01968d8dc86c36168a5819}
+
+
+Set the y-displacement under the water needed to change between underwater and overwater mode \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em UnderwaterCameraSwitchDelta}]Underwater camera switch delta factor \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Useful to get a nice underwater-overwater transition, it depends of the world scale \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_2c6e89c89098c1ae2f152b0cac0ecfde}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setVisible@{setVisible}}
+\index{setVisible@{setVisible}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setVisible}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setVisible (const bool \& {\em Visible})}}
+\label{class_hydrax_1_1_hydrax_2c6e89c89098c1ae2f152b0cac0ecfde}
+
+
+Show/Hide hydrax water \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Visible}]true to show, false to hide \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Resources aren't going to be realeased(Use \hyperlink{class_hydrax_1_1_hydrax_02c9bf8f5576332fc836b4929e738529}{remove()} for this), only RTT's are going to be stopped. \end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_e931996f1e97b983a4e3ea57a30a8d47}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!setWaterColor@{setWaterColor}}
+\index{setWaterColor@{setWaterColor}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{setWaterColor}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::setWaterColor (const Ogre::Vector3 \& {\em WaterColor})}}
+\label{class_hydrax_1_1_hydrax_e931996f1e97b983a4e3ea57a30a8d47}
+
+
+Set water color \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em DepthColor}]Water color \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_hydrax_c584e30a6cbfb5d8884afb182c29d36a}{
+\index{Hydrax::Hydrax@{Hydrax::Hydrax}!update@{update}}
+\index{update@{update}!Hydrax::Hydrax@{Hydrax::Hydrax}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Hydrax::update (const Ogre::Real \& {\em timeSinceLastFrame})}}
+\label{class_hydrax_1_1_hydrax_c584e30a6cbfb5d8884afb182c29d36a}
+
+
+Call every frame \begin{Desc}
+\item[\hyperlink{todo__todo000001}{Todo}]Add listener interface \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_hydrax_8h}{Hydrax.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_hydrax_8cpp}{Hydrax.cpp}\end{CompactItemize}

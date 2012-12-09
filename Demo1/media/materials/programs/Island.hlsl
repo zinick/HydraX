@@ -19,6 +19,9 @@ void main_vp( // In
              uniform float4x4 uWorldViewProj,
              uniform float    uTexturesScale)
 {
+   // Just a little hack, TerrainSceneManager doesn't build tangent vectors
+   iTangent = 1;
+   
    oPosition = mul(uWorldViewProj, iPosition);
    oUv       = iUv*uTexturesScale;
 

@@ -1,0 +1,169 @@
+\hypertarget{class_hydrax_1_1_decals_manager}{
+\section{Hydrax::DecalsManager Class Reference}
+\label{class_hydrax_1_1_decals_manager}\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+}
+{\tt \#include $<$DecalsManager.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_decals_manager_41573a26944436e790cc4f9914caf065}{DecalsManager} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h)
+\item 
+\hyperlink{class_hydrax_1_1_decals_manager_d54dbfb7a088d551c83abd3e49853aea}{$\sim$DecalsManager} ()
+\item 
+void \hyperlink{class_hydrax_1_1_decals_manager_4006596e38bbdaa941d5d963104a8016}{update} ()
+\item 
+\hyperlink{class_hydrax_1_1_decal}{Decal} $\ast$ \hyperlink{class_hydrax_1_1_decals_manager_63cc52fdd0109f34e1c40b9cfb33f9ab}{add} (const Ogre::String \&TextureName)
+\item 
+\hyperlink{class_hydrax_1_1_decal}{Decal} $\ast$ \hyperlink{class_hydrax_1_1_decals_manager_4517322445c0c202cf252e64c3dc348a}{get} (const int \&Id)
+\item 
+void \hyperlink{class_hydrax_1_1_decals_manager_0fe39817d916ec61f18233fbf4525cfa}{remove} (const int \&Id)
+\item 
+void \hyperlink{class_hydrax_1_1_decals_manager_9b32ab656bcf592929b2c10d25e2416b}{removeAll} ()
+\item 
+void \hyperlink{class_hydrax_1_1_decals_manager_a96b53445a99ef4eb3741532e4a05935}{registerAll} ()
+\item 
+std::vector$<$ \hyperlink{class_hydrax_1_1_decal}{Decal} $\ast$ $>$ \hyperlink{class_hydrax_1_1_decals_manager_4877d20f120ba74a270843de234420f3}{getDecals} ()
+\item 
+const Ogre::Real \hyperlink{class_hydrax_1_1_decals_manager_7e225b232081b0cef39f7251c1e5d2ad}{\_\-getWaterStrength} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_decals_manager_64d3964e3ceb550dc5735307cad922bc}{\_\-setWaterStrength} (const Ogre::Real \&WaterStrength)
+\item 
+void \hyperlink{class_hydrax_1_1_decals_manager_b3ffe8faa2c0f00ef738d7e7ce493aed}{\_\-forceToUpdate} ()
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Decals manager class. Use it for place any kind of texture over the water! Like ship trails, overwater vegetables, ... 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_decals_manager_41573a26944436e790cc4f9914caf065}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!DecalsManager@{DecalsManager}}
+\index{DecalsManager@{DecalsManager}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{DecalsManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::DecalsManager::DecalsManager ({\bf Hydrax} $\ast$ {\em h})}}
+\label{class_hydrax_1_1_decals_manager_41573a26944436e790cc4f9914caf065}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} parent pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_d54dbfb7a088d551c83abd3e49853aea}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!$\sim$DecalsManager@{$\sim$DecalsManager}}
+\index{$\sim$DecalsManager@{$\sim$DecalsManager}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{$\sim$DecalsManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::DecalsManager::$\sim$DecalsManager ()}}
+\label{class_hydrax_1_1_decals_manager_d54dbfb7a088d551c83abd3e49853aea}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_decals_manager_b3ffe8faa2c0f00ef738d7e7ce493aed}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!\_\-forceToUpdate@{\_\-forceToUpdate}}
+\index{\_\-forceToUpdate@{\_\-forceToUpdate}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{\_\-forceToUpdate}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::DecalsManager::\_\-forceToUpdate ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decals_manager_b3ffe8faa2c0f00ef738d7e7ce493aed}
+
+
+Call to force to update decals \hypertarget{class_hydrax_1_1_decals_manager_7e225b232081b0cef39f7251c1e5d2ad}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!\_\-getWaterStrength@{\_\-getWaterStrength}}
+\index{\_\-getWaterStrength@{\_\-getWaterStrength}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{\_\-getWaterStrength}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real Hydrax::DecalsManager::\_\-getWaterStrength () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decals_manager_7e225b232081b0cef39f7251c1e5d2ad}
+
+
+Get water strength (used for decals culling) \begin{Desc}
+\item[Returns:]Water strength \end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_64d3964e3ceb550dc5735307cad922bc}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!\_\-setWaterStrength@{\_\-setWaterStrength}}
+\index{\_\-setWaterStrength@{\_\-setWaterStrength}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{\_\-setWaterStrength}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::DecalsManager::\_\-setWaterStrength (const Ogre::Real \& {\em WaterStrength})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decals_manager_64d3964e3ceb550dc5735307cad922bc}
+
+
+Set water strength (used for decals culling) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em WaterStrength}]Water strength \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_63cc52fdd0109f34e1c40b9cfb33f9ab}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!add@{add}}
+\index{add@{add}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Decal} $\ast$ Hydrax::DecalsManager::add (const Ogre::String \& {\em TextureName})}}
+\label{class_hydrax_1_1_decals_manager_63cc52fdd0109f34e1c40b9cfb33f9ab}
+
+
+Add decal \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em TextureName}]Texture name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Hydrax::Decal}$\ast$ Use it as a usual Ogre::SceneNode(\hyperlink{class_hydrax_1_1_decal_c2570f0d1977b11ccb5746a3518210c2}{Decal::getSceneNode()}) for position, rotate...etc! \end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_4517322445c0c202cf252e64c3dc348a}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!get@{get}}
+\index{get@{get}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Decal} $\ast$ Hydrax::DecalsManager::get (const int \& {\em Id})}}
+\label{class_hydrax_1_1_decals_manager_4517322445c0c202cf252e64c3dc348a}
+
+
+Get decal \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Id}]\hyperlink{class_hydrax_1_1_decal}{Decal} Id \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_decal}{Hydrax::Decal}$\ast$ \end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_4877d20f120ba74a270843de234420f3}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!getDecals@{getDecals}}
+\index{getDecals@{getDecals}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{getDecals}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf Decal}$\ast$$>$ Hydrax::DecalsManager::getDecals ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_decals_manager_4877d20f120ba74a270843de234420f3}
+
+
+Get decals std::vector \begin{Desc}
+\item[Returns:]std::vector$<$Decal$\ast$$>$ list \end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_a96b53445a99ef4eb3741532e4a05935}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!registerAll@{registerAll}}
+\index{registerAll@{registerAll}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{registerAll}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::DecalsManager::registerAll ()}}
+\label{class_hydrax_1_1_decals_manager_a96b53445a99ef4eb3741532e4a05935}
+
+
+Register all decals \begin{Desc}
+\item[Remarks:]Use it when water material is (re)created \end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_0fe39817d916ec61f18233fbf4525cfa}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!remove@{remove}}
+\index{remove@{remove}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::DecalsManager::remove (const int \& {\em Id})}}
+\label{class_hydrax_1_1_decals_manager_0fe39817d916ec61f18233fbf4525cfa}
+
+
+Remove decal \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Id}]\hyperlink{class_hydrax_1_1_decal}{Decal} Id \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_decals_manager_9b32ab656bcf592929b2c10d25e2416b}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!removeAll@{removeAll}}
+\index{removeAll@{removeAll}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{removeAll}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::DecalsManager::removeAll ()}}
+\label{class_hydrax_1_1_decals_manager_9b32ab656bcf592929b2c10d25e2416b}
+
+
+Remove all decals \hypertarget{class_hydrax_1_1_decals_manager_4006596e38bbdaa941d5d963104a8016}{
+\index{Hydrax::DecalsManager@{Hydrax::DecalsManager}!update@{update}}
+\index{update@{update}!Hydrax::DecalsManager@{Hydrax::DecalsManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::DecalsManager::update ()}}
+\label{class_hydrax_1_1_decals_manager_4006596e38bbdaa941d5d963104a8016}
+
+
+Update decal manager \begin{Desc}
+\item[Remarks:]Call each frame \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_decals_manager_8h}{DecalsManager.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_decals_manager_8cpp}{DecalsManager.cpp}\end{CompactItemize}
