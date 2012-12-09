@@ -45,18 +45,21 @@ namespace Hydrax
         TEX_QUA_1024  = 1024
     };
 
-    /** Hydrax flags for select the components
-        that we want to use.
+    /** Hydrax flags to select components wich we want to use.
         0 for none, 1 for all.
      */
     DllExport enum HydraxComponent
     {
-        HYDRAX_COMPONENT_SUN      = 1 << 0,
-        HYDRAX_COMPONENT_FOAM     = 1 << 1,
-        HYDRAX_COMPONENT_DEPTH    = 1 << 2,
+        HYDRAX_COMPONENT_SUN        = 1 << 0,
+        HYDRAX_COMPONENT_FOAM       = 1 << 1,
+        HYDRAX_COMPONENT_DEPTH      = 1 << 2,
         /// Smooth transitions and caustics components need depth component
-        HYDRAX_COMPONENT_SMOOTH   = 1 << 3,
-        HYDRAX_COMPONENT_CAUSTICS = 1 << 4,
+        HYDRAX_COMPONENT_SMOOTH     = 1 << 3,
+        HYDRAX_COMPONENT_CAUSTICS   = 1 << 4,
+		HYDRAX_COMPONENT_UNDERWATER = 1 << 5,
+		/// Underwater reflections and god rays need underwater component
+		HYDRAX_COMPONENT_UNDERWATER_REFLECTIONS = 1 << 6,
+		HYDRAX_COMPONENT_UNDERWATER_GODRAYS = 1 << 7,
 
         HYDRAX_COMPONENTS_NONE    = 0x0000,
         HYDRAX_COMPONENTS_ALL     = 0x001F,

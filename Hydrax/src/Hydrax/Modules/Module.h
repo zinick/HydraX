@@ -29,6 +29,7 @@ http://www.gnu.org/copyleft/lesser.txt.
 #include "../Noise/Noise.h"
 #include "../Mesh.h"
 #include "../MaterialManager.h"
+#include "../GPUNormalMapManager.h"
 
 namespace Hydrax{ namespace Module
 {
@@ -57,6 +58,18 @@ namespace Hydrax{ namespace Module
 		    @remark Not forgot call in the override class
 		 */
 		virtual void create();
+
+		/** Remove
+		    @remark Not forgot call in the override class
+		 */
+		virtual void remove();
+
+		/** Set noise
+		    @param Noise New noise module
+			@param g GPUNormalMapManager pointer, default: NULL, use it if GPU Normal map generation is needed
+			@param DeleteOldNoise Delete the old noise module (Default = true)
+		 */
+		void setNoise(Noise::Noise* Noise, GPUNormalMapManager* g = 0, const bool& DeleteOldNoise = true);
 
 		/** Call it each frame
 		    @param timeSinceLastFrame Time since last frame(delta)

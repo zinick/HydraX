@@ -34,26 +34,53 @@ http://www.cnblogs.com/ArenAK/archive/2007/11/07/951713.html
 
 namespace Hydrax{namespace Module
 {
-	ProjectedGrid::ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane)
-		: Module("ProjectedGrid", n, Mesh::Options(mOptions.Complexity, Size(0), Mesh::VT_POS_NORM), MaterialManager::NM_VERTEX)
+	Mesh::VertexType _PG_getVertexTypeFromNormalMode(const MaterialManager::NormalMode& NormalMode)
+	{
+		if (NormalMode == MaterialManager::NM_VERTEX)
+		{
+			return Mesh::VT_POS_NORM;
+		}
+
+		// NM_RTT
+		return Mesh::VT_POS;
+	}
+
+	Ogre::String _PG_getNormalModeString(const MaterialManager::NormalMode& NormalMode)
+	{
+		if (NormalMode == MaterialManager::NM_VERTEX)
+		{
+			return "Vertex";
+		}
+
+		return "Rtt";
+	}
+
+	ProjectedGrid::ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane, const MaterialManager::NormalMode& NormalMode)
+		: Module("ProjectedGrid" + _PG_getNormalModeString(NormalMode), 
+		         n, Mesh::Options(256, Size(0), _PG_getVertexTypeFromNormalMode(NormalMode)), NormalMode)
 		, mHydrax(h)
 		, mVertices(0)
+		, mVerticesChoppyBuffer(0)
 		, mBasePlane(BasePlane)
 		, mNormal(BasePlane.normal)
 		, mPos(Ogre::Vector3(0,0,0))
 		, mProjectingCamera(0)
+		, mTmpRndrngCamera(0)
 		, mRenderingCamera(h->getCamera())
 	{
 	}
 
-	ProjectedGrid::ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane, const Options &Options)
-		: Module("ProjectedGrid", n, Mesh::Options(Options.Complexity, Size(0), Mesh::VT_POS_NORM), MaterialManager::NM_VERTEX)
+	ProjectedGrid::ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane, const MaterialManager::NormalMode& NormalMode, const Options &Options)
+		: Module("ProjectedGrid" + _PG_getNormalModeString(NormalMode), 
+		         n, Mesh::Options(Options.Complexity, Size(0), _PG_getVertexTypeFromNormalMode(NormalMode)), NormalMode)
 		, mHydrax(h)
 		, mVertices(0)
+		, mVerticesChoppyBuffer(0)
 		, mBasePlane(BasePlane)
 		, mNormal(BasePlane.normal)
 		, mPos(Ogre::Vector3(0,0,0))
 		, mProjectingCamera(0)
+		, mTmpRndrngCamera(0)
 		, mRenderingCamera(h->getCamera())
 	{
 		setOptions(Options);
@@ -61,15 +88,7 @@ namespace Hydrax{namespace Module
 
 	ProjectedGrid::~ProjectedGrid()
 	{
-		if (mVertices)
-		{
-		    delete [] mVertices;
-		}
-
-		if (mProjectingCamera)
-		{
-			delete mProjectingCamera;
-		}
+		remove();
 
 		HydraxLOG(getName() + " destroyed.");
 	}
@@ -79,19 +98,38 @@ namespace Hydrax{namespace Module
 		// Size(0) -> Infinite mesh
 		mMeshOptions.MeshSize     = Size(0);
 		mMeshOptions.MeshStrength = Options.Strength;
+		mMeshOptions.MeshComplexity = Options.Complexity;
 
 		mHydrax->getMesh()->setOptions(mMeshOptions);
-		mHydrax->_setStrength(mOptions.Strength);
+		mHydrax->_setStrength(Options.Strength);
 
-		// If create() is called, change only the on-fly parameters
-		if (isCreated())
+		// Re-create geometry if it's needed
+		if (isCreated() && Options.Complexity != mOptions.Complexity)
 		{
-			mOptions.Strength  = Options.Strength;
-			mOptions.Elevation = Options.Elevation;
-			mOptions.Smooth    = Options.Smooth;
+			remove();
+			mOptions = Options;
+			create();
+
+			if (mNormalMode == MaterialManager::NM_RTT)
+			{
+				if (!mNoise->createGPUNormalMapResources(mHydrax->getGPUNormalMapManager()))
+				{
+					HydraxLOG(mNoise->getName() + " doesn't support GPU Normal map generation.");
+				}
+			}
+			
+		    Ogre::String MaterialNameTmp = mHydrax->getMesh()->getMaterialName();
+		    mHydrax->getMesh()->remove();
+		    mHydrax->getMesh()->setOptions(getMeshOptions());
+		    mHydrax->getMesh()->setMaterialName(MaterialNameTmp);
+		    mHydrax->getMesh()->create();
+
+			// Force to recalculate the geometry on next frame
+			mLastPosition = Ogre::Vector3(0,0,0);
+			mLastOrientation = Ogre::Quaternion();
 
 			return;
-		} 
+		}
 
 		mOptions = Options;
 	}
@@ -102,11 +140,100 @@ namespace Hydrax{namespace Module
 
 		Module::create();
 
-		mVertices = new Mesh::POS_NORM_VERTEX[mOptions.Complexity*mOptions.Complexity];	
+		if (getNormalMode() == MaterialManager::NM_VERTEX)
+		{
+		    mVertices = new Mesh::POS_NORM_VERTEX[mOptions.Complexity*mOptions.Complexity];	
+
+			Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+
+			for (int i = 0; i < mOptions.Complexity*mOptions.Complexity; i++)
+			{
+				Vertices[i].nx = 0;
+				Vertices[i].ny = -1;
+				Vertices[i].nz = 0;
+			}
+
+			mVerticesChoppyBuffer = new Mesh::POS_NORM_VERTEX[mOptions.Complexity*mOptions.Complexity];
+		}
+		else if(getNormalMode() == MaterialManager::NM_RTT)
+		{
+			mVertices = new Mesh::POS_VERTEX[mOptions.Complexity*mOptions.Complexity];
+		}
 
 	    _setDisplacementAmplitude(0.0f);
 
+		mTmpRndrngCamera  = new Ogre::Camera("PG_TmpRndrngCamera", NULL);
+		mProjectingCamera = new Ogre::Camera("PG_ProjectingCamera", NULL);
+
 		HydraxLOG(getName() + " created.");
+	}
+
+	void ProjectedGrid::remove()
+	{
+		if (!isCreated())
+		{
+			return;
+		}
+
+		Module::remove();
+
+		if (mVertices)
+		{
+			if (getNormalMode() == MaterialManager::NM_VERTEX)
+			{
+				delete [] static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+			}
+			else if (getNormalMode() == MaterialManager::NM_RTT)
+			{
+				delete [] static_cast<Mesh::POS_VERTEX*>(mVertices);
+			}
+		}
+
+		if (mVerticesChoppyBuffer)
+		{
+			delete [] mVerticesChoppyBuffer;
+		}
+
+		if (mTmpRndrngCamera)
+		{
+			delete mTmpRndrngCamera;
+			delete mProjectingCamera;
+		}
+
+		mLastPosition = Ogre::Vector3(0,0,0);
+		mLastOrientation = Ogre::Quaternion();
+	}
+
+	void ProjectedGrid::saveCfg(Ogre::String &Data)
+	{
+		Module::saveCfg(Data);
+
+		Data += CfgFileManager::_getCfgString("PG_ChoopyStrength", mOptions.ChoppyStrength);
+		Data += CfgFileManager::_getCfgString("PG_ChoppyWaves", mOptions.ChoppyWaves);
+		Data += CfgFileManager::_getCfgString("PG_Complexity", mOptions.Complexity);
+		Data += CfgFileManager::_getCfgString("PG_Elevation", mOptions.Elevation);
+		Data += CfgFileManager::_getCfgString("PG_ForceRecalculateGeometry", mOptions.ForceRecalculateGeometry);
+		Data += CfgFileManager::_getCfgString("PG_Smooth", mOptions.Smooth);
+		Data += CfgFileManager::_getCfgString("PG_Strength", mOptions.Strength); Data += "\n";
+	}
+
+	bool ProjectedGrid::loadCfg(Ogre::ConfigFile &CfgFile)
+	{
+		if (!Module::loadCfg(CfgFile))
+		{
+			return false;
+		}
+
+		setOptions(
+			Options(CfgFileManager::_getIntValue(CfgFile,   "PG_Complexity"),
+			        CfgFileManager::_getFloatValue(CfgFile, "PG_Strength"),
+					CfgFileManager::_getFloatValue(CfgFile, "PG_Elevation"),
+					CfgFileManager::_getBoolValue(CfgFile,  "PG_Smooth"),
+					CfgFileManager::_getBoolValue(CfgFile,  "PG_ForceRecalculateGeometry"),
+					CfgFileManager::_getBoolValue(CfgFile,  "PG_ChoppyWaves"),
+					CfgFileManager::_getFloatValue(CfgFile, "PG_ChoopyStrength")));
+
+		return true;
 	}
 
 	void ProjectedGrid::update(const Ogre::Real &timeSinceLastFrame)
@@ -118,10 +245,23 @@ namespace Hydrax{namespace Module
 
 		Module::update(timeSinceLastFrame);
 
-		if (mLastPosition    != mRenderingCamera->getPosition()    || 
-			mLastOrientation != mRenderingCamera->getOrientation() ||
+		Ogre::Vector3 RenderingCameraPos = mRenderingCamera->getDerivedPosition();
+
+		if (mLastPosition    != RenderingCameraPos    || 
+			mLastOrientation != mRenderingCamera->getDerivedOrientation() ||
 			mOptions.ForceRecalculateGeometry)
 		{
+			if (mLastPosition != RenderingCameraPos)
+			{
+				Ogre::Vector3 HydraxPos = Ogre::Vector3(RenderingCameraPos.x,mHydrax->getPosition().y,RenderingCameraPos.z);
+
+		        mHydrax->getMesh()->getSceneNode()->setPosition(HydraxPos);
+		        mHydrax->getRttManager()->getPlanesSceneNode()->setPosition(HydraxPos);
+
+		        // For world-space -> object-space conversion
+				mHydrax->setSunPosition(mHydrax->getSunPosition());
+			}
+
 			float RenderingFarClipDistance = mRenderingCamera->getFarClipDistance();
 
 		    if (RenderingFarClipDistance > _def_MaxFarClipDistance)
@@ -133,7 +273,7 @@ namespace Hydrax{namespace Module
 
 		    if (mLastMinMax)
 		    {
-			    _renderGeometry(mRange,mProjectingCamera->getViewMatrix());
+			    _renderGeometry(mRange, mProjectingCamera->getViewMatrix(), RenderingCameraPos);
 
 			    mHydrax->getMesh()->updateGeometry(mOptions.Complexity*mOptions.Complexity, mVertices);
 		    }
@@ -144,26 +284,96 @@ namespace Hydrax{namespace Module
 		{
 			int i = 0, v, u;
 
-		    for(v=0; v<mOptions.Complexity; v++)
-		    {
-			    for(u=0; u<mOptions.Complexity; u++)
-			    {				
-				    mVertices[i].y = -mBasePlane.d + mNoise->getValue(mVertices[i].x, mVertices[i].z)*mOptions.Strength;
+			if (getNormalMode() == MaterialManager::NM_VERTEX)
+			{
+				Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
 
-				    i++;
-			    }
+				if (mOptions.ChoppyWaves)
+				{
+					for(int i = 0; i < mOptions.Complexity*mOptions.Complexity; i++)
+		            {
+			            Vertices[i] = mVerticesChoppyBuffer[i];
+		            }
+				}
+
+				for(v=0; v<mOptions.Complexity; v++)
+				{
+					for(u=0; u<mOptions.Complexity; u++)
+					{	
+						Vertices[i].y = -mBasePlane.d + mNoise->getValue(RenderingCameraPos.x + Vertices[i].x, RenderingCameraPos.z + Vertices[i].z)*mOptions.Strength;
+
+						i++;
+					}
+				}
+			}
+			else if (getNormalMode() == MaterialManager::NM_RTT)
+			{
+				Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+				for(v=0; v<mOptions.Complexity; v++)
+				{
+					for(u=0; u<mOptions.Complexity; u++)
+					{	
+						Vertices[i].y = -mBasePlane.d + mNoise->getValue(RenderingCameraPos.x + Vertices[i].x, RenderingCameraPos.z + Vertices[i].z)*mOptions.Strength;
+					
+						i++;
+					}
+				}
+			}
+
+			// Smooth the heightdata
+		    if (mOptions.Smooth)
+		    {
+				if (getNormalMode() == MaterialManager::NM_VERTEX)
+				{
+					Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+
+					for(v=1; v<(mOptions.Complexity-1); v++)
+					{
+						for(u=1; u<(mOptions.Complexity-1); u++)
+						{				
+							Vertices[v*mOptions.Complexity + u].y =	
+								 0.2f *
+								(Vertices[v    *mOptions.Complexity + u    ].y +
+								 Vertices[v    *mOptions.Complexity + (u+1)].y + 
+								 Vertices[v    *mOptions.Complexity + (u-1)].y + 
+								 Vertices[(v+1)*mOptions.Complexity + u    ].y + 
+								 Vertices[(v-1)*mOptions.Complexity + u    ].y);															
+						}
+					}
+				}
+				else if(getNormalMode() == MaterialManager::NM_RTT)
+				{
+					Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+					for(v=1; v<(mOptions.Complexity-1); v++)
+					{
+						for(u=1; u<(mOptions.Complexity-1); u++)
+						{				
+							Vertices[v*mOptions.Complexity + u].y =	
+								 0.2f *
+								(Vertices[v    *mOptions.Complexity + u    ].y +
+								 Vertices[v    *mOptions.Complexity + (u+1)].y + 
+								 Vertices[v    *mOptions.Complexity + (u-1)].y + 
+								 Vertices[(v+1)*mOptions.Complexity + u    ].y + 
+								 Vertices[(v-1)*mOptions.Complexity + u    ].y);															
+						}
+					}
+				}
 		    }
 
 			_calculeNormals();
 
+			_performChoppyWaves();
+
 			mHydrax->getMesh()->updateGeometry(mOptions.Complexity*mOptions.Complexity, mVertices);
 		}
 
-		mLastPosition = mRenderingCamera->getPosition();
-		mLastOrientation = mRenderingCamera->getOrientation();
+		mLastPosition = RenderingCameraPos;
+		mLastOrientation = mRenderingCamera->getDerivedOrientation();
 	}
 
-	bool ProjectedGrid::_renderGeometry(const Ogre::Matrix4& m,const Ogre::Matrix4& _viewMat)
+	bool ProjectedGrid::_renderGeometry(const Ogre::Matrix4& m,const Ogre::Matrix4& _viewMat, const Ogre::Vector3& WorldPos)
 	{
 		t_corners0 = _calculeWorldPosition(Ogre::Vector2( 0.0f, 0.0f),m,_viewMat);
 		t_corners1 = _calculeWorldPosition(Ogre::Vector2(+1.0f, 0.0f),m,_viewMat);
@@ -181,79 +391,231 @@ namespace Hydrax{namespace Module
 
 		int i = 0, iv, iu;
 
-		for(iv=0; iv<mOptions.Complexity; iv++)
+		if (getNormalMode() == MaterialManager::NM_VERTEX)
 		{
-			u = 0.0f;	
-			_1_u = 1.0f;
-			for(iu=0; iu<mOptions.Complexity; iu++)
-			{				
-				result.x = _1_v*(_1_u*t_corners0.x + u*t_corners1.x) + v*(_1_u*t_corners2.x + u*t_corners3.x);				
-				result.z = _1_v*(_1_u*t_corners0.z + u*t_corners1.z) + v*(_1_u*t_corners2.z + u*t_corners3.z);				
-				result.w = _1_v*(_1_u*t_corners0.w + u*t_corners1.w) + v*(_1_u*t_corners2.w + u*t_corners3.w);				
+			Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
 
-				divide = 1.0f/result.w;				
-				result.x *= divide;
-				result.z *= divide;
+			for(iv=0; iv<mOptions.Complexity; iv++)
+			{
+				u = 0.0f;	
+				_1_u = 1.0f;
+				for(iu=0; iu<mOptions.Complexity; iu++)
+				{				
+					result.x = _1_v*(_1_u*t_corners0.x + u*t_corners1.x) + v*(_1_u*t_corners2.x + u*t_corners3.x);				
+					result.z = _1_v*(_1_u*t_corners0.z + u*t_corners1.z) + v*(_1_u*t_corners2.z + u*t_corners3.z);				
+					result.w = _1_v*(_1_u*t_corners0.w + u*t_corners1.w) + v*(_1_u*t_corners2.w + u*t_corners3.w);				
 
-				mVertices[i].x = result.x;
-				mVertices[i].z = result.z;
-				mVertices[i].y = -mBasePlane.d + mNoise->getValue(result.x, result.z)*mOptions.Strength;
+					divide = 1.0f/result.w;				
+					result.x *= divide;
+					result.z *= divide;
 
-				i++;
-				u += du;
-				_1_u = 1.0f-u;
+					Vertices[i].x = result.x;
+					Vertices[i].z = result.z;
+					Vertices[i].y = -mBasePlane.d + mNoise->getValue(WorldPos.x + result.x, WorldPos.z + result.z)*mOptions.Strength;
+
+					i++;
+					u += du;
+					_1_u = 1.0f-u;
+				}
+				v += dv;
+				_1_v = 1.0f-v;
 			}
-			v += dv;
-			_1_v = 1.0f-v;
+
+			if (mOptions.ChoppyWaves)
+			{
+				for(int i = 0; i < mOptions.Complexity*mOptions.Complexity; i++)
+		        {
+			        mVerticesChoppyBuffer[i] = Vertices[i];
+		        }
+			}
+		}
+		else if(getNormalMode() == MaterialManager::NM_RTT)
+		{
+			Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+			for(iv=0; iv<mOptions.Complexity; iv++)
+			{
+				u = 0.0f;	
+				_1_u = 1.0f;
+				for(iu=0; iu<mOptions.Complexity; iu++)
+				{				
+					result.x = _1_v*(_1_u*t_corners0.x + u*t_corners1.x) + v*(_1_u*t_corners2.x + u*t_corners3.x);				
+					result.z = _1_v*(_1_u*t_corners0.z + u*t_corners1.z) + v*(_1_u*t_corners2.z + u*t_corners3.z);				
+					result.w = _1_v*(_1_u*t_corners0.w + u*t_corners1.w) + v*(_1_u*t_corners2.w + u*t_corners3.w);				
+
+					divide = 1.0f/result.w;				
+					result.x *= divide;
+					result.z *= divide;
+
+					Vertices[i].x = result.x;
+					Vertices[i].z = result.z;
+					Vertices[i].y = -mBasePlane.d + mNoise->getValue(WorldPos.x + result.x, WorldPos.z + result.z)*mOptions.Strength;
+
+					i++;
+					u += du;
+					_1_u = 1.0f-u;
+				}
+				v += dv;
+				_1_v = 1.0f-v;
+			}
 		}
 
 		// Smooth the heightdata
 		if (mOptions.Smooth)
 		{
-			for(iv=1; iv<(mOptions.Complexity-1); iv++)
+			if (getNormalMode() == MaterialManager::NM_VERTEX)
 			{
-				for(iu=1; iu<(mOptions.Complexity-1); iu++)
-				{				
-					mVertices[iv*mOptions.Complexity + iu].y =	
-						0.2f *
-					   (mVertices[iv    *mOptions.Complexity + iu    ].y +
-						mVertices[iv    *mOptions.Complexity + (iu+1)].y + 
-						mVertices[iv    *mOptions.Complexity + (iu-1)].y + 
-						mVertices[(iv+1)*mOptions.Complexity + iu    ].y + 
-						mVertices[(iv-1)*mOptions.Complexity + iu    ].y);															
+				Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+
+				for(iv=1; iv<(mOptions.Complexity-1); iv++)
+				{
+					for(iu=1; iu<(mOptions.Complexity-1); iu++)
+					{				
+						Vertices[iv*mOptions.Complexity + iu].y =	
+							 0.2f *
+							(Vertices[iv    *mOptions.Complexity + iu    ].y +
+							 Vertices[iv    *mOptions.Complexity + (iu+1)].y + 
+							 Vertices[iv    *mOptions.Complexity + (iu-1)].y + 
+							 Vertices[(iv+1)*mOptions.Complexity + iu    ].y + 
+							 Vertices[(iv-1)*mOptions.Complexity + iu    ].y);															
+					}
+				}
+			}
+			else if(getNormalMode() == MaterialManager::NM_RTT)
+			{
+				Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+				for(iv=1; iv<(mOptions.Complexity-1); iv++)
+				{
+					for(iu=1; iu<(mOptions.Complexity-1); iu++)
+					{				
+						Vertices[iv*mOptions.Complexity + iu].y =	
+							 0.2f *
+							(Vertices[iv    *mOptions.Complexity + iu    ].y +
+							 Vertices[iv    *mOptions.Complexity + (iu+1)].y + 
+							 Vertices[iv    *mOptions.Complexity + (iu-1)].y + 
+							 Vertices[(iv+1)*mOptions.Complexity + iu    ].y + 
+							 Vertices[(iv-1)*mOptions.Complexity + iu    ].y);															
+					}
 				}
 			}
 		}
 
 		_calculeNormals();
 
+		_performChoppyWaves();
+
 		return true;
 	}
 
 	void ProjectedGrid::_calculeNormals()
 	{
+		if (getNormalMode() != MaterialManager::NM_VERTEX)
+		{
+			return;
+		}
+
 		int v, u;
 		Ogre::Vector3 vec1, vec2, normal;
+
+		Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
 
 		for(v=1; v<(mOptions.Complexity-1); v++)
 		{
 			for(u=1; u<(mOptions.Complexity-1); u++)
 			{
 				vec1 = Ogre::Vector3(
-					mVertices[v*mOptions.Complexity + u + 1].x-mVertices[v*mOptions.Complexity + u - 1].x,
-					mVertices[v*mOptions.Complexity + u + 1].y-mVertices[v*mOptions.Complexity + u - 1].y, 
-					mVertices[v*mOptions.Complexity + u + 1].z-mVertices[v*mOptions.Complexity + u - 1].z);
+					Vertices[v*mOptions.Complexity + u + 1].x-Vertices[v*mOptions.Complexity + u - 1].x,
+					Vertices[v*mOptions.Complexity + u + 1].y-Vertices[v*mOptions.Complexity + u - 1].y, 
+					Vertices[v*mOptions.Complexity + u + 1].z-Vertices[v*mOptions.Complexity + u - 1].z);
 
 				vec2 = Ogre::Vector3(
-					mVertices[(v+1)*mOptions.Complexity + u].x - mVertices[(v-1)*mOptions.Complexity + u].x,
-					mVertices[(v+1)*mOptions.Complexity + u].y - mVertices[(v-1)*mOptions.Complexity + u].y,
-					mVertices[(v+1)*mOptions.Complexity + u].z - mVertices[(v-1)*mOptions.Complexity + u].z);
+					Vertices[(v+1)*mOptions.Complexity + u].x - Vertices[(v-1)*mOptions.Complexity + u].x,
+					Vertices[(v+1)*mOptions.Complexity + u].y - Vertices[(v-1)*mOptions.Complexity + u].y,
+					Vertices[(v+1)*mOptions.Complexity + u].z - Vertices[(v-1)*mOptions.Complexity + u].z);
 
 				normal = vec2.crossProduct(vec1);
 
-				mVertices[v*mOptions.Complexity + u].nx = normal.x;
-				mVertices[v*mOptions.Complexity + u].ny = normal.y;
-				mVertices[v*mOptions.Complexity + u].nz = normal.z;
+				Vertices[v*mOptions.Complexity + u].nx = normal.x;
+				Vertices[v*mOptions.Complexity + u].ny = normal.y;
+				Vertices[v*mOptions.Complexity + u].nz = normal.z;
+			}
+		}
+	}
+
+	void ProjectedGrid::_performChoppyWaves()
+	{
+		if (getNormalMode() != MaterialManager::NM_VERTEX || !mOptions.ChoppyWaves)
+		{
+			return;
+		}
+
+		int v, u,
+		    Underwater = 1;
+
+		if (mHydrax->_isCurrentFrameUnderwater())
+		{
+			Underwater = -1;
+		}
+
+		float Dis1,  Dis2;//, 
+		   // Dis1_, Dis2_;
+
+		Ogre::Vector3 CameraDir, Norm;
+		Ogre::Vector2 Dir, Perp, Norm2;
+
+		CameraDir = mRenderingCamera->getDerivedDirection();
+		Dir       = Ogre::Vector2(CameraDir.x, CameraDir.z).normalisedCopy();
+		Perp      = Dir.perpendicular();
+
+		if (Dir.x < 0 ) Dir.x = -Dir.x;
+		if (Dir.y < 0 ) Dir.y = -Dir.y;
+
+		if (Perp.x < 0 ) Perp.x = -Perp.x;
+		if (Perp.y < 0 ) Perp.y = -Perp.y;
+
+		Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+
+		for(v=1; v<(mOptions.Complexity-1); v++)
+		{
+			Dis1 =  (Ogre::Vector2(mVerticesChoppyBuffer[v*mOptions.Complexity + 1].x,
+					               mVerticesChoppyBuffer[v*mOptions.Complexity + 1].z) -
+					 Ogre::Vector2(mVerticesChoppyBuffer[(v+1)*mOptions.Complexity + 1].x,
+				                   mVerticesChoppyBuffer[(v+1)*mOptions.Complexity + 1].z)).length();
+
+			/*Dis1_ = (Ogre::Vector2(mVerticesChoppyBuffer[v*mOptions.Complexity + 1].x,
+                                   mVerticesChoppyBuffer[v*mOptions.Complexity + 1].z) -
+				   	 Ogre::Vector2(mVerticesChoppyBuffer[(v-1)*mOptions.Complexity + 1].x,
+					               mVerticesChoppyBuffer[(v-1)*mOptions.Complexity + 1].z)).length();
+
+			Dis1 = (Dis1+Dis1_)/2;*/
+
+			for(u=1; u<(mOptions.Complexity-1); u++)
+			{   
+				Dis2 = (Ogre::Vector2(mVerticesChoppyBuffer[v*mOptions.Complexity + u].x,
+					                  mVerticesChoppyBuffer[v*mOptions.Complexity + u].z) -
+					    Ogre::Vector2(mVerticesChoppyBuffer[v*mOptions.Complexity + u+1].x,
+					                  mVerticesChoppyBuffer[v*mOptions.Complexity + u+1].z)).length();
+/*
+				Dis2_ = (Ogre::Vector2(mVerticesChoppyBuffer[v*mOptions.Complexity + u].x,
+					                   mVerticesChoppyBuffer[v*mOptions.Complexity + u].z) -
+					     Ogre::Vector2(mVerticesChoppyBuffer[v*mOptions.Complexity + u-1].x,
+				                       mVerticesChoppyBuffer[v*mOptions.Complexity + u-1].z)).length();
+
+				Dis2 = (Dis2+Dis2_)/2;*/
+
+				Norm = Ogre::Vector3(Vertices[v*mOptions.Complexity + u].nx,
+					                 Vertices[v*mOptions.Complexity + u].ny,
+								     Vertices[v*mOptions.Complexity + u].nz).
+					   			     normalisedCopy();
+
+				Norm2 = Ogre::Vector2(Norm.x, Norm.z)  * 
+					                 ( (Dir  * Dis1)   +
+					                   (Perp * Dis2))  *
+				 				      mOptions.ChoppyStrength;
+
+				Vertices[v*mOptions.Complexity + u].x = mVerticesChoppyBuffer[v*mOptions.Complexity + u].x + Norm2.x * Underwater;
+				Vertices[v*mOptions.Complexity + u].z = mVerticesChoppyBuffer[v*mOptions.Complexity + u].z + Norm2.y * Underwater;
 			}
 		}
 	}
@@ -306,7 +668,17 @@ namespace Hydrax{namespace Module
 
 		std::pair<bool,Ogre::Real> _result;
 
-		Ogre::Matrix4 invviewproj = (mRenderingCamera->getProjectionMatrixWithRSDepth()*mRenderingCamera->getViewMatrix()).inverse();
+		// Set temporal rendering camera parameters
+		mTmpRndrngCamera->setFrustumOffset(mRenderingCamera->getFrustumOffset());
+		mTmpRndrngCamera->setAspectRatio(mRenderingCamera->getAspectRatio());
+		mTmpRndrngCamera->setDirection(mRenderingCamera->getDerivedDirection());
+		mTmpRndrngCamera->setFarClipDistance(mRenderingCamera->getFarClipDistance());
+		mTmpRndrngCamera->setFOVy(mRenderingCamera->getFOVy());
+		mTmpRndrngCamera->setNearClipDistance(mRenderingCamera->getNearClipDistance());
+		mTmpRndrngCamera->setOrientation(mRenderingCamera->getDerivedOrientation());
+		mTmpRndrngCamera->setPosition(0, mRenderingCamera->getDerivedPosition().y - mHydrax->getPosition().y, 0);
+
+		Ogre::Matrix4 invviewproj = (mTmpRndrngCamera->getProjectionMatrixWithRSDepth()*mTmpRndrngCamera->getViewMatrix()).inverse();
 		frustum[0] = invviewproj * Ogre::Vector3(-1,-1,0);
 		frustum[1] = invviewproj * Ogre::Vector3(+1,-1,0);
 		frustum[2] = invviewproj * Ogre::Vector3(-1,+1,0);
@@ -343,24 +715,20 @@ namespace Hydrax{namespace Module
 				proj_points[n_points++] = frustum[i];
 			}		
 		}	
-
-		// Create the camera the grid will be projected from
-		delete mProjectingCamera;
-		mProjectingCamera = new Ogre::Camera("PG_Projecting", NULL);
-
-		// Set rendering camera parameters
-		mProjectingCamera->setFrustumOffset(mRenderingCamera->getFrustumOffset());
-		mProjectingCamera->setAspectRatio(mRenderingCamera->getAspectRatio());
-		mProjectingCamera->setDirection(mRenderingCamera->getRealDirection());
-		mProjectingCamera->setFarClipDistance(mRenderingCamera->getFarClipDistance());
-		mProjectingCamera->setFOVy(mRenderingCamera->getFOVy());
-		mProjectingCamera->setNearClipDistance(mRenderingCamera->getNearClipDistance());
-		mProjectingCamera->setOrientation(mRenderingCamera->getRealOrientation());
-		mProjectingCamera->setPosition(mRenderingCamera->getRealPosition());
-
+	
+		// Set projecting camera parameters
+		mProjectingCamera->setFrustumOffset(mTmpRndrngCamera->getFrustumOffset());
+		mProjectingCamera->setAspectRatio(mTmpRndrngCamera->getAspectRatio());
+		mProjectingCamera->setDirection(mTmpRndrngCamera->getDerivedDirection());
+		mProjectingCamera->setFarClipDistance(mTmpRndrngCamera->getFarClipDistance());
+		mProjectingCamera->setFOVy(mTmpRndrngCamera->getFOVy());
+		mProjectingCamera->setNearClipDistance(mTmpRndrngCamera->getNearClipDistance());
+		mProjectingCamera->setOrientation(mTmpRndrngCamera->getDerivedOrientation());
+		mProjectingCamera->setPosition(mTmpRndrngCamera->getDerivedPosition());
+	
 		// Make sure the camera isn't too close to the plane
 		float height_in_plane = mBasePlane.getDistance(mProjectingCamera->getRealPosition());
-	
+
 		bool keep_it_simple = false,
 			 underwater     = false;
 
@@ -371,7 +739,7 @@ namespace Hydrax{namespace Module
 
 		if (keep_it_simple)
 		{
-			mProjectingCamera->setDirection(mRenderingCamera->getRealDirection());
+			mProjectingCamera->setDirection(mTmpRndrngCamera->getDerivedDirection());
 		}
 		else
 		{
@@ -381,44 +749,43 @@ namespace Hydrax{namespace Module
 			{					
 				if (underwater)
 				{
-					mProjectingCamera->setPosition(mRenderingCamera->getRealPosition()+Ogre::Vector3(mLowerBoundPlane.normal.x,mLowerBoundPlane.normal.y,mLowerBoundPlane.normal.z)*(mOptions.Strength + mOptions.Elevation - 2*height_in_plane));
+					mProjectingCamera->setPosition(mProjectingCamera->getRealPosition()+mLowerBoundPlane.normal*(mOptions.Strength + mOptions.Elevation - 2*height_in_plane));
 				}
 				else
 				{
-					mProjectingCamera->setPosition(mRenderingCamera->getRealPosition()+Ogre::Vector3(mLowerBoundPlane.normal.x,mLowerBoundPlane.normal.y,mLowerBoundPlane.normal.z)*(mOptions.Strength + mOptions.Elevation - height_in_plane));
+					mProjectingCamera->setPosition(mProjectingCamera->getRealPosition()+mLowerBoundPlane.normal*(mOptions.Strength + mOptions.Elevation - height_in_plane));
 				}
 			} 
 
 			// Aim the projector at the point where the camera view-vector intersects the plane
 			// if the camera is aimed away from the plane, mirror it's view-vector against the plane
-			if (((mBasePlane.normal).dotProduct(mRenderingCamera->getRealDirection()) < 0.0f) || ((mBasePlane.normal).dotProduct(mRenderingCamera->getRealPosition()) < 0.0f ) )
+			if (((mBasePlane.normal).dotProduct(mTmpRndrngCamera->getDerivedDirection()) < 0.0f) || ((mBasePlane.normal).dotProduct(mTmpRndrngCamera->getDerivedPosition()) < 0.0f ) )
 			{
-				_ray = Ogre::Ray(mRenderingCamera->getRealPosition(), mRenderingCamera->getRealDirection());
+				_ray = Ogre::Ray(mTmpRndrngCamera->getDerivedPosition(), mTmpRndrngCamera->getDerivedDirection());
 				_result = Ogre::Math::intersects(_ray,mBasePlane);
 
-				if(_result.first)
+				if(!_result.first)
 				{
-					aimpoint = mRenderingCamera->getRealPosition() + _result.second * mRenderingCamera->getRealDirection();
+					_result.second = -_result.second;
 				}
+				
+				aimpoint = mTmpRndrngCamera->getDerivedPosition() + _result.second * mTmpRndrngCamera->getDerivedDirection();
 			}
 			else
 			{
-				Ogre::Vector3 flipped = mRenderingCamera->getRealDirection() - 2*mNormal* (mRenderingCamera->getRealDirection()).dotProduct(mNormal);
+				Ogre::Vector3 flipped = mTmpRndrngCamera->getDerivedDirection() - 2*mNormal* (mTmpRndrngCamera->getDerivedDirection()).dotProduct(mNormal);
 				flipped.normalise();
-				_ray = Ogre::Ray( mRenderingCamera->getRealPosition(), flipped);
+				_ray = Ogre::Ray( mTmpRndrngCamera->getDerivedPosition(), flipped);
 				_result = Ogre::Math::intersects(_ray,mBasePlane);
 
-				if(_result.first)
-				{
-					aimpoint = mRenderingCamera->getRealPosition() + _result.second * flipped;
-				}
+				aimpoint = mTmpRndrngCamera->getDerivedPosition() + _result.second * flipped;
 			}
 
 			// Force the point the camera is looking at in a plane, and have the projector look at it
 			// works well against horizon, even when camera is looking upwards
 			// doesn't work straight down/up
-			float af = fabs((mBasePlane.normal).dotProduct(mRenderingCamera->getRealDirection()));
-			aimpoint2 = mRenderingCamera->getRealPosition() + 10.0*mRenderingCamera->getRealDirection();
+			float af = fabs((mBasePlane.normal).dotProduct(mTmpRndrngCamera->getDerivedDirection()));
+			aimpoint2 = mTmpRndrngCamera->getDerivedPosition() + 10.0*mTmpRndrngCamera->getDerivedDirection();
 			aimpoint2 = aimpoint2 - mNormal* (aimpoint2.dotProduct(mNormal));
 
 			// Fade between aimpoint & aimpoint2 depending on view angle

@@ -40,12 +40,12 @@ namespace Hydrax
 		, mVisible(true)
 	{
 		mProjector = new Ogre::Frustum();
-		mProjector->setProjectionType(Ogre::PT_ORTHOGRAPHIC);
-
+		mProjector->setProjectionType(Ogre::PT_ORTHOGRAPHIC); 
+		
 		mSceneNode = mHydrax->getSceneManager()->getRootSceneNode()->createChildSceneNode();
         mSceneNode->attachObject(mProjector);
 		mSceneNode->setPosition(Ogre::Vector3(0,0,0));
-        mSceneNode->setOrientation(Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X));
+        mSceneNode->setOrientation(Ogre::Quaternion(Ogre::Degree(90), Ogre::Vector3::NEGATIVE_UNIT_X)); 
 
 		setPosition(mPosition);
 		setSize(mSize);
@@ -54,12 +54,8 @@ namespace Hydrax
 
 	Decal::~Decal()
 	{
-		if (mRegisteredPass)
-		{
-			mRegisteredPass->getParent()->removePass(mRegisteredPass->getIndex());
-			mRegisteredPass = static_cast<Ogre::Pass*>(NULL);
-		}
-
+		unregister();
+	
 		mSceneNode->getParentSceneNode()->removeAndDestroyChild(mSceneNode->getName());
 
 		delete mProjector;
@@ -67,13 +63,10 @@ namespace Hydrax
 
 	void Decal::registerPass(Ogre::Pass* _Pass)
 	{
-		if (mRegisteredPass)
-		{
-			mRegisteredPass->getParent()->removePass(mRegisteredPass->getIndex());
-			mRegisteredPass = static_cast<Ogre::Pass*>(NULL);
-		}
+		unregister();
 
 		_Pass->setSceneBlending(Ogre::SBT_TRANSPARENT_ALPHA);
+		_Pass->setCullingMode(Ogre::CULL_NONE);
         _Pass->setDepthBias(1,1);
         _Pass->setLightingEnabled(false);
 		_Pass->setDepthWriteEnabled(false);
@@ -82,7 +75,7 @@ namespace Hydrax
         DecalTexture->setProjectiveTexturing(true, mProjector);
 		DecalTexture->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
 		DecalTexture->setTextureFiltering(Ogre::FO_LINEAR, Ogre::FO_LINEAR, Ogre::FO_NONE);
-		DecalTexture->setAlphaOperation(Ogre::LBX_MODULATE, Ogre::LBS_TEXTURE, Ogre::LBS_MANUAL, 1.0, mTransparency);
+		DecalTexture->setAlphaOperation(Ogre::LBX_MODULATE, Ogre::LBS_TEXTURE, Ogre::LBS_MANUAL, 1.0, mTransparency); 
 
 		mRegisteredPass = _Pass;
 	}
@@ -143,6 +136,7 @@ namespace Hydrax
 	DecalsManager::DecalsManager(Hydrax *h)
 		: mHydrax(h)
 		, mNextId(0)
+		, mLastUnderwater(false)
 		, mWaterStrength(5)
 	{
 	}
@@ -159,8 +153,8 @@ namespace Hydrax
 
 	void DecalsManager::update()
 	{
-		if (mHydrax->getCamera()->getPosition()    == mLastPosition &&
-			mHydrax->getCamera()->getOrientation() == mLastOrientation)
+		if (mHydrax->getCamera()->getDerivedPosition()    == mLastPosition &&
+			mHydrax->getCamera()->getDerivedOrientation() == mLastOrientation)
 		{
 			return;
 		}
@@ -169,6 +163,36 @@ namespace Hydrax
 		Ogre::Real    HHeight = mHydrax->getPosition().y;
 		Ogre::Vector2 DSize;
 		Ogre::AxisAlignedBox DecalBox;
+
+		if (mLastUnderwater != mHydrax->_isCurrentFrameUnderwater())
+		{
+			for(DecalIt = mDecals.begin(); DecalIt != mDecals.end(); DecalIt++)
+            {
+				if (!(*DecalIt)->isVisible())
+				{
+					continue;
+				}
+
+				if ((*DecalIt)->getRegisteredPass())
+				{
+					(*DecalIt)->unregister();
+
+					if (!mHydrax->_isCurrentFrameUnderwater())
+					{
+					    (*DecalIt)->registerPass(
+				             mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_WATER)->
+				                 getTechnique(0)->createPass());
+					}
+					else
+					{
+						(*DecalIt)->registerPass(
+				             mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_UNDERWATER)->
+				                 getTechnique(0)->createPass());
+					}
+				}
+
+			}
+		}
 
 		for(DecalIt = mDecals.begin(); DecalIt != mDecals.end(); DecalIt++)
         {
@@ -187,9 +211,18 @@ namespace Hydrax
 			{
 				if (!(*DecalIt)->getRegisteredPass())
 				{
-					(*DecalIt)->registerPass(
-				         mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_WATER)->
-				              getTechnique(0)->createPass());
+					if (!mHydrax->_isCurrentFrameUnderwater())
+					{
+					    (*DecalIt)->registerPass(
+				             mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_WATER)->
+				                 getTechnique(0)->createPass());
+					}
+					else
+					{
+						(*DecalIt)->registerPass(
+				             mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_UNDERWATER)->
+				                 getTechnique(0)->createPass());
+					}
 				}
 			}
 			else
@@ -197,9 +230,10 @@ namespace Hydrax
 				(*DecalIt)->unregister();
 			}
 		}
-
-		mLastPosition    = mHydrax->getCamera()->getPosition();
-		mLastOrientation = mHydrax->getCamera()->getOrientation();
+		
+		mLastPosition    = mHydrax->getCamera()->getDerivedPosition();
+		mLastOrientation = mHydrax->getCamera()->getDerivedOrientation();
+		mLastUnderwater  = mHydrax->_isCurrentFrameUnderwater();
 	}
 
 	Decal* DecalsManager::add(const Ogre::String& TextureName)
@@ -263,9 +297,20 @@ namespace Hydrax
 	{
 		for(DecalIt = mDecals.begin(); DecalIt != mDecals.end(); DecalIt++)
         {
-			(*DecalIt)->registerPass(
-				mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_WATER)->
-				     getTechnique(0)->createPass());
+			(*DecalIt)->unregister();
+
+			if (!mHydrax->_isCurrentFrameUnderwater())
+			{
+				(*DecalIt)->registerPass(
+					mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_WATER)->
+					   getTechnique(0)->createPass());
+			}
+			else
+			{
+				(*DecalIt)->registerPass(
+					mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_UNDERWATER)->
+					   getTechnique(0)->createPass());
+			}
 		}
 	}
 }

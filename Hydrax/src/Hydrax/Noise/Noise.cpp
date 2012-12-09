@@ -26,9 +26,11 @@ http://www.gnu.org/copyleft/lesser.txt.
 
 namespace Hydrax{namespace Noise
 {
-    Noise::Noise(const Ogre::String &Name)
+    Noise::Noise(const Ogre::String &Name, const bool& GPUNormalMapSupported)
 		: mName(Name) 
 	    , mCreated(false)
+		, mGPUNormalMapSupported(GPUNormalMapSupported)
+		, mGPUNormalMapResourcesCreated(false)
 	{
 	}
 
@@ -39,6 +41,35 @@ namespace Hydrax{namespace Noise
 	void Noise::create()
 	{
 		mCreated = true;
+	}
+
+	void Noise::remove()
+	{
+		mCreated = false;
+	}
+
+	bool Noise::createGPUNormalMapResources(GPUNormalMapManager *g)
+	{
+		if (mGPUNormalMapSupported && !mGPUNormalMapResourcesCreated)
+		{
+			mGPUNormalMapResourcesCreated = true;
+
+			g->remove();
+
+			return true;
+		}
+
+		return false;
+	}
+
+	void Noise::removeGPUNormalMapResources(GPUNormalMapManager *g)
+	{
+		if (mGPUNormalMapSupported && mGPUNormalMapResourcesCreated)
+		{
+			mGPUNormalMapResourcesCreated = false;
+
+			g->remove();
+		}
 	}
 
 	void Noise::saveCfg(Ogre::String &Data)

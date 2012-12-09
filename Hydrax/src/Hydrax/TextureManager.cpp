@@ -26,8 +26,6 @@ http://www.gnu.org/copyleft/lesser.txt.
 
 #include "Hydrax.h"
 
-/// ToDo: HydraxHeightMap deprecated.(No used by materials).
-
 namespace Hydrax
 {
 	TextureManager::TextureManager(Hydrax *h)
@@ -44,12 +42,12 @@ namespace Hydrax
 
 	TextureManager::~TextureManager()
 	{
-		destroy();
+		remove();
 	}
 
 	void TextureManager::create(const Size &Size)
 	{
-		destroy();
+		remove();
 
 		for (int k = 0; k < 1; k++)
 		{
@@ -59,6 +57,22 @@ namespace Hydrax
 		mHydrax->getMaterialManager()->reload(MaterialManager::MAT_WATER);
 
 		mCreated = true;
+	}
+
+	void TextureManager::remove()
+	{
+		if (!mCreated)
+		{
+			return;
+		}
+
+		for (int k = 0; k < 1; k++)
+		{
+		     Ogre::TextureManager::getSingleton().remove(mTextureNames[k]);
+			 mTextures[k].setNull();
+		}
+
+		mCreated = false;
 	}
 
 	bool TextureManager::_updateNormalMap(Image &Image)
@@ -112,22 +126,6 @@ namespace Hydrax
         pixelBuffer->unlock();
 
 		return true;
-	}
-
-	void TextureManager::destroy()
-	{
-		if (!mCreated)
-		{
-			return;
-		}
-
-		for (int k = 0; k < 1; k++)
-		{
-		     Ogre::TextureManager::getSingleton().remove(mTextureNames[k]);
-			 mTextures[k].setNull();
-		}
-
-		mCreated = false;
 	}
 
 	bool TextureManager::_createTexture(Ogre::TexturePtr &Texture, const Ogre::String &Name, const Size &Size)

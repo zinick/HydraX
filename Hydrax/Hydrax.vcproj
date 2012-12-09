@@ -39,7 +39,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="include;&quot;$(OGRE_HOME)/Include&quot;"
+				AdditionalIncludeDirectories="C:/ogrenew/Include;&quot;include&quot;"
 				AdditionalUsingDirectories=""
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;HYDRAX_EXPORTS;HYDRAX_LIB"
 				MinimalRebuild="true"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$(OGRE_HOME)/Lib&quot;;"
+				AdditionalLibraryDirectories="&quot;C:\ogrenew\Lib&quot;;&quot;lib&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -95,7 +95,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\Users\Xavy\Documents\Visual Studio 2005\Projects\HydraxEditor\bin\release"
+			OutputDirectory=".\bin\Release"
 			IntermediateDirectory=".\obj\Release"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -213,6 +213,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\Hydrax\CfgFileManager.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\noise\module\checkerboard.h"
 				>
 			</File>
@@ -261,11 +265,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Help.h"
+				RelativePath=".\src\Hydrax\GodRaysManager.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Hydrax\GPUNormalMapManager.h"
 				>
 			</File>
 			<File
 				RelativePath=".\src\Hydrax\Help.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\Hydrax\Help.h"
 				>
 			</File>
 			<File
@@ -365,11 +377,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Perlin.h"
+				RelativePath=".\src\Hydrax\Noise\Perlin\Perlin.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Noise\Perlin\Perlin.h"
+				RelativePath=".\include\Hydrax\Perlin.h"
 				>
 			</File>
 			<File
@@ -405,6 +417,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\Hydrax\RttManager.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\noise\module\scalebias.h"
 				>
 			</File>
@@ -430,10 +446,6 @@
 			</File>
 			<File
 				RelativePath=".\include\Hydrax\Structs.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\Hydrax\Structs.h"
 				>
 			</File>
 			<File
@@ -473,11 +485,23 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\src\Hydrax\CfgFileManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Hydrax\DecalsManager.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\src\hydrax\Enums.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Hydrax\GodRaysManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Hydrax\GPUNormalMapManager.cpp"
 				>
 			</File>
 			<File
@@ -521,11 +545,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Modules\SimpleGrid\SimpleGrid.cpp"
+				RelativePath=".\src\Hydrax\RttManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\hydrax\Structs.cpp"
+				RelativePath=".\src\Hydrax\Modules\SimpleGrid\SimpleGrid.cpp"
 				>
 			</File>
 			<File

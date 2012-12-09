@@ -84,6 +84,20 @@ namespace Hydrax{ namespace Noise
 			/// Timemulti
 			float Timemulti;
 
+			/** GPU Normal map generator parameters
+			    Only if GPU normal map generation is active
+		     */
+			/// Representes the strength of the normals (i.e. Amplitude)
+			float GPU_Strength;
+			/** LOD Parameters, in order to obtain a smooth normal map we need to 
+                decrease the detail level when the pixel is far to the camera.
+				This parameters are stored in an Ogre::Vector3:
+				x -> Initial LOD value (Bigger values -> less detail)
+				y -> Final LOD value
+				z -> Final distance
+			 */
+			Ogre::Vector3 GPU_LODParameters;
+
 			/** Default constructor
 			 */
 			Options()
@@ -92,6 +106,8 @@ namespace Hydrax{ namespace Noise
 				, Falloff(0.49f)
 				, Animspeed(1.4f)
 				, Timemulti(1.27f)
+				, GPU_Strength(2.0f)
+				, GPU_LODParameters(Ogre::Vector3(0.5f, 50, 150000))
 			{
 			}
 
@@ -112,6 +128,34 @@ namespace Hydrax{ namespace Noise
 				, Falloff(_Falloff)
 				, Animspeed(_Animspeed)
 				, Timemulti(_Timemulti)
+				, GPU_Strength(2.0f)
+				, GPU_LODParameters(Ogre::Vector3(0.5f, 50, 150000))
+			{
+			}
+
+			/** Constructor
+				@param _Octaves Perlin noise octaves
+				@param _Scale Noise scale
+				@param _Falloff Noise fall off
+				@param _Animspeed Animation speed
+				@param _Timemulti Timemulti
+				@param _GPU_Strength GPU_Strength
+				@param _GPU_LODParameters GPU_LODParameters
+			 */
+			Options(const int   &_Octaves,
+					const float &_Scale,
+					const float &_Falloff,
+					const float &_Animspeed,
+					const float &_Timemulti,
+					const float &_GPU_Strength,
+					const Ogre::Vector3 &_GPU_LODParameters)
+				: Octaves(_Octaves)
+				, Scale(_Scale)
+				, Falloff(_Falloff)
+				, Animspeed(_Animspeed)
+				, Timemulti(_Timemulti)
+				, GPU_Strength(_GPU_Strength)
+				, GPU_LODParameters(_GPU_LODParameters)
 			{
 			}
 		};
@@ -132,6 +176,16 @@ namespace Hydrax{ namespace Noise
 		/** Create
 		 */
 		void create();
+
+		/** Remove
+		 */
+		void remove();
+
+		/** Create GPUNormalMap resources
+		    @param g GPUNormalMapManager pointer
+			@return true if it needs to be created, false if not
+		 */
+		bool createGPUNormalMapResources(GPUNormalMapManager *g);
 
 		/** Call it each frame
 		    @param timeSinceLastFrame Time since last frame(delta)
@@ -161,21 +215,7 @@ namespace Hydrax{ namespace Noise
 		    @param Options Perlin noise options
 			@remarks If create() have been already called, Octaves option doesn't be updated.
 		 */
-		inline void setOptions(const Options &Options)
-		{
-			if (isCreated())
-			{
-				int Octaves_ = Options.Octaves;
-				mOptions = Options;
-				mOptions.Octaves = Octaves_;
-			}
-			else
-			{
-				mOptions = Options;
-			}
-
-			magnitude = n_dec_magn * mOptions.Scale;
-		}
+		void setOptions(const Options &Options);
 
 		/** Get current Perlin noise options
 		    @return Current perlin noise options
@@ -193,6 +233,10 @@ namespace Hydrax{ namespace Noise
 		/** Calcule noise
 		 */
 		void _calculeNoise();
+
+		/** Update gpu normal map resources
+		 */
+		void _updateGPUNormalMapResources();
 
 		/** Read texel linear dual
 		    @param u u
@@ -228,6 +272,9 @@ namespace Hydrax{ namespace Noise
 
 		/// Elapsed time
 		double time;
+
+		/// GPUNormalMapManager pointer
+		GPUNormalMapManager *mGPUNormalMapManager;
 
 		/// Perlin noise options
 		Options mOptions;

@@ -26,15 +26,38 @@ http://www.gnu.org/copyleft/lesser.txt.
 
 namespace Hydrax{namespace Module
 {
-	SimpleGrid::SimpleGrid(Hydrax *h, Noise::Noise *n)
-		: Module("SimpleGrid", n, Mesh::Options(mOptions.Complexity, Size(mOptions.MeshSize), Mesh::VT_POS_NORM), MaterialManager::NM_VERTEX)
+	Mesh::VertexType _SG_getVertexTypeFromNormalMode(const MaterialManager::NormalMode& NormalMode)
+	{
+		if (NormalMode == MaterialManager::NM_VERTEX)
+		{
+			return Mesh::VT_POS_NORM;
+		}
+
+		// NM_RTT
+		return Mesh::VT_POS;
+	}
+
+	Ogre::String _SG_getNormalModeString(const MaterialManager::NormalMode& NormalMode)
+	{
+		if (NormalMode == MaterialManager::NM_VERTEX)
+		{
+			return "Vertex";
+		}
+
+		return "Rtt";
+	}
+
+	SimpleGrid::SimpleGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode)
+		: Module("SimpleGrid" + _SG_getNormalModeString(NormalMode),
+		         n, Mesh::Options(256, Size(mOptions.MeshSize), _SG_getVertexTypeFromNormalMode(NormalMode)), NormalMode)
 		, mHydrax(h)
 		, mVertices(0)
 	{
 	}
 
-	SimpleGrid::SimpleGrid(Hydrax *h, Noise::Noise *n, const Options &Options)
-		: Module("SimpleGrid", n, Mesh::Options(Options.Complexity, Size(Options.MeshSize), Mesh::VT_POS_NORM), MaterialManager::NM_VERTEX)
+	SimpleGrid::SimpleGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode, const Options &Options)
+		: Module("SimpleGrid" + _SG_getNormalModeString(NormalMode),
+		         n, Mesh::Options(Options.Complexity, Size(Options.MeshSize), _SG_getVertexTypeFromNormalMode(NormalMode)), NormalMode)
 		, mHydrax(h)
 		, mVertices(0)
 	{
@@ -43,10 +66,7 @@ namespace Hydrax{namespace Module
 
 	SimpleGrid::~SimpleGrid()
 	{
-		if (mVertices)
-		{
-		    delete [] mVertices;
-		}
+		remove();
 
 		HydraxLOG(getName() + " destroyed.");
 	}
@@ -55,27 +75,67 @@ namespace Hydrax{namespace Module
 	{
 		mMeshOptions.MeshSize     = Options.MeshSize;
 		mMeshOptions.MeshStrength = Options.Strength;
+		mMeshOptions.MeshComplexity = Options.Complexity;
 
 		mHydrax->getMesh()->setOptions(mMeshOptions);
-		mHydrax->_setStrength(mOptions.Strength);
+		mHydrax->_setStrength(Options.Strength);
 
-		// If create() is called, change only the on-fly parameters
 		if (isCreated())
 		{
-			mOptions.MeshSize  = Options.MeshSize;
-			mOptions.Strength  = Options.Strength;
-			mOptions.Smooth    = Options.Smooth;
+			if (Options.Complexity != mOptions.Complexity)
+			{
+				remove();
+				mOptions = Options;
+				create();
+
+				if (mNormalMode == MaterialManager::NM_RTT)
+				{
+					if (!mNoise->createGPUNormalMapResources(mHydrax->getGPUNormalMapManager()))
+					{
+						HydraxLOG(mNoise->getName() + " doesn't support GPU Normal map generation.");
+					}
+				}
+
+				Ogre::String MaterialNameTmp = mHydrax->getMesh()->getMaterialName();
+				mHydrax->getMesh()->remove();
+				
+				mHydrax->getMesh()->setOptions(getMeshOptions());
+				mHydrax->getMesh()->setMaterialName(MaterialNameTmp);
+				mHydrax->getMesh()->create();
+
+				return;
+			}
+
+			mOptions = Options;
 
 			int v, u;
-			for(v=0; v<mOptions.Complexity; v++)
+			if (getNormalMode() == MaterialManager::NM_VERTEX)
 			{
-				for(u=0; u<mOptions.Complexity; u++)
-				{
-					mVertices[v*mOptions.Complexity + u].x  = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
-					mVertices[v*mOptions.Complexity + u].z  = (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height;
-				}
-			}	
+				Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
 
+				for(v=0; v<mOptions.Complexity; v++)
+				{
+					for(u=0; u<mOptions.Complexity; u++)
+					{
+						Vertices[v*mOptions.Complexity + u].x  = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+						Vertices[v*mOptions.Complexity + u].z  = (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height;
+					}
+				}
+			}
+			else if (getNormalMode() == MaterialManager::NM_RTT)
+			{
+				Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+				for(v=0; v<mOptions.Complexity; v++)
+				{
+					for(u=0; u<mOptions.Complexity; u++)
+					{
+						Vertices[v*mOptions.Complexity + u].x  = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+						Vertices[v*mOptions.Complexity + u].z  = (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height;
+					}
+				}
+			}
+			
 			return;
 		} 
 
@@ -88,19 +148,93 @@ namespace Hydrax{namespace Module
 
 		Module::create();
 
-		mVertices = new Mesh::POS_NORM_VERTEX[mOptions.Complexity*mOptions.Complexity];	
-
 		int v, u;
-		for(v=0; v<mOptions.Complexity; v++)
+		if (getNormalMode() == MaterialManager::NM_VERTEX)
 		{
-			for(u=0; u<mOptions.Complexity; u++)
+			mVertices = new Mesh::POS_NORM_VERTEX[mOptions.Complexity*mOptions.Complexity];	
+			Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+
+			for(v=0; v<mOptions.Complexity; v++)
 			{
-				mVertices[v*mOptions.Complexity + u].x  = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
-				mVertices[v*mOptions.Complexity + u].z  = (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height;
+				for(u=0; u<mOptions.Complexity; u++)
+				{
+					Vertices[v*mOptions.Complexity + u].x  = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+					Vertices[v*mOptions.Complexity + u].z  = (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height;
+
+					Vertices[v*mOptions.Complexity + u].nx = 0;
+					Vertices[v*mOptions.Complexity + u].ny = -1;
+					Vertices[v*mOptions.Complexity + u].nz = 0;
+				}
 			}
-		}	
+		}
+		else if (getNormalMode() == MaterialManager::NM_RTT)
+		{
+			mVertices = new Mesh::POS_VERTEX[mOptions.Complexity*mOptions.Complexity];	
+			Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+			for(v=0; v<mOptions.Complexity; v++)
+			{
+				for(u=0; u<mOptions.Complexity; u++)
+				{
+					Vertices[v*mOptions.Complexity + u].x  = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+					Vertices[v*mOptions.Complexity + u].z  = (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height;
+				}
+			}
+		}
 
 		HydraxLOG(getName() + " created.");
+	}
+
+	void SimpleGrid::remove()
+	{
+		if (!isCreated())
+		{
+			return;
+		}
+
+		Module::remove();
+
+		if (mVertices)
+		{
+			if (getNormalMode() == MaterialManager::NM_VERTEX)
+			{
+				delete [] static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+			}
+			else if (getNormalMode() == MaterialManager::NM_RTT)
+			{
+				delete [] static_cast<Mesh::POS_VERTEX*>(mVertices);
+			}
+		}
+	}
+
+	void SimpleGrid::saveCfg(Ogre::String &Data)
+	{
+		Module::saveCfg(Data);
+
+		Data += CfgFileManager::_getCfgString("SG_Complexity", mOptions.Complexity);
+		Data += CfgFileManager::_getCfgString("SG_MeshSize", mOptions.MeshSize);
+		Data += CfgFileManager::_getCfgString("SG_Strength", mOptions.Strength);
+		Data += CfgFileManager::_getCfgString("SG_Smooth", mOptions.Smooth);
+		Data += CfgFileManager::_getCfgString("SG_ChoppyWaves", mOptions.ChoppyWaves);
+		Data += CfgFileManager::_getCfgString("SG_ChoppyStrength", mOptions.ChoppyStrength); Data += "\n";
+	}
+
+	bool SimpleGrid::loadCfg(Ogre::ConfigFile &CfgFile)
+	{
+		if (!Module::loadCfg(CfgFile))
+		{
+			return false;
+		}
+
+		setOptions(
+			Options(CfgFileManager::_getIntValue(CfgFile,   "SG_Complexity"),
+			        CfgFileManager::_getSizeValue(CfgFile,  "SG_MeshSize"),
+					CfgFileManager::_getFloatValue(CfgFile, "SG_Strength"),
+					CfgFileManager::_getBoolValue(CfgFile,  "PG_Smooth"),
+					CfgFileManager::_getBoolValue(CfgFile,  "PG_ChoppyWaves"),
+					CfgFileManager::_getFloatValue(CfgFile, "PG_ChoopyStrength")));
+
+		return true;
 	}
 
 	void SimpleGrid::update(const Ogre::Real &timeSinceLastFrame)
@@ -116,73 +250,190 @@ namespace Hydrax{namespace Module
 		int i = 0, v, u;
 		float v_;
 
-		for(v=0; v<mOptions.Complexity; v++)
+		if (getNormalMode() == MaterialManager::NM_VERTEX)
 		{
-			v_ = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+			Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
 
-			for(u=0; u<mOptions.Complexity; u++)
-		    {
-			    mVertices[i].y  = 
-				    mNoise->getValue(v_,
-					                 (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height) * mOptions.Strength;
-				i++;
+			if (mOptions.ChoppyWaves)
+			{
+				for(v=1; v<(mOptions.Complexity-1); v++)
+				{
+					for(u=1; u<(mOptions.Complexity-1); u++)
+					{
+						Vertices[v*mOptions.Complexity + u].x = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+						Vertices[v*mOptions.Complexity + u].z = (static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height;
+					}
+				}
+			}
+
+			for(v=0; v<mOptions.Complexity; v++)
+			{
+				v_ = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+
+				for(u=0; u<mOptions.Complexity; u++)
+				{
+					Vertices[i].y  = 
+						mNoise->getValue(v_,
+						(static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height) * mOptions.Strength;
+					i++;
+				}
+			}
+		}
+		else if (getNormalMode() == MaterialManager::NM_RTT)
+		{
+			Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+			// For object-space to world-space conversion
+			// RTT normals calculation needs world-space coords
+			Ogre::Vector3 p;
+		    Ogre::Matrix4 mWorldMatrix;
+		    mHydrax->getMesh()->getEntity()->getParentSceneNode()->getWorldTransforms(&mWorldMatrix);
+
+			for(v=0; v<mOptions.Complexity; v++)
+			{
+				v_ = (static_cast<float>(v)/(mOptions.Complexity-1)) * mOptions.MeshSize.Width;
+
+				for(u=0; u<mOptions.Complexity; u++)
+				{
+					p = Ogre::Vector3(v_,0,(static_cast<float>(u)/(mOptions.Complexity-1)) * mOptions.MeshSize.Height);
+					
+					// Calculate the world-space position
+					mWorldMatrix.transformAffine(p);
+
+					Vertices[i].y  = 
+						mNoise->getValue(p.x, p.z) * mOptions.Strength;
+					i++;
+				}
 			}
 		}
 
 		// Smooth the heightdata
 		if (mOptions.Smooth)
 		{
-			for(v=1; v<(mOptions.Complexity-1); v++)
+			if (getNormalMode() == MaterialManager::NM_VERTEX)
 			{
-				for(u=1; u<(mOptions.Complexity-1); u++)
-				{				
-					mVertices[v*mOptions.Complexity + u].y =	
-						0.2f *
-					   (mVertices[v    *mOptions.Complexity + u    ].y +
-						mVertices[v    *mOptions.Complexity + (u+1)].y + 
-						mVertices[v    *mOptions.Complexity + (u-1)].y + 
-						mVertices[(v+1)*mOptions.Complexity + u    ].y + 
-						mVertices[(v-1)*mOptions.Complexity + u    ].y);															
+				Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+
+				for(v=1; v<(mOptions.Complexity-1); v++)
+				{
+					for(u=1; u<(mOptions.Complexity-1); u++)
+					{				
+						Vertices[v*mOptions.Complexity + u].y =	
+							 0.2f *
+							(Vertices[v    *mOptions.Complexity + u    ].y +
+							 Vertices[v    *mOptions.Complexity + (u+1)].y + 
+							 Vertices[v    *mOptions.Complexity + (u-1)].y + 
+							 Vertices[(v+1)*mOptions.Complexity + u    ].y + 
+							 Vertices[(v-1)*mOptions.Complexity + u    ].y);															
+					}
+				}
+			}
+			else if (getNormalMode() == MaterialManager::NM_RTT)
+			{
+				Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
+
+				for(v=1; v<(mOptions.Complexity-1); v++)
+				{
+					for(u=1; u<(mOptions.Complexity-1); u++)
+					{				
+						Vertices[v*mOptions.Complexity + u].y =	
+							 0.2f *
+							(Vertices[v    *mOptions.Complexity + u    ].y +
+							 Vertices[v    *mOptions.Complexity + (u+1)].y + 
+							 Vertices[v    *mOptions.Complexity + (u-1)].y + 
+							 Vertices[(v+1)*mOptions.Complexity + u    ].y + 
+							 Vertices[(v-1)*mOptions.Complexity + u    ].y);															
+					}
 				}
 			}
 		}
 		
 		// Update normals
+		_calculeNormals();
+
+		// Perform choppy waves
+		_performChoppyWaves();
+
+		// Upload geometry changes
+		mHydrax->getMesh()->updateGeometry(mOptions.Complexity*mOptions.Complexity, mVertices);
+	}
+
+	void SimpleGrid::_calculeNormals()
+	{
+		if (getNormalMode() != MaterialManager::NM_VERTEX)
+		{
+			return;
+		}
+
+		int v, u;
 		Ogre::Vector3 vec1, vec2, normal;
+
+		Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
 
 		for(v=1; v<(mOptions.Complexity-1); v++)
 		{
 			for(u=1; u<(mOptions.Complexity-1); u++)
 			{
 				vec1 = Ogre::Vector3(
-					mVertices[v*mOptions.Complexity + u + 1].x-mVertices[v*mOptions.Complexity + u - 1].x,
-					mVertices[v*mOptions.Complexity + u + 1].y-mVertices[v*mOptions.Complexity + u - 1].y, 
-					mVertices[v*mOptions.Complexity + u + 1].z-mVertices[v*mOptions.Complexity + u - 1].z);
+					Vertices[v*mOptions.Complexity + u + 1].x-Vertices[v*mOptions.Complexity + u - 1].x,
+					Vertices[v*mOptions.Complexity + u + 1].y-Vertices[v*mOptions.Complexity + u - 1].y, 
+					Vertices[v*mOptions.Complexity + u + 1].z-Vertices[v*mOptions.Complexity + u - 1].z);
 
 				vec2 = Ogre::Vector3(
-					mVertices[(v+1)*mOptions.Complexity + u].x - mVertices[(v-1)*mOptions.Complexity + u].x,
-					mVertices[(v+1)*mOptions.Complexity + u].y - mVertices[(v-1)*mOptions.Complexity + u].y,
-					mVertices[(v+1)*mOptions.Complexity + u].z - mVertices[(v-1)*mOptions.Complexity + u].z);
+					Vertices[(v+1)*mOptions.Complexity + u].x - Vertices[(v-1)*mOptions.Complexity + u].x,
+					Vertices[(v+1)*mOptions.Complexity + u].y - Vertices[(v-1)*mOptions.Complexity + u].y,
+					Vertices[(v+1)*mOptions.Complexity + u].z - Vertices[(v-1)*mOptions.Complexity + u].z);
 
 				normal = vec2.crossProduct(vec1);
 
-				mVertices[v*mOptions.Complexity + u].nx = normal.x;
-				mVertices[v*mOptions.Complexity + u].ny = normal.y;
-				mVertices[v*mOptions.Complexity + u].nz = normal.z;
+				Vertices[v*mOptions.Complexity + u].nx = normal.x;
+				Vertices[v*mOptions.Complexity + u].ny = normal.y;
+				Vertices[v*mOptions.Complexity + u].nz = normal.z;
 			}
 		}
+	}
 
-		// Upload geometry changes
-		mHydrax->getMesh()->updateGeometry(mOptions.Complexity*mOptions.Complexity, mVertices);
+	void SimpleGrid::_performChoppyWaves()
+	{
+		if (getNormalMode() != MaterialManager::NM_VERTEX || !mOptions.ChoppyWaves)
+		{
+			return;
+		}
+
+		int v, u,
+			Underwater = 1;
+
+		if (mHydrax->_isCurrentFrameUnderwater())
+		{
+			Underwater = -1;
+		}
+
+		Mesh::POS_NORM_VERTEX* Vertices = static_cast<Mesh::POS_NORM_VERTEX*>(mVertices);
+
+		for(v=1; v<(mOptions.Complexity-1); v++)
+		{
+			for(u=1; u<(mOptions.Complexity-1); u++)
+			{
+				Vertices[v*mOptions.Complexity + u].x += Vertices[v*mOptions.Complexity + u].nx * mOptions.ChoppyStrength * Underwater;
+				Vertices[v*mOptions.Complexity + u].z += Vertices[v*mOptions.Complexity + u].nz * mOptions.ChoppyStrength * Underwater;
+			}
+		}
 	}
 
 	float SimpleGrid::getHeigth(const Ogre::Vector2 &Position)
 	{
-		Ogre::Vector2 RelativePos = mHydrax->getMesh()->getGridPosition(Position);
+		if (getNormalMode() != MaterialManager::NM_RTT)
+		{
+		    Ogre::Vector2 RelativePos = mHydrax->getMesh()->getGridPosition(Position);
 
-		RelativePos.x *= mOptions.MeshSize.Width;
-		RelativePos.y *= mOptions.MeshSize.Height;
+		    RelativePos.x *= mOptions.MeshSize.Width;
+		    RelativePos.y *= mOptions.MeshSize.Height;
 
-		return mHydrax->getPosition().y + mNoise->getValue(RelativePos.x, RelativePos.y)*mOptions.Strength;
+		    return mHydrax->getPosition().y + mNoise->getValue(RelativePos.x, RelativePos.y)*mOptions.Strength;
+		}
+		else // RTT Normals calculations works with world-space coords
+		{
+			return mHydrax->getPosition().y + mNoise->getValue(Position.x, Position.y)*mOptions.Strength;
+		}
 	}
 }}

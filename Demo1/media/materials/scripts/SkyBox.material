@@ -1,21 +1,3 @@
-material Sky/Evening
-{
-	technique
-	{
-		pass
-		{
-			lighting off
-			depth_write off
-
-			texture_unit
-			{
-				cubic_texture evening.jpg separateUV
-				tex_address_mode clamp
-			}
-		}
-	}
-}
-
 material Sky/EarlyMorning
 {
 	technique
@@ -28,42 +10,6 @@ material Sky/EarlyMorning
 			texture_unit
 			{
 				cubic_texture early_morning.jpg separateUV
-				tex_address_mode clamp
-			}
-		}
-	}
-}
-
-material Sky/Morning
-{
-	technique
-	{
-		pass
-		{
-			lighting off
-			depth_write off
-
-			texture_unit
-			{
-				cubic_texture morning.jpg separateUV
-				tex_address_mode clamp
-			}
-		}
-	}
-}
-
-material Sky/Stormy
-{
-	technique
-	{
-		pass
-		{
-			lighting off
-			depth_write off
-
-			texture_unit
-			{
-				cubic_texture stormy.jpg separateUV
 				tex_address_mode clamp
 			}
 		}

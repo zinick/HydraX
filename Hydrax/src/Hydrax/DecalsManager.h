@@ -271,9 +271,10 @@ namespace Hydrax
 		/// Water strength (For decals culling)
 		Ogre::Real mWaterStrength;
 
-		/// Last camera position, orientation
+		/// Last camera position, orientation, underwater
 		Ogre::Vector3 mLastPosition;
 		Ogre::Quaternion mLastOrientation;
+		bool mLastUnderwater;
 		
 		/// Hydrax parent pointer
 		Hydrax *mHydrax;

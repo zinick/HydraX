@@ -28,13 +28,16 @@ http://www.gnu.org/copyleft/lesser.txt.
 #include "Prerequisites.h"
 
 #include "Enums.h"
-#include "Structs.h"
 #include "Help.h"
 #include "Mesh.h"
 #include "Image.h"
 #include "MaterialManager.h"
+#include "RttManager.h"
 #include "TextureManager.h"
+#include "GodRaysManager.h"
 #include "DecalsManager.h"
+#include "GPUNormalMapManager.h"
+#include "CfgFileManager.h"
 #include "Modules/Module.h"
 
 namespace Hydrax
@@ -49,18 +52,24 @@ namespace Hydrax
         /** Constructor
             @param sm Ogre SceneManager pointer
             @param c Ogre Camera pointer
+			@param v Ogre Main window viewport pointer
          */
-        Hydrax(Ogre::SceneManager *sm, Ogre::Camera *c);
+		Hydrax(Ogre::SceneManager *sm, Ogre::Camera *c, Ogre::Viewport *v);
 
         /** Destructor
          */
         ~Hydrax();
 
-        /** Call when all params are set, creates grid water
-            and perlin / normal map textures
+        /** Create all resources according with current Hydrax components and
+		    add Hydrax to the scene.
             @remarks Call when all params are set
          */
         void create();
+
+		/** Remove hydrax, you can call this method to remove Hydrax from the scene
+		    or release (secondary) Hydrax memory, call create() to return Hydrax to the scene.
+		 */
+		void remove();
 
         /** Call every frame
             @todo Add listener interface
@@ -72,12 +81,6 @@ namespace Hydrax
          */
         bool isComponent(const HydraxComponent &Component);
 
-        /** Set Rtt options
-            @param RttOptions Options
-            @remarks It can be called after create(), Rtt's will be updated
-         */
-        void setRttOptions(const RttOptions &RttOptions);
-
         /** Set Hydrax components
             @param Components Components
             @remarks It can be called after create(), Components will be updated
@@ -86,14 +89,15 @@ namespace Hydrax
 
 		/** Set Hydrax module
 		    @param Module Hydrax module
+			@param DeleteOldModule Delete, if exists, the old module
 			@remark Module will be set before call create()
 		 */
-		void setModule(Module::Module* Module);
+		void setModule(Module::Module* Module, const bool& DeleteOldModule = true);
 
-        /** Set polygon mode: 1-Solid, 2-Wireframe, 3-Points
-            @param Time polygon mode: 1-Solid, 2-Wireframe, 3-Points
+        /** Set polygon mode (Solid, Wireframe, Points)
+            @param PM Polygon mode
          */
-        void setPolygonMode(const int &Tipe);
+		void setPolygonMode(const Ogre::PolygonMode& PM);
 
 		/** Set shader mode
 		    @param ShaderMode Shader mode
@@ -111,17 +115,27 @@ namespace Hydrax
 		void rotate(const Ogre::Quaternion &q);
 
 		/** Save hydrax config to file
-		    @param FileName File name
-			@remarks If module isn't set, module options won't be saved.
+		    @param File File name
+			@param Path File path
+			@return false if an error has been ocurred(Check the log file in this case).
+			@remarks If module isn't set, module/noise options won't be saved.
 		 */
-		void saveCfg(const Ogre::String &FileName);
+		inline const bool saveCfg(const Ogre::String &File, const Ogre::String& Path = "") const
+		{
+			return mCfgFileManager->save(File, Path);
+		}
 
 		/** Load config from file
-		    @param FileName File name
-			@remarks if module isn't set, or module isn't the same from
+		    @param File File name
+			@return false if an error has been ocurred(Check the log file in this case).
+			@remarks The file must be registred in Hydrax resource group.
+			         If module isn't set, or module isn't the same from
 			         config file, module options won't be loaded.
 		 */
-		void loadCfg(const Ogre::String &FileName);
+		inline const bool loadCfg(const Ogre::String &File) const
+		{
+			return mCfgFileManager->load(File);
+		}
 
         /** Set clip planes error
             @param PlanesError Clip planes error
@@ -142,6 +156,11 @@ namespace Hydrax
             @param GlobalTransparency Global transparency distance
          */
         void setGlobalTransparency(const Ogre::Real &GlobalTransparency);
+
+		/** Set water color
+            @param DepthColor Water color
+         */
+        void setWaterColor(const Ogre::Vector3 &WaterColor);
 
         /** Set normal distortion
             @param NormalDistortion Normal distortion
@@ -194,11 +213,6 @@ namespace Hydrax
          */
         void setDepthLimit(const Ogre::Real &DepthLimit);
 
-        /** Set depth color
-            @param DepthColor Foam color
-         */
-        void setDepthColor(const Ogre::Vector3 &DepthColor);
-
         /** Set smooth power
             @param SmoothPower Smooth power
             @remarks Less values more transition distance, hight values short transition values, 1-50 range(aprox.)
@@ -220,6 +234,22 @@ namespace Hydrax
          */
         void setCausticsEnd(const Ogre::Real &CausticsEnd);
 
+		/** Set god rays exposure
+		    @param GodRaysExposure God rays exposure
+		 */
+		void setGodRaysExposure(const Ogre::Vector3 &GodRaysExposure)
+		{
+			mGodRaysExposure = GodRaysExposure;
+		}
+
+		/** Set god rays intensity
+		    @param GodRaysIntensity God rays intensity
+		 */
+		void setGodRaysIntensity(const Ogre::Real &GodRaysIntensity)
+		{
+			mGodRaysIntensity = GodRaysIntensity;
+		}
+
         /** Has create() already called?
             @return Has create() already called?
          */
@@ -234,6 +264,14 @@ namespace Hydrax
 		inline Ogre::Camera* getCamera()
 		{
 			return mCamera;
+		}
+
+		/** Get main window viewport
+		    @return Ogre::Viewport pointer
+		 */
+		inline Ogre::Viewport* getViewport()
+		{
+			return mViewport;
 		}
 
 		/** Get scene manager
@@ -260,12 +298,28 @@ namespace Hydrax
 			return mMaterialManager;
 		}
 
+		/** Get Hydrax::RttManager
+		    @return Hydrax::RttManager pointer
+		 */
+		inline RttManager* getRttManager()
+		{
+			return mRttManager;
+		}
+
 		/** Get Hydrax::TextureManager
 		    @return Hydrax::TextureManager pointer
 		 */
 		inline TextureManager* getTextureManager()
 		{
 			return mTextureManager;
+		}
+
+		/** Get Hydrax::GodRaysManager
+		    @return Hydrax::GodRaysManager pointer
+		 */
+		inline GodRaysManager* getGodRaysManager()
+		{
+			return mGodRaysManager;
 		}
 
 		/** Get Hydrax::DecalsManager
@@ -276,6 +330,22 @@ namespace Hydrax
 			return mDecalsManager;
 		}
 
+		/** Get Hydrax::GPUNormalMapManager
+		    @return Hydrax::GPUNormalMapManager pointer
+	     */
+		inline GPUNormalMapManager* getGPUNormalMapManager()
+		{
+			return mGPUNormalMapManager;
+		}
+
+		/** Get Hydrax::CfgFileManager
+		    @return Hydrax::CfgFileManager pointer
+	     */
+		inline CfgFileManager* getCfgFileManager()
+		{
+			return mCfgFileManager;
+		}
+
 		/** Get our Hydrax::Module::Module
 		    @return Hydrax::Module::Module pointer or NULL if Module isn't set.
 		 */
@@ -283,14 +353,6 @@ namespace Hydrax
 		{
 			return mModule;
 		}
-
-        /** Get rtt options
-            @return Hydrax rtt options
-         */
-        inline const RttOptions& getRttOptions() const
-        {
-            return mRttOptions;
-        }
 
         /** Get hydrax components selected
             @return Hydrax components
@@ -301,9 +363,9 @@ namespace Hydrax
         }
 
         /** Get current polygon mode
-            @return Current polygon mode: 1-Solid, 2-Wireframe, 3-Points
+            @return Current polygon mode
          */
-        inline const int& getPolygonMode() const
+		inline const Ogre::PolygonMode& getPolygonMode() const
         {
             return mPolygonMode;
         }
@@ -323,6 +385,14 @@ namespace Hydrax
         {
             return mPosition;
         }
+
+		/** Get current clip planes error
+		    @return Current clip planes error
+		 */
+		inline const Ogre::Real& getPlanesError() const
+		{
+			return mPlanesError;
+		}
 
 		/** Get the current heigth at a especified world-space point
 		    @param Position X/Z World position
@@ -369,6 +439,14 @@ namespace Hydrax
         inline const Ogre::Vector3& getSunPosition() const
         {
             return mSunPosition;
+        }
+
+		/** Get water color
+            @return Water color
+         */
+        inline const Ogre::Vector3& getWaterColor() const
+        {
+            return mWaterColor;
         }
 
         /** Get normal distortion
@@ -443,14 +521,6 @@ namespace Hydrax
             return mDepthLimit;
         }
 
-        /** Get depth color
-            @return Depth color
-         */
-        inline const Ogre::Vector3& getDepthColor() const
-        {
-            return mDepthColor;
-        }
-
         /** Get smooth power
             @return Smooth power
          */
@@ -483,6 +553,30 @@ namespace Hydrax
             return mCausticsEnd;
         }
 
+		/** Get God rays exposure factors
+		    @return God rays exposure factors
+		 */
+		inline const Ogre::Vector3& getGodRaysExposure() const
+		{
+			return mGodRaysExposure;
+		}
+
+		/** Get God rays intensity
+		    @return God rays intensity
+		 */
+		inline const Ogre::Real& getGodRaysIntensity() const
+		{
+			return mGodRaysIntensity;
+		}
+
+		/** Is current frame underwater?
+		    @return true If yes, false if not
+		 */
+		inline const bool& _isCurrentFrameUnderwater() const
+		{
+			return mCurrentFrameUnderwater;
+		}
+
     private:
 
     /** Restore water mesh after device listener restored event
@@ -500,140 +594,18 @@ namespace Hydrax
 			void eventOccurred(const Ogre::String& eventName, const Ogre::NameValuePairList *parameters);
 		};
 
-    /** Hydrax::CRefractionListener class
-     */
-    class DllExport CRefractionListener : public Ogre::RenderTargetListener
-        {
-        public:
-            /// Hydrax manager pointer
-            Hydrax* mHydrax;
-
-			/// Camera.y - Plane.y difference
-		    Ogre::Real mCameraPlaneDiff;
-
-            /** Funtion that is called before the Rtt will render
-                @param evt Ogre RenderTargetEvent
-                @remarks We've to override it
-             */
-            void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-
-            /** Funtion that is called after the Rtt will render
-                @param evt Ogre RenderTargetEvent
-                @remarks We've to override it
-             */
-            void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-        };
-
-    /** Hydrax::CReflectionListener class
-     */
-    class DllExport CReflectionListener : public Ogre::RenderTargetListener
-        {
-        public:
-			/** Hydrax::CReflectionListener::CReflectionQueueListener class
-			    Used for avoid near clip plane clipping during the reflection Rtt
-			 */
-			class CReflectionQueueListener : public Ogre::RenderQueueListener
-			{
-			public:
-				/** Called at the start of the queue
-				 */
-				void renderQueueStarted(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation) 
-				{
-					if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE) 
-						&& mActive)
-					{
-						mHydrax->getCamera()->disableCustomNearClipPlane();
-						Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mHydrax->getCamera()->getProjectionMatrixRS()); 
-					}
-				}
-
-				/** Called on the end of the queue
-				 */
-				void renderQueueEnded(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation) 
-				{
-					if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE) 
-						&& mActive)
-					{
-						mHydrax->getCamera()->enableCustomNearClipPlane(mHydrax->mReflectionPlane);
-						Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mHydrax->getCamera()->getProjectionMatrixRS()); 
-					}
-				}
-
-				/// Hydrax pointer
-				Hydrax* mHydrax;
-				/// Is the reflection Rtt active?
-				bool mActive;
-			};
-
-			/// CReflectionQueueListener
-			CReflectionQueueListener mCReflectionQueueListener;
-
-            /// Hydrax manager pointer
-            Hydrax* mHydrax;
-
-			/// Camera.y - Plane.y difference
-		    Ogre::Real mCameraPlaneDiff;
-
-            /** Funtion that is called before the Rtt will render
-                @param evt Ogre RenderTargetEvent
-                @remarks We've to override it
-             */
-            void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-
-            /** Funtion that is called after the Rtt will render
-                @param evt Ogre RenderTargetEvent
-                @remarks We've to override it
-             */
-            void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-        };
-
-    /** Hydrax::CDepthListener class
-     */
-    class DllExport CDepthListener : public Ogre::RenderTargetListener
-        {
-        public:
-            /// Hydrax manager pointer
-            Hydrax* mHydrax;
-
-            /// std::string to store entity's original materials name
-            std::queue<std::string> mMaterials;
-
-			/// Camera.y - Plane.y difference
-		    Ogre::Real mCameraPlaneDiff;
-
-            /** Funtion that is called before the Rtt will render
-                @param evt Ogre RenderTargetEvent
-                @remarks We've to override it
-             */
-            void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-
-            /** Funtion that is called after the Rtt will render
-                @param evt Ogre RenderTargetEvent
-                @remarks We've to override it
-             */
-            void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-        };
-
         /** Update normal map textures
          */
         void _updateNM();
 
-        /** Create all rtt listeners
-         */
-        void _createRttListeners();
-
-        /** Create/Delete depth rtt listener
-            @param Create Create depth rtt listener?
-            @param Delete Delete depth rtt listener?
-            @remarks Don't call with (Delete = true) if before we haven't call it with (Create = true)
-         */
-        void _createDepthRttListener(const bool &Create = true, const bool &Delete = false);
+		/** Check for underwater effects
+		    @param timeSinceLastFrame Time since last frame
+		 */
+		void _checkUnderwater(const Ogre::Real& timeSinceLastFrame);
 
         /// Has create() already called?
         bool mCreated;
 
-        /// Rtt options
-        RttOptions mRttOptions;
         /// Hydrax components
         HydraxComponent mComponents;
 		/// Current shader mode
@@ -642,8 +614,8 @@ namespace Hydrax
 		/// Restored device listener
 		DeviceRestoredListener mDeviceRestoredListener;
 
-        /// Polygon mode: 1-Solid, 2-Wireframe, 3-Points
-        int mPolygonMode;
+		/// Polygon mode (Solid, Wireframe, Points)
+		Ogre::PolygonMode mPolygonMode;
         /// Water position
         Ogre::Vector3 mPosition;
         /// Planes error, y axis clipplanes displacement
@@ -653,6 +625,8 @@ namespace Hydrax
         Ogre::Real mFullReflectionDistance;
         /// Global transparency param
         Ogre::Real mGlobalTransparency;
+		/// Water color param
+        Ogre::Vector3 mWaterColor;
         /// Normal distortion param
         Ogre::Real mNormalDistortion;
 
@@ -676,8 +650,6 @@ namespace Hydrax
 
         /// Depth limit param
         Ogre::Real mDepthLimit;
-        /// Depth color param
-        Ogre::Vector3 mDepthColor;
 
         /// Smooth power param
         Ogre::Real mSmoothPower;
@@ -689,47 +661,39 @@ namespace Hydrax
         /// Caustics end
         Ogre::Real mCausticsEnd;
 
+		/// God rays exposure factors
+		Ogre::Vector3 mGodRaysExposure;
+		/// God rays intensity
+		Ogre::Real mGodRaysIntensity;
+
+		/// Is current frame underwater?
+		bool mCurrentFrameUnderwater;
+
         /// Our Hydrax::Mesh pointer
         Mesh *mMesh;
 		/// Our Hydrax::MaterialManager
 		MaterialManager *mMaterialManager;
+		/// Our Hydrax::RttManager
+		RttManager *mRttManager;
 		/// Our Hydrax::TextureManager pointer
 		TextureManager *mTextureManager;
-		/// Out Hydrax::DecalsManager pointer
+		/// Our Hydrax::GodRaysManager pointer
+		GodRaysManager *mGodRaysManager;
+		/// Our Hydrax::DecalsManager pointer
 		DecalsManager *mDecalsManager;
+		/// Our Hydrax::GPUNormalMapManager pointer
+		GPUNormalMapManager *mGPUNormalMapManager;
+		/// Our Hydrax::CfgFileManager pointer
+		CfgFileManager *mCfgFileManager;
 		/// Our Hydrax::Module::Module pointer
 		Module::Module *mModule;
-
-        /// Refraction Plane pointer
-        Ogre::MovablePlane* mRefractionPlane;
-        /// Reflection Plane pointer
-        Ogre::MovablePlane* mReflectionPlane;
-        /// Depth Plane pointer
-        Ogre::MovablePlane* mDepthPlane;
-
-        /// Refraction texture
-        Ogre::TexturePtr mTextureRefraction;
-        /// Reflection texture
-        Ogre::TexturePtr mTextureReflection;
-        /// Depth texture
-        Ogre::TexturePtr mTextureDepth;
-
-        /// Refraction listener
-        CRefractionListener mRefractionListener;
-        /// Reflection listener
-        CReflectionListener mReflectionListener;
-        /// Depth listener
-        CDepthListener mDepthListener;
-
-        /// SceneNode to attach our Hydrax::Mesh entity
-        Ogre::SceneNode *mSceneNode;
-        /// SceneNode to attach our planes
-        Ogre::SceneNode *mPlanesSceneNode;
 
         /// Pointer to Ogre::SceneManager
         Ogre::SceneManager *mSceneManager;
         /// Pointer to Ogre::Camera
         Ogre::Camera *mCamera;
+		/// Pointer to main window viewport
+		Ogre::Viewport *mViewport;
     };
 }
 

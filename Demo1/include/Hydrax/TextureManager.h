@@ -28,7 +28,6 @@ http://www.gnu.org/copyleft/lesser.txt.
 #include "Prerequisites.h"
 
 #include "Enums.h"
-#include "Structs.h"
 #include "Image.h"
 
 namespace Hydrax
@@ -62,6 +61,10 @@ namespace Hydrax
 		 */
 		void create(const Size &Size);
 
+		/** Remove textures
+		 */
+		void remove();
+
 		/** Update
 		    @param Id Texture's ID
 			@param Image Update image
@@ -79,10 +82,6 @@ namespace Hydrax
 
 			return false;
 		}
-
-		/** Destroy textures
-		 */
-		void destroy();
 
 		/** Get texture
 		    @param Id Texture Id ( TEX_NORMAL_ID )

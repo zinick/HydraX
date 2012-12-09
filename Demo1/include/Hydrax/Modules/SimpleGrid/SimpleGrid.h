@@ -50,6 +50,10 @@ namespace Hydrax{ namespace Module
 			float Strength;
 			/// Smooth
 			bool Smooth;
+			/// Choppy waves
+			bool ChoppyWaves;
+			/// Choppy waves strength
+			float ChoppyStrength;
 
 			/** Default constructor
 			 */
@@ -58,6 +62,8 @@ namespace Hydrax{ namespace Module
 				, MeshSize(Size(100))
 				, Strength(32.5f)
 				, Smooth(false)
+				, ChoppyWaves(true)
+				, ChoppyStrength(0.065f)
 			{
 			}
 
@@ -71,6 +77,8 @@ namespace Hydrax{ namespace Module
 				, MeshSize(_MeshSize)
 				, Strength(32.5f)
 				, Smooth(false)
+				, ChoppyWaves(true)
+				, ChoppyStrength(0.065f)
 			{
 			}
 
@@ -79,15 +87,21 @@ namespace Hydrax{ namespace Module
 				@param _MeshSize Water mesh size
 				@param _Strength Perlin noise strength
 				@param _Smooth Smooth vertex?
+				@param _ChoppyWaves Choppy waves enabled? Note: Only with Materialmanager::NM_VERTEX normal mode.
+				@param _ChoppyStrength Choppy waves strength Note: Only with Materialmanager::NM_VERTEX normal mode.
 			 */
 			Options(const int   &_Complexity,
 				    const Size  &_MeshSize,
 				    const float &_Strength,
-					const bool  &_Smooth)
+					const bool  &_Smooth,
+					const bool  &_ChoppyWaves,
+					const float &_ChoppyStrength)
 				: Complexity(_Complexity)
 				, MeshSize(_MeshSize)
 				, Strength(_Strength)
 				, Smooth(_Smooth)
+				, ChoppyWaves(_ChoppyWaves)
+				, ChoppyStrength(_ChoppyStrength)
 			{
 			}
 		};
@@ -95,15 +109,17 @@ namespace Hydrax{ namespace Module
 		/** Constructor
 		    @param h Hydrax manager pointer
 			@param n Hydrax noise module
+			@param NormalMode Switch between MaterialManager::NM_VERTEX and Materialmanager::NM_RTT
 		 */
-		SimpleGrid(Hydrax *h, Noise::Noise *n);
+		SimpleGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode);
 
 		/** Constructor
 		    @param h Hydrax manager pointer
 			@param n Hydrax noise module
+			@param NormalMode Switch between MaterialManager::NM_VERTEX and Materialmanager::NM_RTT
 			@param Options Perlin options
 		 */
-		SimpleGrid(Hydrax *h, Noise::Noise *n, const Options &Options);
+		SimpleGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode, const Options &Options);
 
 		/** Destructor
 		 */
@@ -112,6 +128,10 @@ namespace Hydrax{ namespace Module
 		/** Create
 		 */
 		void create();
+
+		/** Remove
+		 */
+		void remove();
 
 		/** Call it each frame
 		    @param timeSinceLastFrame Time since last frame(delta)
@@ -126,13 +146,13 @@ namespace Hydrax{ namespace Module
 		/** Save config
 		    @param Data String reference 
 		 */
-	//	void saveCfg(Ogre::String &Data);
+		void saveCfg(Ogre::String &Data);
 
 		/** Load config
 		    @param CgfFile Ogre::ConfigFile reference 
 			@return True if is the correct module config
 		 */
-	//	bool loadCfg(Ogre::ConfigFile &CfgFile);
+		bool loadCfg(Ogre::ConfigFile &CfgFile);
 
 		/** Get the current heigth at a especified world-space point
 		    @param Position X/Z World position
@@ -149,8 +169,16 @@ namespace Hydrax{ namespace Module
 		}
 
 	private:
-		/// Vertex pointer
-		Mesh::POS_NORM_VERTEX *mVertices;
+		/** Calcule current normals
+		 */
+		void _calculeNormals();
+
+		/** Perform choppy waves
+		 */
+		void _performChoppyWaves();
+
+		/// Vertex pointer (Mesh::POS_NORM_VERTEX or Mesh::POS_VERTEX)
+		void *mVertices;
 
 		/// Our projected grid options
 		Options mOptions;

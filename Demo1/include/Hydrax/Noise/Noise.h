@@ -26,6 +26,7 @@ http://www.gnu.org/copyleft/lesser.txt.
 #define _Hydrax_Noise_H_
 
 #include "../Prerequisites.h"
+#include "../GPUNormalMapManager.h"
 
 namespace Hydrax{ namespace Noise
 {
@@ -37,8 +38,9 @@ namespace Hydrax{ namespace Noise
 	public:
 		/** Constructor
 		    @param Name Noise name
+			@param GPUNormalMapSupported Is GPU normal map generation supported?
 		 */
-		Noise(const Ogre::String &Name);
+		Noise(const Ogre::String &Name, const bool& GPUNormalMapSupported);
 
 		/** Destructor
 		 */
@@ -47,6 +49,21 @@ namespace Hydrax{ namespace Noise
 		/** Create
 		 */
 		virtual void create();
+
+		/** Remove
+		 */
+		virtual void remove();
+
+		/** Create GPUNormalMap resources
+		    @param g GPUNormalMapManager pointer
+			@return true if it needs to be created, false if not
+		 */
+		virtual bool createGPUNormalMapResources(GPUNormalMapManager *g);
+
+		/** Remove GPUNormalMap resources
+		    @param g GPUNormalMapManager pointer
+		 */
+		virtual void removeGPUNormalMapResources(GPUNormalMapManager *g);
 
 		/** Call it each frame
 		    @param timeSinceLastFrame Time since last frame(delta)
@@ -80,6 +97,22 @@ namespace Hydrax{ namespace Noise
 			return mCreated;
 		}
 
+		/** Is GPU Normal map generation supported
+		    @return true if yes, false if not
+		 */
+		inline const bool& isGPUNormalMapSupported() const
+		{
+			return mGPUNormalMapSupported;
+		}
+
+		/** Are GPU normal map resources created?
+		    @return true if yes, false if not
+		 */
+		inline const bool& areGPUNormalMapResourcesCreated() const
+		{
+			return mGPUNormalMapResourcesCreated;
+		}
+	
 		/** Get the especified x/y noise value
 		    @param x X Coord
 			@param y Y Coord
@@ -90,8 +123,13 @@ namespace Hydrax{ namespace Noise
 	protected:
 		/// Module name
 		Ogre::String mName;
-		/// Is create() called?
+		/// Has create() been already called?
 		bool mCreated;
+
+		/// Is GPU normal map generation supported?
+        bool mGPUNormalMapSupported;
+		/// Are GPU normal map resources created?
+		bool mGPUNormalMapResourcesCreated;
 	};
 }}
 

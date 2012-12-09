@@ -58,15 +58,21 @@ namespace Hydrax{ namespace Module
 			bool Smooth;
 			/// Force recalculate mesh geometry each frame
 			bool ForceRecalculateGeometry;
+			/// Choppy waves
+			bool ChoppyWaves;
+			/// Choppy waves strength
+			float ChoppyStrength;
 
 			/** Default constructor
 			 */
 			Options()
 				: Complexity(256)
-				, Strength(32.5f)
-				, Elevation(7.0f)
+				, Strength(35.0f)
+				, Elevation(50.0f)
 				, Smooth(false)
 				, ForceRecalculateGeometry(false)
+				, ChoppyWaves(true)
+				, ChoppyStrength(3.75f)
 			{
 			}
 
@@ -75,10 +81,12 @@ namespace Hydrax{ namespace Module
 			 */
 			Options(const int &_Complexity)
 				: Complexity(_Complexity)
-				, Strength(32.5f)
-				, Elevation(7.0f)
+				, Strength(35.0f)
+				, Elevation(50.0f)
 				, Smooth(false)
 				, ForceRecalculateGeometry(false)
+				, ChoppyWaves(true)
+				, ChoppyStrength(3.75f)
 			{
 			}
 
@@ -97,6 +105,8 @@ namespace Hydrax{ namespace Module
 				, Elevation(_Elevation)
 				, Smooth(_Smooth)
 				, ForceRecalculateGeometry(false)
+				, ChoppyWaves(true)
+				, ChoppyStrength(3.75f)
 			{
 			}
 
@@ -106,17 +116,23 @@ namespace Hydrax{ namespace Module
 				@param _Elevation Elevation
 				@param _Smooth Smooth vertex?
 				@param _ForceRecalculateGeometry Force to recalculate the projected grid geometry each frame
+				@param _ChoppyWaves Choppy waves enabled? Note: Only with Materialmanager::NM_VERTEX normal mode.
+				@param _ChoppyStrength Choppy waves strength
 			 */
 			Options(const int   &_Complexity,
 				    const float &_Strength,
 					const float &_Elevation,
 					const bool  &_Smooth,
-					const bool  &_ForceRecalculateGeometry)
+					const bool  &_ForceRecalculateGeometry,
+					const bool  &_ChoppyWaves,
+					const float &_ChoppyStrength)
 				: Complexity(_Complexity)
 				, Strength(_Strength)
 				, Elevation(_Elevation)
 				, Smooth(_Smooth)
 				, ForceRecalculateGeometry(_ForceRecalculateGeometry)
+				, ChoppyWaves(_ChoppyWaves)
+				, ChoppyStrength(_ChoppyStrength)
 			{
 			}
 		};
@@ -125,16 +141,18 @@ namespace Hydrax{ namespace Module
 		    @param h Hydrax manager pointer
 			@param n Hydrax noise module
 			@param BasePlane Noise base plane
+			@param NormalMode Switch between MaterialManager::NM_VERTEX and Materialmanager::NM_RTT
 		 */
-		ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane);
+		ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane, const MaterialManager::NormalMode& NormalMode);
 
 		/** Constructor
 		    @param h Hydrax manager pointer
 			@param n Hydrax noise module
 			@param BasePlane Noise base plane
+			@param NormalMode Switch between MaterialManager::NM_VERTEX and Materialmanager::NM_RTT
 			@param Options Perlin options
 		 */
-		ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane, const Options &Options);
+		ProjectedGrid(Hydrax *h, Noise::Noise *n, const Ogre::Plane &BasePlane, const MaterialManager::NormalMode& NormalMode, const Options &Options);
 
 		/** Destructor
 		 */
@@ -143,6 +161,10 @@ namespace Hydrax{ namespace Module
 		/** Create
 		 */
 		void create();
+
+		/** Remove
+		 */
+		void remove();
 
 		/** Call it each frame
 		    @param timeSinceLastFrame Time since last frame(delta)
@@ -157,13 +179,13 @@ namespace Hydrax{ namespace Module
 		/** Save config
 		    @param Data String reference 
 		 */
-	//	void saveCfg(Ogre::String &Data);
+		void saveCfg(Ogre::String &Data);
 
 		/** Load config
 		    @param CgfFile Ogre::ConfigFile reference 
 			@return True if is the correct module config
 		 */
-	//	bool loadCfg(Ogre::ConfigFile &CfgFile);
+		bool loadCfg(Ogre::ConfigFile &CfgFile);
 
 		/** Get the current heigth at a especified world-space point
 		    @param Position X/Z World position
@@ -184,12 +206,17 @@ namespace Hydrax{ namespace Module
 		 */
 		void _calculeNormals();
 
+		/** Perform choppy waves
+		 */
+		void _performChoppyWaves();
+
 		/** Render geometry
 		    @param m Range
 			@param _viewMat View matrix
+			@param WorldPos Origin world position
 			@return true if it's sucesfful
 		 */
-		bool _renderGeometry(const Ogre::Matrix4& m,const Ogre::Matrix4& _viewMat);
+		bool _renderGeometry(const Ogre::Matrix4& m,const Ogre::Matrix4& _viewMat, const Ogre::Vector3& WorldPos);
 
 		/** Calcule world position
 		    @param uv uv
@@ -210,8 +237,11 @@ namespace Hydrax{ namespace Module
 		 */
 		void _setDisplacementAmplitude(const float &Amplitude);
 
-		/// Vertex pointer
-		Mesh::POS_NORM_VERTEX *mVertices;
+		/// Vertex pointer (Mesh::POS_NORM_VERTEX or Mesh::POS_VERTEX)
+		void *mVertices;
+
+		/// Use it to store vertex positions when choppy displacement is enabled
+		Mesh::POS_NORM_VERTEX* mVerticesChoppyBuffer;
 
 		/// For corners
 		Ogre::Vector4 t_corners0,t_corners1,t_corners2,t_corners3;
@@ -226,7 +256,8 @@ namespace Hydrax{ namespace Module
 
 		/// Cameras
 	    Ogre::Camera *mProjectingCamera,	// The camera that does the actual projection
-		             *mRenderingCamera;		// The camera whose frustum the projection is created for
+		             *mRenderingCamera,		// The camera whose frustum the projection is created for
+					 *mTmpRndrngCamera;     // Used to allow cameras with any inherited from a node or nodes 
 
 		/// Normal and position
 	    Ogre::Vector3 mNormal, mPos;

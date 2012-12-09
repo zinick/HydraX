@@ -44,12 +44,12 @@ http://www.gnu.org/copyleft/lesser.txt.
 
 /// Hydrax defines
 #define HYDRAX_VERSION_MAJOR 0
-#define HYDRAX_VERSION_MINOR 3
+#define HYDRAX_VERSION_MINOR 4
 #define HYDRAX_VERSION_PATCH 0
 
 #define HYDRAX_RESOURCE_GROUP "Hydrax"
 
 #define HYDRAX_IMAGE_CHECK_PIXELS 0 // See Image.cpp, 1 = Check pixels / 0 = No check pixels
-                                    // Use it for debug mode
+                                    // Use it for debug mode only
 
 #endif

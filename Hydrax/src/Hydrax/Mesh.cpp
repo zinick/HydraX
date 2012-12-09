@@ -38,19 +38,39 @@ namespace Hydrax
             , mNumVertices(0)
             , mVertexBuffer(0)
             , mIndexBuffer(0)
+			, mSceneNode(0)
             , mMaterialName("_NULL_")
     {
     }
 
     Mesh::~Mesh()
     {
-		if (mEntity)
-		{
-            Ogre::MeshManager::getSingleton().remove("HydraxMesh");
-
-            mHydrax->getSceneManager()->destroyEntity(mEntity);
-		}
+		remove();
     }
+
+	void Mesh::remove()
+	{
+		if (mCreated)
+		{
+			mSceneNode->detachAllObjects();
+            mSceneNode->getParentSceneNode()->removeAndDestroyChild(mSceneNode->getName());
+			mSceneNode = 0;
+
+            Ogre::MeshManager::getSingleton().remove("HydraxMesh");
+            mHydrax->getSceneManager()->destroyEntity(mEntity);
+
+			mMesh.setNull();
+			mSubMesh = 0;
+			mEntity = 0;
+			mNumFaces = 0;
+			mNumVertices = 0;
+			mVertexBuffer.setNull();
+			mIndexBuffer.setNull();
+			mMaterialName = "_NULL_";
+		}
+
+		mCreated = false;
+	}
 
     void Mesh::setOptions(const Options& Options)
     {
@@ -85,27 +105,25 @@ namespace Hydrax
         }
     }
 
-	void Mesh::create(Ogre::SceneNode *SceneNode)
+	void Mesh::create()
 	{
+		if (mCreated)
+		{
+			return;
+		}
+
 		// Create mesh and submesh
         mMesh = Ogre::MeshManager::getSingleton().createManual("HydraxMesh",
                 HYDRAX_RESOURCE_GROUP);
         mSubMesh = mMesh->createSubMesh();
         mSubMesh->useSharedVertices = false;
 
-		bool CreateGeometryInModule = false;
-
 		if (mHydrax->getModule())
 		{
-			if (mHydrax->getModule()->_createGeometry(this))
+			if (!mHydrax->getModule()->_createGeometry(this))
 			{
-				CreateGeometryInModule = true;
+				_createGeometry();
 			}
-		}
-
-		if (!CreateGeometryInModule)
-		{
-		    _createGeometry();
 		}
 
 		// End mesh creation
@@ -128,19 +146,12 @@ namespace Hydrax
 
         mEntity = mHydrax->getSceneManager()->createEntity("HydraxMeshEnt", "HydraxMesh");
         mEntity->setMaterialName(mMaterialName);
-        mEntity->setRenderQueueGroup(Ogre::RENDER_QUEUE_9);
-        Ogre::MaterialPtr m = Ogre::MaterialManager::getSingleton().getByName(mMaterialName);
-        m->setReceiveShadows(false);
-        SceneNode->attachObject(mEntity);
+		mEntity->setCastShadows(false);
+		mEntity->setRenderQueueGroup(Ogre::RENDER_QUEUE_1);
 
-		if (mOptions.MeshSize.Width == 0 && mOptions.MeshSize.Height == 0)
-		{
-			SceneNode->setPosition(0,0,0);
-		}
-		else
-		{
-			SceneNode->setPosition(-mOptions.MeshSize.Width/2,0,-mOptions.MeshSize.Height/2);
-		}
+		mSceneNode = mHydrax->getSceneManager()->getRootSceneNode()->createChildSceneNode();
+        mSceneNode->attachObject(mEntity);
+        mSceneNode->setPosition(-mOptions.MeshSize.Width/2,mHydrax->getPosition().y,-mOptions.MeshSize.Height/2);
 
 		mCreated = true;
 	}
@@ -383,5 +394,47 @@ namespace Hydrax
 			       YFinal = YLength / ACLength;
 
 		return Ogre::Vector2(XFinal,YFinal);
+	}
+
+	const Ogre::Vector3 Mesh::getObjectSpacePosition(const Ogre::Vector3& WorldSpacePosition) const
+	{
+		Ogre::Matrix4 mWorldMatrix;
+
+		if (mCreated)
+		{
+			mEntity->getParentSceneNode()->getWorldTransforms(&mWorldMatrix);
+		}
+		else
+		{
+			Ogre::SceneNode *mTmpSN = new Ogre::SceneNode(0);
+		    mTmpSN->setPosition(mHydrax->getPosition());
+
+			mTmpSN->getWorldTransforms(&mWorldMatrix);
+
+		    delete mTmpSN;
+		}
+
+		return mWorldMatrix.inverseAffine().transformAffine(WorldSpacePosition);
+	}
+
+	const Ogre::Vector3 Mesh::getWorldSpacePosition(const Ogre::Vector3& ObjectSpacePosition) const
+	{
+		Ogre::Matrix4 mWorldMatrix;
+
+		if (mCreated)
+		{
+			mEntity->getParentSceneNode()->getWorldTransforms(&mWorldMatrix);
+		}
+		else
+		{
+			Ogre::SceneNode *mTmpSN = new Ogre::SceneNode(0);
+		    mTmpSN->setPosition(mHydrax->getPosition());
+
+			mTmpSN->getWorldTransforms(&mWorldMatrix);
+
+		    delete mTmpSN;
+		}
+
+		return mWorldMatrix.transformAffine(ObjectSpacePosition);
 	}
 }

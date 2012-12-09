@@ -28,7 +28,6 @@ http://www.gnu.org/copyleft/lesser.txt.
 #include "Prerequisites.h"
 
 #include "Help.h"
-#include "Structs.h"
 #include "Image.h"
 
 namespace Hydrax
@@ -155,10 +154,13 @@ namespace Hydrax
         void setMaterialName(const Ogre::String &MaterialName);
 
         /** Create our water mesh, geometry, entity, etc...
-            @param SceneNode Ogre SceneNode where entity will be attach
             @remarks Call it after setMeshOptions() and setMaterialName()
          */
-        void create(Ogre::SceneNode *SceneNode);
+        void create();
+
+		/** Remove all resources
+		 */
+		void remove();
 
 		/** Update geomtry
 		    @param numVer Number of vertices
@@ -178,6 +180,18 @@ namespace Hydrax
 			@return (-1,-1) if the point isn't in the grid.
 		 */
 		Ogre::Vector2 getGridPosition(const Ogre::Vector2 &Position);
+
+	    /** Get the object-space position from world-space position
+		    @param WorldSpacePosition Position in world coords
+			@return Position in object-space
+		 */
+		const Ogre::Vector3 getObjectSpacePosition(const Ogre::Vector3& WorldSpacePosition) const;
+
+		/** Get the world-space position from object-space position
+		    @param ObjectSpacePosition Position in object coords
+			@return Position in world-space
+		 */
+		const Ogre::Vector3 getWorldSpacePosition(const Ogre::Vector3& ObjectSpacePosition) const;
 
         /** Get mesh
             @return Mesh
@@ -267,6 +281,14 @@ namespace Hydrax
 			return mIndexBuffer;
 		}
 
+		/** Get the Ogre::SceneNode pointer where Hydrax mesh is attached
+		    @return Ogre::SceneNode*
+		 */
+		inline Ogre::SceneNode* getSceneNode()
+		{
+			return mSceneNode;
+		}
+
 		/** Is _createGeometry() called?
 		    @return true if created() have been already called
 		 */
@@ -299,6 +321,9 @@ namespace Hydrax
         Ogre::HardwareVertexBufferSharedPtr mVertexBuffer;
         /// Index buffer
         Ogre::HardwareIndexBufferSharedPtr  mIndexBuffer;
+
+		/// Ogre::SceneNode pointer
+		Ogre::SceneNode* mSceneNode;
 
         /// Material name
         Ogre::String mMaterialName;
