@@ -6,20 +6,19 @@ Visit ---
 Copyright (C) 2008 Xavier Verguín González <xavierverguin@hotmail.com>
                                            <xavyiy@gmail.com>
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software Foundation, Inc.,
-59 Temple Place - Suite 330, Boston, MA  02111-1307, USA, or go to
-http://www.gnu.org/copyleft/gpl.html.
+You should have received a copy of the GNU Lesser General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place - Suite 330, Boston, MA 02111-1307, USA, or go to
+http://www.gnu.org/copyleft/lesser.txt.
 --------------------------------------------------------------------------------
 */
 
@@ -163,14 +162,14 @@ namespace Hydrax
 			return mOptions;
 		}
 
-		/** Add depth technique to a especified material
+		/** Add depth technique to an especified material
 		    @param Material Material where depth technique will be added
 			@param Index Depth technique creation index
 			@remarks Call it after Hydrax::create() !!!
 
 			         Add depth technique when a material is not an Ogre::Entity, such 
 			         a terrains, PLSM2 materials, etc.
-					 This depth technique will be added with "Depth" scheme in order
+					 This depth technique will be added with "HydraxDepth" scheme in order
 					 to can use it in the Depth RTT.
 					 It will be update automatically with params updates.
 		 */

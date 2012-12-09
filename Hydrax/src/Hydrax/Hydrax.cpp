@@ -6,22 +6,23 @@ Visit ---
 Copyright (C) 2008 Xavier Verguín González <xavierverguin@hotmail.com>
                                            <xavyiy@gmail.com>
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software Foundation, Inc.,
-59 Temple Place - Suite 330, Boston, MA  02111-1307, USA, or go to
-http://www.gnu.org/copyleft/gpl.html.
+You should have received a copy of the GNU Lesser General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place - Suite 330, Boston, MA 02111-1307, USA, or go to
+http://www.gnu.org/copyleft/lesser.txt.
 --------------------------------------------------------------------------------
 */
+
+#pragma warning(disable:4355)
 
 #include "Hydrax.h"
 
@@ -53,9 +54,10 @@ namespace Hydrax
             , mCausticsScale(20)
             , mCausticsPower(15)
             , mCausticsEnd(0.55)
-            , mMesh(new Mesh(sm,c))
+            , mMesh(new Mesh(this))
 			, mTextureManager(new TextureManager(this))
 			, mMaterialManager(new MaterialManager(this))
+			, mDecalsManager(new DecalsManager(this))
 			, mModule(0)
             , mSceneNode(0)
             , mRefractionPlane(0)
@@ -83,6 +85,8 @@ namespace Hydrax
             mSceneNode->getParentSceneNode()->removeAndDestroyChild(mSceneNode->getName());
 
 			delete mTextureManager;
+			delete mMaterialManager;
+			delete mDecalsManager;
             delete mMesh;
         }
 
@@ -105,13 +109,13 @@ namespace Hydrax
                 mRT_TextureDepth->removeAllListeners();
                 mRT_TextureDepth->removeAllViewports();
 
-                Ogre::TextureManager::getSingleton().remove("Depth");
+                Ogre::TextureManager::getSingleton().remove("HydraxDepthMap");
 
                 Ogre::MeshManager::getSingleton().remove("DepthClipPlane");
             }
 
-            Ogre::TextureManager::getSingleton().remove("Reflection");
-            Ogre::TextureManager::getSingleton().remove("Refraction");
+            Ogre::TextureManager::getSingleton().remove("HydraxReflectionMap");
+            Ogre::TextureManager::getSingleton().remove("HydraxRefractionMap");
 
             Ogre::MeshManager::getSingleton().remove("RefractionClipPlane");
             Ogre::MeshManager::getSingleton().remove("ReflectionClipPlane");
@@ -129,7 +133,7 @@ namespace Hydrax
             return;
 		}
 
-        if (isCreated())
+        if (mCreated)
         {
             HydraxLOG("Hydrax alredy created, skipping...");
 
@@ -140,18 +144,7 @@ namespace Hydrax
         mModule->create();
         HydraxLOG("Module created.");
 
-		HydraxLOG("Creating materials,");
-		mMaterialManager->createMaterials(mComponents, MaterialManager::Options(mShaderMode, mModule->getNormalMode()));
-		mMesh->setMaterialName(mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
-		mMaterialManager->reload(MaterialManager::MAT_WATER);
-		HydraxLOG("Materials created.");
-
-        HydraxLOG("Creating water mesh.");
-        mSceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
-        mMesh->create(mSceneNode);
-        HydraxLOG("Water mesh created");
-
-        HydraxLOG("Creating RTListeners.");
+		HydraxLOG("Creating RTListeners.");
         _createRttListeners();
         HydraxLOG("RTListeners created");
 
@@ -159,6 +152,17 @@ namespace Hydrax
 		mDeviceRestoredListener.mHydrax = this;
 		Ogre::Root::getSingleton().getRenderSystem()->addListener(&mDeviceRestoredListener);
 		HydraxLOG("Device restored listener registred");
+
+		HydraxLOG("Creating materials,");
+		mMaterialManager->createMaterials(mComponents, MaterialManager::Options(mShaderMode, mModule->getNormalMode()));
+		mMesh->setMaterialName(mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
+		HydraxLOG("Materials created.");
+
+        HydraxLOG("Creating water mesh.");
+        mSceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
+		mMesh->setOptions(mModule->getMeshOptions());
+        mMesh->create(mSceneNode);
+        HydraxLOG("Water mesh created");
 
         mCreated = true;
     }
@@ -169,14 +173,33 @@ namespace Hydrax
 		{
 			// Restore mesh
 			HydraxLOG("Restoring water mesh.");
-            mHydrax->setMeshOptions( mHydrax->getMeshOptions() );
+			if (mHydrax->mMesh->isCreated())
+			{
+				Ogre::String MaterialNameTmp = mHydrax->mMesh->getMaterialName();
+				Mesh::Options MeshOptionsTmp = mHydrax->mMesh->getOptions();
+
+				HydraxLOG("Updating water mesh.");
+
+				HydraxLOG("Deleting water mesh.");
+				delete mHydrax->mMesh;
+				HydraxLOG("Water mesh deleted.");
+
+				HydraxLOG("Creating water mesh.");
+				mHydrax->mMesh = new Mesh(mHydrax);
+				mHydrax->mMesh->setOptions(MeshOptionsTmp);
+				mHydrax->mMesh->setMaterialName(MaterialNameTmp);
+				mHydrax->mMesh->create(mHydrax->mSceneNode);
+				mHydrax->setPosition(mHydrax->mPosition);
+				mHydrax->mModule->update(0); // ???
+				HydraxLOG("Water mesh created");
+			}
 			HydraxLOG("Water mesh restored.");
 		}
 	}
 
     void Hydrax::_createRttListeners()
     {
-        if (!isCreated())
+        if (!mCreated)
         {
             mRefractionPlane = new Ogre::MovablePlane("RefractionPlane");
             mReflectionPlane = new Ogre::MovablePlane("ReflectionPlane");
@@ -267,7 +290,7 @@ namespace Hydrax
         {
             Ogre::TextureManager::getSingleton().remove("HydraxDepthMap");
 
-            if (!isCreated())
+            if (!mCreated)
             {
                 mDepthPlane = new Ogre::MovablePlane("DepthPlane");
 
@@ -394,19 +417,25 @@ namespace Hydrax
     {
         mHydrax->mMesh->getEntity()->setVisible(false);
 
-        Ogre::SceneManager::MovableObjectIterator it = mHydrax->mSceneManager->getMovableObjectIterator("Entity");
+        Ogre::SceneManager::MovableObjectIterator EntityIterator = 
+			mHydrax->mSceneManager->getMovableObjectIterator("Entity");
+        Ogre::Entity* CurrentEntity;
+		unsigned int k;
 
-        Ogre::Entity* cur;
         mMaterials.empty();
 
-        while (it.hasMoreElements())
+        while (EntityIterator.hasMoreElements())
         {
-            cur = dynamic_cast<Ogre::Entity*>(it.peekNextValue());
-            mMaterials.push(cur->getSubEntity(0)->getMaterialName());
+            CurrentEntity = static_cast<Ogre::Entity*>(EntityIterator.peekNextValue());
 
-			cur->getSubEntity(0)->setMaterialName(mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_DEPTH)->getName());
+			for(k = 0; k < CurrentEntity->getNumSubEntities(); k++)
+			{
+				mMaterials.push(CurrentEntity->getSubEntity(k)->getMaterialName());
 
-            it.moveNext();
+			    CurrentEntity->getSubEntity(k)->setMaterialName(mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_DEPTH)->getName());
+			}
+
+            EntityIterator.moveNext();
         }
 
         mHydrax->mDepthPlane->getParentNode()->translate(0,mHydrax->mPlanesError,0);
@@ -426,20 +455,23 @@ namespace Hydrax
 
     void Hydrax::CDepthListener::postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
     {
-        Ogre::SceneManager::MovableObjectIterator it = mHydrax->mSceneManager->getMovableObjectIterator("Entity");
+        Ogre::SceneManager::MovableObjectIterator EntityIterator = 
+			mHydrax->mSceneManager->getMovableObjectIterator("Entity");
+        Ogre::Entity* CurrentEntity;
+		unsigned int k;
 
-        Ogre::Entity* cur;
-
-        while (it.hasMoreElements())
+        while (EntityIterator.hasMoreElements())
         {
-            std::string name = mMaterials.front();
+			CurrentEntity = static_cast<Ogre::Entity*>(EntityIterator.peekNextValue());
 
-            cur = dynamic_cast<Ogre::Entity*>(it.peekNextValue());
-            if (Ogre::MaterialManager::getSingleton().resourceExists(name))
-                cur->setMaterialName(name);
+			for(k = 0; k < CurrentEntity->getNumSubEntities(); k++)
+			{
+			    CurrentEntity->getSubEntity(k)->setMaterialName(mMaterials.front());
 
-            mMaterials.pop();
-            it.moveNext();
+				mMaterials.pop();
+			}
+
+            EntityIterator.moveNext();
         }
 
         mHydrax->mMesh->getEntity()->setVisible(true);
@@ -454,51 +486,11 @@ namespace Hydrax
         mHydrax->mDepthPlane->getParentNode()->translate(0,-mHydrax->mPlanesError,0);
     }
 
-	void Hydrax::setMeshOptions(Mesh::Options *Options)
-    {
-		if (mModule)
-		{
-			if (!mModule->isMeshGeometrySupported(Options->MeshType))
-			{
-				HydraxLOG("Actual module doesn't support this mesh grid geometry type. Skipping...");
-				HydraxLOG("For change mesh/module follow these 3 steps:\n1) Call setModule(static_cast<Hydrax::Module*>(NULL))\n2) Set the new mesh options: setMeshOptions(...)\n3) Set your new module: setModule(...)");
-
-				return;
-			}
-		}
-
-        if (isCreated())
-        {
-            Ogre::String MaterialNameTmp = mMesh->getMaterialName();
-			Ogre::Real StrengthTmp = mMesh->getStrength();
-
-            HydraxLOG("Updating water mesh.");
-
-            HydraxLOG("Deleting water mesh.");
-            delete mMesh;
-            HydraxLOG("Water mesh deleted.");
-
-            HydraxLOG("Creating water mesh.");
-            mMesh = new Mesh(mSceneManager, mCamera);
-            mMesh->setOptions(Options);
-            mMesh->setMaterialName(MaterialNameTmp);
-            mMesh->create(mSceneNode);
-            setPosition(mPosition);
-			mMesh->setStrength(StrengthTmp);
-			mModule->update(0); // ???
-            HydraxLOG("Water mesh created");
-
-            return;
-        }
-
-        mMesh->setOptions(Options);
-    }
-
     void Hydrax::setRttOptions(const RttOptions &RttOptions)
     {
         mRttOptions = RttOptions;
 
-        if (isCreated())
+        if (mCreated)
         {
             HydraxLOG("Updating Rtt options.");
 
@@ -523,6 +515,8 @@ namespace Hydrax
             Ogre::TextureManager::getSingleton().remove("HydraxRefractionMap");
 
             _createRttListeners();
+
+			mMaterialManager->reload(MaterialManager::MAT_WATER);
 
             HydraxLOG("Rtt options updated.");
         }
@@ -550,27 +544,27 @@ namespace Hydrax
 	{
 		mShaderMode = ShaderMode;
 
-		if (isCreated() && mModule)
+		if (mCreated && mModule)
 		{
 		    mMaterialManager->createMaterials(mComponents, MaterialManager::Options(mShaderMode, mModule->getNormalMode()));
 
 		    mMesh->setMaterialName(mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
-		    mMaterialManager->reload(MaterialManager::MAT_WATER);
 		}
 	}
 
     void Hydrax::update(const Ogre::Real &timeSinceLastFrame)
     {
-		if (mModule)
+		if (mCreated && mModule)
 		{
             mModule->update(timeSinceLastFrame);
+		    mDecalsManager->update();
 		}
     }
 
     void Hydrax::setComponents(const HydraxComponent &Components)
     {
         // Create/Delete depth rtt listeners if it's necesary
-        if (isCreated())
+        if (mCreated)
         {
             if (isComponent(HYDRAX_COMPONENT_DEPTH))
             {
@@ -620,7 +614,7 @@ namespace Hydrax
             }
         }
 
-		if (!isCreated() || !mModule)
+		if (!mCreated || !mModule)
 		{
 			return;
 		}
@@ -628,22 +622,10 @@ namespace Hydrax
 		mMaterialManager->createMaterials(mComponents, MaterialManager::Options(mShaderMode, mModule->getNormalMode()));
 
 		mMesh->setMaterialName(mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
-		mMaterialManager->reload(MaterialManager::MAT_WATER);
     }
 
 	void Hydrax::setModule(Module::Module* Module)
 	{
-		if (mMesh && Module)
-		{
-			if (!Module->isMeshGeometrySupported(mMesh->getType()))
-			{
-				HydraxLOG("Actual mesh grid geometry type doesn't supported by " + Module->getName() + " module. Skipping...");
-				HydraxLOG("For change mesh/module follow these 3 steps:\n1) Call setModule(static_cast<Hydrax::Module*>(NULL))\n2) Set the new mesh options: setMeshOptions(...)\n3) Set your new module: setModule(...)");
-
-				return;
-			}
-		}
-
 		if (mModule)
 		{
 			if (mModule->getNormalMode() != Module->getNormalMode())
@@ -651,7 +633,6 @@ namespace Hydrax
 				mMaterialManager->createMaterials(mComponents, MaterialManager::Options(mShaderMode, Module->getNormalMode()));
 
 		        mMesh->setMaterialName(mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
-		        mMaterialManager->reload(MaterialManager::MAT_WATER);
 			}
 
 			delete mModule;
@@ -659,7 +640,25 @@ namespace Hydrax
 
 		mModule = Module;
 
-		HydraxLOG("Module set.");
+		if (mCreated)
+		{
+		    HydraxLOG("Updating water mesh.");
+		    Ogre::String MaterialNameTmp = mMesh->getMaterialName();
+
+		    HydraxLOG("Deleting water mesh.");
+		    delete mMesh;
+		    HydraxLOG("Water mesh deleted.");
+
+		    HydraxLOG("Creating water mesh.");
+		    mMesh = new Mesh(this);
+		    mMesh->setOptions(mModule->getMeshOptions());
+		    mMesh->setMaterialName(MaterialNameTmp);
+		    mMesh->create(mSceneNode);
+		    setPosition(mPosition);
+		    HydraxLOG("Water mesh created");
+
+		    HydraxLOG("Module set.");
+		}
 	}
 
     bool Hydrax::isComponent(const HydraxComponent &Component)
@@ -820,20 +819,7 @@ namespace Hydrax
 
 			return;
 		}
-/*
-		// Load mesh options
-		setMeshOptions(
-			 MeshOptions(
-			    // Size
-			    Size(// X
-			         Ogre::StringConverter::parseInt(
-			              Ogre::StringUtil::split(CfgFile.getSetting("MeshSize"), "x")[0]),
-				     // Z
-                     Ogre::StringConverter::parseInt(
-			              Ogre::StringUtil::split(CfgFile.getSetting("MeshSize"), "x")[1])),
-				// Complexity
-				Ogre::StringConverter::parseInt(CfgFile.getSetting("MeshComplexity"))));
-*/
+
 		// Load components
 		HydraxComponent s  = HYDRAX_COMPONENTS_NONE,
 			            f  = HYDRAX_COMPONENTS_NONE,
@@ -967,13 +953,6 @@ namespace Hydrax
 			    "uPlaneYPos", Position.y);
 		}
 
-		if (isComponent(HYDRAX_COMPONENT_FOAM))
-		{
-		    mMaterialManager->setGpuProgramParameter(
-			    MaterialManager::GPUP_FRAGMENT, MaterialManager::MAT_WATER,
-			    "uFoamRange", Ogre::Vector2(Position.y, mMesh->getStrength()));
-		}
-
         mSceneNode->setPosition(Position);
         mPlanesSceneNode->setPosition(Position);
     }
@@ -989,16 +968,16 @@ namespace Hydrax
         mPlanesError = PlanesError;
     }
 
-    void Hydrax::setStrength(const Ogre::Real &Strength)
+    void Hydrax::_setStrength(const Ogre::Real &Strength)
     {
-        mMesh->setStrength(Strength);
-
 		if (isComponent(HYDRAX_COMPONENT_FOAM))
 		{
 		    mMaterialManager->setGpuProgramParameter(
 			    MaterialManager::GPUP_FRAGMENT, MaterialManager::MAT_WATER,
-			    "uFoamRange", Ogre::Vector2(mPosition.y, Strength));
+			    "uFoamRange", Strength);
 		}
+
+		mDecalsManager->_setWaterStrength(Strength);
     }
 
     void Hydrax::setFullReflectionDistance(const Ogre::Real &FullReflectionDistance)

@@ -3,23 +3,22 @@
 This source file is part of Hydrax.
 Visit ---
 
-Copyright (C) 2007 Xavier Verguín González <xavierverguin@hotmail.com>
+Copyright (C) 2008 Xavier Verguín González <xavierverguin@hotmail.com>
                                            <xavyiy@gmail.com>
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software Foundation, Inc.,
-59 Temple Place - Suite 330, Boston, MA  02111-1307, USA, or go to
-http://www.gnu.org/copyleft/gpl.html.
+You should have received a copy of the GNU Lesser General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place - Suite 330, Boston, MA 02111-1307, USA, or go to
+http://www.gnu.org/copyleft/lesser.txt.
 --------------------------------------------------------------------------------
 */
 
@@ -34,165 +33,121 @@ http://www.gnu.org/copyleft/gpl.html.
 
 namespace Hydrax
 {
+	class Hydrax;
+
     /** Class wich contains all funtions/variables related to
         Hydrax water mesh
      */
     class DllExport Mesh
     {
     public:
-		/** Mesh type enum
+		/** Vertex struct for position, normals and uv data.
 		 */
-		enum Type
+		struct POS_NORM_UV_VERTEX
 		{
-			SIMPLE_GRID    = 1 << 0,
-			IMANTED_GRID   = 1 << 1,
-			PROJECTED_GRID = 1 << 2,
-
-			NONE = 0x0000,
-			ALL  = 0x001F,
+			float x,y,z;
+			float nx,ny,nz;
+			float tu,tv;
 		};
 
-		/** Base Hydrax mesh options class
+		/** Vertex struct for position and normals data.
 		 */
-		class Options
+		struct POS_NORM_VERTEX
 		{
-		public:
-			/** Default constructor
-			    @param meshSize grid size (X/Z) world space.
-				@param type Mesh::Type (Grid type)
+			float x,y,z;
+			float nx,ny,nz;
+		};
+
+		/** Vertex struct for position and uv data.
+		 */
+		struct POS_UV_VERTEX
+		{
+			float x,y,z;
+			float tu,tv;
+		};
+
+		/** Vertex struct for position data.
+		 */
+		struct POS_VERTEX
+		{
+			float x,y,z;
+		};
+
+		/** Mesh vertex type enum
+		 */
+		enum VertexType
+		{
+			VT_POS_NORM_UV = 0,
+			VT_POS_NORM    = 1,
+			VT_POS_UV      = 2,
+			VT_POS         = 3,
+		};
+
+		/** Base Hydrax mesh options
+		 */
+		struct Options
+		{
+			/** Constructor
 			 */
-			Options(const Size &meshSize, const Type &meshType)
-				: MeshSize(meshSize)
-				, MeshType(meshType)
+			Options()
+				: MeshComplexity(128)
+				, MeshSize(Size(0))
+				, MeshStrength(10)
+				, MeshVertexType(VT_POS_NORM_UV)
 			{
 			}
 
+			/** Constructor
+			    @param meshComplexity Grid complexity
+			    @param meshSize grid size (X/Z) world space.
+				@param meshVertexType Mesh::VertexType
+			 */
+			Options(const int &meshComplexity, const Size &meshSize, const VertexType &meshVertexType)
+				: MeshComplexity(meshComplexity)
+				, MeshSize(meshSize)
+				, MeshStrength(10)
+				, MeshVertexType(meshVertexType)
+			{
+			}
+
+			/** Constructor
+			    @param meshComplexity Grid complexity
+			    @param meshSize grid size (X/Z) world space.
+				@param meshStrength Water strength(Y axis multiplier)
+				@param meshVertexType Mesh::VertexType
+			 */
+			Options(const int &meshComplexity, const Size &meshSize, const float &meshStrength, const VertexType &meshVertexType)
+				: MeshComplexity(meshComplexity)
+				, MeshSize(meshSize)
+				, MeshStrength(meshStrength)
+				, MeshVertexType(meshVertexType)
+			{
+			}
+
+			/// Mesh complexity
+			int MeshComplexity;
 			/// Grid size (X/Z) world space.
 			Size MeshSize;
-			/// Grid type 
-			Type MeshType;
-		};
-
-		/** Type::SIMPLE_GRID Option class
-		 */
-		class SimpleGridOptions : public Options
-		{
-		public:
-			/** Default constructor
-			 */
-			SimpleGridOptions()
-				: Options(Size(256, 256), SIMPLE_GRID)
-				, Complexity(64)
-			{
-			}
-
-			/** Constructor
-			    @param meshSize Water size
-			    @param complexity N*N mesh grid complexity
-			 */
-			SimpleGridOptions(const Size  &meshSize,
-				              const int   &complexity)
-				: Options(meshSize, SIMPLE_GRID)
-				, Complexity(complexity)
-			{
-				if (Complexity > 724)
-				{
-					Complexity = 724;
-				}
-			}
-
-			/// N*N mesh grid complexity
-			int Complexity;
-		};
-
-		/** Type::IMANTED_GRID Option class
-		 */
-		class ImantedGridOptions : public Options
-		{
-		public:
-			/** Default constructor
-			 */
-			ImantedGridOptions()
-				: Options(Size(256, 256), IMANTED_GRID)
-				, Complexity(64)
-				, ImanFactor(2)
-				, CameraDistance(100)
-			{
-			}
-
-			/** Constructor
-			    @param meshSize Water size
-			    @param complexity N*N mesh grid complexity
-				@param imanfactor "Power" of the iman
-				@param cameradistance Camera distance for recalculate grid LOD
-			 */
-			ImantedGridOptions(const Size  &meshSize,
-				               const int   &complexity,
-							   const float &imanfactor,
-							   const float &cameradistance)
-				: Options(meshSize, IMANTED_GRID)
-				, Complexity(complexity)
-				, ImanFactor(imanfactor)
-				, CameraDistance(cameradistance)
-			{
-				if (Complexity > 724)
-				{
-					Complexity = 724;
-				}
-			}
-
-			/// N*N mesh grid complexity
-			int Complexity;
-			/// Iman factor
-			float ImanFactor;
-			/// Camera distance for recalculate grid LOD
-			float CameraDistance;
-		};
-
-		/** Type::PROJECTED_GRID Option class
-		 */
-		class ProjectedGridOptions : public Options
-		{
-		public:
-			/** Default constructor
-			 */
-			ProjectedGridOptions()
-				: Options(Size(-1, -1), PROJECTED_GRID)
-				, Complexity(128)
-			{
-			}
-
-			/** Constructor
-			    @param complexity N*N mesh projected grid complexity
-			 */
-			ProjectedGridOptions(const int &complexity)
-				: Options(Size(-1,-1), PROJECTED_GRID)
-				, Complexity(complexity)
-			{
-				if (Complexity > 724)
-				{
-					Complexity = 724;
-				}
-			}
-
-			/// N*N mesh projected grid complexity
-			int Complexity;
+			/// Water strength
+			float MeshStrength;
+			/// Vertex type 
+			VertexType MeshVertexType;
 		};
 
         /** Constructor
-            @param sm Ogre SceneManager
-			@param c Ogre::Camera
+            @param h Hydrax pointer
          */
-		Mesh(Ogre::SceneManager *sm, Ogre::Camera *c);
+		Mesh(Hydrax *h);
 
         /** Destructor
          */
         ~Mesh();
 
-        /** Set options
-            @param Options base class pointer
+        /** Update options
+            @param Options Mesh options
+			@remarks Call it before create(...)
          */
-        void setOptions(Options *Options);
+        void setOptions(const Options &Options);
 
         /** Set mesh material
             @param MaterialName The material name
@@ -205,21 +160,12 @@ namespace Hydrax
          */
         void create(Ogre::SceneNode *SceneNode);
 
-        /** Update our mesh grid from a Image ONE_CHANNEL type data
-            @param HeigthMap Heigth data [0,1] range
-			@return false if Image type isn't correct.
-            @remarks Only call it after create() !
-			         If you need update mesh with another approach,
-					 get the position vertex buffer in your module.
-         */
-        bool update(const Image &HeigthMap);
-
-		/** For update the projected grid geomtry
+		/** Update geomtry
 		    @param numVer Number of vertices
 			@param verArray Vertices array
-			@return false if numver of vertices do not correspond.
+			@return false If number of vertices do not correspond.
 		 */
-		bool updateProjectedGridGeometry(const int &numVer, void* verArray);
+		bool updateGeometry(const int &numVer, void* verArray);
 
 		/** Get if a Position point is inside of the grid
 		    @param Position World-space point
@@ -232,11 +178,6 @@ namespace Hydrax
 			@return (-1,-1) if the point isn't in the grid.
 		 */
 		Ogre::Vector2 getGridPosition(const Ogre::Vector2 &Position);
-
-        /** Set water strength(Y axis multiplier)
-            @param Strength Strength
-         */
-        void setStrength(const Ogre::Real &Strength);
 
         /** Get mesh
             @return Mesh
@@ -263,9 +204,9 @@ namespace Hydrax
         }
 
         /** Get options
-		    @return Options base class pointer
+		    @return Mesh options 
 		 */
-		inline Options* getOptions()
+		inline const Options& getOptions() const
 		{
 			return mOptions;
 		}
@@ -275,15 +216,15 @@ namespace Hydrax
 		 */
 		inline const Size& getSize() const
 		{
-			return mOptions->MeshSize;
+			return mOptions.MeshSize;
 		}
 		 
-		/** Get mesh type
-		    return Mesh grid type
+		/** Get vertex type
+		    return Mesh vertex type
 		 */
-		inline const Type& getType() const
+		inline const VertexType& getVertexType() const
 		{
-			return mOptions->MeshType;
+			return mOptions.MeshVertexType;
 		}
 
         /** Get number of faces
@@ -310,67 +251,39 @@ namespace Hydrax
             return mMaterialName;
         }
 
-        /** Get strength
-            @return Sterngth
-         */
-        inline const Ogre::Real& getStrength() const
-        {
-            return mStrength;
-        }
-
-		/** Get position vertex buffer
+		/** Get hardware vertex buffer
             @return Ogre::HardwareVertexBufferSharedPtr
          */
-        inline Ogre::HardwareVertexBufferSharedPtr getPositionHardwareVertexBufferSharedPtr()
+        inline Ogre::HardwareVertexBufferSharedPtr getHardwareVertexBuffer()
         {
-            return mPosVertexBuffer;
+            return mVertexBuffer;
         }
 
-		/** Get texture coords vertex buffer
-            @return Ogre::HardwareVertexBufferSharedPtr
-         */
-        inline Ogre::HardwareVertexBufferSharedPtr getTextureHardwareVertexBufferSharedPtr()
-        {
-            return mTexcoordsVertexBuffer;
-        }
-
-		/** Get index buffer
+		/** Get hardware index buffer
 		    @return Ogre::HardwareIndexBufferSharedPtr
 		 */
-		inline Ogre::HardwareIndexBufferSharedPtr getHardwareIndexBufferSharedPtr()
+		inline Ogre::HardwareIndexBufferSharedPtr getHardwareIndexBuffer()
 		{
 			return mIndexBuffer;
 		}
 
+		/** Is _createGeometry() called?
+		    @return true if created() have been already called
+		 */
+		inline const bool& isCreated() const
+		{
+			return mCreated;
+		}
+
     private:
-		/** Creates geometry for Mesh::Type::SIMPLE_GRID
+		/** Create mesh geometry
 		 */
-		void _createSimpleGridGeometry();
-
-		/** Creates geometry for Mesh::Type::PROJECTED_GRID
-		 */
-		void _createProjectedGridGeometry();
-
-		/** Update our Mesh::Type::SIMPLE_GRID geometry from a Image ONE_CHANNEL type data
-            @param HeigthMap Heigth data [0,1] range
-			@return false if Image type isn't correct.
-            @remarks Only call it after create() !
-			         If you need update mesh with another approach,
-					 get the position vertex buffer in your module.
-         */
-        bool _updateSimpleGridGeometry(const Image &HeigthMap);
-
-		/** Update our Mesh::Type::IMANTED_GRID geometry from a Image ONE_CHANNEL type data
-            @param HeigthMap Heigth data [0,1] range
-			@return false if Image type isn't correct.
-            @remarks Only call it after create() !
-			         If you need update mesh with another approach,
-					 get the position vertex buffer in your module.
-         */
-        bool _updateImantedGridGeometry(const Image &HeigthMap);
+		void _createGeometry();
 
         /// Mesh options
-        Options *mOptions;
+        Options mOptions;
+		/// Is _createGeometry() called?
+		bool mCreated;
         /// Ogre::MeshPtr
         Ogre::MeshPtr mMesh;
         /// Ogre::Submesh pointer
@@ -382,25 +295,16 @@ namespace Hydrax
         /// Number of vertices
         int mNumVertices;
 
-        /// Position vertex buffer
-        Ogre::HardwareVertexBufferSharedPtr mPosVertexBuffer;
-        /// Texture coordinate vertex buffer
-        Ogre::HardwareVertexBufferSharedPtr mTexcoordsVertexBuffer;
+        /// Vertex buffer
+        Ogre::HardwareVertexBufferSharedPtr mVertexBuffer;
         /// Index buffer
         Ogre::HardwareIndexBufferSharedPtr  mIndexBuffer;
 
-        /// Water strength(Y axis multiplier)
-        Ogre::Real mStrength;
         /// Material name
         Ogre::String mMaterialName;
 
-		/// For last camera x/z position
-		Ogre::Vector2 mLastCameraPosition;
-
-        /// Pointer to Ogre::SceneManager
-        Ogre::SceneManager *mSceneManager;
-		/// Pointer to Ogre::Camera(for LODs)
-		Ogre::Camera *mCamera;
+        /// Hydrax pointer
+		Hydrax *mHydrax;
     };
 }
 

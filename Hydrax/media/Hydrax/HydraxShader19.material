@@ -1,0 +1,113 @@
+//
+//   HydraxShader19.material for Ogre
+//   Xavier Verguín González
+//   December 2007
+//
+
+//   Refraction: Texture
+//   Reflection: Texture
+//   Additional Effects: Depth, Smooth transitions, Foam, Caustics
+
+vertex_program HydraxShader19/VP hlsl
+{
+	source HydraxShader19.hlsl
+	entry_point main_vp
+    target vs_1_1
+}
+
+fragment_program HydraxShader19/FP hlsl
+{
+	source HydraxShader19.hlsl
+	entry_point main_fp
+    target ps_2_0
+}
+
+material HydraxShader19
+{
+	technique
+	{
+		pass
+		{
+		    scene_blend alpha_blend
+		    depth_write on
+
+			vertex_program_ref HydraxShader19/VP
+			{
+                param_named_auto uWorldViewProj worldviewproj_matrix
+			}
+
+			fragment_program_ref HydraxShader19/FP
+			{
+			    param_named_auto uEyePosition camera_position_object_space
+
+			    param_named uFullReflectionDistance float 90000000
+			    param_named uGlobalTransparency float 0.05
+			    param_named uNormalDistortion float 0.09
+
+			    param_named uDepthColor float3 0 0.1 0.172
+
+			    param_named uSmoothPower float 30
+
+			    param_named uFoamMaxDistance float 75000000
+			    param_named uFoamScale float 50
+			    param_named uFoamStart float 0.5
+			    param_named uFoamTransparency float 1.275
+
+			    param_named uCausticsPower float 15
+			    param_named uCausticsEnd float 0.55
+			}
+
+			// Normal tex.
+			texture_unit
+			{
+				texture HydraxNormalMap
+				tex_address_mode wrap
+			}
+
+			// Reflection
+			texture_unit
+			{
+				// Will be filled in at runtime
+				texture Reflection
+				tex_address_mode clamp
+			}
+
+			// Refraction
+			texture_unit
+			{
+				// Will be filled in at runtime
+				texture Refraction
+                tex_address_mode clamp
+			}
+
+			// Depth
+			texture_unit
+			{
+				// Will be filled in at runtime
+				texture Depth
+                tex_address_mode clamp
+			}
+
+            // precomputed fresnel image
+			texture_unit
+			{
+			    texture precomputedFresnel1.bmp
+			    tex_address_mode clamp
+			}
+
+			// height
+			texture_unit
+			{
+			    texture HydraxHeight
+			    tex_address_mode wrap
+			}
+
+			// foam
+			texture_unit
+			{
+			    texture foam.tga
+			    tex_address_mode wrap
+			}
+		}
+	}
+}

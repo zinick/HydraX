@@ -6,20 +6,19 @@ Visit ---
 Copyright (C) 2008 Xavier Verguín González <xavierverguin@hotmail.com>
                                            <xavyiy@gmail.com>
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software Foundation, Inc.,
-59 Temple Place - Suite 330, Boston, MA  02111-1307, USA, or go to
-http://www.gnu.org/copyleft/gpl.html.
+You should have received a copy of the GNU Lesser General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place - Suite 330, Boston, MA 02111-1307, USA, or go to
+http://www.gnu.org/copyleft/lesser.txt.
 --------------------------------------------------------------------------------
 */
 
@@ -35,11 +34,12 @@ http://www.gnu.org/copyleft/gpl.html.
 #include "Image.h"
 #include "MaterialManager.h"
 #include "TextureManager.h"
+#include "DecalsManager.h"
 #include "Modules/Module.h"
 
 namespace Hydrax
 {
-    /** Main Hydrax class.
+    /** Main Hydrax class. 
 	    Hydrax is a plugin for the Ogre3D engine whose aim is rendering realistic water scenes.
 		Do not use two instances of the Hydrax class.
      */
@@ -71,12 +71,6 @@ namespace Hydrax
             @param Component Component that we want to check
          */
         bool isComponent(const HydraxComponent &Component);
-
-        /** Set mesh options
-            @param Options Mesh::Options base class pointer
-            @remarks It can be called after create(), Mesh will be updated
-         */
-		void setMeshOptions(Mesh::Options *Options);
 
         /** Set Rtt options
             @param RttOptions Options
@@ -134,10 +128,10 @@ namespace Hydrax
          */
         void setPlanesError(const Ogre::Real &PlanesError);
 
-        /** Set water strength
-            @param Strength Water strength
+        /** Set water strength GPU param
+            @param Strength Water strength GPU param
          */
-        void setStrength(const Ogre::Real &Strength);
+        void _setStrength(const Ogre::Real &Strength);
 
         /** Set full reflection distance
             @param FullReflectionDistance Full reflection distance
@@ -274,6 +268,14 @@ namespace Hydrax
 			return mTextureManager;
 		}
 
+		/** Get Hydrax::DecalsManager
+		    @return Hydrax::DecalsManager pointer
+		 */
+		inline DecalsManager* getDecalsManager()
+		{
+			return mDecalsManager;
+		}
+
 		/** Get our Hydrax::Module::Module
 		    @return Hydrax::Module::Module pointer or NULL if Module isn't set.
 		 */
@@ -281,14 +283,6 @@ namespace Hydrax
 		{
 			return mModule;
 		}
-
-        /** Get mesh options
-            @return Mesh::Options base class pointer
-         */
-		inline Mesh::Options *getMeshOptions()
-        {
-            return mMesh->getOptions();
-        }
 
         /** Get rtt options
             @return Hydrax rtt options
@@ -352,14 +346,6 @@ namespace Hydrax
 		{
 			return getHeigth(Ogre::Vector2(Position.x, Position.z));
 		}
-
-        /** Get water strength
-            @return Hydrax water strength
-         */
-        inline const Ogre::Real& getStrength() const
-        {
-            return mMesh->getStrength();
-        }
 
         /** Get full reflection distance
             @return Hydrax water full reflection distance
@@ -551,25 +537,25 @@ namespace Hydrax
 			public:
 				/** Called at the start of the queue
 				 */
-				void renderQueueStarted(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation)
+				void renderQueueStarted(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation) 
 				{
-					if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE)
+					if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE) 
 						&& mActive)
 					{
 						mHydrax->getCamera()->disableCustomNearClipPlane();
-						Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mHydrax->getCamera()->getProjectionMatrixRS());
+						Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mHydrax->getCamera()->getProjectionMatrixRS()); 
 					}
 				}
 
 				/** Called on the end of the queue
 				 */
-				void renderQueueEnded(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation)
+				void renderQueueEnded(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation) 
 				{
-					if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE)
+					if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE) 
 						&& mActive)
 					{
 						mHydrax->getCamera()->enableCustomNearClipPlane(mHydrax->mReflectionPlane);
-						Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mHydrax->getCamera()->getProjectionMatrixRS());
+						Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mHydrax->getCamera()->getProjectionMatrixRS()); 
 					}
 				}
 
@@ -709,6 +695,8 @@ namespace Hydrax
 		MaterialManager *mMaterialManager;
 		/// Our Hydrax::TextureManager pointer
 		TextureManager *mTextureManager;
+		/// Out Hydrax::DecalsManager pointer
+		DecalsManager *mDecalsManager;
 		/// Our Hydrax::Module::Module pointer
 		Module::Module *mModule;
 

@@ -40,7 +40,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="include;&quot;$(OGRE_HOME)/Include&quot;"
-				AdditionalUsingDirectories="&quot;#define HYDRAX_LIB&quot;"
+				AdditionalUsingDirectories=""
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;HYDRAX_EXPORTS;HYDRAX_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$C:\ogrenew\Lib&quot;;"
+				AdditionalLibraryDirectories="&quot;$(OGRE_HOME)/Lib&quot;;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -193,15 +193,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\abs.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\add.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\add.h"
 				>
 			</File>
 			<File
@@ -209,19 +201,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\basictypes.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\billow.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\billow.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\blend.h"
 				>
 			</File>
 			<File
@@ -233,27 +213,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\cache.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\checkerboard.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\checkerboard.h"
 				>
 			</File>
 			<File
 				RelativePath=".\include\noise\module\clamp.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\clamp.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\const.h"
 				>
 			</File>
 			<File
@@ -265,15 +229,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\curve.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\model\cylinder.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\model\cylinder.h"
 				>
 			</File>
 			<File
@@ -281,11 +237,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\cylinders.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\displace.h"
+				RelativePath=".\src\Hydrax\DecalsManager.h"
 				>
 			</File>
 			<File
@@ -305,15 +257,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\exception.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\exponent.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\exponent.h"
 				>
 			</File>
 			<File
@@ -337,23 +281,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\interp.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\interp.h"
 				>
 			</File>
 			<File
 				RelativePath=".\include\noise\module\invert.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\invert.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\latlon.h"
 				>
 			</File>
 			<File
@@ -365,23 +297,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\model\line.h"
-				>
-			</File>
-			<File
 				RelativePath=".\src\Hydrax\MaterialManager.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\mathconsts.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\mathconsts.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\max.h"
 				>
 			</File>
 			<File
@@ -397,23 +317,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\min.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\min.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\misc.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\misc.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\model\model.h"
 				>
 			</File>
 			<File
@@ -429,19 +337,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\module.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\modulebase.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\modulebase.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\multiply.h"
 				>
 			</File>
 			<File
@@ -449,15 +345,11 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\Hydrax\Noise\Noise.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\noise\noise.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\noise.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\noisegen.h"
 				>
 			</File>
 			<File
@@ -465,19 +357,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\noiseutils.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\noiseutils.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\perlin.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\Hydrax\Perlin.h"
 				>
 			</File>
 			<File
@@ -485,15 +365,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Modules\Perlin\Perlin.h"
+				RelativePath=".\include\Hydrax\Perlin.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Modules\PerlinPG\PerlinPG.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\model\plane.h"
+				RelativePath=".\src\Hydrax\Noise\Perlin\Perlin.h"
 				>
 			</File>
 			<File
@@ -501,15 +377,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\power.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\power.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\Hydrax\Prerequisites.h"
 				>
 			</File>
 			<File
@@ -517,11 +385,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\noise\win32\resource.h"
+				RelativePath=".\src\Hydrax\Prerequisites.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\ridgedmulti.h"
+				RelativePath=".\src\Hydrax\Modules\ProjectedGrid\ProjectedGrid.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\noise\win32\resource.h"
 				>
 			</File>
 			<File
@@ -533,14 +405,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\rotatepoint.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\scalebias.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\scalebias.h"
 				>
 			</File>
@@ -549,19 +413,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\scalepoint.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\select.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\select.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\model\sphere.h"
+				RelativePath=".\src\Hydrax\Modules\SimpleGrid\SimpleGrid.h"
 				>
 			</File>
 			<File
@@ -569,15 +425,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\spheres.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\spheres.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\Hydrax\Structs.h"
 				>
 			</File>
 			<File
@@ -585,7 +433,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\terrace.h"
+				RelativePath=".\src\Hydrax\Structs.h"
 				>
 			</File>
 			<File
@@ -597,15 +445,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\translatepoint.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\translatepoint.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\turbulence.h"
 				>
 			</File>
 			<File
@@ -617,15 +457,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\vectortable.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\noise\module\voronoi.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\voronoi.h"
 				>
 			</File>
 		</Filter>
@@ -641,59 +473,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\src\noise\module\abs.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\add.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\billow.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\blend.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\cache.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\checkerboard.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\clamp.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\const.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\curve.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\model\cylinder.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\cylinders.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\displace.cpp"
+				RelativePath=".\src\Hydrax\DecalsManager.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\src\hydrax\Enums.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\exponent.cpp"
 				>
 			</File>
 			<File
@@ -709,23 +493,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\invert.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\latlon.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\model\line.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\Hydrax\MaterialManager.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\max.cpp"
 				>
 			</File>
 			<File
@@ -733,65 +501,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\min.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\Hydrax\Modules\Module.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\modulebase.cpp"
+				RelativePath=".\src\Hydrax\Noise\Noise.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\multiply.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\noisegen.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\noiseutils.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\Hydrax\Modules\Perlin\Perlin.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)\$(InputName)1.obj"
-						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)\$(InputName)1.obj"
-						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\perlin_1.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\Hydrax\Modules\PerlinPG\PerlinPG.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\model\plane.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\power.cpp"
+				RelativePath=".\src\Hydrax\Noise\Perlin\Perlin.cpp"
 				>
 			</File>
 			<File
@@ -799,31 +517,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\ridgedmulti.cpp"
+				RelativePath=".\src\Hydrax\Modules\ProjectedGrid\ProjectedGrid.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\rotatepoint.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\scalebias.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\scalepoint.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\select.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\model\sphere.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\spheres.cpp"
+				RelativePath=".\src\Hydrax\Modules\SimpleGrid\SimpleGrid.cpp"
 				>
 			</File>
 			<File
@@ -831,23 +529,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\noise\module\terrace.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\src\Hydrax\TextureManager.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\translatepoint.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\turbulence.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\noise\module\voronoi.cpp"
 				>
 			</File>
 		</Filter>

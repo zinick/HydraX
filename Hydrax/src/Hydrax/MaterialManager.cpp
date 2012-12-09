@@ -6,20 +6,19 @@ Visit ---
 Copyright (C) 2008 Xavier Verguín González <xavierverguin@hotmail.com>
                                            <xavyiy@gmail.com>
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software Foundation, Inc.,
-59 Temple Place - Suite 330, Boston, MA  02111-1307, USA, or go to
-http://www.gnu.org/copyleft/gpl.html.
+You should have received a copy of the GNU Lesser General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place - Suite 330, Boston, MA 02111-1307, USA, or go to
+http://www.gnu.org/copyleft/lesser.txt.
 --------------------------------------------------------------------------------
 */
 
@@ -87,6 +86,7 @@ namespace Hydrax
 		{
 			return false;
 		}
+		mHydrax->getDecalsManager()->registerAll();
 		HydraxLOG("Water material created.");
 
 		if (_isComponent(Components, HYDRAX_COMPONENT_DEPTH))
@@ -329,7 +329,7 @@ namespace Hydrax
 						if (cFoam)
 						{
 							ShaderStr += Ogre::String(
-							    "uniform float2       uFoamRange,\n") +
+							    "uniform float        uFoamRange,\n") +
 							    "uniform float        uFoamMaxDistance,\n" +
 	                            "uniform float        uFoamScale,\n" +
 	                            "uniform float        uFoamStart,\n" +
@@ -468,7 +468,7 @@ namespace Hydrax
 						if (cFoam)
 						{
 							ShaderStr += Ogre::String(
-							    "float hmap = ((iPosition.y - uFoamRange.x)/uFoamRange.y)*foamVisibility;\n") +
+							    "float hmap = iPosition.y/uFoamRange*foamVisibility;\n") +
 								"float2 foamTex=iPosition.xz*uFoamScale+pixelNormalModified;\n" +
 								"float foam=tex2D(uFoamMap,foamTex).r;\n" +
 								"float foamTransparency=saturate(hmap-uFoamStart)*uFoamTransparency;\n" +
@@ -529,6 +529,7 @@ namespace Hydrax
 		    WM_Technique0_Pass0->setSceneBlending(Ogre::SBT_TRANSPARENT_ALPHA);
 		}
 		WM_Technique0_Pass0->setDepthWriteEnabled(true);
+		// WM_Technique0_Pass0->setCullingMode(Ogre::CULL_NONE);
 
 		WM_Technique0_Pass0->setVertexProgram(_def_Water_Shader_VP_Name);
 		WM_Technique0_Pass0->setFragmentProgram(_def_Water_Shader_FP_Name);
@@ -560,8 +561,7 @@ namespace Hydrax
 		}
 		if (cFoam)
 		{
-			float FRange[2] = {mHydrax->getPosition().y, mHydrax->getStrength()};
-			FP_Parameters->setNamedConstant("uFoamRange",        FRange, 1, 2);
+			FP_Parameters->setNamedConstant("uFoamRange",        mHydrax->getMesh()->getOptions().MeshStrength);
 			FP_Parameters->setNamedConstant("uFoamMaxDistance",  mHydrax->getFoamMaxDistance());
 			FP_Parameters->setNamedConstant("uFoamScale",        mHydrax->getFoamScale());
 			FP_Parameters->setNamedConstant("uFoamStart",        mHydrax->getFoamStart());
@@ -578,12 +578,12 @@ namespace Hydrax
 		    WM_Technique0_Pass0->createTextureUnitState("HydraxNormalMap")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_WRAP);
 		}
 
-		WM_Technique0_Pass0->createTextureUnitState("Reflection")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
-		WM_Technique0_Pass0->createTextureUnitState("Refraction")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
+		WM_Technique0_Pass0->createTextureUnitState("HydraxReflectionMap")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
+		WM_Technique0_Pass0->createTextureUnitState("HydraxRefractionMap")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
 
 		if (cDepth)
 		{
-			WM_Technique0_Pass0->createTextureUnitState("Depth")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
+			WM_Technique0_Pass0->createTextureUnitState("HydraxDepthMap")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
 		}
 
 		WM_Technique0_Pass0->createTextureUnitState("Fresnel.bmp")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
@@ -895,8 +895,7 @@ namespace Hydrax
 				}
 				if (cFoam)
 				{
-					float FRange[2] = {mHydrax->getPosition().y, mHydrax->getStrength()};
-			        FP_Parameters->setNamedConstant("uFoamRange",        FRange, 1, 2);
+			        FP_Parameters->setNamedConstant("uFoamRange",        mHydrax->getMesh()->getOptions().MeshStrength);
 					FP_Parameters->setNamedConstant("uFoamMaxDistance",  mHydrax->getFoamMaxDistance());
 					FP_Parameters->setNamedConstant("uFoamScale",        mHydrax->getFoamScale());
 					FP_Parameters->setNamedConstant("uFoamStart",        mHydrax->getFoamStart());
@@ -941,6 +940,7 @@ namespace Hydrax
 		}
 
 		Material->getTechnique(Index)->removeAllPasses();
+		Material->getTechnique(Index)->createPass();
 		Material->getTechnique(Index)->setSchemeName("HydraxDepth");
 
 		Ogre::Pass *DM_Technique0_Pass0 = Material->getTechnique(Index)->getPass(0);
@@ -989,7 +989,7 @@ namespace Hydrax
 
 	void MaterialManager::setGpuProgramParameter(const GpuProgram &GpuP, const MaterialType &MType, const Ogre::String &Name, const Ogre::Real &Value)
 	{
-		if (!isCreated())
+		if (!mCreated)
 		{
 			return;
 		}
@@ -1016,7 +1016,7 @@ namespace Hydrax
 
 	void MaterialManager::setGpuProgramParameter(const GpuProgram &GpuP, const MaterialType &MType, const Ogre::String &Name, const Ogre::Vector2 &Value)
 	{
-		if (!isCreated())
+		if (!mCreated)
 		{
 			return;
 		}
@@ -1045,7 +1045,7 @@ namespace Hydrax
 
 	void MaterialManager::setGpuProgramParameter(const GpuProgram &GpuP, const MaterialType &MType, const Ogre::String &Name, const Ogre::Vector3 &Value)
 	{
-		if (!isCreated())
+		if (!mCreated)
 		{
 			return;
 		}

@@ -11,18 +11,13 @@
 // ----------------------------------------------------------------------------
 #include <ExampleApplication.h>
 
+// ----------------------------------------------------------------------------
+// Include the Hydrax plugin headers
+// Main base headers (Hydrax.h) and especific headers (Noise/Water modules)
+// ----------------------------------------------------------------------------
 #include "Hydrax.h"
-#include "Modules/Perlin/Perlin.h"
-#include "Modules/PerlinPG/PerlinPG.h"
-
-// ----------------------------------------------------------------------------
-// Define the application object
-// This is derived from ExampleApplication which is the class OGRE provides to
-// make it easier to set up OGRE without rewriting the same code all the time.
-// You can override extra methods of ExampleApplication if you want to further
-// specialise the setup routine, otherwise the only mandatory override is the
-// 'createScene' method which is where you set up your own personal scene.
-// ----------------------------------------------------------------------------
+#include "Noise/Perlin/Perlin.h"
+#include "Modules/ProjectedGrid/ProjectedGrid.h"
 
 #define _def_SkyBoxNum 5
 #define _def_PGComplexity 256
@@ -50,14 +45,30 @@ Ogre::Vector3 mSunColor[_def_SkyBoxNum] = {
                               Ogre::Vector3(1,0.4,0.1),
 							  Ogre::Vector3(0,0,0)};
 
-Hydrax::Module::PerlinPG::Options mPGOptions[_def_SkyBoxNum] = {
-	                          Hydrax::Module::PerlinPG::Options(_def_PGComplexity),
-							  Hydrax::Module::PerlinPG::Options(_def_PGComplexity, 45.5f, true, 8, 0.085f, 0.49f, 1.4f, 1.27f, 7.0f, false),
-							  Hydrax::Module::PerlinPG::Options(_def_PGComplexity, 32.5f, true, 8, 0.085f, 0.49f, 1.4f, 1.27f, 7.0f, false),
-							  Hydrax::Module::PerlinPG::Options(_def_PGComplexity, 32.5f, true, 8, 0.075f, 0.49f, 1.4f, 1.27f, 7.0f, false),
-							  Hydrax::Module::PerlinPG::Options(_def_PGComplexity, 20.0f, true, 8, 0.085f, 0.49f, 1.4f, 1.27f, 7.0f, false)};
+Hydrax::Module::ProjectedGrid::Options mPGOptions[_def_SkyBoxNum] = {
+	                          Hydrax::Module::ProjectedGrid::Options(_def_PGComplexity),
+	                          Hydrax::Module::ProjectedGrid::Options(_def_PGComplexity, 45.5f, 7.0f, false),
+	                          Hydrax::Module::ProjectedGrid::Options(_def_PGComplexity, 32.5f, 7.0f, false),
+	                          Hydrax::Module::ProjectedGrid::Options(_def_PGComplexity, 32.5f, 7.0f, false),
+	                          Hydrax::Module::ProjectedGrid::Options(_def_PGComplexity, 20.0f, 7.0f, false)};
+
+Hydrax::Noise::Perlin::Options mPerlinOptions[_def_SkyBoxNum] = {
+							  Hydrax::Noise::Perlin::Options(8, 0.085f, 0.49f, 1.4f, 1.27),
+							  Hydrax::Noise::Perlin::Options(8, 0.085f, 0.49f, 1.4f, 1.27),
+							  Hydrax::Noise::Perlin::Options(8, 0.085f, 0.49f, 1.4f, 1.27),
+							  Hydrax::Noise::Perlin::Options(8, 0.075f, 0.49f, 1.4f, 1.27),
+							  Hydrax::Noise::Perlin::Options(8, 0.085f, 0.49f, 1.4f, 1.27)};
 
 int mCurrentSkyBox = 0;
+
+// ----------------------------------------------------------------------------
+// Define the application object
+// This is derived from ExampleApplication which is the class OGRE provides to
+// make it easier to set up OGRE without rewriting the same code all the time.
+// You can override extra methods of ExampleApplication if you want to further
+// specialise the setup routine, otherwise the only mandatory override is the
+// 'createScene' method which is where you set up your own personal scene.
+// ----------------------------------------------------------------------------
 
 class ExampleHydraxDemoListener : public ExampleFrameListener
 {
@@ -110,10 +121,15 @@ public:
         mSceneMgr->getLight("Light0")->setPosition(mSunPosition[mCurrentSkyBox]);
         mSceneMgr->getLight("Light0")->setSpecularColour(mSunColor[mCurrentSkyBox].x,mSunColor[mCurrentSkyBox].y,mSunColor[mCurrentSkyBox].z);
 
-		// Update projected grid options
-		static_cast<Hydrax::Module::PerlinPG*>(mHydrax->getModule())->setOptions(mPGOptions[mCurrentSkyBox]);
+		// Update perlin noise options
+		static_cast<Hydrax::Noise::Perlin*>(mHydrax->getModule()->getNoise())
+			->setOptions(mPerlinOptions[mCurrentSkyBox]);
 
-        LogManager::getSingleton().logMessage("Skybox " + mSkyBoxes[mCurrentSkyBox] + " selected. ("+Ogre::StringConverter::toString(mCurrentSkyBox+1)+"/"+Ogre::StringConverter::toString(4)+")");
+		// Update projected grid options
+		static_cast<Hydrax::Module::ProjectedGrid*>(mHydrax->getModule())
+			->setOptions(mPGOptions[mCurrentSkyBox]);
+
+        LogManager::getSingleton().logMessage("Skybox " + mSkyBoxes[mCurrentSkyBox] + " selected. ("+Ogre::StringConverter::toString(mCurrentSkyBox+1)+"/"+Ogre::StringConverter::toString(_def_SkyBoxNum)+")");
     }
 };
 
@@ -140,18 +156,7 @@ protected:
         // Create Hydrax object
 		mHydrax = new Hydrax::Hydrax(mSceneMgr, mCamera);
 
-		// Set our mesh options
-		mHydrax->setMeshOptions(
-			static_cast<Hydrax::Mesh::Options*>(new Hydrax::Mesh::ProjectedGridOptions(_def_PGComplexity)));
-
-		// Create our projected grid module
-		Hydrax::Module::PerlinPG *mModule
-			= new Hydrax::Module::PerlinPG(mHydrax,
-			                               Ogre::Plane(Ogre::Vector3(0,1,0),
-										   Ogre::Vector3(0,0,0)),
-										   Hydrax::Module::PerlinPG::Options(_def_PGComplexity));
-
-		// Set rtt textures quality
+		// Set RTT textures quality
         mHydrax->setRttOptions(
                    Hydrax::RttOptions(// Reflection tex quality
                                       Hydrax::TEX_QUA_1024,
@@ -168,6 +173,17 @@ protected:
                                                  Hydrax::HYDRAX_COMPONENT_SMOOTH |
                                                  Hydrax::HYDRAX_COMPONENT_CAUSTICS));
 
+		// Create our projected grid module  
+		Hydrax::Module::ProjectedGrid *mModule 
+			= new Hydrax::Module::ProjectedGrid(// Hydrax parent pointer
+			                                    mHydrax,
+												// Noise module
+			                                    new Hydrax::Noise::Perlin(/* Default options (8, 0.085f, 0.49f, 1.4f, 1.27f) */),
+												// Base plane
+			                                    Ogre::Plane(Ogre::Vector3(0,1,0), Ogre::Vector3(0,0,0)),
+												// Projected grid options (Can be updated each frame -> setOptions(...))
+										        Hydrax::Module::ProjectedGrid::Options(_def_PGComplexity /* See more constructors */));
+
 		// Set our module
 		mHydrax->setModule(static_cast<Hydrax::Module::Module*>(mModule));
 
@@ -178,7 +194,6 @@ protected:
         mHydrax->create();
 
         // Adjust some options
-        // mHydrax->setStrength(50.5);
         mHydrax->setPosition(Ogre::Vector3(0,0,0));
         mHydrax->setPlanesError(37.5);
         mHydrax->setDepthLimit(110);
@@ -202,7 +217,7 @@ protected:
 
         // Island
         Ogre::Entity* IslandEntity;
-		IslandEntity = mSceneMgr->createEntity( "Island", "Island.mesh" );
+		IslandEntity = mSceneMgr->createEntity("Island", "Island.mesh");
 		IslandEntity->setMaterialName("Examples/OffsetMapping/Specular");
 		Ogre::SceneNode* IslandSceneNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(5000, -175, 5000));
 		IslandSceneNode->setScale(23, 13.5, 23);

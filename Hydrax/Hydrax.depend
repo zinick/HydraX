@@ -1950,7 +1950,7 @@
 1198624413 c:\ogresdk_mingw\hydrax\hydrax\src\hydrax\prerequisites.h
 	<Ogre.h>
 
-1165507334 c:\ogresdk_mingw\include\ogre.h
+1165510934 c:\ogresdk_mingw\include\ogre.h
 	"OgrePrerequisites.h"
 	"OgreAnimation.h"
 	"OgreAnimationState.h"
@@ -2047,24 +2047,24 @@
 	"OgreShadowCameraSetupLiSPSM.h"
 	"OgreShadowCameraSetupPlaneOptimal.h"
 
-1181477614 c:\ogresdk_mingw\include\ogreprerequisites.h
+1181481214 c:\ogresdk_mingw\include\ogreprerequisites.h
 	"OgrePlatform.h"
 	"OgreMemoryManager.h"
 
-1172538340 c:\ogresdk_mingw\include\ogreplatform.h
+1172541940 c:\ogresdk_mingw\include\ogreplatform.h
 	"OgreConfig.h"
 	<_mingw.h>
 	"config.h"
 
-1177342566 c:\ogresdk_mingw\include\ogreconfig.h
+1177346166 c:\ogresdk_mingw\include\ogreconfig.h
 	"config.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrememorymanager.h
+1156321112 c:\ogresdk_mingw\include\ogrememorymanager.h
 	"OgrePlatform.h"
 	"OgreStdHeaders.h"
 	"OgreMemoryMacros.h"
 
-1172507370 c:\ogresdk_mingw\include\ogrestdheaders.h
+1172510970 c:\ogresdk_mingw\include\ogrestdheaders.h
 	<cassert>
 	<cstdio>
 	<cstdlib>
@@ -2101,23 +2101,23 @@
 	<CoreFoundation/CoreFoundation.h>
 	<boost/thread/recursive_mutex.hpp>
 
-1174413024 c:\ogresdk_mingw\include\ogrememorymacros.h
+1174416624 c:\ogresdk_mingw\include\ogrememorymacros.h
 
-1171690122 c:\ogresdk_mingw\include\ogreanimation.h
+1171693722 c:\ogresdk_mingw\include\ogreanimation.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreIteratorWrappers.h"
 	"OgreAnimable.h"
 	"OgreAnimationTrack.h"
 
-1176220704 c:\ogresdk_mingw\include\ogrestring.h
+1176224304 c:\ogresdk_mingw\include\ogrestring.h
 	"OgrePrerequisites.h"
 	<ext/hash_map>
 
-1183734884 c:\ogresdk_mingw\include\ogreiteratorwrappers.h
+1183738484 c:\ogresdk_mingw\include\ogreiteratorwrappers.h
 	"OgrePrerequisites.h"
 
-1166464152 c:\ogresdk_mingw\include\ogreanimable.h
+1166467752 c:\ogresdk_mingw\include\ogreanimable.h
 	"OgrePrerequisites.h"
 	"OgreVector2.h"
 	"OgreVector3.h"
@@ -2129,50 +2129,50 @@
 	"OgreException.h"
 	"OgreAny.h"
 
-1166464152 c:\ogresdk_mingw\include\ogrevector2.h
+1166467752 c:\ogresdk_mingw\include\ogrevector2.h
 	"OgrePrerequisites.h"
 	"OgreMath.h"
 
-1168603876 c:\ogresdk_mingw\include\ogremath.h
+1168607476 c:\ogresdk_mingw\include\ogremath.h
 	"OgrePrerequisites.h"
 
-1178911062 c:\ogresdk_mingw\include\ogrevector3.h
+1178914662 c:\ogresdk_mingw\include\ogrevector3.h
 	"OgrePrerequisites.h"
 	"OgreMath.h"
 	"OgreQuaternion.h"
 
-1174402800 c:\ogresdk_mingw\include\ogrequaternion.h
+1174406400 c:\ogresdk_mingw\include\ogrequaternion.h
 	"OgrePrerequisites.h"
 	"OgreMath.h"
 
-1166464152 c:\ogresdk_mingw\include\ogrevector4.h
+1166467752 c:\ogresdk_mingw\include\ogrevector4.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 
-1171020224 c:\ogresdk_mingw\include\ogrecolourvalue.h
+1171023824 c:\ogresdk_mingw\include\ogrecolourvalue.h
 	"OgrePrerequisites.h"
 
-1183389906 c:\ogresdk_mingw\include\ogresharedptr.h
+1183393506 c:\ogresdk_mingw\include\ogresharedptr.h
 	"OgrePrerequisites.h"
 
-1156317516 c:\ogresdk_mingw\include\ogrestringvector.h
+1156321116 c:\ogresdk_mingw\include\ogrestringvector.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreSharedPtr.h"
 
-1182763398 c:\ogresdk_mingw\include\ogreexception.h
+1182766998 c:\ogresdk_mingw\include\ogreexception.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	<exception>
 
-1156317512 c:\ogresdk_mingw\include\ogreany.h
+1156321112 c:\ogresdk_mingw\include\ogreany.h
 	"OgrePrerequisites.h"
 	"OgreException.h"
 	"OgreString.h"
 	<algorithm>
 	<typeinfo>
 
-1166292394 c:\ogresdk_mingw\include\ogreanimationtrack.h
+1166295994 c:\ogresdk_mingw\include\ogreanimationtrack.h
 	"OgrePrerequisites.h"
 	"OgreSimpleSpline.h"
 	"OgreRotationalSpline.h"
@@ -2180,31 +2180,31 @@
 	"OgreAnimable.h"
 	"OgrePose.h"
 
-1156317516 c:\ogresdk_mingw\include\ogresimplespline.h
+1156321116 c:\ogresdk_mingw\include\ogresimplespline.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreMatrix4.h"
 
-1172389240 c:\ogresdk_mingw\include\ogrematrix4.h
+1172392840 c:\ogresdk_mingw\include\ogrematrix4.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreMatrix3.h"
 	"OgreVector4.h"
 	"OgrePlane.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrematrix3.h
+1156321112 c:\ogresdk_mingw\include\ogrematrix3.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 
-1183385828 c:\ogresdk_mingw\include\ogreplane.h
+1183389428 c:\ogresdk_mingw\include\ogreplane.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 
-1156317516 c:\ogresdk_mingw\include\ogrerotationalspline.h
+1156321116 c:\ogresdk_mingw\include\ogrerotationalspline.h
 	"OgrePrerequisites.h"
 	"OgreQuaternion.h"
 
-1158528982 c:\ogresdk_mingw\include\ogrekeyframe.h
+1158532582 c:\ogresdk_mingw\include\ogrekeyframe.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreQuaternion.h"
@@ -2212,51 +2212,51 @@
 	"OgreHardwareVertexBuffer.h"
 	"OgreIteratorWrappers.h"
 
-1171125466 c:\ogresdk_mingw\include\ogrehardwarevertexbuffer.h
+1171129066 c:\ogresdk_mingw\include\ogrehardwarevertexbuffer.h
 	"OgrePrerequisites.h"
 	"OgreHardwareBuffer.h"
 	"OgreSharedPtr.h"
 	"OgreColourValue.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrehardwarebuffer.h
+1156321112 c:\ogresdk_mingw\include\ogrehardwarebuffer.h
 	"OgrePrerequisites.h"
 
-1172997504 c:\ogresdk_mingw\include\ogrepose.h
+1173001104 c:\ogresdk_mingw\include\ogrepose.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreHardwareVertexBuffer.h"
 	"OgreVector3.h"
 	"OgreIteratorWrappers.h"
 
-1174414392 c:\ogresdk_mingw\include\ogreanimationstate.h
+1174417992 c:\ogresdk_mingw\include\ogreanimationstate.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreController.h"
 	"OgreIteratorWrappers.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrecontroller.h
+1156321112 c:\ogresdk_mingw\include\ogrecontroller.h
 	"OgrePrerequisites.h"
 	"OgreSharedPtr.h"
 
-1168112408 c:\ogresdk_mingw\include\ogrearchive.h
+1168116008 c:\ogresdk_mingw\include\ogrearchive.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreDataStream.h"
 	"OgreSharedPtr.h"
 	"OgreStringVector.h"
 
-1156317512 c:\ogresdk_mingw\include\ogredatastream.h
+1156321112 c:\ogresdk_mingw\include\ogredatastream.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreSharedPtr.h"
 	<istream>
 
-1156317512 c:\ogresdk_mingw\include\ogrearchivemanager.h
+1156321112 c:\ogresdk_mingw\include\ogrearchivemanager.h
 	"OgrePrerequisites.h"
 	"OgreResourceManager.h"
 	"OgreSingleton.h"
 
-1178110034 c:\ogresdk_mingw\include\ogreresourcemanager.h
+1178113634 c:\ogresdk_mingw\include\ogreresourcemanager.h
 	"OgrePrerequisites.h"
 	"OgreResource.h"
 	"OgreResourceGroupManager.h"
@@ -2266,24 +2266,24 @@
 	"OgreStringVector.h"
 	"OgreScriptLoader.h"
 
-1172598696 c:\ogresdk_mingw\include\ogreresource.h
+1172602296 c:\ogresdk_mingw\include\ogreresource.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreSharedPtr.h"
 	"OgreStringInterface.h"
 
-1156317516 c:\ogresdk_mingw\include\ogrestringinterface.h
+1156321116 c:\ogresdk_mingw\include\ogrestringinterface.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreCommon.h"
 
-1172507370 c:\ogresdk_mingw\include\ogrecommon.h
+1172510970 c:\ogresdk_mingw\include\ogrecommon.h
 	"OgreString.h"
 	<utility>
 	<vector>
 	<map>
 
-1168112408 c:\ogresdk_mingw\include\ogreresourcegroupmanager.h
+1168116008 c:\ogresdk_mingw\include\ogreresourcegroupmanager.h
 	"OgrePrerequisites.h"
 	"OgreSingleton.h"
 	"OgreCommon.h"
@@ -2292,25 +2292,25 @@
 	"OgreArchive.h"
 	"OgreIteratorWrappers.h"
 
-1177770560 c:\ogresdk_mingw\include\ogresingleton.h
+1177774160 c:\ogresdk_mingw\include\ogresingleton.h
 	"OgrePrerequisites.h"
 
-1156317516 c:\ogresdk_mingw\include\ogrescriptloader.h
+1156321116 c:\ogresdk_mingw\include\ogrescriptloader.h
 	"OgrePrerequisites.h"
 	"OgreDataStream.h"
 	"OgreStringVector.h"
 
-1175862560 c:\ogresdk_mingw\include\ogreaxisalignedbox.h
+1175866160 c:\ogresdk_mingw\include\ogreaxisalignedbox.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreMatrix4.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrebillboardchain.h
+1156321112 c:\ogresdk_mingw\include\ogrebillboardchain.h
 	"OgrePrerequisites.h"
 	"OgreMovableObject.h"
 	"OgreRenderable.h"
 
-1169634246 c:\ogresdk_mingw\include\ogremovableobject.h
+1169637846 c:\ogresdk_mingw\include\ogremovableobject.h
 	"OgrePrerequisites.h"
 	"OgreRenderQueue.h"
 	"OgreAxisAlignedBox.h"
@@ -2321,19 +2321,19 @@
 	"OgreAny.h"
 	"OgreUserDefinedObject.h"
 
-1183226988 c:\ogresdk_mingw\include\ogrerenderqueue.h
+1183230588 c:\ogresdk_mingw\include\ogrerenderqueue.h
 	"OgrePrerequisites.h"
 	"OgreIteratorWrappers.h"
 
-1156317516 c:\ogresdk_mingw\include\ogresphere.h
+1156321116 c:\ogresdk_mingw\include\ogresphere.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 
-1169634246 c:\ogresdk_mingw\include\ogreshadowcaster.h
+1169637846 c:\ogresdk_mingw\include\ogreshadowcaster.h
 	"OgrePrerequisites.h"
 	"OgreRenderable.h"
 
-1172744838 c:\ogresdk_mingw\include\ogrerenderable.h
+1172748438 c:\ogresdk_mingw\include\ogrerenderable.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreRenderOperation.h"
@@ -2344,21 +2344,21 @@
 	"OgreVector4.h"
 	"OgreException.h"
 
-1156317514 c:\ogresdk_mingw\include\ogrerenderoperation.h
+1156321114 c:\ogresdk_mingw\include\ogrerenderoperation.h
 	"OgrePrerequisites.h"
 	"OgreVertexIndexData.h"
 
-1171125466 c:\ogresdk_mingw\include\ogrevertexindexdata.h
+1171129066 c:\ogresdk_mingw\include\ogrevertexindexdata.h
 	"OgrePrerequisites.h"
 	"OgreHardwareVertexBuffer.h"
 	"OgreHardwareIndexBuffer.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrehardwareindexbuffer.h
+1156321112 c:\ogresdk_mingw\include\ogrehardwareindexbuffer.h
 	"OgrePrerequisites.h"
 	"OgreHardwareBuffer.h"
 	"OgreSharedPtr.h"
 
-1168705888 c:\ogresdk_mingw\include\ogrematerial.h
+1168709488 c:\ogresdk_mingw\include\ogrematerial.h
 	"OgrePrerequisites.h"
 	"OgreResource.h"
 	"OgreIteratorWrappers.h"
@@ -2366,37 +2366,37 @@
 	"OgreColourValue.h"
 	"OgreBlendMode.h"
 
-1156317512 c:\ogresdk_mingw\include\ogreblendmode.h
+1156321112 c:\ogresdk_mingw\include\ogreblendmode.h
 	"OgrePrerequisites.h"
 	"OgreColourValue.h"
 
-1173757330 c:\ogresdk_mingw\include\ogregpuprogram.h
+1173760930 c:\ogresdk_mingw\include\ogregpuprogram.h
 	"OgrePrerequisites.h"
 	"OgreResource.h"
 	"OgreSharedPtr.h"
 	"OgreIteratorWrappers.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrefactoryobj.h
+1156321112 c:\ogresdk_mingw\include\ogrefactoryobj.h
 	"OgrePrerequisites.h"
 
-1156317516 c:\ogresdk_mingw\include\ogreuserdefinedobject.h
+1156321116 c:\ogresdk_mingw\include\ogreuserdefinedobject.h
 	"OgrePrerequisites.h"
 
-1174073556 c:\ogresdk_mingw\include\ogrebillboardset.h
+1174077156 c:\ogresdk_mingw\include\ogrebillboardset.h
 	"OgrePrerequisites.h"
 	"OgreMovableObject.h"
 	"OgreRenderable.h"
 	"OgreRadixSort.h"
 	"OgreCommon.h"
 
-1156317514 c:\ogresdk_mingw\include\ogreradixsort.h
+1156321114 c:\ogresdk_mingw\include\ogreradixsort.h
 	"OgrePrerequisites.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrebone.h
+1156321112 c:\ogresdk_mingw\include\ogrebone.h
 	"OgrePrerequisites.h"
 	"OgreNode.h"
 
-1182763398 c:\ogresdk_mingw\include\ogrenode.h
+1182766998 c:\ogresdk_mingw\include\ogrenode.h
 	"OgrePrerequisites.h"
 	"OgreMatrix3.h"
 	"OgreMatrix4.h"
@@ -2405,7 +2405,7 @@
 	"OgreRenderable.h"
 	"OgreIteratorWrappers.h"
 
-1173897344 c:\ogresdk_mingw\include\ogrecamera.h
+1173900944 c:\ogresdk_mingw\include\ogrecamera.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreMovableObject.h"
@@ -2417,7 +2417,7 @@
 	"OgreFrustum.h"
 	"OgreRay.h"
 
-1165675042 c:\ogresdk_mingw\include\ogrefrustum.h
+1165678642 c:\ogresdk_mingw\include\ogrefrustum.h
 	"OgrePrerequisites.h"
 	"OgreMovableObject.h"
 	"OgreRenderable.h"
@@ -2425,31 +2425,31 @@
 	"OgreVertexIndexData.h"
 	"OgreMovablePlane.h"
 
-1166464152 c:\ogresdk_mingw\include\ogremovableplane.h
+1166467752 c:\ogresdk_mingw\include\ogremovableplane.h
 	"OgrePrerequisites.h"
 	"OgrePlane.h"
 	"OgreMovableObject.h"
 
-1156317514 c:\ogresdk_mingw\include\ogreray.h
+1156321114 c:\ogresdk_mingw\include\ogreray.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgrePlaneBoundedVolume.h"
 
-1171130068 c:\ogresdk_mingw\include\ogreplaneboundedvolume.h
+1171133668 c:\ogresdk_mingw\include\ogreplaneboundedvolume.h
 	"OgrePrerequisites.h"
 	"OgreAxisAlignedBox.h"
 	"OgreSphere.h"
 	"OgreMath.h"
 	"OgrePlane.h"
 
-1156317512 c:\ogresdk_mingw\include\ogreconfigfile.h
+1156321112 c:\ogresdk_mingw\include\ogreconfigfile.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreStringVector.h"
 	"OgreIteratorWrappers.h"
 	"OgreDataStream.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrecontrollermanager.h
+1156321112 c:\ogresdk_mingw\include\ogrecontrollermanager.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreSingleton.h"
@@ -2458,17 +2458,17 @@
 	"OgreTextureUnitState.h"
 	"OgreSharedPtr.h"
 
-1174040542 c:\ogresdk_mingw\include\ogrepredefinedcontrollers.h
+1174044142 c:\ogresdk_mingw\include\ogrepredefinedcontrollers.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreController.h"
 	"OgreFrameListener.h"
 	"OgreGpuProgram.h"
 
-1156317512 c:\ogresdk_mingw\include\ogreframelistener.h
+1156321112 c:\ogresdk_mingw\include\ogreframelistener.h
 	"OgrePrerequisites.h"
 
-1183733072 c:\ogresdk_mingw\include\ogretextureunitstate.h
+1183736672 c:\ogresdk_mingw\include\ogretextureunitstate.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreBlendMode.h"
@@ -2477,23 +2477,23 @@
 	"OgreString.h"
 	"OgreTexture.h"
 
-1179479758 c:\ogresdk_mingw\include\ogretexture.h
+1179483358 c:\ogresdk_mingw\include\ogretexture.h
 	"OgrePrerequisites.h"
 	"OgreHardwareBuffer.h"
 	"OgreResource.h"
 	"OgreImage.h"
 
-1157060872 c:\ogresdk_mingw\include\ogreimage.h
+1157064472 c:\ogresdk_mingw\include\ogreimage.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgrePixelFormat.h"
 	"OgreDataStream.h"
 
-1174237964 c:\ogresdk_mingw\include\ogrepixelformat.h
+1174241564 c:\ogresdk_mingw\include\ogrepixelformat.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 
-1172680654 c:\ogresdk_mingw\include\ogreentity.h
+1172684254 c:\ogresdk_mingw\include\ogreentity.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreString.h"
@@ -2503,13 +2503,13 @@
 	"OgreHardwareBufferManager.h"
 	"OgreMesh.h"
 
-1159135800 c:\ogresdk_mingw\include\ogrehardwarebuffermanager.h
+1159139400 c:\ogresdk_mingw\include\ogrehardwarebuffermanager.h
 	"OgrePrerequisites.h"
 	"OgreSingleton.h"
 	"OgreHardwareVertexBuffer.h"
 	"OgreHardwareIndexBuffer.h"
 
-1159027760 c:\ogresdk_mingw\include\ogremesh.h
+1159031360 c:\ogresdk_mingw\include\ogremesh.h
 	"OgrePrerequisites.h"
 	"OgreResource.h"
 	"OgreVertexIndexData.h"
@@ -2522,17 +2522,17 @@
 	"OgreAnimationTrack.h"
 	"OgrePose.h"
 
-1156317516 c:\ogresdk_mingw\include\ogrevertexboneassignment.h
+1156321116 c:\ogresdk_mingw\include\ogrevertexboneassignment.h
 	"OgrePrerequisites.h"
 
-1156317514 c:\ogresdk_mingw\include\ogreprogressivemesh.h
+1156321114 c:\ogresdk_mingw\include\ogreprogressivemesh.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreHardwareVertexBuffer.h"
 	"OgreHardwareIndexBuffer.h"
 	"OgreRenderOperation.h"
 
-1163778326 c:\ogresdk_mingw\include\ogreskeleton.h
+1163781926 c:\ogresdk_mingw\include\ogreskeleton.h
 	"OgrePrerequisites.h"
 	"OgreResource.h"
 	"OgreQuaternion.h"
@@ -2540,35 +2540,35 @@
 	"OgreIteratorWrappers.h"
 	"OgreStringVector.h"
 
-1160321642 c:\ogresdk_mingw\include\ogregpuprogrammanager.h
+1160325242 c:\ogresdk_mingw\include\ogregpuprogrammanager.h
 	"OgrePrerequisites.h"
 	"OgreResourceManager.h"
 	"OgreException.h"
 	"OgreGpuProgram.h"
 	"OgreSingleton.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrehardwarepixelbuffer.h
+1156321112 c:\ogresdk_mingw\include\ogrehardwarepixelbuffer.h
 	"OgrePrerequisites.h"
 	"OgreHardwareBuffer.h"
 	"OgreSharedPtr.h"
 	"OgrePixelFormat.h"
 	"OgreImage.h"
 
-1164557238 c:\ogresdk_mingw\include\ogrehardwareocclusionquery.h
+1164560838 c:\ogresdk_mingw\include\ogrehardwareocclusionquery.h
 	"OgrePrerequisites.h"
 
-1168534042 c:\ogresdk_mingw\include\ogrehighlevelgpuprogram.h
+1168537642 c:\ogresdk_mingw\include\ogrehighlevelgpuprogram.h
 	"OgrePrerequisites.h"
 	"OgreGpuProgram.h"
 
-1175609884 c:\ogresdk_mingw\include\ogrehighlevelgpuprogrammanager.h
+1175613484 c:\ogresdk_mingw\include\ogrehighlevelgpuprogrammanager.h
 	"OgrePrerequisites.h"
 	"OgreResourceManager.h"
 	"OgreSingleton.h"
 	"OgreException.h"
 	"OgreHighLevelGpuProgram.h"
 
-1165526390 c:\ogresdk_mingw\include\ogrelight.h
+1165529990 c:\ogresdk_mingw\include\ogrelight.h
 	"OgrePrerequisites.h"
 	"OgreColourValue.h"
 	"OgreVector3.h"
@@ -2578,27 +2578,27 @@
 	"OgrePlaneBoundedVolume.h"
 	"OgreShadowCameraSetup.h"
 
-1165526390 c:\ogresdk_mingw\include\ogreshadowcamerasetup.h
+1165529990 c:\ogresdk_mingw\include\ogreshadowcamerasetup.h
 	"OgrePrerequisites.h"
 	"OgreMovablePlane.h"
 	"OgreSharedPtr.h"
 
-1163442824 c:\ogresdk_mingw\include\ogrelogmanager.h
+1163446424 c:\ogresdk_mingw\include\ogrelogmanager.h
 	"OgrePrerequisites.h"
 	"OgreLog.h"
 	"OgreSingleton.h"
 	"OgreString.h"
 
-1163442824 c:\ogresdk_mingw\include\ogrelog.h
+1163446424 c:\ogresdk_mingw\include\ogrelog.h
 	"OgrePrerequisites.h"
 
-1174413196 c:\ogresdk_mingw\include\ogremanualobject.h
+1174416796 c:\ogresdk_mingw\include\ogremanualobject.h
 	"OgrePrerequisites.h"
 	"OgreMovableObject.h"
 	"OgreRenderable.h"
 	"OgreResourceGroupManager.h"
 
-1161118828 c:\ogresdk_mingw\include\ogrematerialmanager.h
+1161122428 c:\ogresdk_mingw\include\ogrematerialmanager.h
 	"OgrePrerequisites.h"
 	"OgreSingleton.h"
 	"OgreResourceManager.h"
@@ -2609,7 +2609,7 @@
 	<boost/thread/tss.hpp>
 	"OgreMemoryMacros.h"
 
-1168534042 c:\ogresdk_mingw\include\ogrematerialserializer.h
+1168537642 c:\ogresdk_mingw\include\ogrematerialserializer.h
 	"OgrePrerequisites.h"
 	"OgreMaterial.h"
 	"OgreBlendMode.h"
@@ -2617,9 +2617,9 @@
 	"OgreGpuProgram.h"
 	"OgreStringVector.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrenomemorymacros.h
+1156321112 c:\ogresdk_mingw\include\ogrenomemorymacros.h
 
-1167935310 c:\ogresdk_mingw\include\ogremeshmanager.h
+1167938910 c:\ogresdk_mingw\include\ogremeshmanager.h
 	"OgrePrerequisites.h"
 	"OgreResourceManager.h"
 	"OgreSingleton.h"
@@ -2628,24 +2628,24 @@
 	"OgreMesh.h"
 	"OgrePatchMesh.h"
 
-1159135800 c:\ogresdk_mingw\include\ogrepatchmesh.h
+1159139400 c:\ogresdk_mingw\include\ogrepatchmesh.h
 	"OgrePrerequisites.h"
 	"OgreMesh.h"
 	"OgrePatchSurface.h"
 
-1156317514 c:\ogresdk_mingw\include\ogrepatchsurface.h
+1156321114 c:\ogresdk_mingw\include\ogrepatchsurface.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreString.h"
 	"OgreRenderOperation.h"
 	"OgreAxisAlignedBox.h"
 
-1156317512 c:\ogresdk_mingw\include\ogremeshserializer.h
+1156321112 c:\ogresdk_mingw\include\ogremeshserializer.h
 	"OgrePrerequisites.h"
 	"OgreMeshSerializerImpl.h"
 	"OgreSerializer.h"
 
-1167848638 c:\ogresdk_mingw\include\ogremeshserializerimpl.h
+1167852238 c:\ogresdk_mingw\include\ogremeshserializerimpl.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreSerializer.h"
@@ -2653,39 +2653,39 @@
 	"OgreMesh.h"
 	"OgreEdgeListBuilder.h"
 
-1166464152 c:\ogresdk_mingw\include\ogreserializer.h
+1166467752 c:\ogresdk_mingw\include\ogreserializer.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreDataStream.h"
 
-1156317512 c:\ogresdk_mingw\include\ogreedgelistbuilder.h
+1156321112 c:\ogresdk_mingw\include\ogreedgelistbuilder.h
 	"OgrePrerequisites.h"
 	"OgreVector4.h"
 	"OgreHardwareVertexBuffer.h"
 	"OgreRenderOperation.h"
 	"OgreAlignedAllocator.h"
 
-1158961448 c:\ogresdk_mingw\include\ogrealignedallocator.h
+1158965048 c:\ogresdk_mingw\include\ogrealignedallocator.h
 	"OgrePrerequisites.h"
 
-1156317512 c:\ogresdk_mingw\include\ogreoverlay.h
+1156321112 c:\ogresdk_mingw\include\ogreoverlay.h
 	"OgrePrerequisites.h"
 	"OgreSceneNode.h"
 	"OgreIteratorWrappers.h"
 	"OgreMatrix4.h"
 
-1182763398 c:\ogresdk_mingw\include\ogrescenenode.h
+1182766998 c:\ogresdk_mingw\include\ogrescenenode.h
 	"OgrePrerequisites.h"
 	"OgreNode.h"
 	"OgreIteratorWrappers.h"
 	"OgreAxisAlignedBox.h"
 
-1156317512 c:\ogresdk_mingw\include\ogreoverlaycontainer.h
+1156321112 c:\ogresdk_mingw\include\ogreoverlaycontainer.h
 	"OgrePrerequisites.h"
 	"OgreOverlayElement.h"
 	"OgreIteratorWrappers.h"
 
-1172179054 c:\ogresdk_mingw\include\ogreoverlayelement.h
+1172182654 c:\ogresdk_mingw\include\ogreoverlayelement.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreRenderable.h"
@@ -2695,32 +2695,32 @@
 	"OgreColourValue.h"
 	"OgreRectangle.h"
 
-1173420716 c:\ogresdk_mingw\include\ogreutfstring.h
+1173424316 c:\ogresdk_mingw\include\ogreutfstring.h
 	"OgrePrerequisites.h"
 	<iterator>
 	<string>
 	<stdexcept>
 
-1156317512 c:\ogresdk_mingw\include\ogreoverlayelementcommands.h
+1156321112 c:\ogresdk_mingw\include\ogreoverlayelementcommands.h
 	"OgrePrerequisites.h"
 	"OgreStringInterface.h"
 
-1164557240 c:\ogresdk_mingw\include\ogrerectangle.h
+1164560840 c:\ogresdk_mingw\include\ogrerectangle.h
 	"OgrePrerequisites.h"
 
-1156317514 c:\ogresdk_mingw\include\ogreoverlaymanager.h
+1156321114 c:\ogresdk_mingw\include\ogreoverlaymanager.h
 	"OgrePrerequisites.h"
 	"OgreSingleton.h"
 	"OgreStringVector.h"
 	"OgreOverlay.h"
 	"OgreScriptLoader.h"
 
-1156317514 c:\ogresdk_mingw\include\ogreparticleaffector.h
+1156321114 c:\ogresdk_mingw\include\ogreparticleaffector.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreStringInterface.h"
 
-1160864394 c:\ogresdk_mingw\include\ogreparticleemitter.h
+1160867994 c:\ogresdk_mingw\include\ogreparticleemitter.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreVector3.h"
@@ -2729,21 +2729,21 @@
 	"OgreParticleEmitterCommands.h"
 	"OgreParticle.h"
 
-1159464830 c:\ogresdk_mingw\include\ogreparticleemittercommands.h
+1159468430 c:\ogresdk_mingw\include\ogreparticleemittercommands.h
 	"OgrePrerequisites.h"
 	"OgreStringInterface.h"
 
-1160864394 c:\ogresdk_mingw\include\ogreparticle.h
+1160867994 c:\ogresdk_mingw\include\ogreparticle.h
 	"OgrePrerequisites.h"
 	"OgreBillboard.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrebillboard.h
+1156321112 c:\ogresdk_mingw\include\ogrebillboard.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreColourValue.h"
 	"OgreCommon.h"
 
-1168187658 c:\ogresdk_mingw\include\ogreparticlesystemmanager.h
+1168191258 c:\ogresdk_mingw\include\ogreparticlesystemmanager.h
 	"OgrePrerequisites.h"
 	"OgreParticleSystem.h"
 	"OgreFrameListener.h"
@@ -2752,7 +2752,7 @@
 	"OgreScriptLoader.h"
 	"OgreResourceGroupManager.h"
 
-1159464830 c:\ogresdk_mingw\include\ogreparticlesystem.h
+1159468430 c:\ogresdk_mingw\include\ogreparticlesystem.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 	"OgreString.h"
@@ -2762,10 +2762,10 @@
 	"OgreRadixSort.h"
 	"OgreController.h"
 
-1156317514 c:\ogresdk_mingw\include\ogreparticleiterator.h
+1156321114 c:\ogresdk_mingw\include\ogreparticleiterator.h
 	"OgrePrerequisites.h"
 
-1173810598 c:\ogresdk_mingw\include\ogrepass.h
+1173814198 c:\ogresdk_mingw\include\ogrepass.h
 	"OgrePrerequisites.h"
 	"OgreGpuProgram.h"
 	"OgreColourValue.h"
@@ -2774,18 +2774,18 @@
 	"OgreLight.h"
 	"OgreTextureUnitState.h"
 
-1156317514 c:\ogresdk_mingw\include\ogreprofiler.h
+1156321114 c:\ogresdk_mingw\include\ogreprofiler.h
 	"OgrePrerequisites.h"
 	"OgreSingleton.h"
 	"OgreString.h"
 	"OgreOverlay.h"
 
-1172997504 c:\ogresdk_mingw\include\ogrerenderqueueinvocation.h
+1173001104 c:\ogresdk_mingw\include\ogrerenderqueueinvocation.h
 	"OgrePrerequisites.h"
 	"OgreRenderQueueSortingGrouping.h"
 	"OgreIteratorWrappers.h"
 
-1156317514 c:\ogresdk_mingw\include\ogrerenderqueuesortinggrouping.h
+1156321114 c:\ogresdk_mingw\include\ogrerenderqueuesortinggrouping.h
 	"OgrePrerequisites.h"
 	"OgreIteratorWrappers.h"
 	"OgreMaterial.h"
@@ -2793,18 +2793,18 @@
 	"OgrePass.h"
 	"OgreRadixSort.h"
 
-1168705890 c:\ogresdk_mingw\include\ogretechnique.h
+1168709490 c:\ogresdk_mingw\include\ogretechnique.h
 	"OgrePrerequisites.h"
 	"OgreIteratorWrappers.h"
 	"OgreBlendMode.h"
 	"OgreCommon.h"
 	"OgrePass.h"
 
-1156317514 c:\ogresdk_mingw\include\ogrerenderqueuelistener.h
+1156321114 c:\ogresdk_mingw\include\ogrerenderqueuelistener.h
 	"OgrePrerequisites.h"
 	"OgreRenderQueue.h"
 
-1182776174 c:\ogresdk_mingw\include\ogrerendersystem.h
+1182779774 c:\ogresdk_mingw\include\ogrerendersystem.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreTextureUnitState.h"
@@ -2819,55 +2819,55 @@
 	"OgrePlane.h"
 	"OgreIteratorWrappers.h"
 
-1180716148 c:\ogresdk_mingw\include\ogrerendersystemcapabilities.h
+1180719748 c:\ogresdk_mingw\include\ogrerendersystemcapabilities.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 
-1172494312 c:\ogresdk_mingw\include\ogrerendertarget.h
+1172497912 c:\ogresdk_mingw\include\ogrerendertarget.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreTextureManager.h"
 	"OgreViewport.h"
 	"OgreTimer.h"
 
-1179479758 c:\ogresdk_mingw\include\ogretexturemanager.h
+1179483358 c:\ogresdk_mingw\include\ogretexturemanager.h
 	"OgrePrerequisites.h"
 	"OgreResourceManager.h"
 	"OgreTexture.h"
 	"OgreSingleton.h"
 
-1172494312 c:\ogresdk_mingw\include\ogreviewport.h
+1172497912 c:\ogresdk_mingw\include\ogreviewport.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreColourValue.h"
 
-1164279132 c:\ogresdk_mingw\include\ogretimer.h
+1164282732 c:\ogresdk_mingw\include\ogretimer.h
 	"OgrePrerequisites.h"
 	"OgrePlatform.h"
 	"WIN32/OgreTimerImp.h"
 	"GLX/OgreTimerImp.h"
 	"OSX/OgreTimerImp.h"
 
-1160333296 c:\ogresdk_mingw\include\win32\ogretimerimp.h
+1160336896 c:\ogresdk_mingw\include\win32\ogretimerimp.h
 	"windows.h"
 
-1181549494 c:\ogresdk_mingw\include\ogrerendertexture.h
+1181553094 c:\ogresdk_mingw\include\ogrerendertexture.h
 	"OgrePrerequisites.h"
 	"OgreRenderTarget.h"
 
-1156317512 c:\ogresdk_mingw\include\ogreconfigoptionmap.h
+1156321112 c:\ogresdk_mingw\include\ogreconfigoptionmap.h
 	"OgrePrerequisites.h"
 	"OgreStringVector.h"
 	"OgreString.h"
 
-1156317514 c:\ogresdk_mingw\include\ogrerendertargetlistener.h
+1156321114 c:\ogresdk_mingw\include\ogrerendertargetlistener.h
 	"OgrePrerequisites.h"
 
-1180110916 c:\ogresdk_mingw\include\ogrerenderwindow.h
+1180114516 c:\ogresdk_mingw\include\ogrerenderwindow.h
 	"OgrePrerequisites.h"
 	"OgreRenderTarget.h"
 
-1172598696 c:\ogresdk_mingw\include\ogreresourcebackgroundqueue.h
+1172602296 c:\ogresdk_mingw\include\ogreresourcebackgroundqueue.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreSingleton.h"
@@ -2875,7 +2875,7 @@
 	<boost/thread/thread.hpp>
 	<boost/thread/condition.hpp>
 
-1160234792 c:\ogresdk_mingw\include\ogreribbontrail.h
+1160238392 c:\ogresdk_mingw\include\ogreribbontrail.h
 	"OgrePrerequisites.h"
 	"OgreBillboardChain.h"
 	"OgreNode.h"
@@ -2883,7 +2883,7 @@
 	"OgreFrameListener.h"
 	"OgreControllerManager.h"
 
-1174527230 c:\ogresdk_mingw\include\ogreroot.h
+1174530830 c:\ogresdk_mingw\include\ogreroot.h
 	"OgrePrerequisites.h"
 	"OgreSingleton.h"
 	"OgreString.h"
@@ -2891,13 +2891,13 @@
 	"OgreResourceGroupManager.h"
 	<exception>
 
-1156317516 c:\ogresdk_mingw\include\ogrescenemanagerenumerator.h
+1156321116 c:\ogresdk_mingw\include\ogrescenemanagerenumerator.h
 	"OgrePrerequisites.h"
 	"OgreSceneManager.h"
 	"OgreSingleton.h"
 	"OgreIteratorWrappers.h"
 
-1173757330 c:\ogresdk_mingw\include\ogrescenemanager.h
+1173760930 c:\ogresdk_mingw\include\ogrescenemanager.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreSceneNode.h"
@@ -2919,7 +2919,7 @@
 	"OgreCamera.h"
 	"OgreInstancedGeometry.h"
 
-1156317516 c:\ogresdk_mingw\include\ogrescenequery.h
+1156321116 c:\ogresdk_mingw\include\ogrescenequery.h
 	"OgrePrerequisites.h"
 	"OgreAxisAlignedBox.h"
 	"OgreSphere.h"
@@ -2927,7 +2927,7 @@
 	"OgreRenderOperation.h"
 	"OgrePlaneBoundedVolume.h"
 
-1170602606 c:\ogresdk_mingw\include\ogreautoparamdatasource.h
+1170606206 c:\ogresdk_mingw\include\ogreautoparamdatasource.h
 	"OgrePrerequisites.h"
 	"OgreCommon.h"
 	"OgreMatrix4.h"
@@ -2935,25 +2935,25 @@
 	"OgreLight.h"
 	"OgreColourValue.h"
 
-1156317514 c:\ogresdk_mingw\include\ogrerectangle2d.h
+1156321114 c:\ogresdk_mingw\include\ogrerectangle2d.h
 	"OgrePrerequisites.h"
 	"OgreSimpleRenderable.h"
 
-1156317516 c:\ogresdk_mingw\include\ogresimplerenderable.h
+1156321116 c:\ogresdk_mingw\include\ogresimplerenderable.h
 	"OgrePrerequisites.h"
 	"OgreMovableObject.h"
 	"OgreRenderable.h"
 	"OgreAxisAlignedBox.h"
 	"OgreMaterial.h"
 
-1168973372 c:\ogresdk_mingw\include\ogreshadowtexturemanager.h
+1168976972 c:\ogresdk_mingw\include\ogreshadowtexturemanager.h
 	"OgrePrerequisites.h"
 	"OgreSingleton.h"
 	"OgrePixelFormat.h"
 	"OgreTexture.h"
 	"OgreIteratorWrappers.h"
 
-1170372678 c:\ogresdk_mingw\include\ogreinstancedgeometry.h
+1170376278 c:\ogresdk_mingw\include\ogreinstancedgeometry.h
 	"OgrePrerequisites.h"
 	"OgreMovableObject.h"
 	"OgreSimpleRenderable.h"
@@ -2962,38 +2962,38 @@
 	"OgreAnimationTrack.h"
 	"OgreBone.h"
 
-1168012076 c:\ogresdk_mingw\include\ogreskeletoninstance.h
+1168015676 c:\ogresdk_mingw\include\ogreskeletoninstance.h
 	"OgrePrerequisites.h"
 	"OgreSkeleton.h"
 
-1156317516 c:\ogresdk_mingw\include\ogreskeletonmanager.h
+1156321116 c:\ogresdk_mingw\include\ogreskeletonmanager.h
 	"OgrePrerequisites.h"
 	"OgreResourceManager.h"
 	"OgreSingleton.h"
 
-1156317516 c:\ogresdk_mingw\include\ogreskeletonserializer.h
+1156321116 c:\ogresdk_mingw\include\ogreskeletonserializer.h
 	"OgrePrerequisites.h"
 	"OgreSkeleton.h"
 	"OgreSerializer.h"
 
-1174527414 c:\ogresdk_mingw\include\ogrestaticgeometry.h
+1174531014 c:\ogresdk_mingw\include\ogrestaticgeometry.h
 	"OgrePrerequisites.h"
 	"OgreMovableObject.h"
 	"OgreRenderable.h"
 
-1173534890 c:\ogresdk_mingw\include\ogrestringconverter.h
+1173538490 c:\ogresdk_mingw\include\ogrestringconverter.h
 	"OgrePrerequisites.h"
 	"OgreMath.h"
 	"OgreString.h"
 	"OgreStringVector.h"
 
-1167848638 c:\ogresdk_mingw\include\ogresubentity.h
+1167852238 c:\ogresdk_mingw\include\ogresubentity.h
 	"OgrePrerequisites.h"
 	"OgreString.h"
 	"OgreRenderable.h"
 	"OgreHardwareBufferManager.h"
 
-1167848638 c:\ogresdk_mingw\include\ogresubmesh.h
+1167852238 c:\ogresdk_mingw\include\ogresubmesh.h
 	"OgrePrerequisites.h"
 	"OgreVertexIndexData.h"
 	"OgreMaterial.h"
@@ -3002,12 +3002,12 @@
 	"OgreProgressiveMesh.h"
 	"OgreAnimationTrack.h"
 
-1159135800 c:\ogresdk_mingw\include\ogrecompositor.h
+1159139400 c:\ogresdk_mingw\include\ogrecompositor.h
 	"OgrePrerequisites.h"
 	"OgreIteratorWrappers.h"
 	"OgreResource.h"
 
-1161118828 c:\ogresdk_mingw\include\ogrecompositormanager.h
+1161122428 c:\ogresdk_mingw\include\ogrecompositormanager.h
 	"OgrePrerequisites.h"
 	"OgreResourceManager.h"
 	"OgreCompositor.h"
@@ -3017,62 +3017,62 @@
 	<boost/thread/tss.hpp>
 	"OgreMemoryMacros.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrecompositorserializer.h
+1156321112 c:\ogresdk_mingw\include\ogrecompositorserializer.h
 	"OgrePrerequisites.h"
 	"OgreDataStream.h"
 
-1177770560 c:\ogresdk_mingw\include\ogrecompositorchain.h
+1177774160 c:\ogresdk_mingw\include\ogrecompositorchain.h
 	"OgrePrerequisites.h"
 	"OgreRenderTargetListener.h"
 	"OgreRenderQueueListener.h"
 	"OgreCompositorInstance.h"
 	"OgreCompositor.h"
 
-1157382676 c:\ogresdk_mingw\include\ogrecompositorinstance.h
+1157386276 c:\ogresdk_mingw\include\ogrecompositorinstance.h
 	"OgrePrerequisites.h"
 	"OgreMaterial.h"
 	"OgreTexture.h"
 	"OgreRenderQueue.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrecompositiontechnique.h
+1156321112 c:\ogresdk_mingw\include\ogrecompositiontechnique.h
 	"OgrePrerequisites.h"
 	"OgrePixelFormat.h"
 	"OgreIteratorWrappers.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrecompositionpass.h
+1156321112 c:\ogresdk_mingw\include\ogrecompositionpass.h
 	"OgrePrerequisites.h"
 	"OgreMaterial.h"
 	"OgreRenderSystem.h"
 	"OgreRenderQueue.h"
 
-1156317512 c:\ogresdk_mingw\include\ogrecompositiontargetpass.h
+1156321112 c:\ogresdk_mingw\include\ogrecompositiontargetpass.h
 	"OgrePrerequisites.h"
 	"OgreIteratorWrappers.h"
 
-1177770560 c:\ogresdk_mingw\include\ogrewindoweventutilities.h
+1177774160 c:\ogresdk_mingw\include\ogrewindoweventutilities.h
 	"OgrePrerequisites.h"
 	"OgrePlatform.h"
 	<windows.h>
 
-1166110000 c:\ogresdk_mingw\include\ogreshadowcamerasetupfocused.h
+1166113600 c:\ogresdk_mingw\include\ogreshadowcamerasetupfocused.h
 	"OgrePrerequisites.h"
 	"OgreShadowCameraSetup.h"
 	"OgrePolygon.h"
 	"OgreConvexBody.h"
 
-1173897344 c:\ogresdk_mingw\include\ogrepolygon.h
+1173900944 c:\ogresdk_mingw\include\ogrepolygon.h
 	"OgrePrerequisites.h"
 	"OgreVector3.h"
 
-1173897344 c:\ogresdk_mingw\include\ogreconvexbody.h
+1173900944 c:\ogresdk_mingw\include\ogreconvexbody.h
 	"OgrePrerequisites.h"
 	"OgrePolygon.h"
 
-1166014480 c:\ogresdk_mingw\include\ogreshadowcamerasetuplispsm.h
+1166018080 c:\ogresdk_mingw\include\ogreshadowcamerasetuplispsm.h
 	"OgrePrerequisites.h"
 	"OgreShadowCameraSetupFocused.h"
 
-1166179978 c:\ogresdk_mingw\include\ogreshadowcamerasetupplaneoptimal.h
+1166183578 c:\ogresdk_mingw\include\ogreshadowcamerasetupplaneoptimal.h
 	"OgrePrerequisites.h"
 	"OgreShadowCameraSetup.h"
 
@@ -3860,1322 +3860,25 @@
 
 1097416808 c:\hydrax\hydrax\src\noise\win32\resource.h
 
-1197900140 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\enums.cpp
+1208551267 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\enums.cpp
 	"Enums.h"
 
-1206384694 c:\hydrax\0.2 pree\hydrax\src\hydrax\enums.h
+1208551267 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\enums.h
 	"Prerequisites.h"
 
-1206384520 c:\hydrax\0.2 pree\hydrax\src\hydrax\prerequisites.h
+1208551266 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\prerequisites.h
 	<Ogre.h>
 
-1165503734 c:\ogresdk_vs2005\include\ogre.h
-	"OgrePrerequisites.h"
-	"OgreAnimation.h"
-	"OgreAnimationState.h"
-	"OgreAnimationTrack.h"
-	"OgreAny.h"
-	"OgreArchive.h"
-	"OgreArchiveManager.h"
-	"OgreAxisAlignedBox.h"
-	"OgreBillboardChain.h"
-	"OgreBillboardSet.h"
-	"OgreBone.h"
-	"OgreCamera.h"
-	"OgreConfigFile.h"
-	"OgreControllerManager.h"
-	"OgreDataStream.h"
-	"OgreEntity.h"
-	"OgreException.h"
-	"OgreFrustum.h"
-	"OgreGpuProgram.h"
-	"OgreGpuProgramManager.h"
-	"OgreHardwareBufferManager.h"
-	"OgreHardwareIndexBuffer.h"
-	"OgreHardwarePixelBuffer.h"
-	"OgreHardwareOcclusionQuery.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreHardwarePixelBuffer.h"
-	"OgreHighLevelGpuProgram.h"
-	"OgreHighLevelGpuProgramManager.h"
-	"OgreKeyFrame.h"
-	"OgreLight.h"
-	"OgreLogManager.h"
-	"OgreManualObject.h"
-	"OgreMaterial.h"
-	"OgreMaterialManager.h"
-	"OgreMaterialSerializer.h"
-	"OgreMath.h"
-	"OgreMatrix3.h"
-	"OgreMatrix4.h"
-	"OgreMesh.h"
-	"OgreMeshManager.h"
-	"OgreMeshSerializer.h"
-	"OgreOverlay.h"
-	"OgreOverlayContainer.h"
-	"OgreOverlayElement.h"
-	"OgreOverlayManager.h"
-	"OgreParticleAffector.h"
-	"OgreParticleEmitter.h"
-	"OgreParticleSystemManager.h"
-	"OgrePass.h"
-	"OgrePatchMesh.h"
-	"OgrePatchSurface.h"
-	"OgreProfiler.h"
-	"OgreRadixSort.h"
-	"OgreRenderQueueInvocation.h"
-	"OgreRenderQueueListener.h"
-	"OgreRenderSystem.h"
-	"OgreRenderTargetListener.h"
-	"OgreRenderTexture.h"
-	"OgreRenderWindow.h"
-	"OgreResourceBackgroundQueue.h"
-	"OgreResourceGroupManager.h"
-	"OgreRibbonTrail.h"
-	"OgreRoot.h"
-	"OgreSceneManager.h"
-	"OgreSceneManagerEnumerator.h"
-	"OgreSceneNode.h"
-	"OgreSimpleRenderable.h"
-	"OgreSkeleton.h"
-	"OgreSkeletonInstance.h"
-	"OgreSkeletonManager.h"
-	"OgreSkeletonSerializer.h"
-	"OgreStaticGeometry.h"
-	"OgreString.h"
-	"OgreStringConverter.h"
-	"OgreStringVector.h"
-	"OgreSubEntity.h"
-	"OgreSubMesh.h"
-	"OgreTechnique.h"
-	"OgreTextureManager.h"
-	"OgreTextureUnitState.h"
-	"OgreUserDefinedObject.h"
-	"OgreVector2.h"
-	"OgreViewport.h"
-	"OgreCompositor.h"
-	"OgreCompositorManager.h"
-	"OgreCompositorChain.h"
-	"OgreCompositorInstance.h"
-	"OgreCompositionTechnique.h"
-	"OgreCompositionPass.h"
-	"OgreCompositionTargetPass.h"
-	"OgreWindowEventUtilities.h"
-	"OgreShadowCameraSetup.h"
-	"OgreShadowCameraSetupFocused.h"
-	"OgreShadowCameraSetupLiSPSM.h"
-	"OgreShadowCameraSetupPlaneOptimal.h"
-
-1191140124 c:\ogresdk_vs2005\include\ogreprerequisites.h
-	"OgrePlatform.h"
-	"OgreMemoryManager.h"
-
-1187595324 c:\ogresdk_vs2005\include\ogreplatform.h
-	"OgreConfig.h"
-	<_mingw.h>
-	"config.h"
-
-1178437834 c:\ogresdk_vs2005\include\ogreconfig.h
-	"config.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrememorymanager.h
-	"OgrePlatform.h"
-	"OgreStdHeaders.h"
-	"OgreMemoryMacros.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogrestdheaders.h
-	<cassert>
-	<cstdio>
-	<cstdlib>
-	<ctime>
-	<cstring>
-	<cstdarg>
-	<cmath>
-	<vector>
-	<map>
-	<string>
-	<set>
-	<list>
-	<deque>
-	<queue>
-	<bitset>
-	<ext/hash_map>
-	<ext/hash_set>
-	<hash_set>
-	<hash_map>
-	<algorithm>
-	<functional>
-	<limits>
-	<fstream>
-	<iostream>
-	<iomanip>
-	<sstream>
-	<sys/types.h>
-	<sys/stat.h>
-	<unistd.h>
-	<unistd.h>
-	<dlfcn.h>
-	<unistd.h>
-	<sys/param.h>
-	<CoreFoundation/CoreFoundation.h>
-	<boost/thread/recursive_mutex.hpp>
-
-1174815840 c:\ogresdk_vs2005\include\ogrememorymacros.h
-
-1172999342 c:\ogresdk_vs2005\include\ogreanimation.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreIteratorWrappers.h"
-	"OgreAnimable.h"
-	"OgreAnimationTrack.h"
-
-1178437838 c:\ogresdk_vs2005\include\ogrestring.h
-	"OgrePrerequisites.h"
-	<ext/hash_map>
-
-1186670500 c:\ogresdk_vs2005\include\ogreiteratorwrappers.h
-	"OgrePrerequisites.h"
-
-1166460552 c:\ogresdk_vs2005\include\ogreanimable.h
-	"OgrePrerequisites.h"
-	"OgreVector2.h"
-	"OgreVector3.h"
-	"OgreVector4.h"
-	"OgreQuaternion.h"
-	"OgreColourValue.h"
-	"OgreSharedPtr.h"
-	"OgreStringVector.h"
-	"OgreException.h"
-	"OgreAny.h"
-
-1166460552 c:\ogresdk_vs2005\include\ogrevector2.h
-	"OgrePrerequisites.h"
-	"OgreMath.h"
-
-1168600278 c:\ogresdk_vs2005\include\ogremath.h
-	"OgrePrerequisites.h"
-
-1181413700 c:\ogresdk_vs2005\include\ogrevector3.h
-	"OgrePrerequisites.h"
-	"OgreMath.h"
-	"OgreQuaternion.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogrequaternion.h
-	"OgrePrerequisites.h"
-	"OgreMath.h"
-
-1166460552 c:\ogresdk_vs2005\include\ogrevector4.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-
-1171016624 c:\ogresdk_vs2005\include\ogrecolourvalue.h
-	"OgrePrerequisites.h"
-
-1186670502 c:\ogresdk_vs2005\include\ogresharedptr.h
-	"OgrePrerequisites.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrestringvector.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreSharedPtr.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogreexception.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	<exception>
-
-1156317512 c:\ogresdk_vs2005\include\ogreany.h
-	"OgrePrerequisites.h"
-	"OgreException.h"
-	"OgreString.h"
-	<algorithm>
-	<typeinfo>
-
-1191140124 c:\ogresdk_vs2005\include\ogreanimationtrack.h
-	"OgrePrerequisites.h"
-	"OgreSimpleSpline.h"
-	"OgreRotationalSpline.h"
-	"OgreKeyFrame.h"
-	"OgreAnimable.h"
-	"OgrePose.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogresimplespline.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreMatrix4.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogrematrix4.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreMatrix3.h"
-	"OgreVector4.h"
-	"OgrePlane.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrematrix3.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogreplane.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrerotationalspline.h
-	"OgrePrerequisites.h"
-	"OgreQuaternion.h"
-
-1158528984 c:\ogresdk_vs2005\include\ogrekeyframe.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreQuaternion.h"
-	"OgreAny.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreIteratorWrappers.h"
-
-1171183760 c:\ogresdk_vs2005\include\ogrehardwarevertexbuffer.h
-	"OgrePrerequisites.h"
-	"OgreHardwareBuffer.h"
-	"OgreSharedPtr.h"
-	"OgreColourValue.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrehardwarebuffer.h
-	"OgrePrerequisites.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogrepose.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreVector3.h"
-	"OgreIteratorWrappers.h"
-
-1174815838 c:\ogresdk_vs2005\include\ogreanimationstate.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreController.h"
-	"OgreIteratorWrappers.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrecontroller.h
-	"OgrePrerequisites.h"
-	"OgreSharedPtr.h"
-
-1168108808 c:\ogresdk_vs2005\include\ogrearchive.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreDataStream.h"
-	"OgreSharedPtr.h"
-	"OgreStringVector.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogredatastream.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreSharedPtr.h"
-	<istream>
-
-1156317512 c:\ogresdk_vs2005\include\ogrearchivemanager.h
-	"OgrePrerequisites.h"
-	"OgreResourceManager.h"
-	"OgreSingleton.h"
-
-1178437836 c:\ogresdk_vs2005\include\ogreresourcemanager.h
-	"OgrePrerequisites.h"
-	"OgreResource.h"
-	"OgreResourceGroupManager.h"
-	"OgreIteratorWrappers.h"
-	"OgreCommon.h"
-	"OgreDataStream.h"
-	"OgreStringVector.h"
-	"OgreScriptLoader.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogreresource.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreSharedPtr.h"
-	"OgreStringInterface.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrestringinterface.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreCommon.h"
-
-1184140478 c:\ogresdk_vs2005\include\ogrecommon.h
-	"OgreString.h"
-	<utility>
-	<vector>
-	<map>
-
-1168108808 c:\ogresdk_vs2005\include\ogreresourcegroupmanager.h
-	"OgrePrerequisites.h"
-	"OgreSingleton.h"
-	"OgreCommon.h"
-	"OgreDataStream.h"
-	"OgreResource.h"
-	"OgreArchive.h"
-	"OgreIteratorWrappers.h"
-
-1178437838 c:\ogresdk_vs2005\include\ogresingleton.h
-	"OgrePrerequisites.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrescriptloader.h
-	"OgrePrerequisites.h"
-	"OgreDataStream.h"
-	"OgreStringVector.h"
-
-1187595324 c:\ogresdk_vs2005\include\ogreaxisalignedbox.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreMatrix4.h"
-
-1156317512 c:\ogresdk_vs2005\include\ogrebillboardchain.h
-	"OgrePrerequisites.h"
-	"OgreMovableObject.h"
-	"OgreRenderable.h"
-
-1169630646 c:\ogresdk_vs2005\include\ogremovableobject.h
-	"OgrePrerequisites.h"
-	"OgreRenderQueue.h"
-	"OgreAxisAlignedBox.h"
-	"OgreSphere.h"
-	"OgreShadowCaster.h"
-	"OgreFactoryObj.h"
-	"OgreAnimable.h"
-	"OgreAny.h"
-	"OgreUserDefinedObject.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogrerenderqueue.h
-	"OgrePrerequisites.h"
-	"OgreIteratorWrappers.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogresphere.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-
-1169630646 c:\ogresdk_vs2005\include\ogreshadowcaster.h
-	"OgrePrerequisites.h"
-	"OgreRenderable.h"
-
-1184140484 c:\ogresdk_vs2005\include\ogrerenderable.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreRenderOperation.h"
-	"OgreMatrix4.h"
-	"OgreMaterial.h"
-	"OgrePlane.h"
-	"OgreGpuProgram.h"
-	"OgreVector4.h"
-	"OgreException.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrerenderoperation.h
-	"OgrePrerequisites.h"
-	"OgreVertexIndexData.h"
-
-1171183762 c:\ogresdk_vs2005\include\ogrevertexindexdata.h
-	"OgrePrerequisites.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreHardwareIndexBuffer.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrehardwareindexbuffer.h
-	"OgrePrerequisites.h"
-	"OgreHardwareBuffer.h"
-	"OgreSharedPtr.h"
-
-1168702290 c:\ogresdk_vs2005\include\ogrematerial.h
-	"OgrePrerequisites.h"
-	"OgreResource.h"
-	"OgreIteratorWrappers.h"
-	"OgreCommon.h"
-	"OgreColourValue.h"
-	"OgreBlendMode.h"
-
-1156317512 c:\ogresdk_vs2005\include\ogreblendmode.h
-	"OgrePrerequisites.h"
-	"OgreColourValue.h"
-
-1184140480 c:\ogresdk_vs2005\include\ogregpuprogram.h
-	"OgrePrerequisites.h"
-	"OgreResource.h"
-	"OgreSharedPtr.h"
-	"OgreIteratorWrappers.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrefactoryobj.h
-	"OgrePrerequisites.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreuserdefinedobject.h
-	"OgrePrerequisites.h"
-
-1174815838 c:\ogresdk_vs2005\include\ogrebillboardset.h
-	"OgrePrerequisites.h"
-	"OgreMovableObject.h"
-	"OgreRenderable.h"
-	"OgreRadixSort.h"
-	"OgreCommon.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreradixsort.h
-	"OgrePrerequisites.h"
-
-1156317512 c:\ogresdk_vs2005\include\ogrebone.h
-	"OgrePrerequisites.h"
-	"OgreNode.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogrenode.h
-	"OgrePrerequisites.h"
-	"OgreMatrix3.h"
-	"OgreMatrix4.h"
-	"OgreQuaternion.h"
-	"OgreString.h"
-	"OgreRenderable.h"
-	"OgreIteratorWrappers.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogrecamera.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreMovableObject.h"
-	"OgreMatrix4.h"
-	"OgreVector3.h"
-	"OgrePlane.h"
-	"OgreQuaternion.h"
-	"OgreCommon.h"
-	"OgreFrustum.h"
-	"OgreRay.h"
-
-1165671444 c:\ogresdk_vs2005\include\ogrefrustum.h
-	"OgrePrerequisites.h"
-	"OgreMovableObject.h"
-	"OgreRenderable.h"
-	"OgreAxisAlignedBox.h"
-	"OgreVertexIndexData.h"
-	"OgreMovablePlane.h"
-
-1166460552 c:\ogresdk_vs2005\include\ogremovableplane.h
-	"OgrePrerequisites.h"
-	"OgrePlane.h"
-	"OgreMovableObject.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreray.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgrePlaneBoundedVolume.h"
-
-1171183762 c:\ogresdk_vs2005\include\ogreplaneboundedvolume.h
-	"OgrePrerequisites.h"
-	"OgreAxisAlignedBox.h"
-	"OgreSphere.h"
-	"OgreMath.h"
-	"OgrePlane.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogreconfigfile.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreStringVector.h"
-	"OgreIteratorWrappers.h"
-	"OgreDataStream.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrecontrollermanager.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreSingleton.h"
-	"OgreController.h"
-	"OgrePredefinedControllers.h"
-	"OgreTextureUnitState.h"
-	"OgreSharedPtr.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogrepredefinedcontrollers.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreController.h"
-	"OgreFrameListener.h"
-	"OgreGpuProgram.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogreframelistener.h
-	"OgrePrerequisites.h"
-
-1186670502 c:\ogresdk_vs2005\include\ogretextureunitstate.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreBlendMode.h"
-	"OgreMatrix4.h"
-	"OgreIteratorWrappers.h"
-	"OgreString.h"
-	"OgreTexture.h"
-
-1181413700 c:\ogresdk_vs2005\include\ogretexture.h
-	"OgrePrerequisites.h"
-	"OgreHardwareBuffer.h"
-	"OgreResource.h"
-	"OgreImage.h"
-
-1157060874 c:\ogresdk_vs2005\include\ogreimage.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgrePixelFormat.h"
-	"OgreDataStream.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogrepixelformat.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogreentity.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreString.h"
-	"OgreMovableObject.h"
-	"OgreQuaternion.h"
-	"OgreVector3.h"
-	"OgreHardwareBufferManager.h"
-	"OgreMesh.h"
-
-1159135802 c:\ogresdk_vs2005\include\ogrehardwarebuffermanager.h
-	"OgrePrerequisites.h"
-	"OgreSingleton.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreHardwareIndexBuffer.h"
-
-1159027760 c:\ogresdk_vs2005\include\ogremesh.h
-	"OgrePrerequisites.h"
-	"OgreResource.h"
-	"OgreVertexIndexData.h"
-	"OgreAxisAlignedBox.h"
-	"OgreVertexBoneAssignment.h"
-	"OgreIteratorWrappers.h"
-	"OgreProgressiveMesh.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreSkeleton.h"
-	"OgreAnimationTrack.h"
-	"OgrePose.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrevertexboneassignment.h
-	"OgrePrerequisites.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreprogressivemesh.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreHardwareIndexBuffer.h"
-	"OgreRenderOperation.h"
-
-1163774728 c:\ogresdk_vs2005\include\ogreskeleton.h
-	"OgrePrerequisites.h"
-	"OgreResource.h"
-	"OgreQuaternion.h"
-	"OgreVector3.h"
-	"OgreIteratorWrappers.h"
-	"OgreStringVector.h"
-
-1160321644 c:\ogresdk_vs2005\include\ogregpuprogrammanager.h
-	"OgrePrerequisites.h"
-	"OgreResourceManager.h"
-	"OgreException.h"
-	"OgreGpuProgram.h"
-	"OgreSingleton.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrehardwarepixelbuffer.h
-	"OgrePrerequisites.h"
-	"OgreHardwareBuffer.h"
-	"OgreSharedPtr.h"
-	"OgrePixelFormat.h"
-	"OgreImage.h"
-
-1164553640 c:\ogresdk_vs2005\include\ogrehardwareocclusionquery.h
-	"OgrePrerequisites.h"
-
-1168530444 c:\ogresdk_vs2005\include\ogrehighlevelgpuprogram.h
-	"OgrePrerequisites.h"
-	"OgreGpuProgram.h"
-
-1178437836 c:\ogresdk_vs2005\include\ogrehighlevelgpuprogrammanager.h
-	"OgrePrerequisites.h"
-	"OgreResourceManager.h"
-	"OgreSingleton.h"
-	"OgreException.h"
-	"OgreHighLevelGpuProgram.h"
-
-1184140482 c:\ogresdk_vs2005\include\ogrelight.h
-	"OgrePrerequisites.h"
-	"OgreColourValue.h"
-	"OgreVector3.h"
-	"OgreVector4.h"
-	"OgreString.h"
-	"OgreMovableObject.h"
-	"OgrePlaneBoundedVolume.h"
-	"OgreShadowCameraSetup.h"
-
-1165522790 c:\ogresdk_vs2005\include\ogreshadowcamerasetup.h
-	"OgrePrerequisites.h"
-	"OgreMovablePlane.h"
-	"OgreSharedPtr.h"
-
-1163439224 c:\ogresdk_vs2005\include\ogrelogmanager.h
-	"OgrePrerequisites.h"
-	"OgreLog.h"
-	"OgreSingleton.h"
-	"OgreString.h"
-
-1163439224 c:\ogresdk_vs2005\include\ogrelog.h
-	"OgrePrerequisites.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogremanualobject.h
-	"OgrePrerequisites.h"
-	"OgreMovableObject.h"
-	"OgreRenderable.h"
-	"OgreResourceGroupManager.h"
-
-1161118830 c:\ogresdk_vs2005\include\ogrematerialmanager.h
-	"OgrePrerequisites.h"
-	"OgreSingleton.h"
-	"OgreResourceManager.h"
-	"OgreMaterial.h"
-	"OgreStringVector.h"
-	"OgreMaterialSerializer.h"
-	"OgreNoMemoryMacros.h"
-	<boost/thread/tss.hpp>
-	"OgreMemoryMacros.h"
-
-1168530444 c:\ogresdk_vs2005\include\ogrematerialserializer.h
-	"OgrePrerequisites.h"
-	"OgreMaterial.h"
-	"OgreBlendMode.h"
-	"OgreTextureUnitState.h"
-	"OgreGpuProgram.h"
-	"OgreStringVector.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogrenomemorymacros.h
-
-1167931710 c:\ogresdk_vs2005\include\ogremeshmanager.h
-	"OgrePrerequisites.h"
-	"OgreResourceManager.h"
-	"OgreSingleton.h"
-	"OgreVector3.h"
-	"OgreHardwareBuffer.h"
-	"OgreMesh.h"
-	"OgrePatchMesh.h"
-
-1159135802 c:\ogresdk_vs2005\include\ogrepatchmesh.h
-	"OgrePrerequisites.h"
-	"OgreMesh.h"
-	"OgrePatchSurface.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrepatchsurface.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreString.h"
-	"OgreRenderOperation.h"
-	"OgreAxisAlignedBox.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogremeshserializer.h
-	"OgrePrerequisites.h"
-	"OgreMeshSerializerImpl.h"
-	"OgreSerializer.h"
-
-1167845040 c:\ogresdk_vs2005\include\ogremeshserializerimpl.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreSerializer.h"
-	"OgreMaterial.h"
-	"OgreMesh.h"
-	"OgreEdgeListBuilder.h"
-
-1166460552 c:\ogresdk_vs2005\include\ogreserializer.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreDataStream.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogreedgelistbuilder.h
-	"OgrePrerequisites.h"
-	"OgreVector4.h"
-	"OgreHardwareVertexBuffer.h"
-	"OgreRenderOperation.h"
-	"OgreAlignedAllocator.h"
-
-1158961450 c:\ogresdk_vs2005\include\ogrealignedallocator.h
-	"OgrePrerequisites.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogreoverlay.h
-	"OgrePrerequisites.h"
-	"OgreSceneNode.h"
-	"OgreIteratorWrappers.h"
-	"OgreMatrix4.h"
-
-1186670502 c:\ogresdk_vs2005\include\ogrescenenode.h
-	"OgrePrerequisites.h"
-	"OgreNode.h"
-	"OgreIteratorWrappers.h"
-	"OgreAxisAlignedBox.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogreoverlaycontainer.h
-	"OgrePrerequisites.h"
-	"OgreOverlayElement.h"
-	"OgreIteratorWrappers.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogreoverlayelement.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreRenderable.h"
-	"OgreUTFString.h"
-	"OgreStringInterface.h"
-	"OgreOverlayElementCommands.h"
-	"OgreColourValue.h"
-	"OgreRectangle.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogreutfstring.h
-	"OgrePrerequisites.h"
-	<iterator>
-	<string>
-	<stdexcept>
-
-1156317514 c:\ogresdk_vs2005\include\ogreoverlayelementcommands.h
-	"OgrePrerequisites.h"
-	"OgreStringInterface.h"
-
-1164553640 c:\ogresdk_vs2005\include\ogrerectangle.h
-	"OgrePrerequisites.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreoverlaymanager.h
-	"OgrePrerequisites.h"
-	"OgreSingleton.h"
-	"OgreStringVector.h"
-	"OgreOverlay.h"
-	"OgreScriptLoader.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreparticleaffector.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreStringInterface.h"
-
-1160864396 c:\ogresdk_vs2005\include\ogreparticleemitter.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreVector3.h"
-	"OgreColourValue.h"
-	"OgreStringInterface.h"
-	"OgreParticleEmitterCommands.h"
-	"OgreParticle.h"
-
-1159464830 c:\ogresdk_vs2005\include\ogreparticleemittercommands.h
-	"OgrePrerequisites.h"
-	"OgreStringInterface.h"
-
-1160864396 c:\ogresdk_vs2005\include\ogreparticle.h
-	"OgrePrerequisites.h"
-	"OgreBillboard.h"
-
-1156317512 c:\ogresdk_vs2005\include\ogrebillboard.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreColourValue.h"
-	"OgreCommon.h"
-
-1168184060 c:\ogresdk_vs2005\include\ogreparticlesystemmanager.h
-	"OgrePrerequisites.h"
-	"OgreParticleSystem.h"
-	"OgreFrameListener.h"
-	"OgreSingleton.h"
-	"OgreIteratorWrappers.h"
-	"OgreScriptLoader.h"
-	"OgreResourceGroupManager.h"
-
-1159464830 c:\ogresdk_vs2005\include\ogreparticlesystem.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-	"OgreString.h"
-	"OgreParticleIterator.h"
-	"OgreStringInterface.h"
-	"OgreMovableObject.h"
-	"OgreRadixSort.h"
-	"OgreController.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreparticleiterator.h
-	"OgrePrerequisites.h"
-
-1184140484 c:\ogresdk_vs2005\include\ogrepass.h
-	"OgrePrerequisites.h"
-	"OgreGpuProgram.h"
-	"OgreColourValue.h"
-	"OgreBlendMode.h"
-	"OgreCommon.h"
-	"OgreLight.h"
-	"OgreTextureUnitState.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreprofiler.h
-	"OgrePrerequisites.h"
-	"OgreSingleton.h"
-	"OgreString.h"
-	"OgreOverlay.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogrerenderqueueinvocation.h
-	"OgrePrerequisites.h"
-	"OgreRenderQueueSortingGrouping.h"
-	"OgreIteratorWrappers.h"
-
-1191140124 c:\ogresdk_vs2005\include\ogrerenderqueuesortinggrouping.h
-	"OgrePrerequisites.h"
-	"OgreIteratorWrappers.h"
-	"OgreMaterial.h"
-	"OgreTechnique.h"
-	"OgrePass.h"
-	"OgreRadixSort.h"
-
-1168702290 c:\ogresdk_vs2005\include\ogretechnique.h
-	"OgrePrerequisites.h"
-	"OgreIteratorWrappers.h"
-	"OgreBlendMode.h"
-	"OgreCommon.h"
-	"OgrePass.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrerenderqueuelistener.h
-	"OgrePrerequisites.h"
-	"OgreRenderQueue.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogrerendersystem.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreTextureUnitState.h"
-	"OgreCommon.h"
-	"OgreRenderOperation.h"
-	"OgreRenderSystemCapabilities.h"
-	"OgreRenderTarget.h"
-	"OgreRenderTexture.h"
-	"OgreFrameListener.h"
-	"OgreConfigOptionMap.h"
-	"OgreGpuProgram.h"
-	"OgrePlane.h"
-	"OgreIteratorWrappers.h"
-
-1181413700 c:\ogresdk_vs2005\include\ogrerendersystemcapabilities.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogrerendertarget.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreTextureManager.h"
-	"OgreViewport.h"
-	"OgreTimer.h"
-
-1181413700 c:\ogresdk_vs2005\include\ogretexturemanager.h
-	"OgrePrerequisites.h"
-	"OgreResourceManager.h"
-	"OgreTexture.h"
-	"OgreSingleton.h"
-
-1172999344 c:\ogresdk_vs2005\include\ogreviewport.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreColourValue.h"
-
-1164275534 c:\ogresdk_vs2005\include\ogretimer.h
-	"OgrePrerequisites.h"
-	"OgrePlatform.h"
-	"WIN32/OgreTimerImp.h"
-	"GLX/OgreTimerImp.h"
-	"OSX/OgreTimerImp.h"
-
-1160333298 c:\ogresdk_vs2005\include\win32\ogretimerimp.h
-	"windows.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogrerendertexture.h
-	"OgrePrerequisites.h"
-	"OgreRenderTarget.h"
-
-1156317514 c:\ogresdk_vs2005\include\ogreconfigoptionmap.h
-	"OgrePrerequisites.h"
-	"OgreStringVector.h"
-	"OgreString.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrerendertargetlistener.h
-	"OgrePrerequisites.h"
-
-1181413700 c:\ogresdk_vs2005\include\ogrerenderwindow.h
-	"OgrePrerequisites.h"
-	"OgreRenderTarget.h"
-
-1186670500 c:\ogresdk_vs2005\include\ogreresourcebackgroundqueue.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreSingleton.h"
-	"OgreResource.h"
-	<boost/thread/thread.hpp>
-	<boost/thread/condition.hpp>
-
-1160234794 c:\ogresdk_vs2005\include\ogreribbontrail.h
-	"OgrePrerequisites.h"
-	"OgreBillboardChain.h"
-	"OgreNode.h"
-	"OgreIteratorWrappers.h"
-	"OgreFrameListener.h"
-	"OgreControllerManager.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogreroot.h
-	"OgrePrerequisites.h"
-	"OgreSingleton.h"
-	"OgreString.h"
-	"OgreSceneManagerEnumerator.h"
-	"OgreResourceGroupManager.h"
-	<exception>
-
-1156317516 c:\ogresdk_vs2005\include\ogrescenemanagerenumerator.h
-	"OgrePrerequisites.h"
-	"OgreSceneManager.h"
-	"OgreSingleton.h"
-	"OgreIteratorWrappers.h"
-
-1184140488 c:\ogresdk_vs2005\include\ogrescenemanager.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreSceneNode.h"
-	"OgrePlane.h"
-	"OgreQuaternion.h"
-	"OgreColourValue.h"
-	"OgreCommon.h"
-	"OgreSceneQuery.h"
-	"OgreAutoParamDataSource.h"
-	"OgreAnimationState.h"
-	"OgreRenderQueue.h"
-	"OgreRenderQueueSortingGrouping.h"
-	"OgreRectangle2D.h"
-	"OgrePixelFormat.h"
-	"OgreResourceGroupManager.h"
-	"OgreTexture.h"
-	"OgreShadowCameraSetup.h"
-	"OgreShadowTextureManager.h"
-	"OgreCamera.h"
-	"OgreInstancedGeometry.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrescenequery.h
-	"OgrePrerequisites.h"
-	"OgreAxisAlignedBox.h"
-	"OgreSphere.h"
-	"OgreRay.h"
-	"OgreRenderOperation.h"
-	"OgrePlaneBoundedVolume.h"
-
-1184140476 c:\ogresdk_vs2005\include\ogreautoparamdatasource.h
-	"OgrePrerequisites.h"
-	"OgreCommon.h"
-	"OgreMatrix4.h"
-	"OgreVector4.h"
-	"OgreLight.h"
-	"OgreColourValue.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogrerectangle2d.h
-	"OgrePrerequisites.h"
-	"OgreSimpleRenderable.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogresimplerenderable.h
-	"OgrePrerequisites.h"
-	"OgreMovableObject.h"
-	"OgreRenderable.h"
-	"OgreAxisAlignedBox.h"
-	"OgreMaterial.h"
-
-1168969772 c:\ogresdk_vs2005\include\ogreshadowtexturemanager.h
-	"OgrePrerequisites.h"
-	"OgreSingleton.h"
-	"OgrePixelFormat.h"
-	"OgreTexture.h"
-	"OgreIteratorWrappers.h"
-
-1170369080 c:\ogresdk_vs2005\include\ogreinstancedgeometry.h
-	"OgrePrerequisites.h"
-	"OgreMovableObject.h"
-	"OgreSimpleRenderable.h"
-	"OgreSkeleton.h"
-	"OgreSkeletonInstance.h"
-	"OgreAnimationTrack.h"
-	"OgreBone.h"
-
-1168008476 c:\ogresdk_vs2005\include\ogreskeletoninstance.h
-	"OgrePrerequisites.h"
-	"OgreSkeleton.h"
-
-1156317516 c:\ogresdk_vs2005\include\ogreskeletonmanager.h
-	"OgrePrerequisites.h"
-	"OgreResourceManager.h"
-	"OgreSingleton.h"
-
-1186670502 c:\ogresdk_vs2005\include\ogreskeletonserializer.h
-	"OgrePrerequisites.h"
-	"OgreSkeleton.h"
-	"OgreSerializer.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogrestaticgeometry.h
-	"OgrePrerequisites.h"
-	"OgreMovableObject.h"
-	"OgreRenderable.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogrestringconverter.h
-	"OgrePrerequisites.h"
-	"OgreMath.h"
-	"OgreString.h"
-	"OgreStringVector.h"
-
-1167845040 c:\ogresdk_vs2005\include\ogresubentity.h
-	"OgrePrerequisites.h"
-	"OgreString.h"
-	"OgreRenderable.h"
-	"OgreHardwareBufferManager.h"
-
-1167845040 c:\ogresdk_vs2005\include\ogresubmesh.h
-	"OgrePrerequisites.h"
-	"OgreVertexIndexData.h"
-	"OgreMaterial.h"
-	"OgreRenderOperation.h"
-	"OgreVertexBoneAssignment.h"
-	"OgreProgressiveMesh.h"
-	"OgreAnimationTrack.h"
-
-1159135802 c:\ogresdk_vs2005\include\ogrecompositor.h
-	"OgrePrerequisites.h"
-	"OgreIteratorWrappers.h"
-	"OgreResource.h"
-
-1161118830 c:\ogresdk_vs2005\include\ogrecompositormanager.h
-	"OgrePrerequisites.h"
-	"OgreResourceManager.h"
-	"OgreCompositor.h"
-	"OgreRectangle2D.h"
-	"OgreCompositorSerializer.h"
-	"OgreNoMemoryMacros.h"
-	<boost/thread/tss.hpp>
-	"OgreMemoryMacros.h"
-
-1156317512 c:\ogresdk_vs2005\include\ogrecompositorserializer.h
-	"OgrePrerequisites.h"
-	"OgreDataStream.h"
-
-1187595324 c:\ogresdk_vs2005\include\ogrecompositorchain.h
-	"OgrePrerequisites.h"
-	"OgreRenderTargetListener.h"
-	"OgreRenderQueueListener.h"
-	"OgreCompositorInstance.h"
-	"OgreCompositor.h"
-
-1187595324 c:\ogresdk_vs2005\include\ogrecompositorinstance.h
-	"OgrePrerequisites.h"
-	"OgreMaterial.h"
-	"OgreTexture.h"
-	"OgreRenderQueue.h"
-
-1156317512 c:\ogresdk_vs2005\include\ogrecompositiontechnique.h
-	"OgrePrerequisites.h"
-	"OgrePixelFormat.h"
-	"OgreIteratorWrappers.h"
-
-1156317512 c:\ogresdk_vs2005\include\ogrecompositionpass.h
-	"OgrePrerequisites.h"
-	"OgreMaterial.h"
-	"OgreRenderSystem.h"
-	"OgreRenderQueue.h"
-
-1187595324 c:\ogresdk_vs2005\include\ogrecompositiontargetpass.h
-	"OgrePrerequisites.h"
-	"OgreIteratorWrappers.h"
-
-1178437838 c:\ogresdk_vs2005\include\ogrewindoweventutilities.h
-	"OgrePrerequisites.h"
-	"OgrePlatform.h"
-	<windows.h>
-
-1166106400 c:\ogresdk_vs2005\include\ogreshadowcamerasetupfocused.h
-	"OgrePrerequisites.h"
-	"OgreShadowCameraSetup.h"
-	"OgrePolygon.h"
-	"OgreConvexBody.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogrepolygon.h
-	"OgrePrerequisites.h"
-	"OgreVector3.h"
-
-1174815840 c:\ogresdk_vs2005\include\ogreconvexbody.h
-	"OgrePrerequisites.h"
-	"OgrePolygon.h"
-
-1166010880 c:\ogresdk_vs2005\include\ogreshadowcamerasetuplispsm.h
-	"OgrePrerequisites.h"
-	"OgreShadowCameraSetupFocused.h"
-
-1166176380 c:\ogresdk_vs2005\include\ogreshadowcamerasetupplaneoptimal.h
-	"OgrePrerequisites.h"
-	"OgreShadowCameraSetup.h"
-
-1201785180 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\help.cpp
+1208551267 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\help.cpp
 	"Help.h"
 
-1201784802 c:\hydrax\0.2 pree\hydrax\src\hydrax\help.h
+1208551267 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\help.h
 	"Prerequisites.h"
-	"../noise/noise.h"
-	"../noise/noiseutils.h"
 
-1103756668 c:\hydrax\0.2 pree\hydrax\src\noise\noise.h
-	"module/module.h"
-	"model/model.h"
-	"misc.h"
-
-1103670316 c:\hydrax\0.2 pree\hydrax\src\noise\module\module.h
-	"add.h"
-	"abs.h"
-	"billow.h"
-	"blend.h"
-	"cache.h"
-	"checkerboard.h"
-	"clamp.h"
-	"const.h"
-	"curve.h"
-	"cylinders.h"
-	"displace.h"
-	"exponent.h"
-	"invert.h"
-	"max.h"
-	"min.h"
-	"multiply.h"
-	"perlin.h"
-	"power.h"
-	"ridgedmulti.h"
-	"rotatepoint.h"
-	"scalebias.h"
-	"scalepoint.h"
-	"select.h"
-	"spheres.h"
-	"terrace.h"
-	"translatepoint.h"
-	"turbulence.h"
-	"voronoi.h"
-
-1103735918 c:\hydrax\0.2 pree\hydrax\src\noise\module\add.h
-	"modulebase.h"
-
-1157043394 c:\hydrax\0.2 pree\hydrax\src\noise\module\modulebase.h
-	<stdlib.h>
-	<assert.h>
-	<math.h>
-	"../basictypes.h"
-	"../exception.h"
-	"../noisegen.h"
-
-1103670442 c:\hydrax\0.2 pree\hydrax\src\noise\basictypes.h
-
-1104173836 c:\hydrax\0.2 pree\hydrax\src\noise\exception.h
-
-1103670470 c:\hydrax\0.2 pree\hydrax\src\noise\noisegen.h
-	<math.h>
-	"basictypes.h"
-
-1103733936 c:\hydrax\0.2 pree\hydrax\src\noise\module\abs.h
-	"modulebase.h"
-
-1104171702 c:\hydrax\0.2 pree\hydrax\src\noise\module\billow.h
-	"modulebase.h"
-
-1104171722 c:\hydrax\0.2 pree\hydrax\src\noise\module\blend.h
-	"modulebase.h"
-
-1103733954 c:\hydrax\0.2 pree\hydrax\src\noise\module\cache.h
-	"modulebase.h"
-
-1103670254 c:\hydrax\0.2 pree\hydrax\src\noise\module\checkerboard.h
-	"modulebase.h"
-
-1104171742 c:\hydrax\0.2 pree\hydrax\src\noise\module\clamp.h
-	"modulebase.h"
-
-1103670266 c:\hydrax\0.2 pree\hydrax\src\noise\module\const.h
-	"modulebase.h"
-
-1104171766 c:\hydrax\0.2 pree\hydrax\src\noise\module\curve.h
-	"modulebase.h"
-
-1103670282 c:\hydrax\0.2 pree\hydrax\src\noise\module\cylinders.h
-	"modulebase.h"
-
-1104171796 c:\hydrax\0.2 pree\hydrax\src\noise\module\displace.h
-	"modulebase.h"
-
-1103756408 c:\hydrax\0.2 pree\hydrax\src\noise\module\exponent.h
-	"modulebase.h"
-
-1103740168 c:\hydrax\0.2 pree\hydrax\src\noise\module\invert.h
-	"modulebase.h"
-
-1103735732 c:\hydrax\0.2 pree\hydrax\src\noise\module\max.h
-	"modulebase.h"
-
-1103735742 c:\hydrax\0.2 pree\hydrax\src\noise\module\min.h
-	"modulebase.h"
-
-1103735934 c:\hydrax\0.2 pree\hydrax\src\noise\module\multiply.h
-	"modulebase.h"
-
-1104171830 c:\hydrax\0.2 pree\hydrax\src\noise\module\perlin.h
-	"modulebase.h"
-
-1103740154 c:\hydrax\0.2 pree\hydrax\src\noise\module\power.h
-	"modulebase.h"
-
-1104171842 c:\hydrax\0.2 pree\hydrax\src\noise\module\ridgedmulti.h
-	"modulebase.h"
-
-1103740134 c:\hydrax\0.2 pree\hydrax\src\noise\module\rotatepoint.h
-	"modulebase.h"
-
-1103741018 c:\hydrax\0.2 pree\hydrax\src\noise\module\scalebias.h
-	"modulebase.h"
-
-1103742324 c:\hydrax\0.2 pree\hydrax\src\noise\module\scalepoint.h
-	"modulebase.h"
-
-1104172712 c:\hydrax\0.2 pree\hydrax\src\noise\module\select.h
-	"modulebase.h"
-
-1103670586 c:\hydrax\0.2 pree\hydrax\src\noise\module\spheres.h
-	"modulebase.h"
-
-1104171910 c:\hydrax\0.2 pree\hydrax\src\noise\module\terrace.h
-	"modulebase.h"
-
-1103747362 c:\hydrax\0.2 pree\hydrax\src\noise\module\translatepoint.h
-	"modulebase.h"
-
-1103756144 c:\hydrax\0.2 pree\hydrax\src\noise\module\turbulence.h
-	"perlin.h"
-
-1103755566 c:\hydrax\0.2 pree\hydrax\src\noise\module\voronoi.h
-	"modulebase.h"
-
-1103670620 c:\hydrax\0.2 pree\hydrax\src\noise\model\model.h
-	"cylinder.h"
-	"line.h"
-	"plane.h"
-	"sphere.h"
-
-1103820858 c:\hydrax\0.2 pree\hydrax\src\noise\model\cylinder.h
-	<assert.h>
-	<math.h>
-	<stdlib.h>
-	"../module/modulebase.h"
-
-1103821418 c:\hydrax\0.2 pree\hydrax\src\noise\model\line.h
-	<assert.h>
-	<math.h>
-	<stdlib.h>
-	"../module/modulebase.h"
-
-1103820848 c:\hydrax\0.2 pree\hydrax\src\noise\model\plane.h
-	<assert.h>
-	"../module/modulebase.h"
-
-1103820830 c:\hydrax\0.2 pree\hydrax\src\noise\model\sphere.h
-	<assert.h>
-	"../module/modulebase.h"
-
-1103670460 c:\hydrax\0.2 pree\hydrax\src\noise\misc.h
-
-1197241205 c:\hydrax\0.2 pree\hydrax\src\noise\noiseutils.h
-	<stdlib.h>
-	<string.h>
-	<string>
-	"noise.h"
-
-1206371077 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\hydrax.cpp
+1208551267 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\hydrax.cpp
 	"Hydrax.h"
 
-1206385398 c:\hydrax\0.2 pree\hydrax\src\hydrax\hydrax.h
+1208551267 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\hydrax.h
 	"Prerequisites.h"
 	"Enums.h"
 	"Structs.h"
@@ -5184,216 +3887,94 @@
 	"Image.h"
 	"MaterialManager.h"
 	"TextureManager.h"
+	"DecalsManager.h"
 	"Modules/Module.h"
 
-1201388968 c:\hydrax\0.2 pree\hydrax\src\hydrax\structs.h
+1208551266 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\structs.h
 	"Enums.h"
 	"Help.h"
 
-1206368596 c:\hydrax\0.2 pree\hydrax\src\hydrax\mesh.h
+1208551266 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\mesh.h
 	"Prerequisites.h"
 	"Help.h"
 	"Structs.h"
 	"Image.h"
 
-1205504797 c:\hydrax\0.2 pree\hydrax\src\hydrax\image.h
+1208551267 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\image.h
 	"Prerequisites.h"
 	"Help.h"
 
-1205677626 c:\hydrax\0.2 pree\hydrax\src\hydrax\materialmanager.h
+1208551267 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\materialmanager.h
 	"Prerequisites.h"
 	"Enums.h"
 
-1205504448 c:\hydrax\0.2 pree\hydrax\src\hydrax\texturemanager.h
+1208551266 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\texturemanager.h
 	"Prerequisites.h"
 	"Enums.h"
 	"Structs.h"
 	"Image.h"
 
-1205805261 c:\hydrax\0.2 pree\hydrax\src\hydrax\modules\module.h
+1208551267 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\decalsmanager.h
+	"Prerequisites.h"
+
+1208551334 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\modules\module.h
 	"../Prerequisites.h"
+	"../Noise/Noise.h"
 	"../Mesh.h"
 	"../MaterialManager.h"
 
-1205504780 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\image.cpp
+1208551334 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\noise\noise.h
+	"../Prerequisites.h"
+
+1208551267 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\image.cpp
 	"Image.h"
 
-1206031198 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\materialmanager.cpp
+1208551267 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\materialmanager.cpp
 	"MaterialManager.h"
 	"Hydrax.h"
 
-1206368596 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\mesh.cpp
+1208551266 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\mesh.cpp
 	"Mesh.h"
-	"Modules/PerlinPG/PerlinPG.h"
-
-1206313128 c:\hydrax\0.2 pree\hydrax\src\hydrax\modules\perlinpg\perlinpg.h
-	"../../Prerequisites.h"
-	"../../Hydrax.h"
-	"../Module.h"
-
-1205805261 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\modules\module.cpp
-	"Module.h"
-
-1206359377 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\modules\perlinpg\perlinpg.cpp
-	"PerlinPG.h"
-
-1206361421 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\modules\perlin\perlin.cpp
-	"Perlin.h"
-
-1205805639 c:\hydrax\0.2 pree\hydrax\src\hydrax\modules\perlin\perlin.h
-	"../../Prerequisites.h"
-	"../../../noise/noise.h"
-	"../../../noise/noiseutils.h"
-	"../../Hydrax.h"
-	"../Module.h"
-
-1198623291 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\prerequisites.cpp
-	"Prerequisites.h"
-
-1197757015 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\structs.cpp
-	"Structs.h"
-
-1205534936 source:c:\hydrax\0.2 pree\hydrax\src\hydrax\texturemanager.cpp
-	"TextureManager.h"
 	"Hydrax.h"
 
-1103670452 source:c:\hydrax\0.2 pree\hydrax\src\noise\latlon.cpp
-	"latlon.h"
+1208551334 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\modules\module.cpp
+	"Module.h"
 
-1103670454 c:\hydrax\0.2 pree\hydrax\src\noise\latlon.h
-	<math.h>
-	"mathconsts.h"
+1208551335 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\modules\projectedgrid\projectedgrid.cpp
+	"ProjectedGrid.h"
 
-1103670458 c:\hydrax\0.2 pree\hydrax\src\noise\mathconsts.h
+1208551335 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\modules\projectedgrid\projectedgrid.h
+	"../../Prerequisites.h"
+	"../../Hydrax.h"
+	"../../Mesh.h"
+	"../Module.h"
 
-1103670608 source:c:\hydrax\0.2 pree\hydrax\src\noise\model\cylinder.cpp
-	"../mathconsts.h"
-	"cylinder.h"
+1208551335 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\modules\simplegrid\simplegrid.cpp
+	"SimpleGrid.h"
 
-1157043356 source:c:\hydrax\0.2 pree\hydrax\src\noise\model\line.cpp
-	"line.h"
+1208551335 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\modules\simplegrid\simplegrid.h
+	"../../Prerequisites.h"
+	"../../Hydrax.h"
+	"../../Mesh.h"
+	"../Module.h"
 
-1103808422 source:c:\hydrax\0.2 pree\hydrax\src\noise\model\plane.cpp
-	"plane.h"
+1208551334 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\noise\noise.cpp
+	"Noise.h"
 
-1103670630 source:c:\hydrax\0.2 pree\hydrax\src\noise\model\sphere.cpp
-	"../latlon.h"
-	"sphere.h"
+1208551334 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\noise\perlin\perlin.cpp
+	"Perlin.h"
 
-1103670222 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\abs.cpp
-	"abs.h"
+1208551334 c:\hydrax\v0.3\tmp\hydrax\src\hydrax\noise\perlin\perlin.h
+	"../../Prerequisites.h"
+	"../Noise.h"
 
-1103670226 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\add.cpp
-	"add.h"
+1208551266 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\prerequisites.cpp
+	"Prerequisites.h"
 
-1157043366 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\billow.cpp
-	"billow.h"
+1208551266 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\structs.cpp
+	"Structs.h"
 
-1103670488 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\blend.cpp
-	"blend.h"
-	"../interp.h"
-
-1104754610 c:\hydrax\0.2 pree\hydrax\src\noise\interp.h
-
-1103670244 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\cache.cpp
-	"cache.h"
-
-1103670250 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\checkerboard.cpp
-	"checkerboard.h"
-
-1103670256 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\clamp.cpp
-	"clamp.h"
-
-1103670262 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\const.cpp
-	"const.h"
-
-1104170698 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\curve.cpp
-	"../interp.h"
-	"../misc.h"
-	"curve.h"
-
-1103670278 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\cylinders.cpp
-	"../misc.h"
-	"cylinders.h"
-
-1103730838 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\displace.cpp
-	"displace.h"
-
-1103670510 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\exponent.cpp
-	"exponent.h"
-
-1103670516 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\invert.cpp
-	"invert.h"
-
-1103670524 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\max.cpp
-	"../misc.h"
-	"max.h"
-
-1103670530 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\min.cpp
-	"../misc.h"
-	"min.h"
-
-1103670322 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\modulebase.cpp
-	"modulebase.h"
-
-1103670544 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\multiply.cpp
-	"multiply.h"
-
-1203212365 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\perlin_1.cpp
-	"perlin.h"
-
-1103670552 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\power.cpp
-	"power.h"
-
-1157043414 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\ridgedmulti.cpp
-	"ridgedmulti.h"
-
-1103670560 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\rotatepoint.cpp
-	"../mathconsts.h"
-	"rotatepoint.h"
-
-1104173202 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\scalebias.cpp
-	"scalebias.h"
-
-1103670570 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\scalepoint.cpp
-	"scalepoint.h"
-
-1157043422 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\select.cpp
-	"../interp.h"
-	"select.h"
-
-1103670582 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\spheres.cpp
-	"../misc.h"
-	"spheres.h"
-
-1157043430 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\terrace.cpp
-	"../interp.h"
-	"../misc.h"
-	"terrace.h"
-
-1103670594 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\translatepoint.cpp
-	"translatepoint.h"
-
-1103746608 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\turbulence.cpp
-	"turbulence.h"
-
-1157043450 source:c:\hydrax\0.2 pree\hydrax\src\noise\module\voronoi.cpp
-	"../mathconsts.h"
-	"voronoi.h"
-
-1157043316 source:c:\hydrax\0.2 pree\hydrax\src\noise\noisegen.cpp
-	"noisegen.h"
-	"interp.h"
-	"vectortable.h"
-
-1103746676 c:\hydrax\0.2 pree\hydrax\src\noise\vectortable.h
-
-1196562207 source:c:\hydrax\0.2 pree\hydrax\src\noise\noiseutils.cpp
-	<fstream>
-	"interp.h"
-	"mathconsts.h"
-	"noiseutils.h"
-
-1103670636 source:c:\hydrax\0.2 pree\hydrax\src\noise\win32\dllmain.cpp
-	<windows.h>
+1208551266 source:c:\hydrax\v0.3\tmp\hydrax\src\hydrax\texturemanager.cpp
+	"TextureManager.h"
+	"Hydrax.h"
 
