@@ -50,8 +50,13 @@ namespace Hydrax{namespace Noise
 
 	bool Noise::createGPUNormalMapResources(GPUNormalMapManager *g)
 	{
-		if (mGPUNormalMapSupported && !mGPUNormalMapResourcesCreated)
+		if (mGPUNormalMapSupported)
 		{
+			if (mGPUNormalMapResourcesCreated)
+			{
+				removeGPUNormalMapResources(g);
+			}
+
 			mGPUNormalMapResourcesCreated = true;
 
 			g->remove();

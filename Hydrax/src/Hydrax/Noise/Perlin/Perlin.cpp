@@ -36,7 +36,6 @@ namespace Hydrax{namespace Noise
 {
 	Perlin::Perlin()
 		: Noise("Perlin", true)
-		, octaves(0)
 		, time(0)
 		, r_noise(0)
 		, magnitude(n_dec_magn * 0.085f)
@@ -47,7 +46,6 @@ namespace Hydrax{namespace Noise
 	Perlin::Perlin(const Options &Options)
 		: Noise("Perlin", true)
 		, mOptions(Options)
-		, octaves(0)
 		, time(0)
 		, r_noise(0)
 		, magnitude(n_dec_magn * Options.Scale)
@@ -85,6 +83,8 @@ namespace Hydrax{namespace Noise
 			return;
 		}
 
+		time = 0;
+
 		Noise::remove();
 	}
 
@@ -117,6 +117,7 @@ namespace Hydrax{namespace Noise
 		else
 		{
 			mOptions = Options;
+			mOptions.Octaves = (mOptions.Octaves<max_octaves) ? mOptions.Octaves : max_octaves;
 		}
 
 		magnitude = n_dec_magn * mOptions.Scale;
@@ -132,8 +133,7 @@ namespace Hydrax{namespace Noise
 		mGPUNormalMapManager = g;
 
 		// Create our perlin textures
-
-		Ogre::TexturePtr& mPerlinTexture0 
+		Ogre::TexturePtr mPerlinTexture0 
 			= Ogre::TextureManager::getSingleton().
 			createManual("_Hydrax_Perlin_Noise0",
 			             HYDRAX_RESOURCE_GROUP,
@@ -142,7 +142,7 @@ namespace Hydrax{namespace Noise
 						 Ogre::PF_L16,
 						 Ogre::TU_DYNAMIC_WRITE_ONLY);
 
-		Ogre::TexturePtr& mPerlinTexture1 
+		Ogre::TexturePtr mPerlinTexture1 
 			= Ogre::TextureManager::getSingleton().
 			createManual("_Hydrax_Perlin_Noise1",
 			             HYDRAX_RESOURCE_GROUP,
@@ -393,7 +393,7 @@ namespace Hydrax{namespace Noise
 
 			for (int u = 0; u < np_size_sq; u++)
 			{
-				Data[u] = 32768+p_noise[u+Offset];
+				Data[u] = 32768+p_noise[u+Offset];//std::cout << p_noise[u+Offset] << std::endl;
 			}
 
 			PixelBuffer->unlock();
@@ -446,8 +446,6 @@ namespace Hydrax{namespace Noise
 
 	void Perlin::_calculeNoise()
 	{
-        #define min(a,b) (((a) < (b)) ? (a) : (b))
-
 		int i, o, v, u,
 			multitable[max_octaves],
 			amount[3],
@@ -458,23 +456,21 @@ namespace Hydrax{namespace Noise
 		float sum = 0.0f,
 			  f_multitable[max_octaves];
 
-		double dImage, fraction;
-
-		octaves = min(mOptions.Octaves, max_octaves);		
+		double dImage, fraction;	
 
 		// calculate the strength of each octave
-		for(i=0; i<octaves; i++)
+		for(i=0; i<mOptions.Octaves; i++)
 		{
 			f_multitable[i] = powf(mOptions.Falloff,1.0f*i);
 			sum += f_multitable[i];
 		}
 
-		for(i=0; i<octaves; i++)
+		for(i=0; i<mOptions.Octaves; i++)
 		{
 			f_multitable[i] /= sum;
 		}
 		
-		for(i=0; i<octaves; i++)
+		for(i=0; i<mOptions.Octaves; i++)
 		{
 			multitable[i] = scale_magnitude*f_multitable[i];
 		}
@@ -482,7 +478,7 @@ namespace Hydrax{namespace Noise
 		double r_timemulti = 1.0;
 		const float PI_3 = Ogre::Math::PI/3;
 
-		for(o=0; o<octaves; o++)
+		for(o=0; o<mOptions.Octaves; o++)
 		{		
 			fraction = modf(time*r_timemulti,&dImage);
 			iImage = static_cast<int>(dImage);
@@ -509,7 +505,7 @@ namespace Hydrax{namespace Noise
 		if(_def_PackedNoise)
 		{
 			int octavepack = 0;
-			for(o=0; o<octaves; o+=n_packsize)
+			for(o=0; o<mOptions.Octaves; o+=n_packsize)
 			{
 				for(v=0; v<np_size; v++)
 				{
@@ -557,7 +553,7 @@ namespace Hydrax{namespace Noise
 		    vi = v*magnitude,
 			i, 
 			value = 0,
-			hoct = octaves / n_packsize;
+			hoct = mOptions.Octaves / n_packsize;
 
 		for(i=0; i<hoct; i++)
 		{		

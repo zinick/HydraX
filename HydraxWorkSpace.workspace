@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
-	<Workspace title="Hydrax">
+	<Workspace title="Workspace">
 		<Project filename="Hydrax\Hydrax.cbp" active="1" />
 		<Project filename="Demo1\Demo1.cbp" />
 	</Workspace>

@@ -93,7 +93,6 @@ namespace Hydrax
 		mProjectorCamera->setFarClipDistance(40);
 		mProjectorCamera->setAspectRatio(1);
 		mProjectorCamera->setFOVy(Ogre::Degree(45.0f));
-		mProjectorCamera->setDebugDisplayEnabled(false);
 		mProjectorCamera->setVisible(false);
 		mProjectorSN = mHydrax->getSceneManager()->getRootSceneNode()->createChildSceneNode();
 		mProjectorSN->setPosition(0,0,0);

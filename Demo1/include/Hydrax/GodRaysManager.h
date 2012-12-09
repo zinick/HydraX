@@ -145,6 +145,14 @@ namespace Hydrax
 			return mPerlin;
 		}
 
+		/** Get good rays scene node
+		    @return God rays scene node
+		 */
+		inline Ogre::SceneNode* getSceneNode()
+		{
+			return mProjectorSN;
+		}
+
 		/** Set visible
 		    @param Visible true = yes; false = no
 		 */

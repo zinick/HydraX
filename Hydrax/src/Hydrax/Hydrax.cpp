@@ -34,6 +34,7 @@ namespace Hydrax
             , mCamera(c)
 			, mViewport(v)
             , mCreated(false)
+			, mVisible(true)
 			, mPolygonMode(Ogre::PM_SOLID)
 			, mShaderMode(MaterialManager::SM_HLSL)
             , mPosition(Ogre::Vector3(0,0,0))
@@ -57,6 +58,7 @@ namespace Hydrax
             , mCausticsEnd(0.55)
 			, mGodRaysExposure(Ogre::Vector3(0.76,2.46,2.29))
 			, mGodRaysIntensity(0.015)
+			, mUnderwaterCameraSwitchDelta(1.25f)
 			, mCurrentFrameUnderwater(false)
             , mMesh(new Mesh(this))
 			, mMaterialManager(new MaterialManager(this))
@@ -138,8 +140,8 @@ namespace Hydrax
         HydraxLOG("RTT manager initialized.");
 
 		HydraxLOG("Registring device restored listener...");
-		mDeviceRestoredListener.mHydrax = this;
-		Ogre::Root::getSingleton().getRenderSystem()->addListener(&mDeviceRestoredListener);
+		mDeviceListener.mHydrax = this;
+		Ogre::Root::getSingleton().getRenderSystem()->addListener(&mDeviceListener);
 		HydraxLOG("Device restored listener registred.");
 
 		HydraxLOG("Creating materials...");
@@ -159,6 +161,9 @@ namespace Hydrax
         mMesh->create();
         HydraxLOG("Water mesh created.");
 
+		// Hide if !mVisible
+		_checkVisible();
+
         mCreated = true;
     }
 
@@ -168,6 +173,8 @@ namespace Hydrax
 		{
 			return;
 		}
+
+		Ogre::Root::getSingleton().getRenderSystem()->removeListener(&mDeviceListener);
 
 		mMesh->remove();
 		mDecalsManager->removeAll();
@@ -180,34 +187,69 @@ namespace Hydrax
 		mCreated = false;
 	}
 
-	void Hydrax::DeviceRestoredListener::eventOccurred(const Ogre::String& eventName, const Ogre::NameValuePairList *parameters)
+	void Hydrax::setVisible(const bool& Visible)
 	{
-		if (eventName == "DeviceRestored")
+		mVisible = Visible;
+
+		_checkVisible();
+	}
+
+	void Hydrax::_checkVisible()
+	{
+		if (!mCreated)
 		{
-			// Restore mesh
-			HydraxLOG("Restoring water mesh...");
-			if (mHydrax->mMesh->isCreated())
-			{
-				Ogre::String MaterialNameTmp = mHydrax->mMesh->getMaterialName();
-				Mesh::Options MeshOptionsTmp = mHydrax->mMesh->getOptions();
-
-				HydraxLOG("Updating water mesh...");
-
-				HydraxLOG("Deleting water mesh...");
-				delete mHydrax->mMesh;
-				HydraxLOG("Water mesh deleted.");
-
-				HydraxLOG("Creating water mesh...");
-				mHydrax->mMesh = new Mesh(mHydrax);
-				mHydrax->mMesh->setOptions(MeshOptionsTmp);
-				mHydrax->mMesh->setMaterialName(MaterialNameTmp);
-				mHydrax->mMesh->create();
-				mHydrax->setPosition(mHydrax->mPosition);
-				mHydrax->mModule->update(0); // ???
-				HydraxLOG("Water mesh created.");
-			}
-			HydraxLOG("Water mesh restored.");
+			return;
 		}
+
+		if (!mVisible)
+		{
+			// Stop RTTs:
+            mRttManager->removeAll();
+
+			// Hide hydrax mesh
+			mMesh->getSceneNode()->setVisible(false);
+
+			// Stop compositor (MaterialManager::setCompositorEnable(...) checks if underwater compositor exists)
+			mMaterialManager->setCompositorEnable(MaterialManager::COMP_UNDERWATER, false);
+		}
+		else
+		{
+			// Start reflection and refraction RTTs:
+			mRttManager->initialize(RttManager::RTT_REFLECTION);
+			mRttManager->initialize(RttManager::RTT_REFRACTION);
+
+		    // Start depth rtt if needed:
+			if (isComponent(HYDRAX_COMPONENT_DEPTH))
+			{
+				mRttManager->initialize(RttManager::RTT_DEPTH);
+			}
+
+			// Start GPU normals rtt if needed:
+			if (mModule->getNormalMode() == MaterialManager::NM_RTT)
+			{
+				mGPUNormalMapManager->create();
+			}
+
+			// Set over-water material and check for underwater:
+			mMesh->setMaterialName(mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
+			mMaterialManager->reload(MaterialManager::MAT_WATER);
+
+			_checkUnderwater(0);
+
+			// Set hydrax mesh node visible
+			mMesh->getSceneNode()->setVisible(true);
+		}
+	}
+
+	void Hydrax::DeviceListener::eventOccurred(const Ogre::String& eventName, const Ogre::NameValuePairList *parameters)
+	{
+		// If needed...
+
+		if (eventName == "DeviceLost")
+		{}
+
+		if (eventName == "DeviceRestored")
+		{}
 	}
 
 	void Hydrax::setPolygonMode(const Ogre::PolygonMode& PM)
@@ -241,7 +283,7 @@ namespace Hydrax
 
     void Hydrax::update(const Ogre::Real &timeSinceLastFrame)
 	{
-		if (mCreated && mModule)
+		if (mCreated && mModule && mVisible)
 		{
             mModule->update(timeSinceLastFrame);
 		    mDecalsManager->update();
@@ -418,27 +460,46 @@ namespace Hydrax
 		}
 
 		// Check for Rtt's
-        if (mCreated)
-        {
-            if (!isComponent(HYDRAX_COMPONENT_DEPTH))
-            {
-			    mRttManager->remove(RttManager::RTT_DEPTH);
-				mRttManager->remove(RttManager::RTT_DEPTH_REFLECTION);
-            }
-            else
-            {
-                mRttManager->initialize(RttManager::RTT_DEPTH);
+		if (!isComponent(HYDRAX_COMPONENT_DEPTH))
+		{
+			mRttManager->remove(RttManager::RTT_DEPTH);
+			mRttManager->remove(RttManager::RTT_DEPTH_REFLECTION);
+		}
+		else
+		{
+			mRttManager->initialize(RttManager::RTT_DEPTH);
 
-			    if (isComponent(HYDRAX_COMPONENT_UNDERWATER_REFLECTIONS))
-				{
-					mRttManager->initialize(RttManager::RTT_DEPTH_REFLECTION);
-				}
-            }
-        }
+			if (isComponent(HYDRAX_COMPONENT_UNDERWATER_REFLECTIONS) && mCurrentFrameUnderwater)
+			{
+				mRttManager->initialize(RttManager::RTT_DEPTH_REFLECTION);
+			}
+		}
+		if (!isComponent(HYDRAX_COMPONENT_UNDERWATER) && mCurrentFrameUnderwater)
+		{
+			mRttManager->getTexture(RttManager::RTT_REFRACTION)->
+				getBuffer()->getRenderTarget()->getViewport(0)->
+					 setSkiesEnabled(false);
+
+			mRttManager->getTexture(RttManager::RTT_REFLECTION)->
+				getBuffer()->getRenderTarget()->getViewport(0)->
+					 setSkiesEnabled(true);
+		}
 
 		mMaterialManager->createMaterials(mComponents, MaterialManager::Options(mShaderMode, mModule->getNormalMode()));
 
-		mMesh->setMaterialName(mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
+		if (!isComponent(HYDRAX_COMPONENT_UNDERWATER))
+		{
+			mCurrentFrameUnderwater = false;
+		}
+
+		mMesh->setMaterialName(mCurrentFrameUnderwater ?
+			mMaterialManager->getMaterial(MaterialManager::MAT_UNDERWATER)->getName() :
+		    mMaterialManager->getMaterial(MaterialManager::MAT_WATER)->getName());
+
+		if (mCurrentFrameUnderwater)
+		{
+			mMaterialManager->setCompositorEnable(MaterialManager::COMP_UNDERWATER, true);
+		}
     }
 
 	void Hydrax::setModule(Module::Module* Module, const bool& DeleteOldModule)
@@ -556,7 +617,7 @@ namespace Hydrax
 		}
 
 		// If the camera is under the current water x/z position
-		if (getHeigth(mCamera->getDerivedPosition()) > mCamera->getDerivedPosition().y-1.25f) // <--- TODO
+		if (getHeigth(mCamera->getDerivedPosition()) > mCamera->getDerivedPosition().y-mUnderwaterCameraSwitchDelta)
 		{
 			mCurrentFrameUnderwater = true;
 
@@ -650,7 +711,7 @@ namespace Hydrax
 			    "uPlaneYPos", Position.y);
 		}
 
-        mMesh->getSceneNode()->setPosition(Position);
+        mMesh->getSceneNode()->setPosition(Position.x-mMesh->getSize().Width/2, Position.y, Position.z-mMesh->getSize().Height/2);
 		mRttManager->getPlanesSceneNode()->setPosition(Position);
 
 		// For world-space -> object-space conversion
@@ -1023,9 +1084,12 @@ namespace Hydrax
 
 		if (isComponent(HYDRAX_COMPONENT_UNDERWATER))
 		{
-		    mMaterialManager->setGpuProgramParameter(
-			    MaterialManager::GPUP_FRAGMENT, MaterialManager::MAT_UNDERWATER,
-			    "uCausticsPower", CausticsPower);
+			if (isComponent(HYDRAX_COMPONENT_UNDERWATER_REFLECTIONS))
+			{
+		        mMaterialManager->setGpuProgramParameter(
+			        MaterialManager::GPUP_FRAGMENT, MaterialManager::MAT_UNDERWATER,
+			        "uCausticsPower", CausticsPower);
+			}
 
 			mMaterialManager->setGpuProgramParameter(
 				MaterialManager::GPUP_FRAGMENT, MaterialManager::MAT_UNDERWATER_COMPOSITOR,

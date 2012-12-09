@@ -142,7 +142,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib OIS.lib Hydrax.lib"
-				LinkIncremental="0"
+				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;C:/ogrenew/Lib&quot;;lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -321,11 +321,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\noise\module\perlin.h"
+				RelativePath=".\include\hydrax\Perlin.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\hydrax\Perlin.h"
+				RelativePath=".\include\noise\module\perlin.h"
 				>
 			</File>
 			<File

@@ -66,9 +66,12 @@ namespace Hydrax{namespace Module
 
 		mNoise = Noise;
 
-		if (mCreated && !mNoise->isCreated())
+		if (mCreated)
 		{
-			mNoise->create();
+			if (!mNoise->isCreated())
+			{
+				mNoise->create();
+			}
 
 			if (getNormalMode() == MaterialManager::NM_RTT)
 			{
@@ -76,6 +79,10 @@ namespace Hydrax{namespace Module
 				{
 					HydraxLOG(mNoise->getName() + " doesn't support GPU Normal map generation");
 				}
+			}
+			else
+			{
+				mNoise->removeGPUNormalMapResources(g);
 			}
 		}
 		else

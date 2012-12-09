@@ -215,7 +215,7 @@ namespace Hydrax
 
 				bool isLast = true;
 
-			    for (int u = k; u < 8-1; u++)
+			    for (int u = k+1; u < 8; u++)
 			    {
 				    if (Cmp[u].first)
 				    {
@@ -344,7 +344,7 @@ namespace Hydrax
 		mHydrax->setComponents(static_cast<HydraxComponent>(
 			ComponentsToLoad[0] | ComponentsToLoad[1] | ComponentsToLoad[2] | ComponentsToLoad[3] |
 			ComponentsToLoad[4] | ComponentsToLoad[5] | ComponentsToLoad[6] | ComponentsToLoad[7]));
-
+		
 		if (_isStringInList(Cmpnts, "Sun"))
 		{
 			mHydrax->setSunPosition(_getVector3Value(CfgFile,"SunPosition"));

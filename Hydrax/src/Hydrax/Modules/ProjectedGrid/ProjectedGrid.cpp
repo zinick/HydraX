@@ -293,32 +293,25 @@ namespace Hydrax{namespace Module
 					for(int i = 0; i < mOptions.Complexity*mOptions.Complexity; i++)
 		            {
 			            Vertices[i] = mVerticesChoppyBuffer[i];
+						Vertices[i].y = -mBasePlane.d + mNoise->getValue(RenderingCameraPos.x + Vertices[i].x, RenderingCameraPos.z + Vertices[i].z)*mOptions.Strength;
 		            }
 				}
-
-				for(v=0; v<mOptions.Complexity; v++)
+				else
 				{
-					for(u=0; u<mOptions.Complexity; u++)
-					{	
+					for(int i = 0; i < mOptions.Complexity*mOptions.Complexity; i++)
+		            {
 						Vertices[i].y = -mBasePlane.d + mNoise->getValue(RenderingCameraPos.x + Vertices[i].x, RenderingCameraPos.z + Vertices[i].z)*mOptions.Strength;
-
-						i++;
-					}
+		            }
 				}
 			}
 			else if (getNormalMode() == MaterialManager::NM_RTT)
 			{
 				Mesh::POS_VERTEX* Vertices = static_cast<Mesh::POS_VERTEX*>(mVertices);
 
-				for(v=0; v<mOptions.Complexity; v++)
-				{
-					for(u=0; u<mOptions.Complexity; u++)
-					{	
-						Vertices[i].y = -mBasePlane.d + mNoise->getValue(RenderingCameraPos.x + Vertices[i].x, RenderingCameraPos.z + Vertices[i].z)*mOptions.Strength;
-					
-						i++;
-					}
-				}
+				for(int i = 0; i < mOptions.Complexity*mOptions.Complexity; i++)
+		        {
+				    Vertices[i].y = -mBasePlane.d + mNoise->getValue(RenderingCameraPos.x + Vertices[i].x, RenderingCameraPos.z + Vertices[i].z)*mOptions.Strength;
+		        }
 			}
 
 			// Smooth the heightdata

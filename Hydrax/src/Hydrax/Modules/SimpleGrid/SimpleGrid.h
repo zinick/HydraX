@@ -180,6 +180,9 @@ namespace Hydrax{ namespace Module
 		/// Vertex pointer (Mesh::POS_NORM_VERTEX or Mesh::POS_VERTEX)
 		void *mVertices;
 
+		/// Use it to store vertex positions when choppy displacement is enabled
+		Mesh::POS_NORM_VERTEX* mVerticesChoppyBuffer;
+
 		/// Our projected grid options
 		Options mOptions;
 

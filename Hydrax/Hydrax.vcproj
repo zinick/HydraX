@@ -39,7 +39,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="C:/ogrenew/Include;&quot;include&quot;"
+				AdditionalIncludeDirectories="include;&quot;$(OGRE_HOME)/Include&quot;"
 				AdditionalUsingDirectories=""
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;HYDRAX_EXPORTS;HYDRAX_LIB"
 				MinimalRebuild="true"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;C:\ogrenew\Lib&quot;;&quot;lib&quot;"
+				AdditionalLibraryDirectories="&quot;$C:\ogrenew\Lib&quot;;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -249,11 +249,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Enums.h"
+				RelativePath=".\src\Hydrax\Enums.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Enums.h"
+				RelativePath=".\include\Hydrax\Enums.h"
 				>
 			</File>
 			<File
@@ -262,6 +262,10 @@
 			</File>
 			<File
 				RelativePath=".\include\noise\module\exponent.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Hydrax\Noise\FFT\FFT.h"
 				>
 			</File>
 			<File
@@ -281,11 +285,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Hydrax.h"
+				RelativePath=".\include\Hydrax\Hydrax.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Hydrax.h"
+				RelativePath=".\src\Hydrax\Hydrax.h"
 				>
 			</File>
 			<File
@@ -321,11 +325,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Mesh.h"
+				RelativePath=".\include\Hydrax\Mesh.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Mesh.h"
+				RelativePath=".\src\Hydrax\Mesh.h"
 				>
 			</File>
 			<File
@@ -341,11 +345,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Modules\Module.h"
+				RelativePath=".\include\noise\module\module.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\noise\module\module.h"
+				RelativePath=".\src\Hydrax\Modules\Module.h"
 				>
 			</File>
 			<File
@@ -393,15 +397,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Prerequisites.h"
-				>
-			</File>
-			<File
 				RelativePath=".\src\Hydrax\Prerequisites.h"
 				>
 			</File>
 			<File
+				RelativePath=".\include\Hydrax\Prerequisites.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Hydrax\Modules\ProjectedGrid\ProjectedGrid.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Hydrax\Modules\RadialGrid\RadialGrid.h"
 				>
 			</File>
 			<File
@@ -497,6 +505,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\Hydrax\Noise\FFT\FFT.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Hydrax\GodRaysManager.cpp"
 				>
 			</File>
@@ -542,6 +554,10 @@
 			</File>
 			<File
 				RelativePath=".\src\Hydrax\Modules\ProjectedGrid\ProjectedGrid.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Hydrax\Modules\RadialGrid\RadialGrid.cpp"
 				>
 			</File>
 			<File

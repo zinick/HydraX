@@ -265,18 +265,18 @@ namespace Hydrax
             return mMaterialName;
         }
 
-		/** Get hardware vertex buffer
-            @return Ogre::HardwareVertexBufferSharedPtr
+		/** Get hardware vertex buffer reference
+            @return Ogre::HardwareVertexBufferSharedPtr reference
          */
-        inline Ogre::HardwareVertexBufferSharedPtr getHardwareVertexBuffer()
+        inline Ogre::HardwareVertexBufferSharedPtr &getHardwareVertexBuffer()
         {
             return mVertexBuffer;
         }
 
-		/** Get hardware index buffer
-		    @return Ogre::HardwareIndexBufferSharedPtr
+		/** Get hardware index buffer reference
+		    @return Ogre::HardwareIndexBufferSharedPtr reference
 		 */
-		inline Ogre::HardwareIndexBufferSharedPtr getHardwareIndexBuffer()
+		inline Ogre::HardwareIndexBufferSharedPtr &getHardwareIndexBuffer()
 		{
 			return mIndexBuffer;
 		}
