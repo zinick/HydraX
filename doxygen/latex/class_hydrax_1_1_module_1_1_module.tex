@@ -1,0 +1,297 @@
+\hypertarget{class_hydrax_1_1_module_1_1_module}{
+\section{Hydrax::Module::Module Class Reference}
+\label{class_hydrax_1_1_module_1_1_module}\index{Hydrax::Module::Module@{Hydrax::Module::Module}}
+}
+{\tt \#include $<$Module.h$>$}
+
+Inheritance diagram for Hydrax::Module::Module::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.93437cm]{class_hydrax_1_1_module_1_1_module}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_module_b82e857eb19eac9c9091097909f3d566}{Module} (const Ogre::String \&Name, \hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$n, const \hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Mesh::Options} \&MeshOptions, const \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{MaterialManager::NormalMode} \&NormalMode)
+\item 
+virtual \hyperlink{class_hydrax_1_1_module_1_1_module_0490f405b7150266765fb44ad1aefa8c}{$\sim$Module} ()
+\item 
+virtual void \hyperlink{class_hydrax_1_1_module_1_1_module_4b696328c3fc1496f757e929f44f3258}{create} ()
+\item 
+virtual void \hyperlink{class_hydrax_1_1_module_1_1_module_21f60a53a99d72ff00d3fe5565518165}{remove} ()
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_module_f591ded25b7cbba848ec2853402fa91e}{setNoise} (\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$Noise, \hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} $\ast$g=0, const bool \&DeleteOldNoise=true)
+\item 
+virtual void \hyperlink{class_hydrax_1_1_module_1_1_module_2042d450f99d9348fa4b7bd29ba89df3}{update} (const Ogre::Real \&timeSinceLastFrame)
+\item 
+virtual void \hyperlink{class_hydrax_1_1_module_1_1_module_998a5baf42f57b02ca7bc20bc12f95a9}{saveCfg} (Ogre::String \&Data)
+\item 
+virtual bool \hyperlink{class_hydrax_1_1_module_1_1_module_bedb96357608c0744bb7816ae1c2b0bb}{loadCfg} (Ogre::ConfigFile \&CfgFile)
+\item 
+const Ogre::String \& \hyperlink{class_hydrax_1_1_module_1_1_module_f00dbb4fcb83e45e89c7d537860ee486}{getName} () const 
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_module_1_1_module_66097127eb529786f7384b4d39d9e43e}{isCreated} () const 
+\item 
+virtual const bool \hyperlink{class_hydrax_1_1_module_1_1_module_e58d6103f780287cb00a8c4647db667e}{\_\-createGeometry} (\hyperlink{class_hydrax_1_1_mesh}{Mesh} $\ast$mMesh) const 
+\item 
+const \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{MaterialManager::NormalMode} \& \hyperlink{class_hydrax_1_1_module_1_1_module_f5cfbabb783d9ded22f30f779c83c1c4}{getNormalMode} () const 
+\item 
+const \hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Mesh::Options} \& \hyperlink{class_hydrax_1_1_module_1_1_module_7e083582d25431f9fbf83ce7eac77a94}{getMeshOptions} () const 
+\item 
+\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$ \hyperlink{class_hydrax_1_1_module_1_1_module_e16db579f543cb24fdb7fcc909ee94cf}{getNoise} ()
+\item 
+virtual float \hyperlink{class_hydrax_1_1_module_1_1_module_c61f89589d3b1bc7256731ddb7af7d0b}{getHeigth} (const Ogre::Vector2 \&Position)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+Ogre::String \hyperlink{class_hydrax_1_1_module_1_1_module_a478452f0e9c1bf8dde1526b30759de1}{mName}
+\begin{CompactList}\small\item\em \hyperlink{class_hydrax_1_1_module_1_1_module}{Module} name. \item\end{CompactList}\item 
+\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$ \hyperlink{class_hydrax_1_1_module_1_1_module_9403c14c89393c8c7f562a1946ca05ab}{mNoise}
+\begin{CompactList}\small\item\em \hyperlink{namespace_hydrax_1_1_noise}{Noise} generator pointer. \item\end{CompactList}\item 
+\hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Mesh::Options} \hyperlink{class_hydrax_1_1_module_1_1_module_99e803991d3d249baed293bdb40c56ed}{mMeshOptions}
+\begin{CompactList}\small\item\em \hyperlink{class_hydrax_1_1_module_1_1_module}{Module} mesh options. \item\end{CompactList}\item 
+\hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{MaterialManager::NormalMode} \hyperlink{class_hydrax_1_1_module_1_1_module_962d19d1a608a3935440a08544919f13}{mNormalMode}
+\begin{CompactList}\small\item\em Normal map generation mode. \item\end{CompactList}\item 
+bool \hyperlink{class_hydrax_1_1_module_1_1_module_2b11bdd4cec12b483489e3987802a091}{mCreated}
+\begin{CompactList}\small\item\em Is \hyperlink{class_hydrax_1_1_module_1_1_module_4b696328c3fc1496f757e929f44f3258}{create()} called? \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Base module class, Override it for create different ways of create water noise. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_module_1_1_module_b82e857eb19eac9c9091097909f3d566}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!Module@{Module}}
+\index{Module@{Module}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{Module}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::Module::Module (const Ogre::String \& {\em Name}, \/  {\bf Noise::Noise} $\ast$ {\em n}, \/  const {\bf Mesh::Options} \& {\em MeshOptions}, \/  const {\bf MaterialManager::NormalMode} \& {\em NormalMode})}}
+\label{class_hydrax_1_1_module_1_1_module_b82e857eb19eac9c9091097909f3d566}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]\hyperlink{class_hydrax_1_1_module_1_1_module}{Module} name \item[{\em n}]\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Hydrax::Noise::Noise} generator pointer \item[{\em MeshOptions}]\hyperlink{class_hydrax_1_1_mesh}{Mesh} options \item[{\em NormalMode}]Normal generation mode \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_module_0490f405b7150266765fb44ad1aefa8c}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!$\sim$Module@{$\sim$Module}}
+\index{$\sim$Module@{$\sim$Module}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{$\sim$Module}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::Module::$\sim$Module ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_0490f405b7150266765fb44ad1aefa8c}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_module_1_1_module_e58d6103f780287cb00a8c4647db667e}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!\_\-createGeometry@{\_\-createGeometry}}
+\index{\_\-createGeometry@{\_\-createGeometry}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{\_\-createGeometry}]{\setlength{\rightskip}{0pt plus 5cm}virtual const bool Hydrax::Module::Module::\_\-createGeometry ({\bf Mesh} $\ast$ {\em mMesh}) const\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_e58d6103f780287cb00a8c4647db667e}
+
+
+Create geometry in module(If special geometry is needed) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mMesh}]\hyperlink{class_hydrax_1_1_mesh}{Mesh} \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]false if it must be create by default Mesh::\_\-createGeometry() fnc. \end{Desc}
+\begin{Desc}
+\item[Remarks:]Override it if any especial geometry mesh creation is needed. \end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_module_1_1_radial_grid_8fde866e72e871e7aaf76957236b7b15}{Hydrax::Module::RadialGrid}.\hypertarget{class_hydrax_1_1_module_1_1_module_4b696328c3fc1496f757e929f44f3258}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!create@{create}}
+\index{create@{create}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::Module::create ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_4b696328c3fc1496f757e929f44f3258}
+
+
+Create \begin{Desc}
+\item[Remarks:]Not forgot call in the override class \end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_86e4648a741558934e664f7400082742}{Hydrax::Module::ProjectedGrid}, \hyperlink{class_hydrax_1_1_module_1_1_radial_grid_8c0f059e53170e7d1114bb7faecbcb0a}{Hydrax::Module::RadialGrid}, and \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_7e52fb7497f6a2d27666a384d7a1d003}{Hydrax::Module::SimpleGrid}.\hypertarget{class_hydrax_1_1_module_1_1_module_c61f89589d3b1bc7256731ddb7af7d0b}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!getHeigth@{getHeigth}}
+\index{getHeigth@{getHeigth}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{getHeigth}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Module::Module::getHeigth (const Ogre::Vector2 \& {\em Position})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_c61f89589d3b1bc7256731ddb7af7d0b}
+
+
+Get the current heigth at a especified world-space point \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]X/Z World position \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Heigth at the given position in y-World coordinates, if it's outside of the water return -1 \end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_a7a5b8100642a55f23b4d1c0a125bd62}{Hydrax::Module::ProjectedGrid}, \hyperlink{class_hydrax_1_1_module_1_1_radial_grid_0289caac51efbaf6a085bbb94eb22c4c}{Hydrax::Module::RadialGrid}, and \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_9a9e5bba632f0317c82370fa433559ac}{Hydrax::Module::SimpleGrid}.\hypertarget{class_hydrax_1_1_module_1_1_module_7e083582d25431f9fbf83ce7eac77a94}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!getMeshOptions@{getMeshOptions}}
+\index{getMeshOptions@{getMeshOptions}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{getMeshOptions}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Mesh::Options}\& Hydrax::Module::Module::getMeshOptions () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_7e083582d25431f9fbf83ce7eac77a94}
+
+
+Get the mesh options for this module \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_mesh}{Mesh} options for this module \end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_module_f00dbb4fcb83e45e89c7d537860ee486}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!getName@{getName}}
+\index{getName@{getName}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{getName}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::String\& Hydrax::Module::Module::getName () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_f00dbb4fcb83e45e89c7d537860ee486}
+
+
+Get module name \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_module_1_1_module}{Module} name \end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_module_e16db579f543cb24fdb7fcc909ee94cf}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!getNoise@{getNoise}}
+\index{getNoise@{getNoise}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{getNoise}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Noise::Noise}$\ast$ Hydrax::Module::Module::getNoise ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_e16db579f543cb24fdb7fcc909ee94cf}
+
+
+Get the \hyperlink{namespace_hydrax_1_1_noise}{Hydrax::Noise} module pointer \begin{Desc}
+\item[Returns:]\hyperlink{namespace_hydrax_1_1_noise}{Hydrax::Noise} pointer \end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_module_f5cfbabb783d9ded22f30f779c83c1c4}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!getNormalMode@{getNormalMode}}
+\index{getNormalMode@{getNormalMode}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{getNormalMode}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf MaterialManager::NormalMode}\& Hydrax::Module::Module::getNormalMode () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_f5cfbabb783d9ded22f30f779c83c1c4}
+
+
+Get the normal generation mode \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_module_1_1_module}{Module} normal generation mode \end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_module_66097127eb529786f7384b4d39d9e43e}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!isCreated@{isCreated}}
+\index{isCreated@{isCreated}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{isCreated}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Module::Module::isCreated () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_66097127eb529786f7384b4d39d9e43e}
+
+
+Is created() called? \begin{Desc}
+\item[Returns:]true if created() have been already called \end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_module_bedb96357608c0744bb7816ae1c2b0bb}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!loadCfg@{loadCfg}}
+\index{loadCfg@{loadCfg}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{loadCfg}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Module::Module::loadCfg (Ogre::ConfigFile \& {\em CfgFile})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_bedb96357608c0744bb7816ae1c2b0bb}
+
+
+Load config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CgfFile}]Ogre::ConfigFile reference \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]True if is the correct module config \end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_f951c58cc93cf75d57e69aa14a668d3e}{Hydrax::Module::ProjectedGrid}, \hyperlink{class_hydrax_1_1_module_1_1_radial_grid_31b3bab8e74f2f1e316a1800470ac685}{Hydrax::Module::RadialGrid}, and \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_3741ec1a3df1863e730711fd9d3b14e1}{Hydrax::Module::SimpleGrid}.\hypertarget{class_hydrax_1_1_module_1_1_module_21f60a53a99d72ff00d3fe5565518165}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!remove@{remove}}
+\index{remove@{remove}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::Module::remove ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_21f60a53a99d72ff00d3fe5565518165}
+
+
+Remove \begin{Desc}
+\item[Remarks:]Not forgot call in the override class \end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_b878b7d1258aacda8bee0f2e945ea64d}{Hydrax::Module::ProjectedGrid}, \hyperlink{class_hydrax_1_1_module_1_1_radial_grid_5b595aede4b235740be75fb5cf1072cf}{Hydrax::Module::RadialGrid}, and \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_ca3e257313599b797b8a65442cecd3cc}{Hydrax::Module::SimpleGrid}.\hypertarget{class_hydrax_1_1_module_1_1_module_998a5baf42f57b02ca7bc20bc12f95a9}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!saveCfg@{saveCfg}}
+\index{saveCfg@{saveCfg}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{saveCfg}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::Module::saveCfg (Ogre::String \& {\em Data})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_998a5baf42f57b02ca7bc20bc12f95a9}
+
+
+Save config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]String reference \end{description}
+\end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_4502387739439e0d6cca1f006fc4a28c}{Hydrax::Module::ProjectedGrid}, \hyperlink{class_hydrax_1_1_module_1_1_radial_grid_241237552e8f36f7e4696b8bad7acc91}{Hydrax::Module::RadialGrid}, and \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_f79cb3a457da1fe8b015d9d7b5a6a376}{Hydrax::Module::SimpleGrid}.\hypertarget{class_hydrax_1_1_module_1_1_module_f591ded25b7cbba848ec2853402fa91e}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!setNoise@{setNoise}}
+\index{setNoise@{setNoise}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{setNoise}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::Module::setNoise ({\bf Noise::Noise} $\ast$ {\em Noise}, \/  {\bf GPUNormalMapManager} $\ast$ {\em g} = {\tt 0}, \/  const bool \& {\em DeleteOldNoise} = {\tt true})}}
+\label{class_hydrax_1_1_module_1_1_module_f591ded25b7cbba848ec2853402fa91e}
+
+
+Set noise \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{namespace_hydrax_1_1_noise}{Noise}}]New noise module \item[{\em g}]\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} pointer, default: NULL, use it if GPU Normal map generation is needed \item[{\em DeleteOldNoise}]Delete the old noise module (Default = true) \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_module_2042d450f99d9348fa4b7bd29ba89df3}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!update@{update}}
+\index{update@{update}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::Module::update (const Ogre::Real \& {\em timeSinceLastFrame})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_2042d450f99d9348fa4b7bd29ba89df3}
+
+
+Call it each frame \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timeSinceLastFrame}]Time since last frame(delta) \end{description}
+\end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_8d7a8efcd6b7fd0e4313c9114bd2c061}{Hydrax::Module::ProjectedGrid}, \hyperlink{class_hydrax_1_1_module_1_1_radial_grid_ee5199bfbee4429ab428d477e36443dd}{Hydrax::Module::RadialGrid}, and \hyperlink{class_hydrax_1_1_module_1_1_simple_grid_aa120d4f487785136a3134cc8980fb16}{Hydrax::Module::SimpleGrid}.
+
+\subsection{Member Data Documentation}
+\hypertarget{class_hydrax_1_1_module_1_1_module_2b11bdd4cec12b483489e3987802a091}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!mCreated@{mCreated}}
+\index{mCreated@{mCreated}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{mCreated}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Hydrax::Module::Module::mCreated}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_2b11bdd4cec12b483489e3987802a091}
+
+
+Is \hyperlink{class_hydrax_1_1_module_1_1_module_4b696328c3fc1496f757e929f44f3258}{create()} called? 
+
+\hypertarget{class_hydrax_1_1_module_1_1_module_99e803991d3d249baed293bdb40c56ed}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!mMeshOptions@{mMeshOptions}}
+\index{mMeshOptions@{mMeshOptions}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{mMeshOptions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh::Options} {\bf Hydrax::Module::Module::mMeshOptions}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_99e803991d3d249baed293bdb40c56ed}
+
+
+\hyperlink{class_hydrax_1_1_module_1_1_module}{Module} mesh options. 
+
+\hypertarget{class_hydrax_1_1_module_1_1_module_a478452f0e9c1bf8dde1526b30759de1}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!mName@{mName}}
+\index{mName@{mName}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{mName}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String {\bf Hydrax::Module::Module::mName}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_a478452f0e9c1bf8dde1526b30759de1}
+
+
+\hyperlink{class_hydrax_1_1_module_1_1_module}{Module} name. 
+
+\hypertarget{class_hydrax_1_1_module_1_1_module_9403c14c89393c8c7f562a1946ca05ab}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!mNoise@{mNoise}}
+\index{mNoise@{mNoise}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{mNoise}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Noise::Noise}$\ast$ {\bf Hydrax::Module::Module::mNoise}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_9403c14c89393c8c7f562a1946ca05ab}
+
+
+\hyperlink{namespace_hydrax_1_1_noise}{Noise} generator pointer. 
+
+\hypertarget{class_hydrax_1_1_module_1_1_module_962d19d1a608a3935440a08544919f13}{
+\index{Hydrax::Module::Module@{Hydrax::Module::Module}!mNormalMode@{mNormalMode}}
+\index{mNormalMode@{mNormalMode}!Hydrax::Module::Module@{Hydrax::Module::Module}}
+\subsubsection[{mNormalMode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MaterialManager::NormalMode} {\bf Hydrax::Module::Module::mNormalMode}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_module_962d19d1a608a3935440a08544919f13}
+
+
+Normal map generation mode. 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Modules/\hyperlink{_module_8h}{Module.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Modules/\hyperlink{_module_8cpp}{Module.cpp}\end{CompactItemize}

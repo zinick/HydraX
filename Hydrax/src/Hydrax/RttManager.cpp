@@ -40,7 +40,7 @@ namespace Hydrax
 	RttManager::RttManager(Hydrax *h)
 		: mHydrax(h)
 		, mPlanesSceneNode(0)
-		, mDisableReflectionCustomNearCliplPlaneRenderQueues(static_cast<Ogre::RenderQueueGroupID>(Ogre::RENDER_QUEUE_SKIES_EARLY | Ogre::RENDER_QUEUE_SKIES_LATE))
+		, mDisableReflectionCustomNearClipPlaneRenderQueues(std::vector<Ogre::RenderQueueGroupID>())
 		, mReflectionDisplacementError(0.5f)
 	{
 		Ogre::String RttNames[6] = 
@@ -70,8 +70,8 @@ namespace Hydrax
 		mDepthReflectionListener.mRttManager = this;
 		mGPUNormalMapListener.mRttManager = this;
 
-		mDisableReflectionCustomNearCliplPlaneRenderQueues.push_back(Ogre::RENDER_QUEUE_SKIES_EARLY);
-		mDisableReflectionCustomNearCliplPlaneRenderQueues.push_back(Ogre::RENDER_QUEUE_SKIES_EARLY);
+		mDisableReflectionCustomNearClipPlaneRenderQueues.push_back(Ogre::RENDER_QUEUE_SKIES_EARLY);
+		mDisableReflectionCustomNearClipPlaneRenderQueues.push_back(Ogre::RENDER_QUEUE_SKIES_LATE);
 	}
 
 	RttManager::~RttManager()
@@ -406,6 +406,57 @@ namespace Hydrax
 		return Ogre::PF_FLOAT32_RGBA;
 	}
 
+	void RttManager::removeRttListener(RttListener *l, const bool& releaseMemory)
+	{
+		for (std::vector<RttListener*>::iterator i = mRttListeners.begin(); i != mRttListeners.end(); i++)
+		{
+			if ((*i) == l)
+			{
+				if (releaseMemory)
+				{
+					delete (*i);
+				}
+
+				mRttListeners.erase(i);
+
+				return;
+			}
+		}
+	}
+
+	void RttManager::removeAllRttListeners(const bool& releaseMemory)
+	{
+		if (releaseMemory)
+		{
+			for (std::vector<RttListener*>::const_iterator i = mRttListeners.begin(); i != mRttListeners.end(); i++)
+			{
+				delete (*i);
+			}
+		}
+
+	    mRttListeners.clear();
+	}
+
+	void RttManager::_invokeRttListeners(const RttType& Rtt, const bool& pre)
+	{
+		std::vector<RttListener*>::const_iterator i;
+
+		if (pre)
+		{
+			for (i = mRttListeners.begin(); i != mRttListeners.end(); i++)
+			{
+				(*i)->preRenderTargetUpdate(Rtt);
+			}
+		}
+		else
+		{
+			for (i = mRttListeners.begin(); i != mRttListeners.end(); i++)
+			{
+				(*i)->postRenderTargetUpdate(Rtt);
+			}
+		}
+	}
+
 	/// -------------------------------------------------------------------------------
 
 	void RttManager::CReflectionListener::preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -464,6 +515,8 @@ namespace Hydrax
 		{ 
 			mHydrax->getCamera()->enableCustomNearClipPlane(mRttManager->mPlanes[RTT_REFLECTION]);
 		}
+
+		mRttManager->_invokeRttListeners(RTT_REFLECTION, true);
     }
 
     void RttManager::CReflectionListener::postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -498,11 +551,13 @@ namespace Hydrax
 		}
 
 		mCReflectionQueueListener.mActive = false;
+
+		mRttManager->_invokeRttListeners(RTT_REFLECTION, false);
     }
 
 	void RttManager::CReflectionListener::CReflectionQueueListener::renderQueueStarted(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation)
 	{
-		if (mRttManager->_isRenderQueueInList(mRttManager->mDisableReflectionCustomNearCliplPlaneRenderQueues, static_cast<Ogre::RenderQueueGroupID>(queueGroupId)) && mActive)
+		if (mRttManager->_isRenderQueueInList(mRttManager->mDisableReflectionCustomNearClipPlaneRenderQueues, static_cast<Ogre::RenderQueueGroupID>(queueGroupId)) && mActive)
 		{
 			mRttManager->mHydrax->getCamera()->disableCustomNearClipPlane();
 			Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mRttManager->mHydrax->getCamera()->getProjectionMatrixRS()); 
@@ -511,7 +566,7 @@ namespace Hydrax
 
 	void RttManager::CReflectionListener::CReflectionQueueListener::renderQueueEnded(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation)
 	{
-		if (mRttManager->_isRenderQueueInList(mRttManager->mDisableReflectionCustomNearCliplPlaneRenderQueues, static_cast<Ogre::RenderQueueGroupID>(queueGroupId)) && mActive)
+		if (mRttManager->_isRenderQueueInList(mRttManager->mDisableReflectionCustomNearClipPlaneRenderQueues, static_cast<Ogre::RenderQueueGroupID>(queueGroupId)) && mActive)
 		{
 			mRttManager->mHydrax->getCamera()->enableCustomNearClipPlane(mRttManager->mPlanes[RTT_REFLECTION]);
 			Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mRttManager->mHydrax->getCamera()->getProjectionMatrixRS()); 
@@ -538,6 +593,8 @@ namespace Hydrax
 
             mHydrax->getCamera()->enableCustomNearClipPlane(mRttManager->mPlanes[RTT_REFRACTION]);
 		}
+
+		mRttManager->_invokeRttListeners(RTT_REFRACTION, true);
     }
 
 	void RttManager::CRefractionListener::postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -560,6 +617,8 @@ namespace Hydrax
 
             mHydrax->getCamera()->disableCustomNearClipPlane();
 		}
+
+		mRttManager->_invokeRttListeners(RTT_REFRACTION, false);
     }
 
     void RttManager::CDepthListener::preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -641,6 +700,8 @@ namespace Hydrax
 		{
 			mHydrax->getMesh()->getEntity()->setVisible(false);
 		}
+
+		mRttManager->_invokeRttListeners(RTT_DEPTH, true);
     }
 
     void RttManager::CDepthListener::postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -694,6 +755,8 @@ namespace Hydrax
 
             mHydrax->getCamera()->disableCustomNearClipPlane();
 		}
+
+		mRttManager->_invokeRttListeners(RTT_DEPTH, false);
     }
 
 	void RttManager::CDepthReflectionListener::preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -770,6 +833,8 @@ namespace Hydrax
 		{
             mHydrax->getCamera()->enableCustomNearClipPlane(mRttManager->mPlanes[RTT_DEPTH_REFLECTION]);
 		}
+
+		mRttManager->_invokeRttListeners(RTT_DEPTH_REFLECTION, true);
     }
 
 	void RttManager::CDepthReflectionListener::postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -816,6 +881,8 @@ namespace Hydrax
 
         mHydrax->getCamera()->disableReflection();
         mHydrax->getCamera()->disableCustomNearClipPlane();
+
+		mRttManager->_invokeRttListeners(RTT_DEPTH_REFLECTION, false);
     }
 
 	void RttManager::CGPUNormalMapListener::preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -829,6 +896,8 @@ namespace Hydrax
 		mSceneMgr->clearSpecialCaseRenderQueues();
         mSceneMgr->addSpecialCaseRenderQueue(Ogre::RENDER_QUEUE_1);
         mSceneMgr->setSpecialCaseRenderQueueMode(Ogre::SceneManager::SCRQM_INCLUDE);
+
+		mRttManager->_invokeRttListeners(RTT_GPU_NORMAL_MAP, true);
     }
 
 	void RttManager::CGPUNormalMapListener::postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
@@ -840,5 +909,7 @@ namespace Hydrax
 		// Render all
 		mSceneMgr->clearSpecialCaseRenderQueues();
 		mSceneMgr->setSpecialCaseRenderQueueMode(Ogre::SceneManager::SCRQM_EXCLUDE); 
+
+		mRttManager->_invokeRttListeners(RTT_GPU_NORMAL_MAP, false);
     }
 }

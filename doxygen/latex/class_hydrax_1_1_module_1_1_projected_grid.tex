@@ -1,0 +1,187 @@
+\hypertarget{class_hydrax_1_1_module_1_1_projected_grid}{
+\section{Hydrax::Module::ProjectedGrid Class Reference}
+\label{class_hydrax_1_1_module_1_1_projected_grid}\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+}
+{\tt \#include $<$ProjectedGrid.h$>$}
+
+Inheritance diagram for Hydrax::Module::ProjectedGrid::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_hydrax_1_1_module_1_1_projected_grid}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_projected_grid_ccda1b1a4c84e3da9b8a96e7dcb69a27}{ProjectedGrid} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h, \hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$n, const Ogre::Plane \&BasePlane, const \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{MaterialManager::NormalMode} \&NormalMode)
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_projected_grid_a9308990b99866cbd09edd3600972443}{ProjectedGrid} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h, \hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise::Noise} $\ast$n, const Ogre::Plane \&BasePlane, const \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{MaterialManager::NormalMode} \&NormalMode, const \hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options})
+\item 
+\hyperlink{class_hydrax_1_1_module_1_1_projected_grid_7b656225a58519ec687225f1f809010c}{$\sim$ProjectedGrid} ()
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_86e4648a741558934e664f7400082742}{create} ()
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_b878b7d1258aacda8bee0f2e945ea64d}{remove} ()
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_8d7a8efcd6b7fd0e4313c9114bd2c061}{update} (const Ogre::Real \&timeSinceLastFrame)
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_04d04b9cfc173538038a5f51094c1ffa}{setOptions} (const \hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options})
+\item 
+void \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_4502387739439e0d6cca1f006fc4a28c}{saveCfg} (Ogre::String \&Data)
+\item 
+bool \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_f951c58cc93cf75d57e69aa14a668d3e}{loadCfg} (Ogre::ConfigFile \&CfgFile)
+\item 
+float \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_a7a5b8100642a55f23b4d1c0a125bd62}{getHeigth} (const Ogre::Vector2 \&Position)
+\item 
+const \hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options} \& \hyperlink{class_hydrax_1_1_module_1_1_projected_grid_0a0aaa55436af95f5cf16aa284d24f57}{getOptions} () const 
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} projected grid module 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_ccda1b1a4c84e3da9b8a96e7dcb69a27}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!ProjectedGrid@{ProjectedGrid}}
+\index{ProjectedGrid@{ProjectedGrid}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{ProjectedGrid}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::ProjectedGrid::ProjectedGrid ({\bf Hydrax} $\ast$ {\em h}, \/  {\bf Noise::Noise} $\ast$ {\em n}, \/  const Ogre::Plane \& {\em BasePlane}, \/  const {\bf MaterialManager::NormalMode} \& {\em NormalMode})}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_ccda1b1a4c84e3da9b8a96e7dcb69a27}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} manager pointer \item[{\em n}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} noise module \item[{\em BasePlane}]\hyperlink{namespace_hydrax_1_1_noise}{Noise} base plane \item[{\em NormalMode}]Switch between \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296ffe4d6257f673cf503a9905fb2576288f}{MaterialManager::NM\_\-VERTEX} and Materialmanager::NM\_\-RTT \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_a9308990b99866cbd09edd3600972443}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!ProjectedGrid@{ProjectedGrid}}
+\index{ProjectedGrid@{ProjectedGrid}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{ProjectedGrid}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::ProjectedGrid::ProjectedGrid ({\bf Hydrax} $\ast$ {\em h}, \/  {\bf Noise::Noise} $\ast$ {\em n}, \/  const Ogre::Plane \& {\em BasePlane}, \/  const {\bf MaterialManager::NormalMode} \& {\em NormalMode}, \/  const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_a9308990b99866cbd09edd3600972443}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} manager pointer \item[{\em n}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} noise module \item[{\em BasePlane}]\hyperlink{namespace_hydrax_1_1_noise}{Noise} base plane \item[{\em NormalMode}]Switch between \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296ffe4d6257f673cf503a9905fb2576288f}{MaterialManager::NM\_\-VERTEX} and Materialmanager::NM\_\-RTT \item[{\em \hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options}}]Perlin options \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_7b656225a58519ec687225f1f809010c}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!$\sim$ProjectedGrid@{$\sim$ProjectedGrid}}
+\index{$\sim$ProjectedGrid@{$\sim$ProjectedGrid}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{$\sim$ProjectedGrid}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Module::ProjectedGrid::$\sim$ProjectedGrid ()}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_7b656225a58519ec687225f1f809010c}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_86e4648a741558934e664f7400082742}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!create@{create}}
+\index{create@{create}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::ProjectedGrid::create ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_86e4648a741558934e664f7400082742}
+
+
+Create 
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_4b696328c3fc1496f757e929f44f3258}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_a7a5b8100642a55f23b4d1c0a125bd62}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!getHeigth@{getHeigth}}
+\index{getHeigth@{getHeigth}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{getHeigth}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Module::ProjectedGrid::getHeigth (const Ogre::Vector2 \& {\em Position})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_a7a5b8100642a55f23b4d1c0a125bd62}
+
+
+Get the current heigth at a especified world-space point \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]X/Z World position \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Heigth at the given position in y-World coordinates, if it's outside of the water return -1 \end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_c61f89589d3b1bc7256731ddb7af7d0b}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_0a0aaa55436af95f5cf16aa284d24f57}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!getOptions@{getOptions}}
+\index{getOptions@{getOptions}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{getOptions}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Options}\& Hydrax::Module::ProjectedGrid::getOptions () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_0a0aaa55436af95f5cf16aa284d24f57}
+
+
+Get current options \begin{Desc}
+\item[Returns:]Current options \end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_f951c58cc93cf75d57e69aa14a668d3e}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!loadCfg@{loadCfg}}
+\index{loadCfg@{loadCfg}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{loadCfg}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Module::ProjectedGrid::loadCfg (Ogre::ConfigFile \& {\em CfgFile})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_f951c58cc93cf75d57e69aa14a668d3e}
+
+
+Load config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CgfFile}]Ogre::ConfigFile reference \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]True if is the correct module config \end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_bedb96357608c0744bb7816ae1c2b0bb}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_b878b7d1258aacda8bee0f2e945ea64d}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!remove@{remove}}
+\index{remove@{remove}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::ProjectedGrid::remove ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_b878b7d1258aacda8bee0f2e945ea64d}
+
+
+Remove 
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_21f60a53a99d72ff00d3fe5565518165}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_4502387739439e0d6cca1f006fc4a28c}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!saveCfg@{saveCfg}}
+\index{saveCfg@{saveCfg}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{saveCfg}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::ProjectedGrid::saveCfg (Ogre::String \& {\em Data})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_4502387739439e0d6cca1f006fc4a28c}
+
+
+Save config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]String reference \end{description}
+\end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_998a5baf42f57b02ca7bc20bc12f95a9}{Hydrax::Module::Module}.\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_04d04b9cfc173538038a5f51094c1ffa}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!setOptions@{setOptions}}
+\index{setOptions@{setOptions}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{setOptions}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::ProjectedGrid::setOptions (const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_04d04b9cfc173538038a5f51094c1ffa}
+
+
+Set options \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options}}]\hyperlink{struct_hydrax_1_1_module_1_1_projected_grid_1_1_options}{Options} \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_module_1_1_projected_grid_8d7a8efcd6b7fd0e4313c9114bd2c061}{
+\index{Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}!update@{update}}
+\index{update@{update}!Hydrax::Module::ProjectedGrid@{Hydrax::Module::ProjectedGrid}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Module::ProjectedGrid::update (const Ogre::Real \& {\em timeSinceLastFrame})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_module_1_1_projected_grid_8d7a8efcd6b7fd0e4313c9114bd2c061}
+
+
+Call it each frame \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timeSinceLastFrame}]Time since last frame(delta) \end{description}
+\end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_module_1_1_module_2042d450f99d9348fa4b7bd29ba89df3}{Hydrax::Module::Module}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Modules/ProjectedGrid/\hyperlink{_projected_grid_8h}{ProjectedGrid.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Modules/ProjectedGrid/\hyperlink{_projected_grid_8cpp}{ProjectedGrid.cpp}\end{CompactItemize}

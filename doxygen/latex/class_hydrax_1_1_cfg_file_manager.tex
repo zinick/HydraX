@@ -1,0 +1,302 @@
+\hypertarget{class_hydrax_1_1_cfg_file_manager}{
+\section{Hydrax::CfgFileManager Class Reference}
+\label{class_hydrax_1_1_cfg_file_manager}\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+}
+{\tt \#include $<$CfgFileManager.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_cfg_file_manager_c1d1c99b2a8f2fd4c5c58bf329755468}{CfgFileManager} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h)
+\item 
+\hyperlink{class_hydrax_1_1_cfg_file_manager_e5567d446a52bf06a2e4e421066251d3}{$\sim$CfgFileManager} ()
+\item 
+const bool \hyperlink{class_hydrax_1_1_cfg_file_manager_7d283a6b6b61ad70292c7cb24cd3543c}{load} (const Ogre::String \&File) const 
+\item 
+const bool \hyperlink{class_hydrax_1_1_cfg_file_manager_5bdea43e50f5a1662e2dc80e68e0d8a6}{save} (const Ogre::String \&File, const Ogre::String \&Path=\char`\"{}\char`\"{}) const 
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static Ogre::String \hyperlink{class_hydrax_1_1_cfg_file_manager_020c0d58713f7ecbd396101247bcab1b}{\_\-getCfgString} (const Ogre::String \&Name, const int \&Value)
+\item 
+static Ogre::String \hyperlink{class_hydrax_1_1_cfg_file_manager_8761a9aa82111e2d20a6beb4a3e3b5ed}{\_\-getCfgString} (const Ogre::String \&Name, const Ogre::Real \&Value)
+\item 
+static Ogre::String \hyperlink{class_hydrax_1_1_cfg_file_manager_b87e26d4e678cc8daff159bf9e8c3f7d}{\_\-getCfgString} (const Ogre::String \&Name, const bool \&Value)
+\item 
+static Ogre::String \hyperlink{class_hydrax_1_1_cfg_file_manager_a5ade5614a7f6958e0df8031fddfac4b}{\_\-getCfgString} (const Ogre::String \&Name, const Ogre::Vector2 \&Value)
+\item 
+static Ogre::String \hyperlink{class_hydrax_1_1_cfg_file_manager_843c4e461bdd3d70b449c3b941684209}{\_\-getCfgString} (const Ogre::String \&Name, const Ogre::Vector3 \&Value)
+\item 
+static Ogre::String \hyperlink{class_hydrax_1_1_cfg_file_manager_6b42513df69c7ec5ca81b73a82bd637c}{\_\-getCfgString} (const Ogre::String \&Name, const \hyperlink{struct_hydrax_1_1_size}{Size} \&Value)
+\item 
+static int \hyperlink{class_hydrax_1_1_cfg_file_manager_f55d91d6fe191edaf32752db39bde7ee}{\_\-getIntValue} (Ogre::ConfigFile \&CfgFile, const Ogre::String Name)
+\item 
+static Ogre::Real \hyperlink{class_hydrax_1_1_cfg_file_manager_6d5259e0ccd2bd730310c7229c16eecb}{\_\-getFloatValue} (Ogre::ConfigFile \&CfgFile, const Ogre::String Name)
+\item 
+static bool \hyperlink{class_hydrax_1_1_cfg_file_manager_a384e0c4c7444fbe2aea75a74ecc6c6c}{\_\-getBoolValue} (Ogre::ConfigFile \&CfgFile, const Ogre::String Name)
+\item 
+static Ogre::Vector2 \hyperlink{class_hydrax_1_1_cfg_file_manager_b29b2f7baca55593751de31f570fbfa9}{\_\-getVector2Value} (Ogre::ConfigFile \&CfgFile, const Ogre::String Name)
+\item 
+static Ogre::Vector3 \hyperlink{class_hydrax_1_1_cfg_file_manager_573e9bca71aa4fffbf84c5409c84f9ae}{\_\-getVector3Value} (Ogre::ConfigFile \&CfgFile, const Ogre::String Name)
+\item 
+static \hyperlink{struct_hydrax_1_1_size}{Size} \hyperlink{class_hydrax_1_1_cfg_file_manager_1d688a86347f04a920dafead01343a5b}{\_\-getSizeValue} (Ogre::ConfigFile \&CfgFile, const Ogre::String Name)
+\item 
+static bool \hyperlink{class_hydrax_1_1_cfg_file_manager_feef5772fec0c214f374cbd3cf9f1a17}{\_\-isStringInList} (const std::vector$<$ Ogre::String $>$ \&List, const Ogre::String \&Find)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Config file manager. Class to load/save all \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} options from/to a config file 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_c1d1c99b2a8f2fd4c5c58bf329755468}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!CfgFileManager@{CfgFileManager}}
+\index{CfgFileManager@{CfgFileManager}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{CfgFileManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::CfgFileManager::CfgFileManager ({\bf Hydrax} $\ast$ {\em h})}}
+\label{class_hydrax_1_1_cfg_file_manager_c1d1c99b2a8f2fd4c5c58bf329755468}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} parent pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_e5567d446a52bf06a2e4e421066251d3}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!$\sim$CfgFileManager@{$\sim$CfgFileManager}}
+\index{$\sim$CfgFileManager@{$\sim$CfgFileManager}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{$\sim$CfgFileManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::CfgFileManager::$\sim$CfgFileManager ()}}
+\label{class_hydrax_1_1_cfg_file_manager_e5567d446a52bf06a2e4e421066251d3}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_a384e0c4c7444fbe2aea75a74ecc6c6c}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getBoolValue@{\_\-getBoolValue}}
+\index{\_\-getBoolValue@{\_\-getBoolValue}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getBoolValue}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::CfgFileManager::\_\-getBoolValue (Ogre::ConfigFile \& {\em CfgFile}, \/  const Ogre::String {\em Name})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_a384e0c4c7444fbe2aea75a74ecc6c6c}
+
+
+Get bool value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CfgFile}]Config file \item[{\em Name}]Parameter name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]bool value \end{Desc}
+\begin{Desc}
+\item[Remarks:]if the parameter isn't found or the data type is not a bool value, return false as default \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_6b42513df69c7ec5ca81b73a82bd637c}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getCfgString@{\_\-getCfgString}}
+\index{\_\-getCfgString@{\_\-getCfgString}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getCfgString}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String Hydrax::CfgFileManager::\_\-getCfgString (const Ogre::String \& {\em Name}, \/  const {\bf Size} \& {\em Value})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_6b42513df69c7ec5ca81b73a82bd637c}
+
+
+$<$size$>$ Get the cfg string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]Parameter name \item[{\em Value}]Parameter value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_size}{Hydrax::Size} cfg string \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_843c4e461bdd3d70b449c3b941684209}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getCfgString@{\_\-getCfgString}}
+\index{\_\-getCfgString@{\_\-getCfgString}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getCfgString}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String Hydrax::CfgFileManager::\_\-getCfgString (const Ogre::String \& {\em Name}, \/  const Ogre::Vector3 \& {\em Value})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_843c4e461bdd3d70b449c3b941684209}
+
+
+$<$vector3$>$ Get the cfg string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]Parameter name \item[{\em Value}]Parameter value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Ogre::Vector3 cfg string \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_a5ade5614a7f6958e0df8031fddfac4b}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getCfgString@{\_\-getCfgString}}
+\index{\_\-getCfgString@{\_\-getCfgString}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getCfgString}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String Hydrax::CfgFileManager::\_\-getCfgString (const Ogre::String \& {\em Name}, \/  const Ogre::Vector2 \& {\em Value})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_a5ade5614a7f6958e0df8031fddfac4b}
+
+
+$<$vector2$>$ Get the cfg string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]Parameter name \item[{\em Value}]Parameter value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Ogre::Vector2 cfg string \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_b87e26d4e678cc8daff159bf9e8c3f7d}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getCfgString@{\_\-getCfgString}}
+\index{\_\-getCfgString@{\_\-getCfgString}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getCfgString}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String Hydrax::CfgFileManager::\_\-getCfgString (const Ogre::String \& {\em Name}, \/  const bool \& {\em Value})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_b87e26d4e678cc8daff159bf9e8c3f7d}
+
+
+$<$bool$>$ Get the cfg string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]Parameter name \item[{\em Value}]Parameter value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]bool cfg string \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_8761a9aa82111e2d20a6beb4a3e3b5ed}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getCfgString@{\_\-getCfgString}}
+\index{\_\-getCfgString@{\_\-getCfgString}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getCfgString}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String Hydrax::CfgFileManager::\_\-getCfgString (const Ogre::String \& {\em Name}, \/  const Ogre::Real \& {\em Value})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_8761a9aa82111e2d20a6beb4a3e3b5ed}
+
+
+$<$float$>$ Get the cfg string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]Parameter name \item[{\em Value}]Parameter value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Ogre::Real cfg string \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_020c0d58713f7ecbd396101247bcab1b}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getCfgString@{\_\-getCfgString}}
+\index{\_\-getCfgString@{\_\-getCfgString}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getCfgString}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String Hydrax::CfgFileManager::\_\-getCfgString (const Ogre::String \& {\em Name}, \/  const int \& {\em Value})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_020c0d58713f7ecbd396101247bcab1b}
+
+
+$<$int$>$ Get the cfg string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]Parameter name \item[{\em Value}]Parameter value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int cfg string \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_6d5259e0ccd2bd730310c7229c16eecb}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getFloatValue@{\_\-getFloatValue}}
+\index{\_\-getFloatValue@{\_\-getFloatValue}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getFloatValue}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Real Hydrax::CfgFileManager::\_\-getFloatValue (Ogre::ConfigFile \& {\em CfgFile}, \/  const Ogre::String {\em Name})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_6d5259e0ccd2bd730310c7229c16eecb}
+
+
+Get float value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CfgFile}]Config file \item[{\em Name}]Parameter name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]float value \end{Desc}
+\begin{Desc}
+\item[Remarks:]if the parameter isn't found or the data type is not a float value, return 0 as default \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_f55d91d6fe191edaf32752db39bde7ee}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getIntValue@{\_\-getIntValue}}
+\index{\_\-getIntValue@{\_\-getIntValue}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getIntValue}]{\setlength{\rightskip}{0pt plus 5cm}int Hydrax::CfgFileManager::\_\-getIntValue (Ogre::ConfigFile \& {\em CfgFile}, \/  const Ogre::String {\em Name})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_f55d91d6fe191edaf32752db39bde7ee}
+
+
+Get int value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CfgFile}]Config file \item[{\em Name}]Parameter name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int value \end{Desc}
+\begin{Desc}
+\item[Remarks:]if the parameter isn't found or the data type is not an int value, return 0 as default \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_1d688a86347f04a920dafead01343a5b}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getSizeValue@{\_\-getSizeValue}}
+\index{\_\-getSizeValue@{\_\-getSizeValue}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getSizeValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Size} Hydrax::CfgFileManager::\_\-getSizeValue (Ogre::ConfigFile \& {\em CfgFile}, \/  const Ogre::String {\em Name})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_1d688a86347f04a920dafead01343a5b}
+
+
+Get size value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CfgFile}]Config file \item[{\em Name}]Parameter name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]size value \end{Desc}
+\begin{Desc}
+\item[Remarks:]if the parameter isn't found or the data type is not an int value, returns (0,0) as default \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_b29b2f7baca55593751de31f570fbfa9}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getVector2Value@{\_\-getVector2Value}}
+\index{\_\-getVector2Value@{\_\-getVector2Value}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getVector2Value}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Vector2 Hydrax::CfgFileManager::\_\-getVector2Value (Ogre::ConfigFile \& {\em CfgFile}, \/  const Ogre::String {\em Name})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_b29b2f7baca55593751de31f570fbfa9}
+
+
+Get vector2 value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CfgFile}]Config file \item[{\em Name}]Parameter name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]vector2 value \end{Desc}
+\begin{Desc}
+\item[Remarks:]if the parameter isn't found or the data type is not an int value, returns (0,0) as default \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_573e9bca71aa4fffbf84c5409c84f9ae}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-getVector3Value@{\_\-getVector3Value}}
+\index{\_\-getVector3Value@{\_\-getVector3Value}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-getVector3Value}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Vector3 Hydrax::CfgFileManager::\_\-getVector3Value (Ogre::ConfigFile \& {\em CfgFile}, \/  const Ogre::String {\em Name})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_573e9bca71aa4fffbf84c5409c84f9ae}
+
+
+Get vector3 value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CfgFile}]Config file \item[{\em Name}]Parameter name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]vector3 value \end{Desc}
+\begin{Desc}
+\item[Remarks:]if the parameter isn't found or the data type is not an int value, returns (0,0,0) as default \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_feef5772fec0c214f374cbd3cf9f1a17}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!\_\-isStringInList@{\_\-isStringInList}}
+\index{\_\-isStringInList@{\_\-isStringInList}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{\_\-isStringInList}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::CfgFileManager::\_\-isStringInList (const std::vector$<$ Ogre::String $>$ \& {\em List}, \/  const Ogre::String \& {\em Find})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_hydrax_1_1_cfg_file_manager_feef5772fec0c214f374cbd3cf9f1a17}
+
+
+Check is a std::vector$<$Ogre::String$>$ contains a specified Ogre::String \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em List}]String list \item[{\em Find}]String to find \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if it's contained, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_7d283a6b6b61ad70292c7cb24cd3543c}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!load@{load}}
+\index{load@{load}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}const bool Hydrax::CfgFileManager::load (const Ogre::String \& {\em File}) const}}
+\label{class_hydrax_1_1_cfg_file_manager_7d283a6b6b61ad70292c7cb24cd3543c}
+
+
+Load hydrax cfg file \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em File}]File name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]false if an error has been ocurred(Check the log file in this case). \end{Desc}
+\hypertarget{class_hydrax_1_1_cfg_file_manager_5bdea43e50f5a1662e2dc80e68e0d8a6}{
+\index{Hydrax::CfgFileManager@{Hydrax::CfgFileManager}!save@{save}}
+\index{save@{save}!Hydrax::CfgFileManager@{Hydrax::CfgFileManager}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}const bool Hydrax::CfgFileManager::save (const Ogre::String \& {\em File}, \/  const Ogre::String \& {\em Path} = {\tt \char`\"{}\char`\"{}}) const}}
+\label{class_hydrax_1_1_cfg_file_manager_5bdea43e50f5a1662e2dc80e68e0d8a6}
+
+
+Save current hydrax config to a file \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em File}]Destination file name \item[{\em Path}]File path \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]false if an error has been ocurred(Check the log file in this case). \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_cfg_file_manager_8h}{CfgFileManager.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_cfg_file_manager_8cpp}{CfgFileManager.cpp}\end{CompactItemize}

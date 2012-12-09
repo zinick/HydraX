@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$C:\ogrenew\Lib&quot;;"
+				AdditionalLibraryDirectories="&quot;$C:\OgreSDK_1_6_3\Lib&quot;;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -120,7 +120,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="C:/ogrenew/Include;&quot;include&quot;"
+				AdditionalIncludeDirectories="C:/OgreSDK_1_6_3/Include;&quot;include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;HYDRAX_EXPORTS;HYDRAX_LIB"
 				MinimalRebuild="false"
 				BasicRuntimeChecks="0"
@@ -147,7 +147,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib winmm.lib"
 				LinkIncremental="0"
-				AdditionalLibraryDirectories="&quot;C:\ogrenew\Lib&quot;;&quot;lib&quot;"
+				AdditionalLibraryDirectories="&quot;C:\OgreSDK_1_6_3\Lib&quot;;&quot;lib&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="0"
 				OptimizeReferences="2"
@@ -249,11 +249,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Enums.h"
+				RelativePath=".\include\Hydrax\Enums.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Enums.h"
+				RelativePath=".\src\Hydrax\Enums.h"
 				>
 			</File>
 			<File
@@ -277,19 +277,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Help.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\Hydrax\Help.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Hydrax.h"
+				RelativePath=".\src\Hydrax\Help.h"
 				>
 			</File>
 			<File
 				RelativePath=".\src\Hydrax\Hydrax.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\Hydrax\Hydrax.h"
 				>
 			</File>
 			<File
@@ -325,11 +325,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Mesh.h"
+				RelativePath=".\src\Hydrax\Mesh.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Mesh.h"
+				RelativePath=".\include\Hydrax\Mesh.h"
 				>
 			</File>
 			<File
@@ -345,11 +345,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\noise\module\module.h"
+				RelativePath=".\src\Hydrax\Modules\Module.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Modules\Module.h"
+				RelativePath=".\include\noise\module\module.h"
 				>
 			</File>
 			<File
@@ -361,11 +361,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Noise\Noise.h"
+				RelativePath=".\include\noise\noise.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\noise\noise.h"
+				RelativePath=".\src\Hydrax\Noise\Noise.h"
 				>
 			</File>
 			<File
@@ -377,15 +377,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\noise\module\perlin.h"
-				>
-			</File>
-			<File
 				RelativePath=".\src\Hydrax\Noise\Perlin\Perlin.h"
 				>
 			</File>
 			<File
 				RelativePath=".\include\Hydrax\Perlin.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\noise\module\perlin.h"
 				>
 			</File>
 			<File
@@ -397,11 +397,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\Hydrax\Prerequisites.h"
+				RelativePath=".\include\Hydrax\Prerequisites.h"
 				>
 			</File>
 			<File
-				RelativePath=".\include\Hydrax\Prerequisites.h"
+				RelativePath=".\src\Hydrax\Prerequisites.h"
 				>
 			</File>
 			<File

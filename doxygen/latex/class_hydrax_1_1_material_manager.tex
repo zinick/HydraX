@@ -1,0 +1,462 @@
+\hypertarget{class_hydrax_1_1_material_manager}{
+\section{Hydrax::MaterialManager Class Reference}
+\label{class_hydrax_1_1_material_manager}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+}
+{\tt \#include $<$MaterialManager.h$>$}
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_hydrax_1_1_material_manager_1_1_options}{Options}
+\item 
+class \hyperlink{class_hydrax_1_1_material_manager_1_1_underwater_compositor_listener}{UnderwaterCompositorListener}
+\end{CompactItemize}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}{MaterialType} \{ \par
+\hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad158be9437314fc4fd234dd1a301c83f18b}{MAT\_\-WATER} =  0, 
+\hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15a798a1691e6dbc4c2d5659a07a40a550}{MAT\_\-DEPTH} =  1, 
+\hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad1528b9ef4add78a3123ebe89b359d83fd2}{MAT\_\-UNDERWATER} =  2, 
+\hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15f4afa6e811eb429b8574c474c6724839}{MAT\_\-UNDERWATER\_\-COMPOSITOR} =  3, 
+\par
+\hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad1591cefab31636702f3baa4d881c738cd5}{MAT\_\-SIMPLE\_\-RED} =  4, 
+\hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15869a833addc3c1b2b8ef51f744ad8844}{MAT\_\-SIMPLE\_\-BLACK} =  5
+ \}
+\item 
+enum \hyperlink{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174}{CompositorType} \{ \hyperlink{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174e293175314a47d86f40b5d420ae93a50}{COMP\_\-UNDERWATER} =  0
+ \}
+\item 
+enum \hyperlink{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514}{GpuProgram} \{ \hyperlink{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa25143e19dcf6ea6c0af8fe857109b61b6966}{GPUP\_\-VERTEX} =  0, 
+\hyperlink{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514725c22f2a07b494c9da5ea2516f6bdf3}{GPUP\_\-FRAGMENT} =  1
+ \}
+\item 
+enum \hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fb}{ShaderMode} \{ \hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbfe9388495224c135afda753e1ae1cfa0}{SM\_\-HLSL} =  0, 
+\hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbd7af4bdac1838ded2dd21e0361fcacad}{SM\_\-CG} =  1, 
+\hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbb413fe409a75826d1391e08ec1baf1ba}{SM\_\-GLSL} =  2
+ \}
+\item 
+enum \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{NormalMode} \{ \hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f67cb32d1d64c054eb1006ff2d85bd4c0}{NM\_\-TEXTURE} =  0, 
+\hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296ffe4d6257f673cf503a9905fb2576288f}{NM\_\-VERTEX} =  1, 
+\hyperlink{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296fcd0d7beee24621a3a3fe47dcdf64d553}{NM\_\-RTT} =  2
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_material_manager_22ad71a4c9f71a65d45922788abdbab6}{MaterialManager} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h)
+\item 
+\hyperlink{class_hydrax_1_1_material_manager_071d2479a52e9d36ff25bbab8c09e728}{$\sim$MaterialManager} ()
+\item 
+bool \hyperlink{class_hydrax_1_1_material_manager_6aa7b0a92b824348577d506f7bcf581b}{createMaterials} (const \hyperlink{namespace_hydrax_e8e15abf83a51b0cf514c7d1a133650a}{HydraxComponent} \&Components, const \hyperlink{struct_hydrax_1_1_material_manager_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_material_manager_1_1_options}{Options})
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_93baa6272c91d1be5ec9bef054a9bb0d}{removeMaterials} ()
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_160d27bd9ff0fac665ce5ce7c4e013e9}{removeCompositor} ()
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_2961836553f7a30a8baffb9e82f7216e}{reload} (const \hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}{MaterialType} \&Material)
+\item 
+bool \hyperlink{class_hydrax_1_1_material_manager_9374e09a2d918becab5db16240d2b8e1}{fillGpuProgramsToPass} (Ogre::Pass $\ast$Pass, const Ogre::String GpuProgramNames\mbox{[}2\mbox{]}, const \hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fb}{ShaderMode} \&SM, const Ogre::String EntryPoints\mbox{[}2\mbox{]}, const Ogre::String Data\mbox{[}2\mbox{]})
+\item 
+bool \hyperlink{class_hydrax_1_1_material_manager_c0f7c351a7df142a04023c3409d6d871}{createGpuProgram} (const Ogre::String \&Name, const \hyperlink{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fb}{ShaderMode} \&SM, const \hyperlink{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514}{GpuProgram} \&GPUP, const Ogre::String \&EntryPoint, const Ogre::String \&Data)
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_material_manager_b723890a6e4e198c1db2cf19dbe8be87}{isCreated} () const 
+\item 
+Ogre::MaterialPtr \& \hyperlink{class_hydrax_1_1_material_manager_648e7cd626194ea34c31a4bf422cdf4d}{getMaterial} (const \hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}{MaterialType} \&Material)
+\item 
+Ogre::CompositorPtr \& \hyperlink{class_hydrax_1_1_material_manager_e72ebb13cf760e473c8fdad10410fcc7}{getCompositor} (const \hyperlink{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174}{CompositorType} \&Compositor)
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_material_manager_f2ede2086a254c2bf07afd42227b9f31}{isCompositorEnable} (const \hyperlink{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174}{CompositorType} \&Compositor) const 
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_61bccef34841ce9c0ce6c53ff27f136b}{setCompositorEnable} (const \hyperlink{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174}{CompositorType} \&Compositor, const bool \&Enable)
+\item 
+const \hyperlink{struct_hydrax_1_1_material_manager_1_1_options}{Options} \& \hyperlink{class_hydrax_1_1_material_manager_3237e8772cce892c16501aa910639b07}{getLastOptions} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_b70527e20f62a739a738773173c7966f}{addDepthTechnique} (Ogre::Technique $\ast$Technique, const bool \&AutoUpdate=true)
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_0ee548c5ba041a7e26a1561dbac28ae4}{addDepthTextureTechnique} (Ogre::Technique $\ast$Technique, const Ogre::String \&TextureName, const Ogre::String \&AlphaChannel=\char`\"{}w\char`\"{}, const bool \&AutoUpdate=true)
+\item 
+std::vector$<$ Ogre::Technique $\ast$ $>$ \& \hyperlink{class_hydrax_1_1_material_manager_964a29c17a27037791f2b1c76bdf2aea}{getDepthTechniques} ()
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_f5f8e190d3e26cca04d8503e947ffba5}{setGpuProgramParameter} (const \hyperlink{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514}{GpuProgram} \&GpuP, const \hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}{MaterialType} \&MType, const Ogre::String \&Name, const Ogre::Real \&Value)
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_fca345e734a82f62917358eef8c8ea34}{setGpuProgramParameter} (const \hyperlink{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514}{GpuProgram} \&GpuP, const \hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}{MaterialType} \&MType, const Ogre::String \&Name, const Ogre::Vector2 \&Value)
+\item 
+void \hyperlink{class_hydrax_1_1_material_manager_8f696ec503c68b349a417b4c82cf9dfc}{setGpuProgramParameter} (const \hyperlink{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514}{GpuProgram} \&GpuP, const \hyperlink{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}{MaterialType} \&MType, const Ogre::String \&Name, const Ogre::Vector3 \&Value)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Material/Shader manager class 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!CompositorType@{CompositorType}}
+\index{CompositorType@{CompositorType}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{CompositorType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::MaterialManager::CompositorType}}}
+\label{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174}
+
+
+Compositor type enum \begin{Desc}
+\item[Remarks:]Use in getCompositor(CompositorType) \end{Desc}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{COMP\_\-UNDERWATER@{COMP\_\-UNDERWATER}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!COMP\_\-UNDERWATER@{COMP\_\-UNDERWATER}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174e293175314a47d86f40b5d420ae93a50}{
+COMP\_\-UNDERWATER}
+\label{class_hydrax_1_1_material_manager_9ec2b5e6a97ef7589119e888a7a32174e293175314a47d86f40b5d420ae93a50}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!GpuProgram@{GpuProgram}}
+\index{GpuProgram@{GpuProgram}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{GpuProgram}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::MaterialManager::GpuProgram}}}
+\label{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514}
+
+
+Gpu program enum \begin{Desc}
+\item[Remarks:]Use in \hyperlink{class_hydrax_1_1_material_manager_f5f8e190d3e26cca04d8503e947ffba5}{setGpuProgramParameter()} \end{Desc}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{GPUP\_\-VERTEX@{GPUP\_\-VERTEX}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!GPUP\_\-VERTEX@{GPUP\_\-VERTEX}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa25143e19dcf6ea6c0af8fe857109b61b6966}{
+GPUP\_\-VERTEX}
+\label{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa25143e19dcf6ea6c0af8fe857109b61b6966}
+}]\index{GPUP\_\-FRAGMENT@{GPUP\_\-FRAGMENT}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!GPUP\_\-FRAGMENT@{GPUP\_\-FRAGMENT}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514725c22f2a07b494c9da5ea2516f6bdf3}{
+GPUP\_\-FRAGMENT}
+\label{class_hydrax_1_1_material_manager_a0cfb2fce7a409771c0751d04afa2514725c22f2a07b494c9da5ea2516f6bdf3}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MaterialType@{MaterialType}}
+\index{MaterialType@{MaterialType}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{MaterialType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::MaterialManager::MaterialType}}}
+\label{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15}
+
+
+Material type enum \begin{Desc}
+\item[Remarks:]Use in getMaterial(MaterialType) \end{Desc}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MAT\_\-WATER@{MAT\_\-WATER}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MAT\_\-WATER@{MAT\_\-WATER}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad158be9437314fc4fd234dd1a301c83f18b}{
+MAT\_\-WATER}
+\label{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad158be9437314fc4fd234dd1a301c83f18b}
+}]\index{MAT\_\-DEPTH@{MAT\_\-DEPTH}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MAT\_\-DEPTH@{MAT\_\-DEPTH}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15a798a1691e6dbc4c2d5659a07a40a550}{
+MAT\_\-DEPTH}
+\label{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15a798a1691e6dbc4c2d5659a07a40a550}
+}]\index{MAT\_\-UNDERWATER@{MAT\_\-UNDERWATER}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MAT\_\-UNDERWATER@{MAT\_\-UNDERWATER}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad1528b9ef4add78a3123ebe89b359d83fd2}{
+MAT\_\-UNDERWATER}
+\label{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad1528b9ef4add78a3123ebe89b359d83fd2}
+}]\index{MAT\_\-UNDERWATER\_\-COMPOSITOR@{MAT\_\-UNDERWATER\_\-COMPOSITOR}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MAT\_\-UNDERWATER\_\-COMPOSITOR@{MAT\_\-UNDERWATER\_\-COMPOSITOR}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15f4afa6e811eb429b8574c474c6724839}{
+MAT\_\-UNDERWATER\_\-COMPOSITOR}
+\label{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15f4afa6e811eb429b8574c474c6724839}
+}]\index{MAT\_\-SIMPLE\_\-RED@{MAT\_\-SIMPLE\_\-RED}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MAT\_\-SIMPLE\_\-RED@{MAT\_\-SIMPLE\_\-RED}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad1591cefab31636702f3baa4d881c738cd5}{
+MAT\_\-SIMPLE\_\-RED}
+\label{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad1591cefab31636702f3baa4d881c738cd5}
+}]\index{MAT\_\-SIMPLE\_\-BLACK@{MAT\_\-SIMPLE\_\-BLACK}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MAT\_\-SIMPLE\_\-BLACK@{MAT\_\-SIMPLE\_\-BLACK}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15869a833addc3c1b2b8ef51f744ad8844}{
+MAT\_\-SIMPLE\_\-BLACK}
+\label{class_hydrax_1_1_material_manager_cffd193405105e0f9f528cee40fdad15869a833addc3c1b2b8ef51f744ad8844}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!NormalMode@{NormalMode}}
+\index{NormalMode@{NormalMode}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{NormalMode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::MaterialManager::NormalMode}}}
+\label{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f}
+
+
+Normal generation mode \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NM\_\-TEXTURE@{NM\_\-TEXTURE}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!NM\_\-TEXTURE@{NM\_\-TEXTURE}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f67cb32d1d64c054eb1006ff2d85bd4c0}{
+NM\_\-TEXTURE}
+\label{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296f67cb32d1d64c054eb1006ff2d85bd4c0}
+}]\index{NM\_\-VERTEX@{NM\_\-VERTEX}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!NM\_\-VERTEX@{NM\_\-VERTEX}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296ffe4d6257f673cf503a9905fb2576288f}{
+NM\_\-VERTEX}
+\label{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296ffe4d6257f673cf503a9905fb2576288f}
+}]\index{NM\_\-RTT@{NM\_\-RTT}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!NM\_\-RTT@{NM\_\-RTT}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296fcd0d7beee24621a3a3fe47dcdf64d553}{
+NM\_\-RTT}
+\label{class_hydrax_1_1_material_manager_aa14689cd1c259f48954dfecda9b296fcd0d7beee24621a3a3fe47dcdf64d553}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fb}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!ShaderMode@{ShaderMode}}
+\index{ShaderMode@{ShaderMode}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{ShaderMode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::MaterialManager::ShaderMode}}}
+\label{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fb}
+
+
+Shader mode \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{SM\_\-HLSL@{SM\_\-HLSL}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!SM\_\-HLSL@{SM\_\-HLSL}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbfe9388495224c135afda753e1ae1cfa0}{
+SM\_\-HLSL}
+\label{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbfe9388495224c135afda753e1ae1cfa0}
+}]\index{SM\_\-CG@{SM\_\-CG}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!SM\_\-CG@{SM\_\-CG}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbd7af4bdac1838ded2dd21e0361fcacad}{
+SM\_\-CG}
+\label{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbd7af4bdac1838ded2dd21e0361fcacad}
+}]\index{SM\_\-GLSL@{SM\_\-GLSL}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!SM\_\-GLSL@{SM\_\-GLSL}}\item[{\em 
+\hypertarget{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbb413fe409a75826d1391e08ec1baf1ba}{
+SM\_\-GLSL}
+\label{class_hydrax_1_1_material_manager_cb13fe494b6960a96270e1ac293c48fbb413fe409a75826d1391e08ec1baf1ba}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_material_manager_22ad71a4c9f71a65d45922788abdbab6}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!MaterialManager@{MaterialManager}}
+\index{MaterialManager@{MaterialManager}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{MaterialManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::MaterialManager::MaterialManager ({\bf Hydrax} $\ast$ {\em h})}}
+\label{class_hydrax_1_1_material_manager_22ad71a4c9f71a65d45922788abdbab6}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_071d2479a52e9d36ff25bbab8c09e728}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!$\sim$MaterialManager@{$\sim$MaterialManager}}
+\index{$\sim$MaterialManager@{$\sim$MaterialManager}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{$\sim$MaterialManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::MaterialManager::$\sim$MaterialManager ()}}
+\label{class_hydrax_1_1_material_manager_071d2479a52e9d36ff25bbab8c09e728}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_material_manager_b70527e20f62a739a738773173c7966f}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!addDepthTechnique@{addDepthTechnique}}
+\index{addDepthTechnique@{addDepthTechnique}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{addDepthTechnique}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::addDepthTechnique (Ogre::Technique $\ast$ {\em Technique}, \/  const bool \& {\em AutoUpdate} = {\tt true})}}
+\label{class_hydrax_1_1_material_manager_b70527e20f62a739a738773173c7966f}
+
+
+Add depth technique to an especified material \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Technique}]Technique where depth technique will be added \item[{\em AutoUpdate}]The technique will be automatically updated when water parameters change \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Call it after \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{Hydrax::create()}/HydraxsetComponents(...)\end{Desc}
+The technique will be automatically updated when water parameters change if parameter AutoUpdate == true Add depth technique when a material is not an Ogre::Entity, such terrains, PLSM2 materials, etc. This depth technique will be added with \char`\"{}HydraxDepth\char`\"{} scheme in ordeto can use it in the Depth RTT. \hypertarget{class_hydrax_1_1_material_manager_0ee548c5ba041a7e26a1561dbac28ae4}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!addDepthTextureTechnique@{addDepthTextureTechnique}}
+\index{addDepthTextureTechnique@{addDepthTextureTechnique}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{addDepthTextureTechnique}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::addDepthTextureTechnique (Ogre::Technique $\ast$ {\em Technique}, \/  const Ogre::String \& {\em TextureName}, \/  const Ogre::String \& {\em AlphaChannel} = {\tt \char`\"{}w\char`\"{}}, \/  const bool \& {\em AutoUpdate} = {\tt true})}}
+\label{class_hydrax_1_1_material_manager_0ee548c5ba041a7e26a1561dbac28ae4}
+
+
+Add depth texture technique to an especified material \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Technique}]Technique where depth technique will be added \item[{\em TextureName}]Texture name \item[{\em AlphaChannel}]\char`\"{}x\char`\"{},\char`\"{}y\char`\"{},\char`\"{}z\char`\"{},\char`\"{}w\char`\"{} or \char`\"{}r\char`\"{},\char`\"{}g\char`\"{},\char`\"{}b\char`\"{},\char`\"{}a\char`\"{} (Channel where alpha information is stored) \item[{\em AutoUpdate}]The technique will be automatically updated when water parameters change \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Call it after \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{Hydrax::create()}/HydraxsetComponents(...)\end{Desc}
+The technique will be automatically updated when water parameters change if parameter AutoUpdate == true Add depth technique when a material is not an Ogre::Entity, such terrains, PLSM2 materials, etc. This depth technique will be added with \char`\"{}HydraxDepth\char`\"{} scheme in ordeto can use it in the Depth RTT. \hypertarget{class_hydrax_1_1_material_manager_c0f7c351a7df142a04023c3409d6d871}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!createGpuProgram@{createGpuProgram}}
+\index{createGpuProgram@{createGpuProgram}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{createGpuProgram}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::MaterialManager::createGpuProgram (const Ogre::String \& {\em Name}, \/  const {\bf ShaderMode} \& {\em SM}, \/  const {\bf GpuProgram} \& {\em GPUP}, \/  const Ogre::String \& {\em EntryPoint}, \/  const Ogre::String \& {\em Data})}}
+\label{class_hydrax_1_1_material_manager_c0f7c351a7df142a04023c3409d6d871}
+
+
+Create GPU program \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]HighLevelGpuProgram name \item[{\em SM}]Shader mode \item[{\em GPUP}]GpuProgram type \item[{\em EntryPoint}]Entry point \item[{\em Data}]\end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_6aa7b0a92b824348577d506f7bcf581b}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!createMaterials@{createMaterials}}
+\index{createMaterials@{createMaterials}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{createMaterials}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::MaterialManager::createMaterials (const {\bf HydraxComponent} \& {\em Components}, \/  const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_material_manager_6aa7b0a92b824348577d506f7bcf581b}
+
+
+Create materials \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Components}]Components of the shader \item[{\em \hyperlink{struct_hydrax_1_1_material_manager_1_1_options}{Options}}]Material options \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_9374e09a2d918becab5db16240d2b8e1}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!fillGpuProgramsToPass@{fillGpuProgramsToPass}}
+\index{fillGpuProgramsToPass@{fillGpuProgramsToPass}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{fillGpuProgramsToPass}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::MaterialManager::fillGpuProgramsToPass (Ogre::Pass $\ast$ {\em Pass}, \/  const Ogre::String {\em GpuProgramNames}\mbox{[}2\mbox{]}, \/  const {\bf ShaderMode} \& {\em SM}, \/  const Ogre::String {\em EntryPoints}\mbox{[}2\mbox{]}, \/  const Ogre::String {\em Data}\mbox{[}2\mbox{]})}}
+\label{class_hydrax_1_1_material_manager_9374e09a2d918becab5db16240d2b8e1}
+
+
+Fill GPU vertex and fragment program to a pass \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Pass}]Pass to fill Gpu programs \item[{\em GpuProgramNames}]\mbox{[}0\mbox{]}: Vertex program name, \mbox{[}1\mbox{]}: Fragment program name \item[{\em SM}]Shader mode, note: Provided data strings will correspong with selected shader mode \item[{\em EntryPoints}]\mbox{[}0\mbox{]}: Vertex program entry point, \mbox{[}1\mbox{]}: Fragment program entry point \item[{\em Data}]\mbox{[}0\mbox{]} Vertex program data, \mbox{[}1\mbox{]}: Fragment program data \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_e72ebb13cf760e473c8fdad10410fcc7}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!getCompositor@{getCompositor}}
+\index{getCompositor@{getCompositor}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{getCompositor}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::CompositorPtr\& Hydrax::MaterialManager::getCompositor (const {\bf CompositorType} \& {\em Compositor})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_material_manager_e72ebb13cf760e473c8fdad10410fcc7}
+
+
+Get compositor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Compositor}]to get \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Compositor to get \end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_964a29c17a27037791f2b1c76bdf2aea}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!getDepthTechniques@{getDepthTechniques}}
+\index{getDepthTechniques@{getDepthTechniques}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{getDepthTechniques}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$Ogre::Technique$\ast$$>$\& Hydrax::MaterialManager::getDepthTechniques ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_material_manager_964a29c17a27037791f2b1c76bdf2aea}
+
+
+Get external depth techniques \begin{Desc}
+\item[Returns:]std::vector of external depth techniques \end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_3237e8772cce892c16501aa910639b07}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!getLastOptions@{getLastOptions}}
+\index{getLastOptions@{getLastOptions}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{getLastOptions}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Options}\& Hydrax::MaterialManager::getLastOptions () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_material_manager_3237e8772cce892c16501aa910639b07}
+
+
+Get the last \hyperlink{struct_hydrax_1_1_material_manager_1_1_options}{MaterialManager::Options} used in a material generation \begin{Desc}
+\item[Returns:]Last \hyperlink{struct_hydrax_1_1_material_manager_1_1_options}{MaterialManager::Options} used in a material generation \end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_648e7cd626194ea34c31a4bf422cdf4d}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!getMaterial@{getMaterial}}
+\index{getMaterial@{getMaterial}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{getMaterial}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::MaterialPtr\& Hydrax::MaterialManager::getMaterial (const {\bf MaterialType} \& {\em Material})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_material_manager_648e7cd626194ea34c31a4bf422cdf4d}
+
+
+Get material \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Material}]Material to get \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Material to get \end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_f2ede2086a254c2bf07afd42227b9f31}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!isCompositorEnable@{isCompositorEnable}}
+\index{isCompositorEnable@{isCompositorEnable}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{isCompositorEnable}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::MaterialManager::isCompositorEnable (const {\bf CompositorType} \& {\em Compositor}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_material_manager_f2ede2086a254c2bf07afd42227b9f31}
+
+
+Is the compositor enable? \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Compositor}]compositor to check \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if it's enabled \end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_b723890a6e4e198c1db2cf19dbe8be87}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!isCreated@{isCreated}}
+\index{isCreated@{isCreated}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{isCreated}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::MaterialManager::isCreated () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_material_manager_b723890a6e4e198c1db2cf19dbe8be87}
+
+
+Is \hyperlink{class_hydrax_1_1_material_manager_6aa7b0a92b824348577d506f7bcf581b}{createMaterials()} already called? \begin{Desc}
+\item[Returns:]true If yes \end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_2961836553f7a30a8baffb9e82f7216e}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!reload@{reload}}
+\index{reload@{reload}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{reload}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::reload (const {\bf MaterialType} \& {\em Material})}}
+\label{class_hydrax_1_1_material_manager_2961836553f7a30a8baffb9e82f7216e}
+
+
+Reload material \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Material}]Material to reload \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_160d27bd9ff0fac665ce5ce7c4e013e9}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!removeCompositor@{removeCompositor}}
+\index{removeCompositor@{removeCompositor}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{removeCompositor}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::removeCompositor ()}}
+\label{class_hydrax_1_1_material_manager_160d27bd9ff0fac665ce5ce7c4e013e9}
+
+
+Remove compositor \hypertarget{class_hydrax_1_1_material_manager_93baa6272c91d1be5ec9bef054a9bb0d}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!removeMaterials@{removeMaterials}}
+\index{removeMaterials@{removeMaterials}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{removeMaterials}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::removeMaterials ()}}
+\label{class_hydrax_1_1_material_manager_93baa6272c91d1be5ec9bef054a9bb0d}
+
+
+Remove materials \begin{Desc}
+\item[Remarks:]\hyperlink{class_hydrax_1_1_material_manager_160d27bd9ff0fac665ce5ce7c4e013e9}{removeCompositor()} is called too. \end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_61bccef34841ce9c0ce6c53ff27f136b}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!setCompositorEnable@{setCompositorEnable}}
+\index{setCompositorEnable@{setCompositorEnable}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{setCompositorEnable}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::setCompositorEnable (const {\bf CompositorType} \& {\em Compositor}, \/  const bool \& {\em Enable})}}
+\label{class_hydrax_1_1_material_manager_61bccef34841ce9c0ce6c53ff27f136b}
+
+
+Set a compositor enable/disable \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Compositor}]compositor to change \item[{\em Enable}]true to enable, false to disable \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_8f696ec503c68b349a417b4c82cf9dfc}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!setGpuProgramParameter@{setGpuProgramParameter}}
+\index{setGpuProgramParameter@{setGpuProgramParameter}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{setGpuProgramParameter}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::setGpuProgramParameter (const {\bf GpuProgram} \& {\em GpuP}, \/  const {\bf MaterialType} \& {\em MType}, \/  const Ogre::String \& {\em Name}, \/  const Ogre::Vector3 \& {\em Value})}}
+\label{class_hydrax_1_1_material_manager_8f696ec503c68b349a417b4c82cf9dfc}
+
+
+Set gpu program Ogre::Vector3 parameter \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em GpuP}]Gpu program type (Vertex/Fragment) \item[{\em MType}]Water/Depth material \item[{\em Name}]param name \item[{\em Value}]value \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_fca345e734a82f62917358eef8c8ea34}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!setGpuProgramParameter@{setGpuProgramParameter}}
+\index{setGpuProgramParameter@{setGpuProgramParameter}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{setGpuProgramParameter}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::setGpuProgramParameter (const {\bf GpuProgram} \& {\em GpuP}, \/  const {\bf MaterialType} \& {\em MType}, \/  const Ogre::String \& {\em Name}, \/  const Ogre::Vector2 \& {\em Value})}}
+\label{class_hydrax_1_1_material_manager_fca345e734a82f62917358eef8c8ea34}
+
+
+Set gpu program Ogre::Vector2 parameter \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em GpuP}]Gpu program type (Vertex/Fragment) \item[{\em MType}]Water/Depth material \item[{\em Name}]param name \item[{\em Value}]value \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_material_manager_f5f8e190d3e26cca04d8503e947ffba5}{
+\index{Hydrax::MaterialManager@{Hydrax::MaterialManager}!setGpuProgramParameter@{setGpuProgramParameter}}
+\index{setGpuProgramParameter@{setGpuProgramParameter}!Hydrax::MaterialManager@{Hydrax::MaterialManager}}
+\subsubsection[{setGpuProgramParameter}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::MaterialManager::setGpuProgramParameter (const {\bf GpuProgram} \& {\em GpuP}, \/  const {\bf MaterialType} \& {\em MType}, \/  const Ogre::String \& {\em Name}, \/  const Ogre::Real \& {\em Value})}}
+\label{class_hydrax_1_1_material_manager_f5f8e190d3e26cca04d8503e947ffba5}
+
+
+Set gpu program Ogre::Real parameter \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em GpuP}]Gpu program type (Vertex/Fragment) \item[{\em MType}]Water/Depth material \item[{\em Name}]param name \item[{\em Value}]value \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_material_manager_8h}{MaterialManager.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_material_manager_8cpp}{MaterialManager.cpp}\end{CompactItemize}

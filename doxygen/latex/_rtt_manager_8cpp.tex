@@ -1,0 +1,71 @@
+\hypertarget{_rtt_manager_8cpp}{
+\section{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/RttManager.cpp File Reference}
+\label{_rtt_manager_8cpp}\index{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/RttManager.cpp@{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/RttManager.cpp}}
+}
+{\tt \#include \char`\"{}RttManager.h\char`\"{}}\par
+{\tt \#include \char`\"{}Hydrax.h\char`\"{}}\par
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespace_hydrax}{Hydrax}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{_rtt_manager_8cpp_cab4a84533c95d5db4329f56d22c69f7}{\_\-def\_\-Hydrax\_\-Reflection\_\-Rtt\_\-Name}~\char`\"{}HydraxReflectionMap\char`\"{}
+\item 
+\#define \hyperlink{_rtt_manager_8cpp_bac47eb49b6ac8cba94d155a4b23eaf2}{\_\-def\_\-Hydrax\_\-Refraction\_\-Rtt\_\-Name}~\char`\"{}HydraxRefractionMap\char`\"{}
+\item 
+\#define \hyperlink{_rtt_manager_8cpp_3b61dec5107327f5184c3678c887376a}{\_\-def\_\-Hydrax\_\-Depth\_\-Rtt\_\-Name}~\char`\"{}HydraxDepthMap\char`\"{}
+\item 
+\#define \hyperlink{_rtt_manager_8cpp_26b51b568d1e8e761142c7c902d995dc}{\_\-def\_\-Hydrax\_\-Depth\_\-Reflection\_\-Rtt\_\-Name}~\char`\"{}HydraxDepthReflectionMap\char`\"{}
+\item 
+\#define \hyperlink{_rtt_manager_8cpp_90d4f5ed6c32e81c717765b7f397a928}{\_\-def\_\-Hydrax\_\-API\_\-Rtt\_\-Name}~\char`\"{}HydraxAPIMap\char`\"{}
+\item 
+\#define \hyperlink{_rtt_manager_8cpp_626ca795dac7fb1c4d3adbd5a7ebab3f}{\_\-def\_\-Hydrax\_\-GPU\_\-Normal\_\-Map\_\-Rtt\_\-Name}~\char`\"{}HydraxNormalMap\char`\"{}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_rtt_manager_8cpp_90d4f5ed6c32e81c717765b7f397a928}{
+\index{RttManager.cpp@{RttManager.cpp}!\_\-def\_\-Hydrax\_\-API\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-API\_\-Rtt\_\-Name}}
+\index{\_\-def\_\-Hydrax\_\-API\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-API\_\-Rtt\_\-Name}!RttManager.cpp@{RttManager.cpp}}
+\subsubsection[{\_\-def\_\-Hydrax\_\-API\_\-Rtt\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Hydrax\_\-API\_\-Rtt\_\-Name~\char`\"{}HydraxAPIMap\char`\"{}}}
+\label{_rtt_manager_8cpp_90d4f5ed6c32e81c717765b7f397a928}
+
+
+\hypertarget{_rtt_manager_8cpp_26b51b568d1e8e761142c7c902d995dc}{
+\index{RttManager.cpp@{RttManager.cpp}!\_\-def\_\-Hydrax\_\-Depth\_\-Reflection\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Depth\_\-Reflection\_\-Rtt\_\-Name}}
+\index{\_\-def\_\-Hydrax\_\-Depth\_\-Reflection\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Depth\_\-Reflection\_\-Rtt\_\-Name}!RttManager.cpp@{RttManager.cpp}}
+\subsubsection[{\_\-def\_\-Hydrax\_\-Depth\_\-Reflection\_\-Rtt\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Hydrax\_\-Depth\_\-Reflection\_\-Rtt\_\-Name~\char`\"{}HydraxDepthReflectionMap\char`\"{}}}
+\label{_rtt_manager_8cpp_26b51b568d1e8e761142c7c902d995dc}
+
+
+\hypertarget{_rtt_manager_8cpp_3b61dec5107327f5184c3678c887376a}{
+\index{RttManager.cpp@{RttManager.cpp}!\_\-def\_\-Hydrax\_\-Depth\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Depth\_\-Rtt\_\-Name}}
+\index{\_\-def\_\-Hydrax\_\-Depth\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Depth\_\-Rtt\_\-Name}!RttManager.cpp@{RttManager.cpp}}
+\subsubsection[{\_\-def\_\-Hydrax\_\-Depth\_\-Rtt\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Hydrax\_\-Depth\_\-Rtt\_\-Name~\char`\"{}HydraxDepthMap\char`\"{}}}
+\label{_rtt_manager_8cpp_3b61dec5107327f5184c3678c887376a}
+
+
+\hypertarget{_rtt_manager_8cpp_626ca795dac7fb1c4d3adbd5a7ebab3f}{
+\index{RttManager.cpp@{RttManager.cpp}!\_\-def\_\-Hydrax\_\-GPU\_\-Normal\_\-Map\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-GPU\_\-Normal\_\-Map\_\-Rtt\_\-Name}}
+\index{\_\-def\_\-Hydrax\_\-GPU\_\-Normal\_\-Map\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-GPU\_\-Normal\_\-Map\_\-Rtt\_\-Name}!RttManager.cpp@{RttManager.cpp}}
+\subsubsection[{\_\-def\_\-Hydrax\_\-GPU\_\-Normal\_\-Map\_\-Rtt\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Hydrax\_\-GPU\_\-Normal\_\-Map\_\-Rtt\_\-Name~\char`\"{}HydraxNormalMap\char`\"{}}}
+\label{_rtt_manager_8cpp_626ca795dac7fb1c4d3adbd5a7ebab3f}
+
+
+\hypertarget{_rtt_manager_8cpp_cab4a84533c95d5db4329f56d22c69f7}{
+\index{RttManager.cpp@{RttManager.cpp}!\_\-def\_\-Hydrax\_\-Reflection\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Reflection\_\-Rtt\_\-Name}}
+\index{\_\-def\_\-Hydrax\_\-Reflection\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Reflection\_\-Rtt\_\-Name}!RttManager.cpp@{RttManager.cpp}}
+\subsubsection[{\_\-def\_\-Hydrax\_\-Reflection\_\-Rtt\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Hydrax\_\-Reflection\_\-Rtt\_\-Name~\char`\"{}HydraxReflectionMap\char`\"{}}}
+\label{_rtt_manager_8cpp_cab4a84533c95d5db4329f56d22c69f7}
+
+
+\hypertarget{_rtt_manager_8cpp_bac47eb49b6ac8cba94d155a4b23eaf2}{
+\index{RttManager.cpp@{RttManager.cpp}!\_\-def\_\-Hydrax\_\-Refraction\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Refraction\_\-Rtt\_\-Name}}
+\index{\_\-def\_\-Hydrax\_\-Refraction\_\-Rtt\_\-Name@{\_\-def\_\-Hydrax\_\-Refraction\_\-Rtt\_\-Name}!RttManager.cpp@{RttManager.cpp}}
+\subsubsection[{\_\-def\_\-Hydrax\_\-Refraction\_\-Rtt\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Hydrax\_\-Refraction\_\-Rtt\_\-Name~\char`\"{}HydraxRefractionMap\char`\"{}}}
+\label{_rtt_manager_8cpp_bac47eb49b6ac8cba94d155a4b23eaf2}
+
+

@@ -1,0 +1,113 @@
+\hypertarget{_god_rays_manager_8cpp}{
+\section{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/GodRaysManager.cpp File Reference}
+\label{_god_rays_manager_8cpp}\index{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/GodRaysManager.cpp@{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/GodRaysManager.cpp}}
+}
+{\tt \#include \char`\"{}GodRaysManager.h\char`\"{}}\par
+{\tt \#include \char`\"{}Hydrax.h\char`\"{}}\par
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespace_hydrax}{Hydrax}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_64ead858e1c15774b4253557e5836bb8}{\_\-def\_\-GodRays\_\-Projector\_\-Camera\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRays\_\-Projector\_\-Camera\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_33fdfa6191ec5d85993ca6cc25510c77}{\_\-def\_\-GodRays\_\-ManualObject\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRays\_\-ManualObject\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_5bcd9ca78f25820342288435aac07009}{\_\-def\_\-GodRays\_\-Depth\_\-Map}~\char`\"{}\_\-Hydrax\_\-GodRays\_\-Depth\_\-Map\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_63c8074a948952fa9db2e6c245f8cc65}{\_\-def\_\-GodRays\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRays\_\-Material\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_5d4e362603d94c8a31d38782354ae6ad}{\_\-def\_\-GodRays\_\-Shader\_\-VP\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRays\_\-VP\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_2be20df786d15ed3cdc6432fe68b5492}{\_\-def\_\-GodRays\_\-Shader\_\-FP\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRays\_\-FP\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_8251ee4f67e5f0e96898992111b95921}{\_\-def\_\-GodRaysDepth\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRaysDepth\_\-Material\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_89cc77cfd24ac90364c6297746c643e0}{\_\-def\_\-GodRaysDepth\_\-Shader\_\-VP\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRaysDepth\_\-VP\char`\"{}
+\item 
+\#define \hyperlink{_god_rays_manager_8cpp_dcfff3ccc1fced7ca2516201759fb02a}{\_\-def\_\-GodRaysDepth\_\-Shader\_\-FP\_\-Name}~\char`\"{}\_\-Hydrax\_\-GodRaysDepth\_\-FP\char`\"{}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+const Ogre::Matrix4 \hyperlink{_god_rays_manager_8cpp_fbf3adf4f7626f9e4dd3e294bf4fb718}{PROJECTIONCLIPSPACE2DTOIMAGESPACE\_\-PERSPECTIVE} (0.5, 0, 0, 0.5, 0,-0.5, 0, 0.5, 0, 0, 1, 0, 0, 0, 0, 1)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_god_rays_manager_8cpp_5bcd9ca78f25820342288435aac07009}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRays\_\-Depth\_\-Map@{\_\-def\_\-GodRays\_\-Depth\_\-Map}}
+\index{\_\-def\_\-GodRays\_\-Depth\_\-Map@{\_\-def\_\-GodRays\_\-Depth\_\-Map}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRays\_\-Depth\_\-Map}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRays\_\-Depth\_\-Map~\char`\"{}\_\-Hydrax\_\-GodRays\_\-Depth\_\-Map\char`\"{}}}
+\label{_god_rays_manager_8cpp_5bcd9ca78f25820342288435aac07009}
+
+
+\hypertarget{_god_rays_manager_8cpp_33fdfa6191ec5d85993ca6cc25510c77}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRays\_\-ManualObject\_\-Name@{\_\-def\_\-GodRays\_\-ManualObject\_\-Name}}
+\index{\_\-def\_\-GodRays\_\-ManualObject\_\-Name@{\_\-def\_\-GodRays\_\-ManualObject\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRays\_\-ManualObject\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRays\_\-ManualObject\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRays\_\-ManualObject\char`\"{}}}
+\label{_god_rays_manager_8cpp_33fdfa6191ec5d85993ca6cc25510c77}
+
+
+\hypertarget{_god_rays_manager_8cpp_63c8074a948952fa9db2e6c245f8cc65}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRays\_\-Material\_\-Name@{\_\-def\_\-GodRays\_\-Material\_\-Name}}
+\index{\_\-def\_\-GodRays\_\-Material\_\-Name@{\_\-def\_\-GodRays\_\-Material\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRays\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRays\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRays\_\-Material\char`\"{}}}
+\label{_god_rays_manager_8cpp_63c8074a948952fa9db2e6c245f8cc65}
+
+
+\hypertarget{_god_rays_manager_8cpp_64ead858e1c15774b4253557e5836bb8}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRays\_\-Projector\_\-Camera\_\-Name@{\_\-def\_\-GodRays\_\-Projector\_\-Camera\_\-Name}}
+\index{\_\-def\_\-GodRays\_\-Projector\_\-Camera\_\-Name@{\_\-def\_\-GodRays\_\-Projector\_\-Camera\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRays\_\-Projector\_\-Camera\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRays\_\-Projector\_\-Camera\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRays\_\-Projector\_\-Camera\char`\"{}}}
+\label{_god_rays_manager_8cpp_64ead858e1c15774b4253557e5836bb8}
+
+
+\hypertarget{_god_rays_manager_8cpp_2be20df786d15ed3cdc6432fe68b5492}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRays\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-GodRays\_\-Shader\_\-FP\_\-Name}}
+\index{\_\-def\_\-GodRays\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-GodRays\_\-Shader\_\-FP\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRays\_\-Shader\_\-FP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRays\_\-Shader\_\-FP\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRays\_\-FP\char`\"{}}}
+\label{_god_rays_manager_8cpp_2be20df786d15ed3cdc6432fe68b5492}
+
+
+\hypertarget{_god_rays_manager_8cpp_5d4e362603d94c8a31d38782354ae6ad}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRays\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-GodRays\_\-Shader\_\-VP\_\-Name}}
+\index{\_\-def\_\-GodRays\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-GodRays\_\-Shader\_\-VP\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRays\_\-Shader\_\-VP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRays\_\-Shader\_\-VP\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRays\_\-VP\char`\"{}}}
+\label{_god_rays_manager_8cpp_5d4e362603d94c8a31d38782354ae6ad}
+
+
+\hypertarget{_god_rays_manager_8cpp_8251ee4f67e5f0e96898992111b95921}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRaysDepth\_\-Material\_\-Name@{\_\-def\_\-GodRaysDepth\_\-Material\_\-Name}}
+\index{\_\-def\_\-GodRaysDepth\_\-Material\_\-Name@{\_\-def\_\-GodRaysDepth\_\-Material\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRaysDepth\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRaysDepth\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRaysDepth\_\-Material\char`\"{}}}
+\label{_god_rays_manager_8cpp_8251ee4f67e5f0e96898992111b95921}
+
+
+\hypertarget{_god_rays_manager_8cpp_dcfff3ccc1fced7ca2516201759fb02a}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRaysDepth\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-GodRaysDepth\_\-Shader\_\-FP\_\-Name}}
+\index{\_\-def\_\-GodRaysDepth\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-GodRaysDepth\_\-Shader\_\-FP\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRaysDepth\_\-Shader\_\-FP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRaysDepth\_\-Shader\_\-FP\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRaysDepth\_\-FP\char`\"{}}}
+\label{_god_rays_manager_8cpp_dcfff3ccc1fced7ca2516201759fb02a}
+
+
+\hypertarget{_god_rays_manager_8cpp_89cc77cfd24ac90364c6297746c643e0}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!\_\-def\_\-GodRaysDepth\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-GodRaysDepth\_\-Shader\_\-VP\_\-Name}}
+\index{\_\-def\_\-GodRaysDepth\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-GodRaysDepth\_\-Shader\_\-VP\_\-Name}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{\_\-def\_\-GodRaysDepth\_\-Shader\_\-VP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-GodRaysDepth\_\-Shader\_\-VP\_\-Name~\char`\"{}\_\-Hydrax\_\-GodRaysDepth\_\-VP\char`\"{}}}
+\label{_god_rays_manager_8cpp_89cc77cfd24ac90364c6297746c643e0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_god_rays_manager_8cpp_fbf3adf4f7626f9e4dd3e294bf4fb718}{
+\index{GodRaysManager.cpp@{GodRaysManager.cpp}!PROJECTIONCLIPSPACE2DTOIMAGESPACE\_\-PERSPECTIVE@{PROJECTIONCLIPSPACE2DTOIMAGESPACE\_\-PERSPECTIVE}}
+\index{PROJECTIONCLIPSPACE2DTOIMAGESPACE\_\-PERSPECTIVE@{PROJECTIONCLIPSPACE2DTOIMAGESPACE\_\-PERSPECTIVE}!GodRaysManager.cpp@{GodRaysManager.cpp}}
+\subsubsection[{PROJECTIONCLIPSPACE2DTOIMAGESPACE\_\-PERSPECTIVE}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Matrix4 PROJECTIONCLIPSPACE2DTOIMAGESPACE\_\-PERSPECTIVE (0. {\em 5}, \/  0, \/  0, \/  0. {\em 5}, \/  0, \/  -0. {\em 5}, \/  0, \/  0. {\em 5}, \/  0, \/  0, \/  1, \/  0, \/  0, \/  0, \/  0, \/  1)}}
+\label{_god_rays_manager_8cpp_fbf3adf4f7626f9e4dd3e294bf4fb718}
+
+

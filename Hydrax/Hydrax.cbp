@@ -100,8 +100,6 @@
 		<Unit filename="src\Hydrax\Prerequisites.h" />
 		<Unit filename="src\Hydrax\RttManager.cpp" />
 		<Unit filename="src\Hydrax\RttManager.h" />
-		<Unit filename="src\Hydrax\Structs.cpp" />
-		<Unit filename="src\Hydrax\Structs.h" />
 		<Unit filename="src\Hydrax\TextureManager.cpp" />
 		<Unit filename="src\Hydrax\TextureManager.h" />
 		<Unit filename="src\Hydrax\hydrax.cpp" />
