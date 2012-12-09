@@ -40,6 +40,7 @@ namespace Hydrax
 	RttManager::RttManager(Hydrax *h)
 		: mHydrax(h)
 		, mPlanesSceneNode(0)
+		, mDisableReflectionCustomNearCliplPlaneRenderQueues(static_cast<Ogre::RenderQueueGroupID>(Ogre::RENDER_QUEUE_SKIES_EARLY | Ogre::RENDER_QUEUE_SKIES_LATE))
 		, mReflectionDisplacementError(0.5f)
 	{
 		Ogre::String RttNames[6] = 
@@ -68,6 +69,9 @@ namespace Hydrax
 		mDepthReflectionListener.mRttManager = this;
 		mDepthReflectionListener.mRttManager = this;
 		mGPUNormalMapListener.mRttManager = this;
+
+		mDisableReflectionCustomNearCliplPlaneRenderQueues.push_back(Ogre::RENDER_QUEUE_SKIES_EARLY);
+		mDisableReflectionCustomNearCliplPlaneRenderQueues.push_back(Ogre::RENDER_QUEUE_SKIES_EARLY);
 	}
 
 	RttManager::~RttManager()
@@ -80,6 +84,7 @@ namespace Hydrax
 		if (!mPlanesSceneNode)
 		{
 			mPlanesSceneNode = mHydrax->getSceneManager()->getRootSceneNode()->createChildSceneNode();
+			mPlanesSceneNode->setPosition(0, mHydrax->getPosition().y, 0);
 			mHydrax->getSceneManager()->addRenderQueueListener(&mReflectionListener.mCReflectionQueueListener);
 		}
 
@@ -162,6 +167,7 @@ namespace Hydrax
 			mPlanesSceneNode->detachAllObjects();
             mPlanesSceneNode->getParentSceneNode()->removeAndDestroyChild(mPlanesSceneNode->getName());
 			mPlanesSceneNode = 0;
+			mHydrax->getSceneManager()->removeRenderQueueListener(&mReflectionListener.mCReflectionQueueListener);
 		}
 	}
 
@@ -423,16 +429,16 @@ namespace Hydrax
 
 		// Underwater
 		if ( mHydrax->_isCurrentFrameUnderwater() &&
-			(mHydrax->getCamera()->getPosition().y > mRttManager->mPlanes[RTT_REFLECTION]->getParentNode()->getPosition().y))
+			(mHydrax->getCamera()->getDerivedPosition().y > mRttManager->mPlanes[RTT_REFLECTION]->getParentNode()->getPosition().y))
 		{
 			mCameraPlaneDiff = 0;
 			IsInUnderwaterError = true;
 		}
 		// Overwater
 		else if ((!mHydrax->_isCurrentFrameUnderwater()) &&
-			     (mHydrax->getCamera()->getPosition().y < mRttManager->mPlanes[RTT_REFLECTION]->getParentNode()->getPosition().y))
+			     (mHydrax->getCamera()->getDerivedPosition().y < mRttManager->mPlanes[RTT_REFLECTION]->getParentNode()->getPosition().y))
 		{
-			mCameraPlaneDiff = mRttManager->mPlanes[RTT_REFLECTION]->getParentNode()->getPosition().y-mHydrax->getCamera()->getPosition().y+mRttManager->mReflectionDisplacementError;
+			mCameraPlaneDiff = mRttManager->mPlanes[RTT_REFLECTION]->getParentNode()->getPosition().y-mHydrax->getCamera()->getDerivedPosition().y+mRttManager->mReflectionDisplacementError;
 			mRttManager->mPlanes[RTT_REFLECTION]->getParentNode()->translate(0,-mCameraPlaneDiff,0);
 		}
 		else
@@ -496,8 +502,7 @@ namespace Hydrax
 
 	void RttManager::CReflectionListener::CReflectionQueueListener::renderQueueStarted(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation)
 	{
-		if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE) 
-			&& mActive)
+		if (mRttManager->_isRenderQueueInList(mRttManager->mDisableReflectionCustomNearCliplPlaneRenderQueues, static_cast<Ogre::RenderQueueGroupID>(queueGroupId)) && mActive)
 		{
 			mRttManager->mHydrax->getCamera()->disableCustomNearClipPlane();
 			Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mRttManager->mHydrax->getCamera()->getProjectionMatrixRS()); 
@@ -506,8 +511,7 @@ namespace Hydrax
 
 	void RttManager::CReflectionListener::CReflectionQueueListener::renderQueueEnded(Ogre::uint8 queueGroupId, const Ogre::String &invocation, bool &skipThisInvocation)
 	{
-		if ((queueGroupId == Ogre::RENDER_QUEUE_SKIES_EARLY || queueGroupId == Ogre::RENDER_QUEUE_SKIES_LATE) 
-			&& mActive)
+		if (mRttManager->_isRenderQueueInList(mRttManager->mDisableReflectionCustomNearCliplPlaneRenderQueues, static_cast<Ogre::RenderQueueGroupID>(queueGroupId)) && mActive)
 		{
 			mRttManager->mHydrax->getCamera()->enableCustomNearClipPlane(mRttManager->mPlanes[RTT_REFLECTION]);
 			Ogre::Root::getSingleton().getRenderSystem()->_setProjectionMatrix(mRttManager->mHydrax->getCamera()->getProjectionMatrixRS()); 
@@ -520,7 +524,7 @@ namespace Hydrax
 
         mHydrax->getMesh()->getEntity()->setVisible(false);
 		
-		if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getPosition().y) > mHydrax->getPlanesError())
+		if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getDerivedPosition().y) > mHydrax->getPlanesError())
 		{
 			if (mHydrax->_isCurrentFrameUnderwater())
 		    {
@@ -542,7 +546,7 @@ namespace Hydrax
 
         mHydrax->getMesh()->getEntity()->setVisible(true);
 
-		if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getPosition().y) > mHydrax->getPlanesError())
+		if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getDerivedPosition().y) > mHydrax->getPlanesError())
 		{
 			if (mHydrax->_isCurrentFrameUnderwater())
 		    {
@@ -567,6 +571,9 @@ namespace Hydrax
         Ogre::Entity* CurrentEntity;
 		unsigned int k;
 
+		Ogre::MaterialPtr SubEntMat;
+		bool DepthTechniquePresent = false;
+
         mMaterials.empty();
 
         while (EntityIterator.hasMoreElements())
@@ -575,6 +582,30 @@ namespace Hydrax
 
 			for(k = 0; k < CurrentEntity->getNumSubEntities(); k++)
 			{
+				SubEntMat = Ogre::MaterialManager::getSingleton().getByName(CurrentEntity->getSubEntity(k)->getMaterialName());
+                
+				if (!SubEntMat.isNull())
+				{
+					Ogre::Material::TechniqueIterator TechIt = SubEntMat->getTechniqueIterator();
+
+					while(TechIt.hasMoreElements())
+					{
+						if (static_cast<Ogre::Technique*>(TechIt.peekNext())->getSchemeName() == "HydraxDepth")
+						{
+						    DepthTechniquePresent = true;
+						}
+
+						TechIt.moveNext();
+					}
+				}
+
+				if (DepthTechniquePresent)
+				{
+					mMaterials.push("_HydraxDepth_Technique_Present_");
+					DepthTechniquePresent = false;
+					continue;
+				}
+
 				mMaterials.push(CurrentEntity->getSubEntity(k)->getMaterialName());
 
 			    CurrentEntity->getSubEntity(k)->setMaterialName(mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_DEPTH)->getName());
@@ -583,7 +614,7 @@ namespace Hydrax
             EntityIterator.moveNext();
         }
 
-		if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getPosition().y) > mHydrax->getPlanesError())
+		if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getDerivedPosition().y) > mHydrax->getPlanesError())
 		{
 			if (mHydrax->_isCurrentFrameUnderwater())
 		    {
@@ -621,13 +652,23 @@ namespace Hydrax
         Ogre::Entity* CurrentEntity;
 		unsigned int k;
 
+		Ogre::String Mat;
+
         while (EntityIterator.hasMoreElements())
         {
 			CurrentEntity = static_cast<Ogre::Entity*>(EntityIterator.peekNextValue());
 
 			for(k = 0; k < CurrentEntity->getNumSubEntities(); k++)
-			{
-			    CurrentEntity->getSubEntity(k)->setMaterialName(mMaterials.front());
+			{   
+				Mat = mMaterials.front();
+
+				if (Mat == "_HydraxDepth_Technique_Present_")
+				{
+					mMaterials.pop();
+					continue;
+				}
+
+			    CurrentEntity->getSubEntity(k)->setMaterialName(Mat);
 
 				mMaterials.pop();
 			}
@@ -639,7 +680,7 @@ namespace Hydrax
 		mHydrax->getGodRaysManager()->setVisible(false);
 		mHydrax->getMesh()->getEntity()->setRenderQueueGroup(Ogre::RENDER_QUEUE_1);
 
-        if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getPosition().y) > mHydrax->getPlanesError())
+        if (Ogre::Math::Abs(mHydrax->getPosition().y - mHydrax->getCamera()->getDerivedPosition().y) > mHydrax->getPlanesError())
 		{
 			if (mHydrax->_isCurrentFrameUnderwater())
 		    {
@@ -666,6 +707,9 @@ namespace Hydrax
         Ogre::Entity* CurrentEntity;
 		unsigned int k;
 
+		Ogre::MaterialPtr SubEntMat;
+		bool DepthTechniquePresent = false;
+
         mMaterials.empty();
 
         while (EntityIterator.hasMoreElements())
@@ -674,6 +718,30 @@ namespace Hydrax
 
 			for(k = 0; k < CurrentEntity->getNumSubEntities(); k++)
 			{
+				SubEntMat = Ogre::MaterialManager::getSingleton().getByName(CurrentEntity->getSubEntity(k)->getMaterialName());
+                
+				if (!SubEntMat.isNull())
+				{
+					Ogre::Material::TechniqueIterator TechIt = SubEntMat->getTechniqueIterator();
+
+					while(TechIt.hasMoreElements())
+					{
+						if (static_cast<Ogre::Technique*>(TechIt.peekNext())->getSchemeName() == "HydraxDepth")
+						{
+						    DepthTechniquePresent = true;
+						}
+
+						TechIt.moveNext();
+					}
+				}
+
+				if (DepthTechniquePresent)
+				{
+					mMaterials.push("_HydraxDepth_Technique_Present_");
+					DepthTechniquePresent = false;
+					continue;
+				}
+
 				mMaterials.push(CurrentEntity->getSubEntity(k)->getMaterialName());
 
 			    CurrentEntity->getSubEntity(k)->setMaterialName(mHydrax->getMaterialManager()->getMaterial(MaterialManager::MAT_DEPTH)->getName());
@@ -686,7 +754,7 @@ namespace Hydrax
 		
         bool IsInUnderwaterError = false;
 
-		if (mHydrax->getCamera()->getPosition().y > mRttManager->mPlanes[RTT_DEPTH_REFLECTION]->getParentNode()->getPosition().y)
+		if (mHydrax->getCamera()->getDerivedPosition().y > mRttManager->mPlanes[RTT_DEPTH_REFLECTION]->getParentNode()->getPosition().y)
 		{
 			mCameraPlaneDiff = 0;
 			IsInUnderwaterError = true;
@@ -713,13 +781,23 @@ namespace Hydrax
         Ogre::Entity* CurrentEntity;
 		unsigned int k;
 
+		Ogre::String Mat;
+
         while (EntityIterator.hasMoreElements())
         {
 			CurrentEntity = static_cast<Ogre::Entity*>(EntityIterator.peekNextValue());
 
 			for(k = 0; k < CurrentEntity->getNumSubEntities(); k++)
 			{
-			    CurrentEntity->getSubEntity(k)->setMaterialName(mMaterials.front());
+			    Mat = mMaterials.front();
+
+				if (Mat == "_HydraxDepth_Technique_Present_")
+				{
+					mMaterials.pop();
+					continue;
+				}
+
+			    CurrentEntity->getSubEntity(k)->setMaterialName(Mat);
 
 				mMaterials.pop();
 			}

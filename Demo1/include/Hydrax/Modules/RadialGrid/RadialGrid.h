@@ -22,8 +22,8 @@ http://www.gnu.org/copyleft/lesser.txt.
 --------------------------------------------------------------------------------
 */
 
-#ifndef _Hydrax_Modules_SimpleGrid_H_
-#define _Hydrax_Modules_SimpleGrid_H_
+#ifndef _Hydrax_Modules_RadialGrid_H_
+#define _Hydrax_Modules_RadialGrid_H_
 
 #include "../../Prerequisites.h"
 
@@ -33,75 +33,105 @@ http://www.gnu.org/copyleft/lesser.txt.
 
 namespace Hydrax{ namespace Module
 {
-	/** Hydrax simple grid module
+	/** Hydrax radial grid module
 	 */
-	class DllExport SimpleGrid : public Module
+	class DllExport RadialGrid : public Module
 	{
 	public:
 		/** Struct wich contains Hydrax simple grid module options
 		 */
 		struct Options
 		{
-			/// Projected grid complexity (N*N)
-			int Complexity;
-			/// Size
-			Size MeshSize;
-			/// Strength
-			float Strength;
+			/// Number of steps (Per circle)
+			int Steps;
+			/// Number of circles
+			int Circles;
+			/// Radius (In world units)
+			float Radius;
 			/// Smooth
 			bool Smooth;
 			/// Choppy waves
 			bool ChoppyWaves;
 			/// Choppy waves strength
 			float ChoppyStrength;
+			/// Step cube size
+			float StepSizeCube;
+			/// Step size five
+			float StepSizeFive;
+			/// Step lin size
+			float StepSizeLin;
+			/// Water strength
+			float Strength;
 
 			/** Default constructor
 			 */
 			Options()
-				: Complexity(256)
-				, MeshSize(Size(100))
-				, Strength(32.5f)
+				: Steps(250)
+				, Circles(250)
+				, Radius(100)
 				, Smooth(false)
 				, ChoppyWaves(true)
-				, ChoppyStrength(0.065f)
+				, ChoppyStrength(3.5f)
+				, StepSizeCube(0.00001f)
+				, StepSizeFive(0.0f)
+				, StepSizeLin(0.1f)
+				, Strength(32.5f)
 			{
 			}
 
 			/** Constructor
-			    @param _Complexity Projected grid complexity
-				@param _MeshSize Water mesh size
+			    @param _Steps Number of steps per circle
+				@param _Circles Number of circles
+				@param _Radius Mesh radius
 			 */
-			Options(const int &_Complexity, 
-				    const Size &_MeshSize)
-				: Complexity(_Complexity)
-				, MeshSize(_MeshSize)
-				, Strength(32.5f)
+			Options(const int &_Steps, 
+				    const int &_Circles,
+					const float &_Radius)
+				: Steps(_Steps)
+				, Circles(_Circles)
+				, Radius(_Radius)
 				, Smooth(false)
 				, ChoppyWaves(true)
-				, ChoppyStrength(0.065f)
+				, ChoppyStrength(3.5f)
+				, StepSizeCube(0.00001f)
+				, StepSizeFive(0.0f)
+				, StepSizeLin(0.1f)
+				, Strength(32.5f)
 			{
 			}
 
 			/** Constructor
-			    @param _Complexity Projected grid complexity
-				@param _MeshSize Water mesh size
-				@param _Strength Perlin noise strength
+			    @param _Steps Number of steps per circle
+				@param _Circles Number of circles
+				@param _Radius Mesh radius
 				@param _Smooth Smooth vertex?
 				@param _ChoppyWaves Choppy waves enabled? Note: Only with Materialmanager::NM_VERTEX normal mode.
 				@param _ChoppyStrength Choppy waves strength Note: Only with Materialmanager::NM_VERTEX normal mode.
+				@param _StepSizeCube Step cube size
+				@param _StepSizeFive Step five size
+				@param _StepSizeLin Step lin size
+				@param _Strength Water strength
 			 */
-			Options(const int   &_Complexity,
-				    const Size  &_MeshSize,
-				    const float &_Strength,
+			Options(const int &_Steps, 
+				    const int &_Circles,
+					const float &_Radius,
 					const bool  &_Smooth,
 					const bool  &_ChoppyWaves,
-					const float &_ChoppyStrength)
-				: Complexity(_Complexity)
-				, MeshSize(_MeshSize)
-				, Strength(_Strength)
+					const float &_ChoppyStrength,
+					const float &_StepSizeCube,
+					const float &_StepSizeFive,
+					const float &_StepSizeLin,
+					const float &_Strength)
+				: Steps(_Steps)
+				, Circles(_Circles)
+				, Radius(_Radius)
 				, Smooth(_Smooth)
 				, ChoppyWaves(_ChoppyWaves)
 				, ChoppyStrength(_ChoppyStrength)
+				, StepSizeCube(_StepSizeCube)
+				, StepSizeFive(_StepSizeFive)
+				, StepSizeLin(_StepSizeLin)
+				, Strength(_Strength)
 			{
 			}
 		};
@@ -111,7 +141,7 @@ namespace Hydrax{ namespace Module
 			@param n Hydrax noise module
 			@param NormalMode Switch between MaterialManager::NM_VERTEX and Materialmanager::NM_RTT
 		 */
-		SimpleGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode);
+		RadialGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode);
 
 		/** Constructor
 		    @param h Hydrax manager pointer
@@ -119,11 +149,11 @@ namespace Hydrax{ namespace Module
 			@param NormalMode Switch between MaterialManager::NM_VERTEX and Materialmanager::NM_RTT
 			@param Options Perlin options
 		 */
-		SimpleGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode, const Options &Options);
+		RadialGrid(Hydrax *h, Noise::Noise *n, const MaterialManager::NormalMode& NormalMode, const Options &Options);
 
 		/** Destructor
 		 */
-        ~SimpleGrid();
+        ~RadialGrid();
 
 		/** Create
 		 */
@@ -167,6 +197,12 @@ namespace Hydrax{ namespace Module
 		{
 			return mOptions;
 		}
+
+		/** Create geometry in module(If special geometry is needed)
+		    @param mMesh Mesh
+			@return false if it must be create by default Mesh::_createGeometry() fnc.
+		 */
+		const bool _createGeometry(Mesh *mMesh) const;
 
 	private:
 		/** Calcule current normals

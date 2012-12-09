@@ -129,6 +129,8 @@ namespace Hydrax
 		mVisible = Visible;
 
 		unregister();
+
+		mHydrax->getDecalsManager()->_forceToUpdate();
 	}
 
 	// --------------------------------------------------------------------
@@ -138,6 +140,7 @@ namespace Hydrax
 		, mNextId(0)
 		, mLastUnderwater(false)
 		, mWaterStrength(5)
+		, mForceToUpdate(false)
 	{
 	}
 
@@ -154,9 +157,15 @@ namespace Hydrax
 	void DecalsManager::update()
 	{
 		if (mHydrax->getCamera()->getDerivedPosition()    == mLastPosition &&
-			mHydrax->getCamera()->getDerivedOrientation() == mLastOrientation)
+			mHydrax->getCamera()->getDerivedOrientation() == mLastOrientation && 
+			!mForceToUpdate)
 		{
 			return;
+		}
+
+		if (mForceToUpdate)
+		{
+			mForceToUpdate = false;
 		}
 
 		Ogre::Vector2 DPos;

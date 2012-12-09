@@ -250,13 +250,37 @@ namespace Hydrax
 			mGodRaysIntensity = GodRaysIntensity;
 		}
 
+		/** Set the y-displacement under the water needed to change between underwater and overwater mode
+			@param UnderwaterCameraSwitchDelta Underwater camera switch delta factor
+			@remarks Useful to get a nice underwater-overwater transition, it depends of the world scale
+		 */
+		inline void setUnderwaterCameraSwitchDelta(const Ogre::Real& UnderwaterCameraSwitchDelta)
+		{
+		    mUnderwaterCameraSwitchDelta = UnderwaterCameraSwitchDelta;
+		}
+
         /** Has create() already called?
-            @return Has create() already called?
+            @return true is yes, false if not
          */
         inline const bool& isCreated() const
         {
             return mCreated;
         }
+
+		/** Show/Hide hydrax water
+		    @param Visible true to show, false to hide
+			@remarks Resources aren't going to be realeased(Use remove() for this), 
+			         only RTT's are going to be stopped.
+		 */
+		void setVisible(const bool& Visible);
+
+		/** Is hydrax water visible?
+		    @return true if yes, false if not
+		 */
+		inline const bool& isVisible() const
+		{
+			return mVisible;
+		}
 
 		/** Get rendering camera
 		    @return Ogre::Camera pointer
@@ -569,6 +593,15 @@ namespace Hydrax
 			return mGodRaysIntensity;
 		}
 
+		/** Get the y-displacement under the water needed to change between underwater and overwater mode
+			@return Underwater camera switch delta
+			@remarks Useful to get a nice underwater-overwater transition, it depends of the world scale
+		 */
+		inline const Ogre::Real& getUnderwaterCameraSwitchDelta() const
+		{
+			return mUnderwaterCameraSwitchDelta;
+		}
+
 		/** Is current frame underwater?
 		    @return true If yes, false if not
 		 */
@@ -579,9 +612,9 @@ namespace Hydrax
 
     private:
 
-    /** Restore water mesh after device listener restored event
-	 */
-	class DllExport DeviceRestoredListener : public Ogre::RenderSystem::Listener
+        /** Device listener
+	     */
+	    class DllExport DeviceListener : public Ogre::RenderSystem::Listener
 	    {
 		public:
 			/// Hydrax manager pointer
@@ -598,6 +631,10 @@ namespace Hydrax
          */
         void _updateNM();
 
+		/** setVisible() helper funtion
+		 */
+		void _checkVisible();
+
 		/** Check for underwater effects
 		    @param timeSinceLastFrame Time since last frame
 		 */
@@ -606,13 +643,16 @@ namespace Hydrax
         /// Has create() already called?
         bool mCreated;
 
+		/// Is hydrax water visible?
+		bool mVisible;
+
         /// Hydrax components
         HydraxComponent mComponents;
 		/// Current shader mode
 		MaterialManager::ShaderMode mShaderMode;
 
-		/// Restored device listener
-		DeviceRestoredListener mDeviceRestoredListener;
+		/// Device listener
+		DeviceListener mDeviceListener;
 
 		/// Polygon mode (Solid, Wireframe, Points)
 		Ogre::PolygonMode mPolygonMode;
@@ -665,6 +705,9 @@ namespace Hydrax
 		Ogre::Vector3 mGodRaysExposure;
 		/// God rays intensity
 		Ogre::Real mGodRaysIntensity;
+
+		// Delta-displacement in Y-AXIS before changing to underwater mode
+		Ogre::Real mUnderwaterCameraSwitchDelta;
 
 		/// Is current frame underwater?
 		bool mCurrentFrameUnderwater;

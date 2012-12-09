@@ -1,18 +1,18 @@
-// Island CG Material - For Hydrax demo application
+// Island HLSL Material - For Hydrax demo application
 // Xavier Verguín González 
 
-vertex_program Island/VP cg
+vertex_program Island/VP hlsl
 {
-   source Island.cg
+   source Island.hlsl
    entry_point main_vp
-   profiles vs_1_1 arbvp1
+   target vs_1_1
 }
 
-fragment_program Island/FP cg
+fragment_program Island/FP hlsl
 {
-   source Island.cg
+   source Island.hlsl
    entry_point main_fp
-   profiles ps_2_0 arbfp1
+   target ps_2_0
 }
 
 material Island

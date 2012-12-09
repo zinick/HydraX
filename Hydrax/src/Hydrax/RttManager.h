@@ -226,7 +226,7 @@ namespace Hydrax
 		}
 
 		/** Set reflection displacement error
-		    @param ReflectionDisplacementError Range [0.05, ~2], increase when if you experiment
+		    @param ReflectionDisplacementError Range [0.05, ~2], increase if you experiment
 			       reflection issues when the camera is near to the water.
 	     */
 		void setReflectionDisplacementError(const Ogre::Real& ReflectionDisplacementError)
@@ -240,6 +240,22 @@ namespace Hydrax
 		inline const Ogre::Real& getReflectionDisplacementError() const
 		{
 			return mReflectionDisplacementError;
+		}
+
+		/** Set disable reflection custom near clip plane render queues
+		    @param DisableReflectionCustomNearCliplPlaneRenderQueues Disable reflection custom near clip plane render queues
+		 */
+		inline void setDisableReflectionCustomNearCliplPlaneRenderQueues(const std::vector<Ogre::RenderQueueGroupID>& DisableReflectionCustomNearCliplPlaneRenderQueues)
+		{
+			mDisableReflectionCustomNearCliplPlaneRenderQueues = DisableReflectionCustomNearCliplPlaneRenderQueues;
+		}
+
+		/** Get disable reflection custom near clip plane render queues
+		    @return Disable reflection custom near clip plane render queues
+		 */
+		inline const std::vector<Ogre::RenderQueueGroupID>& getDisableReflectionCustomNearCliplPlaneRenderQueues()
+		{
+			return mDisableReflectionCustomNearCliplPlaneRenderQueues;
 		}
 
 	private:
@@ -406,6 +422,24 @@ namespace Hydrax
 							Ogre::RenderTargetListener* RTListener,    const Ogre::String& MaterialScheme = "",
 							const bool& ShadowsEnabled = true);
 
+		/** Find a render queue in a render queue list
+		    @param l Render queue list
+			@param rq Render queue to find
+		    @return true If the render queue to find is in the list, false if not
+		 */
+		inline const bool _isRenderQueueInList(const std::vector<Ogre::RenderQueueGroupID>& l, const Ogre::RenderQueueGroupID& rq)
+		{
+			for (std::vector<Ogre::RenderQueueGroupID>::const_iterator i = l.begin(); i != l.end(); i++)
+			{
+				if ((*i) == rq)
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
 		/// Hydrax parent pointer
 		Hydrax *mHydrax;
 
@@ -426,7 +460,10 @@ namespace Hydrax
 		CDepthReflectionListener mDepthReflectionListener;
 		CGPUNormalMapListener    mGPUNormalMapListener;
 
-		// Reflection displacement error, range [0.01, ~2]
+		/// Render queues to exclude of the reflection custom near clip plane
+		std::vector<Ogre::RenderQueueGroupID> mDisableReflectionCustomNearCliplPlaneRenderQueues;
+
+		/// Reflection displacement error, range [0.01, ~2]
 		Ogre::Real mReflectionDisplacementError;
 	};
 };

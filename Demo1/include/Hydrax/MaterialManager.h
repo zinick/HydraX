@@ -260,6 +260,19 @@ namespace Hydrax
 		 */
 		void addDepthTechnique(Ogre::Technique *Technique, const bool& AutoUpdate = true);
 
+		/** Add depth texture technique to an especified material
+		    @param Technique Technique where depth technique will be added
+			@param TextureName Texture name
+			@param AlphaChannel "x","y","z","w" or "r","g","b","a" (Channel where alpha information is stored)
+			@param AutoUpdate The technique will be automatically updated when water parameters change
+			@remarks Call it after Hydrax::create()/Hydrax::setComponents(...)
+
+			         The technique will be automatically updated when water parameters change if parameter AutoUpdate == true
+			         Add depth technique when a material is not an Ogre::Entity, such terrains, PLSM2 materials, etc.
+					 This depth technique will be added with "HydraxDepth" scheme in ordeto can use it in the Depth RTT. 
+		 */
+		void addDepthTextureTechnique(Ogre::Technique *Technique, const Ogre::String& TextureName, const Ogre::String& AlphaChannel = "w", const bool& AutoUpdate = true);
+
 		/** Get external depth techniques
 		    @return std::vector of external depth techniques
 		 */
@@ -311,6 +324,14 @@ namespace Hydrax
 			@param Options Material options
 		 */
 		bool _createDepthMaterial(const HydraxComponent &Components, const Options &Options);
+
+		/** Create depth texture gpu programs
+		    @param Components Components of the sahder
+			@param Options Material options
+			@param AlphaChannel "x","y","z","w" or "r","g","b","a" (Channel where alpha information is stored)
+			@return true if no problems had happend, false if yes
+		 */
+		bool _createDepthTextureGPUPrograms(const HydraxComponent &Components, const Options &Options, const Ogre::String& AlphaChannel);
 
 		/** Create underwater material
 		    @param Components Components of the shader

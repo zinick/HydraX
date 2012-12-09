@@ -267,7 +267,6 @@ namespace Hydrax{ namespace Noise
 		int o_noise[n_size_sq*max_octaves];
 		int p_noise[np_size_sq*(max_octaves>>(n_packsize-1))];	
 		int *r_noise;
-		int octaves;
 		float magnitude;
 
 		/// Elapsed time

@@ -260,6 +260,13 @@ namespace Hydrax
 			mWaterStrength = WaterStrength;
 		}
 
+		/** Call to force to update decals
+		 */
+		inline void _forceToUpdate()
+		{
+			mForceToUpdate = true;
+		}
+
 	private:
 		/// Decals std::vector
 		std::vector<Decal*> mDecals;
@@ -275,6 +282,7 @@ namespace Hydrax
 		Ogre::Vector3 mLastPosition;
 		Ogre::Quaternion mLastOrientation;
 		bool mLastUnderwater;
+		bool mForceToUpdate;
 		
 		/// Hydrax parent pointer
 		Hydrax *mHydrax;

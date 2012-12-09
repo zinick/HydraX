@@ -84,14 +84,14 @@
 		<Unit filename="src\Hydrax\Mesh.h" />
 		<Unit filename="src\Hydrax\Modules\Module.cpp" />
 		<Unit filename="src\Hydrax\Modules\Module.h" />
-		<Unit filename="src\Hydrax\Modules\PerlinPG\PerlinPG.cpp" />
-		<Unit filename="src\Hydrax\Modules\PerlinPG\PerlinPG.h" />
-		<Unit filename="src\Hydrax\Modules\Perlin\Perlin.cpp" />
-		<Unit filename="src\Hydrax\Modules\Perlin\Perlin.h" />
 		<Unit filename="src\Hydrax\Modules\ProjectedGrid\ProjectedGrid.cpp" />
 		<Unit filename="src\Hydrax\Modules\ProjectedGrid\ProjectedGrid.h" />
+		<Unit filename="src\Hydrax\Modules\RadialGrid\RadialGrid.cpp" />
+		<Unit filename="src\Hydrax\Modules\RadialGrid\RadialGrid.h" />
 		<Unit filename="src\Hydrax\Modules\SimpleGrid\SimpleGrid.cpp" />
 		<Unit filename="src\Hydrax\Modules\SimpleGrid\SimpleGrid.h" />
+		<Unit filename="src\Hydrax\Noise\FFT\FFT.cpp" />
+		<Unit filename="src\Hydrax\Noise\FFT\FFT.h" />
 		<Unit filename="src\Hydrax\Noise\Noise.cpp" />
 		<Unit filename="src\Hydrax\Noise\Noise.h" />
 		<Unit filename="src\Hydrax\Noise\Perlin\Perlin.cpp" />
@@ -100,6 +100,8 @@
 		<Unit filename="src\Hydrax\Prerequisites.h" />
 		<Unit filename="src\Hydrax\RttManager.cpp" />
 		<Unit filename="src\Hydrax\RttManager.h" />
+		<Unit filename="src\Hydrax\Structs.cpp" />
+		<Unit filename="src\Hydrax\Structs.h" />
 		<Unit filename="src\Hydrax\TextureManager.cpp" />
 		<Unit filename="src\Hydrax\TextureManager.h" />
 		<Unit filename="src\Hydrax\hydrax.cpp" />

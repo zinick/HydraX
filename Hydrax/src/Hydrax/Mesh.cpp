@@ -50,49 +50,57 @@ namespace Hydrax
 
 	void Mesh::remove()
 	{
-		if (mCreated)
+		if (!mCreated)
 		{
-			mSceneNode->detachAllObjects();
-            mSceneNode->getParentSceneNode()->removeAndDestroyChild(mSceneNode->getName());
-			mSceneNode = 0;
-
-            Ogre::MeshManager::getSingleton().remove("HydraxMesh");
-            mHydrax->getSceneManager()->destroyEntity(mEntity);
-
-			mMesh.setNull();
-			mSubMesh = 0;
-			mEntity = 0;
-			mNumFaces = 0;
-			mNumVertices = 0;
-			mVertexBuffer.setNull();
-			mIndexBuffer.setNull();
-			mMaterialName = "_NULL_";
+			return;
 		}
+		
+		mSceneNode->detachAllObjects();
+		mSceneNode->getParentSceneNode()->removeAndDestroyChild(mSceneNode->getName());
+		mSceneNode = 0;
 
+		Ogre::MeshManager::getSingleton().remove("HydraxMesh");
+		mHydrax->getSceneManager()->destroyEntity(mEntity);
+
+		mMesh.setNull();
+		mSubMesh = 0;
+		mEntity = 0;
+		mNumFaces = 0;
+		mNumVertices = 0;
+		mVertexBuffer.setNull();
+		mIndexBuffer.setNull();
+		mMaterialName = "_NULL_";
+		
 		mCreated = false;
 	}
 
     void Mesh::setOptions(const Options& Options)
     {
-		mOptions = Options;
-
 		if (mCreated)
 		{
 			Ogre::AxisAlignedBox meshBounds;
 
-			if (mOptions.MeshSize.Width == 0 && mOptions.MeshSize.Height == 0)
+			if (Options.MeshSize.Width == 0 && Options.MeshSize.Height == 0)
 			{
-				meshBounds = Ogre::AxisAlignedBox(-1000000, -mOptions.MeshStrength,-1000000,
-		                                       	   1000000,  mOptions.MeshStrength, 1000000);
+				meshBounds = Ogre::AxisAlignedBox(-1000000, -Options.MeshStrength/2,-1000000,
+		                                       	   1000000,  Options.MeshStrength/2, 1000000);
 			}
 			else
 			{
-				meshBounds = Ogre::AxisAlignedBox(0,                      -mOptions.MeshStrength, 0,
-			                                      mOptions.MeshSize.Width, mOptions.MeshStrength, mOptions.MeshSize.Height);
+				meshBounds = Ogre::AxisAlignedBox(0,                     -Options.MeshStrength/2, 0,
+			                                      Options.MeshSize.Width, Options.MeshStrength/2, Options.MeshSize.Height);
 			}
 
         	mMesh->_setBounds(meshBounds);
+			mSceneNode->_updateBounds();
+
+			if (mOptions.MeshSize.Width != Options.MeshSize.Width || mOptions.MeshSize.Height != Options.MeshSize.Height)
+			{
+			    mSceneNode->setPosition(mHydrax->getPosition().x-Options.MeshSize.Width/2,mHydrax->getPosition().y,mHydrax->getPosition().z-Options.MeshSize.Height/2);
+			}
 		}
+
+		mOptions = Options;
     }
 
     void Mesh::setMaterialName(const Ogre::String &MaterialName)
@@ -131,13 +139,13 @@ namespace Hydrax
 
 		if (mOptions.MeshSize.Width == 0 && mOptions.MeshSize.Height == 0)
 		{
-			meshBounds = Ogre::AxisAlignedBox(-1000000, -mOptions.MeshStrength,-1000000,
-		                                       1000000,  mOptions.MeshStrength, 1000000);
+			meshBounds = Ogre::AxisAlignedBox(-1000000, -mOptions.MeshStrength/2,-1000000,
+		                                       1000000,  mOptions.MeshStrength/2, 1000000);
 		}
 		else
 		{
-			meshBounds = Ogre::AxisAlignedBox(0, 0, 0,
-			                                  mOptions.MeshSize.Width, mOptions.MeshStrength, mOptions.MeshSize.Height);
+			meshBounds = Ogre::AxisAlignedBox(0,                      -mOptions.MeshStrength/2, 0,
+			                                  mOptions.MeshSize.Width, mOptions.MeshStrength/2, mOptions.MeshSize.Height);
 		}
 
         mMesh->_setBounds(meshBounds);
@@ -150,8 +158,9 @@ namespace Hydrax
 		mEntity->setRenderQueueGroup(Ogre::RENDER_QUEUE_1);
 
 		mSceneNode = mHydrax->getSceneManager()->getRootSceneNode()->createChildSceneNode();
+		mSceneNode->showBoundingBox(false);
         mSceneNode->attachObject(mEntity);
-        mSceneNode->setPosition(-mOptions.MeshSize.Width/2,mHydrax->getPosition().y,-mOptions.MeshSize.Height/2);
+        mSceneNode->setPosition(mHydrax->getPosition().x-mOptions.MeshSize.Width/2,mHydrax->getPosition().y,mHydrax->getPosition().z-mOptions.MeshSize.Height/2);
 
 		mCreated = true;
 	}
@@ -270,7 +279,7 @@ namespace Hydrax
 
 	bool Mesh::updateGeometry(const int &numVer, void* verArray)
 	{
-		if (numVer != mOptions.MeshComplexity*mOptions.MeshComplexity || !mCreated)
+		if (numVer != mVertexBuffer->getNumVertices() || !mCreated)
 		{
 			return false;
 		}

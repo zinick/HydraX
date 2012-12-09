@@ -1,8 +1,34 @@
+/*
+--------------------------------------------------------------------------------
+This source file is part of Hydrax.
+Visit ---
+
+Copyright (C) 2009 Xavier Verguín González <xavierverguin@hotmail.com>
+                                           <xavyiy@gmail.com>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place - Suite 330, Boston, MA 02111-1307, USA, or go to
+http://www.gnu.org/copyleft/lesser.txt.
+--------------------------------------------------------------------------------
+*/
+
 // ----------------------------------------------------------------------------
 // Include the main OGRE header files
 // Ogre.h just expands to including lots of individual OGRE header files
 // ----------------------------------------------------------------------------
 #include <Ogre.h>
+#include <OgreTextAreaOverlayElement.h>
+
 // ----------------------------------------------------------------------------
 // Include the OGRE example framework
 // This includes the classes defined to make getting an OGRE application running
@@ -40,6 +66,9 @@ Ogre::Vector3 mSunColor[_def_SkyBoxNum] =
 		    Ogre::Vector3(0.45,0.45,0.45)};
 
 int mCurrentSkyBox = 0;
+
+// Just to wshow skyboxes information
+Ogre::TextAreaOverlayElement* mTextArea = 0;
 
 // ----------------------------------------------------------------------------
 // Define the application object
@@ -85,10 +114,10 @@ public:
 
 		delete raySceneQuery;
 
-		// Update Hydrax (After any camera position/orientation/... change)
+		// Update Hydrax
         mHydrax->update(e.timeSinceLastFrame);
 
-		// Check for switch water presets
+		// Check for skyboxes switch
         mKeyboard->capture();
 
         if (mKeyboard->isKeyDown(OIS::KC_M) && mKeyBuffer < 0)
@@ -123,6 +152,10 @@ public:
         mSceneMgr->getLight("Light0")->setPosition(mSunPosition[mCurrentSkyBox]);
         mSceneMgr->getLight("Light0")->setSpecularColour(mSunColor[mCurrentSkyBox].x,mSunColor[mCurrentSkyBox].y,mSunColor[mCurrentSkyBox].z);
 
+		// Update text area
+		mTextArea->setCaption("Hydrax 0.5 demo application\nCurrent water preset: "  + Ogre::StringUtil::split(mSkyBoxes[mCurrentSkyBox],"/")[1] + " (" +Ogre::StringConverter::toString(mCurrentSkyBox+1) + "/3). Press 'm' to switch water presets.");
+
+		// Log
         LogManager::getSingleton().logMessage("Skybox " + mSkyBoxes[mCurrentSkyBox] + " selected. ("+Ogre::StringConverter::toString(mCurrentSkyBox+1)+"/"+Ogre::StringConverter::toString(_def_SkyBoxNum)+")");
     }
 };
@@ -193,7 +226,7 @@ public:
 protected:
 	void chooseSceneManager()
     {
-        // Create the SceneManager
+        // Create the SceneManager, in this case a generic one
         mSceneMgr = mRoot->createSceneManager("TerrainSceneManager");
     }
 
@@ -236,7 +269,7 @@ protected:
 												// Normal mode
 												Hydrax::MaterialManager::NM_VERTEX,
 												// Projected grid options
-										        Hydrax::Module::ProjectedGrid::Options(264));
+										        Hydrax::Module::ProjectedGrid::Options(/*264 /*Generic one*/));
 
 		// Set our module
 		mHydrax->setModule(static_cast<Hydrax::Module::Module*>(mModule));
@@ -256,8 +289,6 @@ protected:
 		// Load island
 		mSceneMgr->setWorldGeometry("Island.cfg");
 		
-		// Add our hydrax depth technique to island material
-		// (Because the terrain mesh is not an Ogre::Entity)
 		mHydrax->getMaterialManager()->addDepthTechnique(
 			static_cast<Ogre::MaterialPtr>(Ogre::MaterialManager::getSingleton().getByName("Island"))
 			->createTechnique());
@@ -265,9 +296,45 @@ protected:
 		// Create palmiers
 		createPalms(mSceneMgr);
 
+		// Create text area to show skyboxes information
+		createTextArea();
+
 		// Add frame listener
 		mRoot->addFrameListener(new ExampleHydraxDemoListener(mWindow, mCamera, mSceneMgr));
     }
+
+	// Create text area to show skyboxes information
+	void createTextArea()
+	{
+		// Create a panel
+		Ogre::OverlayContainer* panel = static_cast<Ogre::OverlayContainer*>(
+			OverlayManager::getSingleton().createOverlayElement("Panel", "HydraxDemoInformationPanel"));
+		panel->setMetricsMode(Ogre::GMM_PIXELS);
+		panel->setPosition(10, 10);
+		panel->setDimensions(400, 400);
+
+		// Create a text area
+		mTextArea = static_cast<Ogre::TextAreaOverlayElement*>(
+			OverlayManager::getSingleton().createOverlayElement("TextArea", "HydraxDemoInformationTextArea"));
+		mTextArea->setMetricsMode(Ogre::GMM_PIXELS);
+		mTextArea->setPosition(0, 0);
+		mTextArea->setDimensions(100, 100);
+		mTextArea->setCharHeight(16);
+		mTextArea->setCaption("Hydrax 0.5 demo application\nCurrent water preset: "  + Ogre::StringUtil::split(mSkyBoxes[mCurrentSkyBox],"/")[1] + " (" +Ogre::StringConverter::toString(mCurrentSkyBox+1) + "/3). Press 'm' to switch water presets.");
+		mTextArea->setFontName("BlueHighway");
+		mTextArea->setColourBottom(ColourValue(0.3, 0.5, 0.3));
+		mTextArea->setColourTop(ColourValue(0.5, 0.7, 0.5));
+
+		// Create an overlay, and add the panel
+		Ogre::Overlay* overlay = OverlayManager::getSingleton().create("OverlayName");
+		overlay->add2D(panel);
+
+		// Add the text area to the panel
+		panel->addChild(mTextArea);
+
+		// Show the overlay
+		overlay->show();
+	}
 };
 
 // ----------------------------------------------------------------------------
