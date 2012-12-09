@@ -142,8 +142,10 @@ namespace Hydrax
 		if (Ogre::MaterialManager::getSingleton().resourceExists(_def_Underwater_Compositor_Material_Name))
 		{
 			setCompositorEnable(COMP_UNDERWATER, false);
-			Ogre::CompositorManager::getSingleton().remove(_def_Underwater_Compositor_Name);
 
+			Ogre::CompositorManager::getSingleton().removeCompositor(mHydrax->getViewport(), _def_Underwater_Compositor_Name);
+			Ogre::CompositorManager::getSingleton().remove(_def_Underwater_Compositor_Name);
+	
 			Ogre::MaterialManager::getSingleton().remove(_def_Underwater_Compositor_Material_Name);
 
 			Ogre::HighLevelGpuProgramManager::getSingleton().unload(_def_Underwater_Compositor_Shader_VP_Name);
@@ -1602,7 +1604,7 @@ namespace Hydrax
 
 		if (cDepth && cUReflections)
 		{
-			UM_Technique0_Pass0->createTextureUnitState()->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
+			UM_Technique0_Pass0->createTextureUnitState("HydraxDepthReflectionMap")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
 		}
 
 		UM_Technique0_Pass0->createTextureUnitState("Fresnel.bmp")->setTextureAddressingMode(Ogre::TextureUnitState::TAM_CLAMP);
@@ -2411,6 +2413,11 @@ namespace Hydrax
 
 	void MaterialManager::UnderwaterCompositorListener::notifyMaterialSetup(Ogre::uint32 pass_id, Ogre::MaterialPtr &mat)
 	{
+		if (mMaterialManager->_isComponent(mMaterialManager->mComponents, HYDRAX_COMPONENT_DEPTH))
+	    {
+			Ogre::Pass* DM_Technique0_Pass0 = mat->getTechnique(0)->getPass(0);
+			DM_Technique0_Pass0->getTextureUnitState(2)->setTextureName("HydraxDepthMap");
+	    }
 	}
 
 	void MaterialManager::UnderwaterCompositorListener::notifyMaterialRender(Ogre::uint32 pass_id, Ogre::MaterialPtr &mat)
@@ -2461,10 +2468,9 @@ namespace Hydrax
 
 		if (mMaterialManager->mCompositorsNeedToBeReloaded[COMP_UNDERWATER])
 		{
-			Ogre::Pass* DM_Technique0_Pass0 = mat->getTechnique(0)->getPass(0);
-
 			if (mMaterialManager->_isComponent(mMaterialManager->mComponents, HYDRAX_COMPONENT_DEPTH))
 		    {
+				Ogre::Pass* DM_Technique0_Pass0 = mat->getTechnique(0)->getPass(0);
 				DM_Technique0_Pass0->getTextureUnitState(2)->setTextureName("HydraxDepthMap");
 		    }
 

@@ -45,7 +45,7 @@ http://www.gnu.org/copyleft/lesser.txt.
 /// Hydrax defines
 #define HYDRAX_VERSION_MAJOR 0
 #define HYDRAX_VERSION_MINOR 5
-#define HYDRAX_VERSION_PATCH 0
+#define HYDRAX_VERSION_PATCH 1
 
 #define HYDRAX_RESOURCE_GROUP "Hydrax"
 

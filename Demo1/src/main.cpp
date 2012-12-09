@@ -41,9 +41,9 @@ http://www.gnu.org/copyleft/lesser.txt.
 // Include the Hydrax plugin headers
 // Main base headers (Hydrax.h) and especific headers (Noise/Water modules)
 // ----------------------------------------------------------------------------
-#include "Hydrax.h"
-#include "Noise/Perlin/Perlin.h"
-#include "Modules/ProjectedGrid/ProjectedGrid.h"
+#include "Hydrax/Hydrax.h"
+#include "Hydrax/Noise/Perlin/Perlin.h"
+#include "Hydrax/Modules/ProjectedGrid/ProjectedGrid.h"
 
 #define _def_SkyBoxNum 3
 
@@ -153,7 +153,7 @@ public:
         mSceneMgr->getLight("Light0")->setSpecularColour(mSunColor[mCurrentSkyBox].x,mSunColor[mCurrentSkyBox].y,mSunColor[mCurrentSkyBox].z);
 
 		// Update text area
-		mTextArea->setCaption("Hydrax 0.5 demo application\nCurrent water preset: "  + Ogre::StringUtil::split(mSkyBoxes[mCurrentSkyBox],"/")[1] + " (" +Ogre::StringConverter::toString(mCurrentSkyBox+1) + "/3). Press 'm' to switch water presets.");
+		mTextArea->setCaption("Hydrax 0.5.1 demo application\nCurrent water preset: "  + Ogre::StringUtil::split(mSkyBoxes[mCurrentSkyBox],"/")[1] + " (" +Ogre::StringConverter::toString(mCurrentSkyBox+1) + "/3). Press 'm' to switch water presets.");
 
 		// Log
         LogManager::getSingleton().logMessage("Skybox " + mSkyBoxes[mCurrentSkyBox] + " selected. ("+Ogre::StringConverter::toString(mCurrentSkyBox+1)+"/"+Ogre::StringConverter::toString(_def_SkyBoxNum)+")");
@@ -277,7 +277,7 @@ protected:
 		// Load all parameters from config file
 		// Remarks: The config file must be in Hydrax resource group.
 		// All parameters can be set/updated directly by code(Like previous versions),
-		// but due to the high number of customizable parameters, Hydrax 0.4 allows save/load config files.
+		// but due to the high number of customizable parameters, since 0.4 version, Hydrax allows save/load config files.
 		mHydrax->loadCfg("HydraxDemo.hdx");
 
         // Create water
@@ -320,7 +320,7 @@ protected:
 		mTextArea->setPosition(0, 0);
 		mTextArea->setDimensions(100, 100);
 		mTextArea->setCharHeight(16);
-		mTextArea->setCaption("Hydrax 0.5 demo application\nCurrent water preset: "  + Ogre::StringUtil::split(mSkyBoxes[mCurrentSkyBox],"/")[1] + " (" +Ogre::StringConverter::toString(mCurrentSkyBox+1) + "/3). Press 'm' to switch water presets.");
+		mTextArea->setCaption("Hydrax 0.5.1 demo application\nCurrent water preset: "  + Ogre::StringUtil::split(mSkyBoxes[mCurrentSkyBox],"/")[1] + " (" +Ogre::StringConverter::toString(mCurrentSkyBox+1) + "/3). Press 'm' to switch water presets.");
 		mTextArea->setFontName("BlueHighway");
 		mTextArea->setColourBottom(ColourValue(0.3, 0.5, 0.3));
 		mTextArea->setColourTop(ColourValue(0.5, 0.7, 0.5));

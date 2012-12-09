@@ -84,6 +84,24 @@ namespace Hydrax
 			BitsPerChannel BitsPerChannel_;
 		};
 
+		/** Rtt Listener class
+		 */
+		class DllExport RttListener
+		{
+		public:
+			/** Funtion that is called before the Rtt will render
+			    @param Rtt Rtt type
+			    @remarks We've to override it
+			 */
+			virtual void preRenderTargetUpdate(const RttType& Rtt){};
+
+			/** Funtion that is called after the Rtt will render
+				@param Rtt Rtt type
+				@remarks We've to override it
+			*/
+			virtual void postRenderTargetUpdate(const RttType& Rtt){};
+		};
+
 		/** Constructor
 		    @param h Hydrax parent pointer
 	     */
@@ -243,20 +261,39 @@ namespace Hydrax
 		}
 
 		/** Set disable reflection custom near clip plane render queues
-		    @param DisableReflectionCustomNearCliplPlaneRenderQueues Disable reflection custom near clip plane render queues
+		    @param DisableReflectionCustomNearClipPlaneRenderQueues Disable reflection custom near clip plane render queues
 		 */
-		inline void setDisableReflectionCustomNearCliplPlaneRenderQueues(const std::vector<Ogre::RenderQueueGroupID>& DisableReflectionCustomNearCliplPlaneRenderQueues)
+		inline void setDisableReflectionCustomNearCliplPlaneRenderQueues(const std::vector<Ogre::RenderQueueGroupID>& DisableReflectionCustomNearClipPlaneRenderQueues)
 		{
-			mDisableReflectionCustomNearCliplPlaneRenderQueues = DisableReflectionCustomNearCliplPlaneRenderQueues;
+			mDisableReflectionCustomNearClipPlaneRenderQueues = DisableReflectionCustomNearClipPlaneRenderQueues;
 		}
 
 		/** Get disable reflection custom near clip plane render queues
 		    @return Disable reflection custom near clip plane render queues
 		 */
-		inline const std::vector<Ogre::RenderQueueGroupID>& getDisableReflectionCustomNearCliplPlaneRenderQueues()
+		inline const std::vector<Ogre::RenderQueueGroupID>& getDisableReflectionCustomNearClipPlaneRenderQueues()
 		{
-			return mDisableReflectionCustomNearCliplPlaneRenderQueues;
+			return mDisableReflectionCustomNearClipPlaneRenderQueues;
 		}
+
+		/** Add Rtt listener
+		    @param l Rtt listener
+		 */
+		inline void addRttListener(RttListener *l)
+		{
+			mRttListeners.push_back(l);
+		}
+
+		/** Remove Rtt listener
+		    @param l Rtt listener to be removed
+			@param releaseMemory delete Rtt listener pointer?
+		 */
+		void removeRttListener(RttListener *l, const bool& releaseMemory = true);
+
+		/** Remove all Rtt listeners
+			@param releaseMemory delete Rtt listeners pointers?
+		 */
+		void removeAllRttListeners(const bool& releaseMemory = true);
 
 	private:
 		/** RttManager::CRefractionListener class
@@ -440,6 +477,12 @@ namespace Hydrax
 			return false;
 		}
 
+		/** Invoke Rtt Listeners 
+		    @param Rtt Rtt type
+			@param pre true for Pre render target update, false for Post render target update
+		*/
+		void _invokeRttListeners(const RttType& Rtt, const bool& pre);
+
 		/// Hydrax parent pointer
 		Hydrax *mHydrax;
 
@@ -461,7 +504,9 @@ namespace Hydrax
 		CGPUNormalMapListener    mGPUNormalMapListener;
 
 		/// Render queues to exclude of the reflection custom near clip plane
-		std::vector<Ogre::RenderQueueGroupID> mDisableReflectionCustomNearCliplPlaneRenderQueues;
+		std::vector<Ogre::RenderQueueGroupID> mDisableReflectionCustomNearClipPlaneRenderQueues;
+		/// Rtt listeners
+		std::vector<RttListener*> mRttListeners;
 
 		/// Reflection displacement error, range [0.01, ~2]
 		Ogre::Real mReflectionDisplacementError;

@@ -161,10 +161,12 @@ namespace Hydrax
         mMesh->create();
         HydraxLOG("Water mesh created.");
 
+        mCreated = true;
+
 		// Hide if !mVisible
 		_checkVisible();
-
-        mCreated = true;
+		// Check for underwater
+		_checkUnderwater(0);
     }
 
 	void Hydrax::remove()
@@ -460,6 +462,15 @@ namespace Hydrax
 		}
 
 		// Check for Rtt's
+		if (mCurrentFrameUnderwater && isComponent(HYDRAX_COMPONENT_UNDERWATER) && !isComponent(HYDRAX_COMPONENT_UNDERWATER_REFLECTIONS))
+		{
+			mRttManager->remove(RttManager::RTT_REFLECTION);
+		}
+		else
+		{
+			mRttManager->initialize(RttManager::RTT_REFLECTION);
+		}
+
 		if (!isComponent(HYDRAX_COMPONENT_DEPTH))
 		{
 			mRttManager->remove(RttManager::RTT_DEPTH);
@@ -473,6 +484,10 @@ namespace Hydrax
 			{
 				mRttManager->initialize(RttManager::RTT_DEPTH_REFLECTION);
 			}
+			else
+			{
+				mRttManager->remove(RttManager::RTT_DEPTH_REFLECTION);
+			}
 		}
 		if (!isComponent(HYDRAX_COMPONENT_UNDERWATER) && mCurrentFrameUnderwater)
 		{
@@ -485,6 +500,7 @@ namespace Hydrax
 					 setSkiesEnabled(true);
 		}
 
+		mMesh->setMaterialName("BaseWhiteNoLighting");
 		mMaterialManager->createMaterials(mComponents, MaterialManager::Options(mShaderMode, mModule->getNormalMode()));
 
 		if (!isComponent(HYDRAX_COMPONENT_UNDERWATER))
@@ -800,10 +816,13 @@ namespace Hydrax
 		}
 
 		Ogre::ColourValue WC = Ogre::ColourValue(WaterColor.x, WaterColor.y, WaterColor.z);
-		   
-		mRttManager->getTexture(RttManager::RTT_REFLECTION)->
-		     getBuffer()->getRenderTarget()->getViewport(0)->
-				 setBackgroundColour(WC);
+		
+		if (isComponent(HYDRAX_COMPONENT_UNDERWATER_REFLECTIONS) || !_isCurrentFrameUnderwater()) 
+		{
+			mRttManager->getTexture(RttManager::RTT_REFLECTION)->
+				 getBuffer()->getRenderTarget()->getViewport(0)->
+					 setBackgroundColour(WC);
+		}
 	    mRttManager->getTexture(RttManager::RTT_REFRACTION)->
 			getBuffer()->getRenderTarget()->getViewport(0)->
 				 setBackgroundColour(WC);
