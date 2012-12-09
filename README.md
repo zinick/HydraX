@@ -51,12 +51,15 @@ The code from the last official stable release has been moved to GitHub so that 
 
 TODO:
 -----
-
-Short-term:
-* Native Ogre3D 1.8.1 support
-* More demos
+0.5.x:
+* finish collating and merging community patches since 0.5 official release
+* bug fixes
+* bring Linux support up to date
 
 0.6:
+* Native Ogre3D 1.8.1 support
+
+0.7:
 * Improve underwater rendering. Update underwater depth calculations based on the distance, like the Crysis (Crytek) approach.
 * Improve Perlin and FFT normal map generator shaders
 * GLSL shaders
@@ -79,10 +82,13 @@ Screenshots
 -----------
 
 http://www.ogre3d.org/tikiwiki/img/wiki_up/Hydrax_04_5_.png
+
 http://www.ogre3d.org/tikiwiki/img/wiki_up/Hydrax_04_2.png
+
 http://www.ogre3d.org/tikiwiki/img/wiki_up/Hydrax_04_1_.png
 
 http://www.ogre3d.org/tikiwiki/img/wiki_up/Hydrax_04_3_.png
+
 http://www.ogre3d.org/tikiwiki/img/wiki_up/Hydrax_04_4_.png
 
 Videos
