@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Hydrax" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\Hydrax_d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin\Debug" />
+				<Option object_output="obj\Debug\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add library="OgreMain_d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\Hydrax" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin\release" />
+				<Option object_output="obj\Release\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="OgreMain" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-mthreads" />
+			<Add option="-fmessage-length=0" />
+			<Add option="-fexceptions" />
+			<Add option="-fident" />
+			<Add option="-DWIN32" />
+			<Add option="-D_WINDOWS" />
+			<Add option="-DHYDRAX_LIB" />
+			<Add directory="$(OGRE_HOME)\include" />
+			<Add directory="$(OGRE_HOME)\samples\include" />
+			<Add directory="$(OGRE_HOME)\samples\refapp\include" />
+		</Compiler>
+		<Linker>
+			<Add option="-Wl,--enable-runtime-pseudo-reloc" />
+			<Add option="-Wl,--enable-auto-image-base" />
+			<Add option="-Wl,--add-stdcall-alias" />
+			<Add directory="$(OGRE_HOME_MINGW)\lib" />
+			<Add directory="$(OGRE_HOME_MINGW)\bin\Debug" />
+			<Add directory="$(OGRE_HOME_MINGW)\bin\Release" />
+			<Add directory="..\bin\$(TARGET_NAME)" />
+		</Linker>
+		<Unit filename="src\Hydrax\Enums.cpp" />
+		<Unit filename="src\Hydrax\Enums.h" />
+		<Unit filename="src\Hydrax\Help.cpp" />
+		<Unit filename="src\Hydrax\Help.h" />
+		<Unit filename="src\Hydrax\Hydrax.cpp" />
+		<Unit filename="src\Hydrax\Hydrax.h" />
+		<Unit filename="src\Hydrax\Image.cpp" />
+		<Unit filename="src\Hydrax\Image.h" />
+		<Unit filename="src\Hydrax\MaterialManager.cpp" />
+		<Unit filename="src\Hydrax\MaterialManager.h" />
+		<Unit filename="src\Hydrax\Mesh.cpp" />
+		<Unit filename="src\Hydrax\Mesh.h" />
+		<Unit filename="src\Hydrax\Modules\Module.cpp" />
+		<Unit filename="src\Hydrax\Modules\Module.h" />
+		<Unit filename="src\Hydrax\Modules\PerlinPG\PerlinPG.cpp" />
+		<Unit filename="src\Hydrax\Modules\PerlinPG\PerlinPG.h" />
+		<Unit filename="src\Hydrax\Modules\Perlin\Perlin.cpp" />
+		<Unit filename="src\Hydrax\Modules\Perlin\Perlin.h" />
+		<Unit filename="src\Hydrax\Prerequisites.cpp" />
+		<Unit filename="src\Hydrax\Prerequisites.h" />
+		<Unit filename="src\Hydrax\Structs.cpp" />
+		<Unit filename="src\Hydrax\Structs.h" />
+		<Unit filename="src\Hydrax\TextureManager.cpp" />
+		<Unit filename="src\Hydrax\TextureManager.h" />
+		<Unit filename="src\Hydrax\hydrax.cpp" />
+		<Unit filename="src\noise\basictypes.h" />
+		<Unit filename="src\noise\exception.h" />
+		<Unit filename="src\noise\interp.h" />
+		<Unit filename="src\noise\latlon.cpp" />
+		<Unit filename="src\noise\latlon.h" />
+		<Unit filename="src\noise\mathconsts.h" />
+		<Unit filename="src\noise\misc.h" />
+		<Unit filename="src\noise\model\cylinder.cpp" />
+		<Unit filename="src\noise\model\cylinder.h" />
+		<Unit filename="src\noise\model\line.cpp" />
+		<Unit filename="src\noise\model\line.h" />
+		<Unit filename="src\noise\model\model.h" />
+		<Unit filename="src\noise\model\plane.cpp" />
+		<Unit filename="src\noise\model\plane.h" />
+		<Unit filename="src\noise\model\sphere.cpp" />
+		<Unit filename="src\noise\model\sphere.h" />
+		<Unit filename="src\noise\module\abs.cpp" />
+		<Unit filename="src\noise\module\abs.h" />
+		<Unit filename="src\noise\module\add.cpp" />
+		<Unit filename="src\noise\module\add.h" />
+		<Unit filename="src\noise\module\billow.cpp" />
+		<Unit filename="src\noise\module\billow.h" />
+		<Unit filename="src\noise\module\blend.cpp" />
+		<Unit filename="src\noise\module\blend.h" />
+		<Unit filename="src\noise\module\cache.cpp" />
+		<Unit filename="src\noise\module\cache.h" />
+		<Unit filename="src\noise\module\checkerboard.cpp" />
+		<Unit filename="src\noise\module\checkerboard.h" />
+		<Unit filename="src\noise\module\clamp.cpp" />
+		<Unit filename="src\noise\module\clamp.h" />
+		<Unit filename="src\noise\module\const.cpp" />
+		<Unit filename="src\noise\module\const.h" />
+		<Unit filename="src\noise\module\curve.cpp" />
+		<Unit filename="src\noise\module\curve.h" />
+		<Unit filename="src\noise\module\cylinders.cpp" />
+		<Unit filename="src\noise\module\cylinders.h" />
+		<Unit filename="src\noise\module\displace.cpp" />
+		<Unit filename="src\noise\module\displace.h" />
+		<Unit filename="src\noise\module\exponent.cpp" />
+		<Unit filename="src\noise\module\exponent.h" />
+		<Unit filename="src\noise\module\invert.cpp" />
+		<Unit filename="src\noise\module\invert.h" />
+		<Unit filename="src\noise\module\max.cpp" />
+		<Unit filename="src\noise\module\max.h" />
+		<Unit filename="src\noise\module\min.cpp" />
+		<Unit filename="src\noise\module\min.h" />
+		<Unit filename="src\noise\module\module.h" />
+		<Unit filename="src\noise\module\modulebase.cpp" />
+		<Unit filename="src\noise\module\modulebase.h" />
+		<Unit filename="src\noise\module\multiply.cpp" />
+		<Unit filename="src\noise\module\multiply.h" />
+		<Unit filename="src\noise\module\perlin.h" />
+		<Unit filename="src\noise\module\perlin_1.cpp" />
+		<Unit filename="src\noise\module\power.cpp" />
+		<Unit filename="src\noise\module\power.h" />
+		<Unit filename="src\noise\module\ridgedmulti.cpp" />
+		<Unit filename="src\noise\module\ridgedmulti.h" />
+		<Unit filename="src\noise\module\rotatepoint.cpp" />
+		<Unit filename="src\noise\module\rotatepoint.h" />
+		<Unit filename="src\noise\module\scalebias.cpp" />
+		<Unit filename="src\noise\module\scalebias.h" />
+		<Unit filename="src\noise\module\scalepoint.cpp" />
+		<Unit filename="src\noise\module\scalepoint.h" />
+		<Unit filename="src\noise\module\select.cpp" />
+		<Unit filename="src\noise\module\select.h" />
+		<Unit filename="src\noise\module\spheres.cpp" />
+		<Unit filename="src\noise\module\spheres.h" />
+		<Unit filename="src\noise\module\terrace.cpp" />
+		<Unit filename="src\noise\module\terrace.h" />
+		<Unit filename="src\noise\module\translatepoint.cpp" />
+		<Unit filename="src\noise\module\translatepoint.h" />
+		<Unit filename="src\noise\module\turbulence.cpp" />
+		<Unit filename="src\noise\module\turbulence.h" />
+		<Unit filename="src\noise\module\voronoi.cpp" />
+		<Unit filename="src\noise\module\voronoi.h" />
+		<Unit filename="src\noise\noise.h" />
+		<Unit filename="src\noise\noisegen.cpp" />
+		<Unit filename="src\noise\noisegen.h" />
+		<Unit filename="src\noise\noiseutils.cpp" />
+		<Unit filename="src\noise\noiseutils.h" />
+		<Unit filename="src\noise\vectortable.h" />
+		<Unit filename="src\noise\win32\dllmain.cpp" />
+		<Unit filename="src\noise\win32\resource.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger>
+				<remote_debugging target="Debug">
+					<options conn_type="0" serial_port="" serial_baud="115200" ip_address="" ip_port="" additional_cmds="" />
+				</remote_debugging>
+				<remote_debugging target="Release">
+					<options conn_type="0" serial_port="" serial_baud="115200" ip_address="" ip_port="" additional_cmds="" />
+				</remote_debugging>
+			</debugger>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

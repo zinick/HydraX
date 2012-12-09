@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="src\Hydrax\Enums.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="src\Hydrax\Enums.h" open="0" top="0" tabpos="6">
+		<Cursor position="1599" topLine="41" />
+	</File>
+	<File name="src\Hydrax\Hydrax.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1545" topLine="36" />
+	</File>
+	<File name="src\Hydrax\Hydrax.h" open="0" top="0" tabpos="3">
+		<Cursor position="1186" topLine="21" />
+	</File>
+	<File name="src\Hydrax\Mesh.h" open="0" top="0" tabpos="4">
+		<Cursor position="1987" topLine="55" />
+	</File>
+	<File name="src\Hydrax\Prerequisites.h" open="0" top="0" tabpos="2">
+		<Cursor position="1469" topLine="0" />
+	</File>
+	<File name="src\Hydrax\hydrax.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="src\noise\noiseutils.h" open="0" top="0" tabpos="7">
+		<Cursor position="5569" topLine="135" />
+	</File>
+</CodeBlocks_layout_file>
