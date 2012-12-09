@@ -6,6 +6,8 @@ NOTE: If you are looking for the Push Button engine port, please go here: https:
 
 Latest stable version: 0.5.1
 
+Pre-compiled demo (Windows): https://github.com/downloads/ferretallica/HydraX/Hydrax-v0.5.1_Demo1%5B1%5D.rar
+
 Introduction
 ------------
 
