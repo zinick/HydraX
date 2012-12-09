@@ -1,0 +1,145 @@
+\hypertarget{class_hydrax_1_1_texture_manager}{
+\section{Hydrax::TextureManager Class Reference}
+\label{class_hydrax_1_1_texture_manager}\index{Hydrax::TextureManager@{Hydrax::TextureManager}}
+}
+{\tt \#include $<$TextureManager.h$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04}{TexturesID} \{ \hyperlink{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04f04e9f7557359214c8000825a6b75922}{TEX\_\-NORMAL\_\-ID} =  0
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_texture_manager_bad81d53663c93a5d2d9bd49eff0ef90}{TextureManager} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h)
+\item 
+\hyperlink{class_hydrax_1_1_texture_manager_d7e356de2834c2f1668826f21c1dbf1d}{$\sim$TextureManager} ()
+\item 
+void \hyperlink{class_hydrax_1_1_texture_manager_30bfb59332540e897c43193474b4aa19}{create} (const \hyperlink{struct_hydrax_1_1_size}{Size} \&\hyperlink{struct_hydrax_1_1_size}{Size})
+\item 
+void \hyperlink{class_hydrax_1_1_texture_manager_d6164d9f44096b59b15c92223be0752a}{remove} ()
+\item 
+bool \hyperlink{class_hydrax_1_1_texture_manager_eec28019cfbb7d4ec705b07d5519f98a}{update} (const \hyperlink{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04}{TexturesID} \&Id, \hyperlink{class_hydrax_1_1_image}{Image} \&\hyperlink{class_hydrax_1_1_image}{Image})
+\item 
+Ogre::TexturePtr \& \hyperlink{class_hydrax_1_1_texture_manager_7f15f24a8ff1372f6a1840c27aec655f}{getTexture} (const \hyperlink{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04}{TexturesID} \&Id)
+\item 
+const Ogre::String \& \hyperlink{class_hydrax_1_1_texture_manager_ba3bf13c7d3971c9cbf2b32c650d906e}{getTextureName} (const \hyperlink{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04}{TexturesID} \&Id) const 
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for manager Normal maps. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!TexturesID@{TexturesID}}
+\index{TexturesID@{TexturesID}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{TexturesID}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::TextureManager::TexturesID}}}
+\label{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04}
+
+
+Textures enumeration \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{TEX\_\-NORMAL\_\-ID@{TEX\_\-NORMAL\_\-ID}!Hydrax::TextureManager@{Hydrax::TextureManager}}\index{Hydrax::TextureManager@{Hydrax::TextureManager}!TEX\_\-NORMAL\_\-ID@{TEX\_\-NORMAL\_\-ID}}\item[{\em 
+\hypertarget{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04f04e9f7557359214c8000825a6b75922}{
+TEX\_\-NORMAL\_\-ID}
+\label{class_hydrax_1_1_texture_manager_9af2a9718c00e64eb188c3dd9cd0fd04f04e9f7557359214c8000825a6b75922}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_texture_manager_bad81d53663c93a5d2d9bd49eff0ef90}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!TextureManager@{TextureManager}}
+\index{TextureManager@{TextureManager}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{TextureManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::TextureManager::TextureManager ({\bf Hydrax} $\ast$ {\em h})}}
+\label{class_hydrax_1_1_texture_manager_bad81d53663c93a5d2d9bd49eff0ef90}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} main pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_texture_manager_d7e356de2834c2f1668826f21c1dbf1d}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!$\sim$TextureManager@{$\sim$TextureManager}}
+\index{$\sim$TextureManager@{$\sim$TextureManager}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{$\sim$TextureManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::TextureManager::$\sim$TextureManager ()}}
+\label{class_hydrax_1_1_texture_manager_d7e356de2834c2f1668826f21c1dbf1d}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_texture_manager_30bfb59332540e897c43193474b4aa19}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!create@{create}}
+\index{create@{create}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::TextureManager::create (const {\bf Size} \& {\em Size})}}
+\label{class_hydrax_1_1_texture_manager_30bfb59332540e897c43193474b4aa19}
+
+
+Create height and normal map textures \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_size}{Size}}]Textures's size \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_texture_manager_7f15f24a8ff1372f6a1840c27aec655f}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{getTexture}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::TexturePtr\& Hydrax::TextureManager::getTexture (const {\bf TexturesID} \& {\em Id})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_texture_manager_7f15f24a8ff1372f6a1840c27aec655f}
+
+
+Get texture \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Id}]Texture Id ( TEX\_\-NORMAL\_\-ID ) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Ogre::TexturePtr \end{Desc}
+\hypertarget{class_hydrax_1_1_texture_manager_ba3bf13c7d3971c9cbf2b32c650d906e}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!getTextureName@{getTextureName}}
+\index{getTextureName@{getTextureName}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{getTextureName}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::String\& Hydrax::TextureManager::getTextureName (const {\bf TexturesID} \& {\em Id}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_texture_manager_ba3bf13c7d3971c9cbf2b32c650d906e}
+
+
+Get texture's name \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Id}]Texture Id ( TEX\_\-NORMAL\_\-ID ) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Texture's name \end{Desc}
+\hypertarget{class_hydrax_1_1_texture_manager_d6164d9f44096b59b15c92223be0752a}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!remove@{remove}}
+\index{remove@{remove}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::TextureManager::remove ()}}
+\label{class_hydrax_1_1_texture_manager_d6164d9f44096b59b15c92223be0752a}
+
+
+Remove textures \hypertarget{class_hydrax_1_1_texture_manager_eec28019cfbb7d4ec705b07d5519f98a}{
+\index{Hydrax::TextureManager@{Hydrax::TextureManager}!update@{update}}
+\index{update@{update}!Hydrax::TextureManager@{Hydrax::TextureManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::TextureManager::update (const {\bf TexturesID} \& {\em Id}, \/  {\bf Image} \& {\em Image})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_texture_manager_eec28019cfbb7d4ec705b07d5519f98a}
+
+
+Update \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Id}]Texture's ID \item[{\em \hyperlink{class_hydrax_1_1_image}{Image}}]Update image \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]false if something fails \end{Desc}
+\begin{Desc}
+\item[Remarks:]If you need to update the texture with another way of data, get the Ogre::TexturePtr and modify it directly. Normal image will be Image::Type::TYPE\_\-RGB \mbox{[}0,255\mbox{]} range \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_texture_manager_8h}{TextureManager.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_texture_manager_8cpp}{TextureManager.cpp}\end{CompactItemize}

@@ -1,0 +1,269 @@
+\hypertarget{class_hydrax_1_1_noise_1_1_noise}{
+\section{Hydrax::Noise::Noise Class Reference}
+\label{class_hydrax_1_1_noise_1_1_noise}\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+}
+{\tt \#include $<$Noise.h$>$}
+
+Inheritance diagram for Hydrax::Noise::Noise::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_hydrax_1_1_noise_1_1_noise}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_noise_1_1_noise_18d24fbe43250f986c5d5c57e1780f19}{Noise} (const Ogre::String \&Name, const bool \&GPUNormalMapSupported)
+\item 
+virtual \hyperlink{class_hydrax_1_1_noise_1_1_noise_4ff5ce1a68da081f11015cdc4b417f15}{$\sim$Noise} ()
+\item 
+virtual void \hyperlink{class_hydrax_1_1_noise_1_1_noise_be9cf8765feed765e6a35b0779125f6a}{create} ()
+\item 
+virtual void \hyperlink{class_hydrax_1_1_noise_1_1_noise_00c4aaa7604ea492740318d01f651606}{remove} ()
+\item 
+virtual bool \hyperlink{class_hydrax_1_1_noise_1_1_noise_59f0e03e88a5de69065838adc35ff2d8}{createGPUNormalMapResources} (\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} $\ast$g)
+\item 
+virtual void \hyperlink{class_hydrax_1_1_noise_1_1_noise_9d3ca345d3f5b629e43ab276236d93b7}{removeGPUNormalMapResources} (\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} $\ast$g)
+\item 
+virtual void \hyperlink{class_hydrax_1_1_noise_1_1_noise_9c32c4c630f193e034c074f69ea10f57}{update} (const Ogre::Real \&timeSinceLastFrame)=0
+\item 
+virtual void \hyperlink{class_hydrax_1_1_noise_1_1_noise_ac0a9fe1533ddd87467edb954f8abea8}{saveCfg} (Ogre::String \&Data)
+\item 
+virtual bool \hyperlink{class_hydrax_1_1_noise_1_1_noise_5ef6e71282a9dfcefc09e3ba84a7578f}{loadCfg} (Ogre::ConfigFile \&CfgFile)
+\item 
+const Ogre::String \& \hyperlink{class_hydrax_1_1_noise_1_1_noise_bd7bddafc148656d1a7782c94fb4a7aa}{getName} () const 
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_noise_1_1_noise_94f5963b8f6fed2fb22149ff22e1166f}{isCreated} () const 
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_noise_1_1_noise_20e13eb2f5cc93d384bb846b05d7aaeb}{isGPUNormalMapSupported} () const 
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_noise_1_1_noise_e2260556005e5a5eaebae94d936b60c0}{areGPUNormalMapResourcesCreated} () const 
+\item 
+virtual float \hyperlink{class_hydrax_1_1_noise_1_1_noise_5b18138d5c2c5ea3c3659cef80dd3a3e}{getValue} (const float \&x, const float \&y)=0
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+Ogre::String \hyperlink{class_hydrax_1_1_noise_1_1_noise_aedee8210b700f1ee80c660a38973b14}{mName}
+\begin{CompactList}\small\item\em \hyperlink{namespace_hydrax_1_1_module}{Module} name. \item\end{CompactList}\item 
+bool \hyperlink{class_hydrax_1_1_noise_1_1_noise_7a0bdaab63fa4a2feec69afe5be5ab19}{mCreated}
+\begin{CompactList}\small\item\em Has \hyperlink{class_hydrax_1_1_noise_1_1_noise_be9cf8765feed765e6a35b0779125f6a}{create()} been already called? \item\end{CompactList}\item 
+bool \hyperlink{class_hydrax_1_1_noise_1_1_noise_ce28ba855518ef99599c1ac4a7512446}{mGPUNormalMapSupported}
+\begin{CompactList}\small\item\em Is GPU normal map generation supported? \item\end{CompactList}\item 
+bool \hyperlink{class_hydrax_1_1_noise_1_1_noise_8c140b20c56920d4dd99204dff093ac2}{mGPUNormalMapResourcesCreated}
+\begin{CompactList}\small\item\em Are GPU normal map resources created? \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Base noise class, Override it for create different ways of create water noise. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_18d24fbe43250f986c5d5c57e1780f19}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!Noise@{Noise}}
+\index{Noise@{Noise}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{Noise}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Noise::Noise::Noise (const Ogre::String \& {\em Name}, \/  const bool \& {\em GPUNormalMapSupported})}}
+\label{class_hydrax_1_1_noise_1_1_noise_18d24fbe43250f986c5d5c57e1780f19}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Name}]\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise} name \item[{\em GPUNormalMapSupported}]Is GPU normal map generation supported? \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_4ff5ce1a68da081f11015cdc4b417f15}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!$\sim$Noise@{$\sim$Noise}}
+\index{$\sim$Noise@{$\sim$Noise}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{$\sim$Noise}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Noise::Noise::$\sim$Noise ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_4ff5ce1a68da081f11015cdc4b417f15}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_e2260556005e5a5eaebae94d936b60c0}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!areGPUNormalMapResourcesCreated@{areGPUNormalMapResourcesCreated}}
+\index{areGPUNormalMapResourcesCreated@{areGPUNormalMapResourcesCreated}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{areGPUNormalMapResourcesCreated}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Noise::Noise::areGPUNormalMapResourcesCreated () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_e2260556005e5a5eaebae94d936b60c0}
+
+
+Are GPU normal map resources created? \begin{Desc}
+\item[Returns:]true if yes, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_be9cf8765feed765e6a35b0779125f6a}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!create@{create}}
+\index{create@{create}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::Noise::create ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_be9cf8765feed765e6a35b0779125f6a}
+
+
+Create 
+
+Reimplemented in \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_c382e8624b864a32267687592b769bd3}{Hydrax::Noise::FFT}, and \hyperlink{class_hydrax_1_1_noise_1_1_perlin_3e260e7c239d90da210aa3e27289c6f0}{Hydrax::Noise::Perlin}.\hypertarget{class_hydrax_1_1_noise_1_1_noise_59f0e03e88a5de69065838adc35ff2d8}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!createGPUNormalMapResources@{createGPUNormalMapResources}}
+\index{createGPUNormalMapResources@{createGPUNormalMapResources}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{createGPUNormalMapResources}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Noise::Noise::createGPUNormalMapResources ({\bf GPUNormalMapManager} $\ast$ {\em g})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_59f0e03e88a5de69065838adc35ff2d8}
+
+
+Create GPUNormalMap resources \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em g}]\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} pointer \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if it needs to be created, false if not \end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_a8e2b9d2b8307c07be2d2cd9cf115560}{Hydrax::Noise::FFT}, and \hyperlink{class_hydrax_1_1_noise_1_1_perlin_db347b98692bd7ce6ad7ce76c605d15a}{Hydrax::Noise::Perlin}.\hypertarget{class_hydrax_1_1_noise_1_1_noise_bd7bddafc148656d1a7782c94fb4a7aa}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!getName@{getName}}
+\index{getName@{getName}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{getName}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::String\& Hydrax::Noise::Noise::getName () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_bd7bddafc148656d1a7782c94fb4a7aa}
+
+
+Get noise name \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise} name \end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_5b18138d5c2c5ea3c3659cef80dd3a3e}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!getValue@{getValue}}
+\index{getValue@{getValue}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{getValue}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Hydrax::Noise::Noise::getValue (const float \& {\em x}, \/  const float \& {\em y})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_5b18138d5c2c5ea3c3659cef80dd3a3e}
+
+
+Get the especified x/y noise value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X Coord \item[{\em y}]Y Coord \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise} value \end{Desc}
+
+
+Implemented in \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_e7da5bf6c6ebfc9061ed433af6350ea7}{Hydrax::Noise::FFT}, and \hyperlink{class_hydrax_1_1_noise_1_1_perlin_64bbe19643e0a87c08c62d0e73d7aac6}{Hydrax::Noise::Perlin}.\hypertarget{class_hydrax_1_1_noise_1_1_noise_94f5963b8f6fed2fb22149ff22e1166f}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!isCreated@{isCreated}}
+\index{isCreated@{isCreated}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{isCreated}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Noise::Noise::isCreated () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_94f5963b8f6fed2fb22149ff22e1166f}
+
+
+Is created() called? \begin{Desc}
+\item[Returns:]true if \hyperlink{class_hydrax_1_1_noise_1_1_noise_be9cf8765feed765e6a35b0779125f6a}{create()} have been already called \end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_20e13eb2f5cc93d384bb846b05d7aaeb}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!isGPUNormalMapSupported@{isGPUNormalMapSupported}}
+\index{isGPUNormalMapSupported@{isGPUNormalMapSupported}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{isGPUNormalMapSupported}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Noise::Noise::isGPUNormalMapSupported () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_20e13eb2f5cc93d384bb846b05d7aaeb}
+
+
+Is GPU Normal map generation supported \begin{Desc}
+\item[Returns:]true if yes, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_5ef6e71282a9dfcefc09e3ba84a7578f}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!loadCfg@{loadCfg}}
+\index{loadCfg@{loadCfg}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{loadCfg}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Noise::Noise::loadCfg (Ogre::ConfigFile \& {\em CfgFile})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_5ef6e71282a9dfcefc09e3ba84a7578f}
+
+
+Load config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CgfFile}]Ogre::ConfigFile reference \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]True if is the correct noise config \end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_64245b9e56eeb8627ac3f5260dc203dd}{Hydrax::Noise::FFT}, and \hyperlink{class_hydrax_1_1_noise_1_1_perlin_3a2dab14cfbda1ccf8fc5de4bb89f124}{Hydrax::Noise::Perlin}.\hypertarget{class_hydrax_1_1_noise_1_1_noise_00c4aaa7604ea492740318d01f651606}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!remove@{remove}}
+\index{remove@{remove}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::Noise::remove ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_00c4aaa7604ea492740318d01f651606}
+
+
+Remove 
+
+Reimplemented in \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_9567d90d8fae8dbd74d05d1e3b8281e4}{Hydrax::Noise::FFT}, and \hyperlink{class_hydrax_1_1_noise_1_1_perlin_666010a5142bbb2b03c97aa5aa7bdef1}{Hydrax::Noise::Perlin}.\hypertarget{class_hydrax_1_1_noise_1_1_noise_9d3ca345d3f5b629e43ab276236d93b7}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!removeGPUNormalMapResources@{removeGPUNormalMapResources}}
+\index{removeGPUNormalMapResources@{removeGPUNormalMapResources}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{removeGPUNormalMapResources}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::Noise::removeGPUNormalMapResources ({\bf GPUNormalMapManager} $\ast$ {\em g})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_9d3ca345d3f5b629e43ab276236d93b7}
+
+
+Remove GPUNormalMap resources \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em g}]\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_ac0a9fe1533ddd87467edb954f8abea8}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!saveCfg@{saveCfg}}
+\index{saveCfg@{saveCfg}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{saveCfg}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::Noise::saveCfg (Ogre::String \& {\em Data})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_ac0a9fe1533ddd87467edb954f8abea8}
+
+
+Save config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]String reference \end{description}
+\end{Desc}
+
+
+Reimplemented in \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_6e045d4c71f1005305445dbae8701736}{Hydrax::Noise::FFT}, and \hyperlink{class_hydrax_1_1_noise_1_1_perlin_4f1f70a3375ac2b2f5e09011e7cc7ef3}{Hydrax::Noise::Perlin}.\hypertarget{class_hydrax_1_1_noise_1_1_noise_9c32c4c630f193e034c074f69ea10f57}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!update@{update}}
+\index{update@{update}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Hydrax::Noise::Noise::update (const Ogre::Real \& {\em timeSinceLastFrame})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_9c32c4c630f193e034c074f69ea10f57}
+
+
+Call it each frame \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timeSinceLastFrame}]Time since last frame(delta) \end{description}
+\end{Desc}
+
+
+Implemented in \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_edb7b8614828cda29b62aa6c1509e22a}{Hydrax::Noise::FFT}, and \hyperlink{class_hydrax_1_1_noise_1_1_perlin_2037c02fa7d577eb72487a1b778b62dd}{Hydrax::Noise::Perlin}.
+
+\subsection{Member Data Documentation}
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_7a0bdaab63fa4a2feec69afe5be5ab19}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!mCreated@{mCreated}}
+\index{mCreated@{mCreated}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{mCreated}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Hydrax::Noise::Noise::mCreated}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_7a0bdaab63fa4a2feec69afe5be5ab19}
+
+
+Has \hyperlink{class_hydrax_1_1_noise_1_1_noise_be9cf8765feed765e6a35b0779125f6a}{create()} been already called? 
+
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_8c140b20c56920d4dd99204dff093ac2}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!mGPUNormalMapResourcesCreated@{mGPUNormalMapResourcesCreated}}
+\index{mGPUNormalMapResourcesCreated@{mGPUNormalMapResourcesCreated}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{mGPUNormalMapResourcesCreated}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Hydrax::Noise::Noise::mGPUNormalMapResourcesCreated}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_8c140b20c56920d4dd99204dff093ac2}
+
+
+Are GPU normal map resources created? 
+
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_ce28ba855518ef99599c1ac4a7512446}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!mGPUNormalMapSupported@{mGPUNormalMapSupported}}
+\index{mGPUNormalMapSupported@{mGPUNormalMapSupported}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{mGPUNormalMapSupported}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Hydrax::Noise::Noise::mGPUNormalMapSupported}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_ce28ba855518ef99599c1ac4a7512446}
+
+
+Is GPU normal map generation supported? 
+
+\hypertarget{class_hydrax_1_1_noise_1_1_noise_aedee8210b700f1ee80c660a38973b14}{
+\index{Hydrax::Noise::Noise@{Hydrax::Noise::Noise}!mName@{mName}}
+\index{mName@{mName}!Hydrax::Noise::Noise@{Hydrax::Noise::Noise}}
+\subsubsection[{mName}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::String {\bf Hydrax::Noise::Noise::mName}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_noise_aedee8210b700f1ee80c660a38973b14}
+
+
+\hyperlink{namespace_hydrax_1_1_module}{Module} name. 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Noise/\hyperlink{_noise_8h}{Noise.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Noise/\hyperlink{_noise_8cpp}{Noise.cpp}\end{CompactItemize}

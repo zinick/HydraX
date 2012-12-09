@@ -1,0 +1,371 @@
+\hypertarget{class_hydrax_1_1_mesh}{
+\section{Hydrax::Mesh Class Reference}
+\label{class_hydrax_1_1_mesh}\index{Hydrax::Mesh@{Hydrax::Mesh}}
+}
+{\tt \#include $<$Mesh.h$>$}
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Options}
+\item 
+struct \hyperlink{struct_hydrax_1_1_mesh_1_1_p_o_s___n_o_r_m___u_v___v_e_r_t_e_x}{POS\_\-NORM\_\-UV\_\-VERTEX}
+\item 
+struct \hyperlink{struct_hydrax_1_1_mesh_1_1_p_o_s___n_o_r_m___v_e_r_t_e_x}{POS\_\-NORM\_\-VERTEX}
+\item 
+struct \hyperlink{struct_hydrax_1_1_mesh_1_1_p_o_s___u_v___v_e_r_t_e_x}{POS\_\-UV\_\-VERTEX}
+\item 
+struct \hyperlink{struct_hydrax_1_1_mesh_1_1_p_o_s___v_e_r_t_e_x}{POS\_\-VERTEX}
+\end{CompactItemize}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559}{VertexType} \{ \hyperlink{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf5593d65f4098434f3f25641f85a0111ac59}{VT\_\-POS\_\-NORM\_\-UV} =  0, 
+\hyperlink{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559e0bde602e4da55d9666aa27826eadb62}{VT\_\-POS\_\-NORM} =  1, 
+\hyperlink{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559d3eaa954d9867e0116978459c071dd15}{VT\_\-POS\_\-UV} =  2, 
+\hyperlink{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559e340a2bac49ecd07b48fe0996c3783eb}{VT\_\-POS} =  3
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_mesh_41f0a13afda56a307d18e53ff66425f7}{Mesh} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h)
+\item 
+\hyperlink{class_hydrax_1_1_mesh_3f2ca0de1fa86ed289bf062ceaadb553}{$\sim$Mesh} ()
+\item 
+void \hyperlink{class_hydrax_1_1_mesh_69d55fde534e5a28044ef088b11774fb}{setOptions} (const \hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Options})
+\item 
+void \hyperlink{class_hydrax_1_1_mesh_43b930f0d0e03f95799de998780727cc}{setMaterialName} (const Ogre::String \&MaterialName)
+\item 
+void \hyperlink{class_hydrax_1_1_mesh_202f11f0f3c109cb93c516fe83f1dc0d}{create} ()
+\item 
+void \hyperlink{class_hydrax_1_1_mesh_5091867b361900642f5892e56661c790}{remove} ()
+\item 
+bool \hyperlink{class_hydrax_1_1_mesh_7eecc57d699ca2c4eadbcfd9db584f7a}{updateGeometry} (const int \&numVer, void $\ast$verArray)
+\item 
+bool \hyperlink{class_hydrax_1_1_mesh_fc8ea18b26652bac0710ef6fcb4c5969}{isPointInGrid} (const Ogre::Vector2 \&Position)
+\item 
+Ogre::Vector2 \hyperlink{class_hydrax_1_1_mesh_12f5fa6397bc9cb5501d0e246b8a952c}{getGridPosition} (const Ogre::Vector2 \&Position)
+\item 
+const Ogre::Vector3 \hyperlink{class_hydrax_1_1_mesh_999d2b1a4ce0ccc1b23ebe80541e4a97}{getObjectSpacePosition} (const Ogre::Vector3 \&WorldSpacePosition) const 
+\item 
+const Ogre::Vector3 \hyperlink{class_hydrax_1_1_mesh_6b1be78ee3f7b3da03aee363025c76e7}{getWorldSpacePosition} (const Ogre::Vector3 \&ObjectSpacePosition) const 
+\item 
+Ogre::MeshPtr \hyperlink{class_hydrax_1_1_mesh_a2cd7950048f839a3997299173b22bfb}{getMesh} ()
+\item 
+Ogre::SubMesh $\ast$ \hyperlink{class_hydrax_1_1_mesh_2eca9f2fe7879fd541163a5b21b17323}{getSubMesh} ()
+\item 
+Ogre::Entity $\ast$ \hyperlink{class_hydrax_1_1_mesh_a50c84e94aea20428cd56835cd6d26c3}{getEntity} ()
+\item 
+const \hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Options} \& \hyperlink{class_hydrax_1_1_mesh_691d01cdbb82e5d3cd92397fd17d97f6}{getOptions} () const 
+\item 
+const \hyperlink{struct_hydrax_1_1_size}{Size} \& \hyperlink{class_hydrax_1_1_mesh_4d55461e0da92344146340af91fab715}{getSize} () const 
+\item 
+const \hyperlink{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559}{VertexType} \& \hyperlink{class_hydrax_1_1_mesh_8da15cd9f0865a0d7a06f899f5b302f5}{getVertexType} () const 
+\item 
+const int \& \hyperlink{class_hydrax_1_1_mesh_d3b37eaa18198d3f4690bf17877bd61f}{getNumFaces} () const 
+\item 
+const int \& \hyperlink{class_hydrax_1_1_mesh_ecea28be3ab15b9003565e463f2484e8}{getNumVertices} () const 
+\item 
+const Ogre::String \& \hyperlink{class_hydrax_1_1_mesh_8445a8603832ae6e003ece91a46627c9}{getMaterialName} () const 
+\item 
+Ogre::HardwareVertexBufferSharedPtr \& \hyperlink{class_hydrax_1_1_mesh_429bf7b9c15604e6a2e3a988b2473484}{getHardwareVertexBuffer} ()
+\item 
+Ogre::HardwareIndexBufferSharedPtr \& \hyperlink{class_hydrax_1_1_mesh_b7eee5c0eafda96c493533ae26e73c65}{getHardwareIndexBuffer} ()
+\item 
+Ogre::SceneNode $\ast$ \hyperlink{class_hydrax_1_1_mesh_92e7428d77bbc71b852a62a92ca882f5}{getSceneNode} ()
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_mesh_fb24883f62aa72204ed573693ff8bbf7}{isCreated} () const 
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class wich contains all funtions/variables related to \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} water mesh 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!VertexType@{VertexType}}
+\index{VertexType@{VertexType}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{VertexType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::Mesh::VertexType}}}
+\label{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559}
+
+
+\hyperlink{class_hydrax_1_1_mesh}{Mesh} vertex type enum \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{VT\_\-POS\_\-NORM\_\-UV@{VT\_\-POS\_\-NORM\_\-UV}!Hydrax::Mesh@{Hydrax::Mesh}}\index{Hydrax::Mesh@{Hydrax::Mesh}!VT\_\-POS\_\-NORM\_\-UV@{VT\_\-POS\_\-NORM\_\-UV}}\item[{\em 
+\hypertarget{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf5593d65f4098434f3f25641f85a0111ac59}{
+VT\_\-POS\_\-NORM\_\-UV}
+\label{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf5593d65f4098434f3f25641f85a0111ac59}
+}]\index{VT\_\-POS\_\-NORM@{VT\_\-POS\_\-NORM}!Hydrax::Mesh@{Hydrax::Mesh}}\index{Hydrax::Mesh@{Hydrax::Mesh}!VT\_\-POS\_\-NORM@{VT\_\-POS\_\-NORM}}\item[{\em 
+\hypertarget{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559e0bde602e4da55d9666aa27826eadb62}{
+VT\_\-POS\_\-NORM}
+\label{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559e0bde602e4da55d9666aa27826eadb62}
+}]\index{VT\_\-POS\_\-UV@{VT\_\-POS\_\-UV}!Hydrax::Mesh@{Hydrax::Mesh}}\index{Hydrax::Mesh@{Hydrax::Mesh}!VT\_\-POS\_\-UV@{VT\_\-POS\_\-UV}}\item[{\em 
+\hypertarget{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559d3eaa954d9867e0116978459c071dd15}{
+VT\_\-POS\_\-UV}
+\label{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559d3eaa954d9867e0116978459c071dd15}
+}]\index{VT\_\-POS@{VT\_\-POS}!Hydrax::Mesh@{Hydrax::Mesh}}\index{Hydrax::Mesh@{Hydrax::Mesh}!VT\_\-POS@{VT\_\-POS}}\item[{\em 
+\hypertarget{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559e340a2bac49ecd07b48fe0996c3783eb}{
+VT\_\-POS}
+\label{class_hydrax_1_1_mesh_5409dc682ec836d1922dc193fc1bf559e340a2bac49ecd07b48fe0996c3783eb}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_mesh_41f0a13afda56a307d18e53ff66425f7}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Mesh::Mesh ({\bf Hydrax} $\ast$ {\em h})}}
+\label{class_hydrax_1_1_mesh_41f0a13afda56a307d18e53ff66425f7}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_3f2ca0de1fa86ed289bf062ceaadb553}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!$\sim$Mesh@{$\sim$Mesh}}
+\index{$\sim$Mesh@{$\sim$Mesh}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{$\sim$Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Mesh::$\sim$Mesh ()}}
+\label{class_hydrax_1_1_mesh_3f2ca0de1fa86ed289bf062ceaadb553}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_mesh_202f11f0f3c109cb93c516fe83f1dc0d}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!create@{create}}
+\index{create@{create}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Mesh::create ()}}
+\label{class_hydrax_1_1_mesh_202f11f0f3c109cb93c516fe83f1dc0d}
+
+
+Create our water mesh, geometry, entity, etc... \begin{Desc}
+\item[Remarks:]Call it after setMeshOptions() and \hyperlink{class_hydrax_1_1_mesh_43b930f0d0e03f95799de998780727cc}{setMaterialName()} \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_a50c84e94aea20428cd56835cd6d26c3}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getEntity@{getEntity}}
+\index{getEntity@{getEntity}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getEntity}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Entity$\ast$ Hydrax::Mesh::getEntity ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_a50c84e94aea20428cd56835cd6d26c3}
+
+
+Get entity \begin{Desc}
+\item[Returns:]Entity \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_12f5fa6397bc9cb5501d0e246b8a952c}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getGridPosition@{getGridPosition}}
+\index{getGridPosition@{getGridPosition}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getGridPosition}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::Vector2 Hydrax::Mesh::getGridPosition (const Ogre::Vector2 \& {\em Position})}}
+\label{class_hydrax_1_1_mesh_12f5fa6397bc9cb5501d0e246b8a952c}
+
+
+Get the \mbox{[}0,1\mbox{]} range x/y grid position from a 2D world space x/z point \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]World-space point \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:](-1,-1) if the point isn't in the grid. \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_b7eee5c0eafda96c493533ae26e73c65}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getHardwareIndexBuffer@{getHardwareIndexBuffer}}
+\index{getHardwareIndexBuffer@{getHardwareIndexBuffer}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getHardwareIndexBuffer}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::HardwareIndexBufferSharedPtr\& Hydrax::Mesh::getHardwareIndexBuffer ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_b7eee5c0eafda96c493533ae26e73c65}
+
+
+Get hardware index buffer reference \begin{Desc}
+\item[Returns:]Ogre::HardwareIndexBufferSharedPtr reference \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_429bf7b9c15604e6a2e3a988b2473484}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getHardwareVertexBuffer@{getHardwareVertexBuffer}}
+\index{getHardwareVertexBuffer@{getHardwareVertexBuffer}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getHardwareVertexBuffer}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::HardwareVertexBufferSharedPtr\& Hydrax::Mesh::getHardwareVertexBuffer ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_429bf7b9c15604e6a2e3a988b2473484}
+
+
+Get hardware vertex buffer reference \begin{Desc}
+\item[Returns:]Ogre::HardwareVertexBufferSharedPtr reference \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_8445a8603832ae6e003ece91a46627c9}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getMaterialName@{getMaterialName}}
+\index{getMaterialName@{getMaterialName}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getMaterialName}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::String\& Hydrax::Mesh::getMaterialName () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_8445a8603832ae6e003ece91a46627c9}
+
+
+Get material name \begin{Desc}
+\item[Returns:]Material name \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_a2cd7950048f839a3997299173b22bfb}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getMesh@{getMesh}}
+\index{getMesh@{getMesh}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getMesh}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::MeshPtr Hydrax::Mesh::getMesh ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_a2cd7950048f839a3997299173b22bfb}
+
+
+Get mesh \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_mesh}{Mesh} \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_d3b37eaa18198d3f4690bf17877bd61f}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getNumFaces@{getNumFaces}}
+\index{getNumFaces@{getNumFaces}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getNumFaces}]{\setlength{\rightskip}{0pt plus 5cm}const int\& Hydrax::Mesh::getNumFaces () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_d3b37eaa18198d3f4690bf17877bd61f}
+
+
+Get number of faces \begin{Desc}
+\item[Returns:]Number of faces \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_ecea28be3ab15b9003565e463f2484e8}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getNumVertices@{getNumVertices}}
+\index{getNumVertices@{getNumVertices}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getNumVertices}]{\setlength{\rightskip}{0pt plus 5cm}const int\& Hydrax::Mesh::getNumVertices () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_ecea28be3ab15b9003565e463f2484e8}
+
+
+Get number of vertices \begin{Desc}
+\item[Returns:]Number of vertices \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_999d2b1a4ce0ccc1b23ebe80541e4a97}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getObjectSpacePosition@{getObjectSpacePosition}}
+\index{getObjectSpacePosition@{getObjectSpacePosition}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getObjectSpacePosition}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector3 Hydrax::Mesh::getObjectSpacePosition (const Ogre::Vector3 \& {\em WorldSpacePosition}) const}}
+\label{class_hydrax_1_1_mesh_999d2b1a4ce0ccc1b23ebe80541e4a97}
+
+
+Get the object-space position from world-space position \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em WorldSpacePosition}]Position in world coords \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Position in object-space \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_691d01cdbb82e5d3cd92397fd17d97f6}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getOptions@{getOptions}}
+\index{getOptions@{getOptions}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getOptions}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Options}\& Hydrax::Mesh::getOptions () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_691d01cdbb82e5d3cd92397fd17d97f6}
+
+
+Get options \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_mesh}{Mesh} options \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_92e7428d77bbc71b852a62a92ca882f5}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getSceneNode@{getSceneNode}}
+\index{getSceneNode@{getSceneNode}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getSceneNode}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::SceneNode$\ast$ Hydrax::Mesh::getSceneNode ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_92e7428d77bbc71b852a62a92ca882f5}
+
+
+Get the Ogre::SceneNode pointer where \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} mesh is attached \begin{Desc}
+\item[Returns:]Ogre::SceneNode$\ast$ \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_4d55461e0da92344146340af91fab715}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getSize@{getSize}}
+\index{getSize@{getSize}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getSize}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Size}\& Hydrax::Mesh::getSize () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_4d55461e0da92344146340af91fab715}
+
+
+Get mesh size \begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_mesh}{Mesh} size \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_2eca9f2fe7879fd541163a5b21b17323}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getSubMesh@{getSubMesh}}
+\index{getSubMesh@{getSubMesh}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getSubMesh}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::SubMesh$\ast$ Hydrax::Mesh::getSubMesh ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_2eca9f2fe7879fd541163a5b21b17323}
+
+
+Get sub mesh \begin{Desc}
+\item[Returns:]Sub mesh \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_8da15cd9f0865a0d7a06f899f5b302f5}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getVertexType@{getVertexType}}
+\index{getVertexType@{getVertexType}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getVertexType}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf VertexType}\& Hydrax::Mesh::getVertexType () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_8da15cd9f0865a0d7a06f899f5b302f5}
+
+
+Get vertex type return \hyperlink{class_hydrax_1_1_mesh}{Mesh} vertex type \hypertarget{class_hydrax_1_1_mesh_6b1be78ee3f7b3da03aee363025c76e7}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!getWorldSpacePosition@{getWorldSpacePosition}}
+\index{getWorldSpacePosition@{getWorldSpacePosition}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{getWorldSpacePosition}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector3 Hydrax::Mesh::getWorldSpacePosition (const Ogre::Vector3 \& {\em ObjectSpacePosition}) const}}
+\label{class_hydrax_1_1_mesh_6b1be78ee3f7b3da03aee363025c76e7}
+
+
+Get the world-space position from object-space position \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ObjectSpacePosition}]Position in object coords \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Position in world-space \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_fb24883f62aa72204ed573693ff8bbf7}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!isCreated@{isCreated}}
+\index{isCreated@{isCreated}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{isCreated}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::Mesh::isCreated () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_mesh_fb24883f62aa72204ed573693ff8bbf7}
+
+
+Is \_\-createGeometry() called? \begin{Desc}
+\item[Returns:]true if created() have been already called \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_fc8ea18b26652bac0710ef6fcb4c5969}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!isPointInGrid@{isPointInGrid}}
+\index{isPointInGrid@{isPointInGrid}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{isPointInGrid}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Mesh::isPointInGrid (const Ogre::Vector2 \& {\em Position})}}
+\label{class_hydrax_1_1_mesh_fc8ea18b26652bac0710ef6fcb4c5969}
+
+
+Get if a Position point is inside of the grid \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Position}]World-space point \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if Position point is inside of the grid, else false. \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_5091867b361900642f5892e56661c790}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!remove@{remove}}
+\index{remove@{remove}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Mesh::remove ()}}
+\label{class_hydrax_1_1_mesh_5091867b361900642f5892e56661c790}
+
+
+Remove all resources \hypertarget{class_hydrax_1_1_mesh_43b930f0d0e03f95799de998780727cc}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!setMaterialName@{setMaterialName}}
+\index{setMaterialName@{setMaterialName}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{setMaterialName}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Mesh::setMaterialName (const Ogre::String \& {\em MaterialName})}}
+\label{class_hydrax_1_1_mesh_43b930f0d0e03f95799de998780727cc}
+
+
+Set mesh material \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em MaterialName}]The material name \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_69d55fde534e5a28044ef088b11774fb}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!setOptions@{setOptions}}
+\index{setOptions@{setOptions}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{setOptions}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Mesh::setOptions (const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_mesh_69d55fde534e5a28044ef088b11774fb}
+
+
+Update options \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_mesh_1_1_options}{Options}}]\hyperlink{class_hydrax_1_1_mesh}{Mesh} options \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Call it before create(...) \end{Desc}
+\hypertarget{class_hydrax_1_1_mesh_7eecc57d699ca2c4eadbcfd9db584f7a}{
+\index{Hydrax::Mesh@{Hydrax::Mesh}!updateGeometry@{updateGeometry}}
+\index{updateGeometry@{updateGeometry}!Hydrax::Mesh@{Hydrax::Mesh}}
+\subsubsection[{updateGeometry}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Mesh::updateGeometry (const int \& {\em numVer}, \/  void $\ast$ {\em verArray})}}
+\label{class_hydrax_1_1_mesh_7eecc57d699ca2c4eadbcfd9db584f7a}
+
+
+Update geomtry \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em numVer}]Number of vertices \item[{\em verArray}]Vertices array \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]false If number of vertices do not correspond. \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_mesh_8h}{Mesh.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_mesh_8cpp}{Mesh.cpp}\end{CompactItemize}

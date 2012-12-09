@@ -1,0 +1,200 @@
+\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t}{
+\section{Hydrax::Noise::FFT Class Reference}
+\label{class_hydrax_1_1_noise_1_1_f_f_t}\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+}
+{\tt \#include $<$FFT.h$>$}
+
+Inheritance diagram for Hydrax::Noise::FFT::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_hydrax_1_1_noise_1_1_f_f_t}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_5e4f2e1075138aa5255e0f2c90f0e004}{FFT} ()
+\item 
+\hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_39e0f2bd11f4fcd7afab5a0977446c3e}{FFT} (const \hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options})
+\item 
+\hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_fd96b8a520f12c10d7cffe16a776034e}{$\sim$FFT} ()
+\item 
+void \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_c382e8624b864a32267687592b769bd3}{create} ()
+\item 
+bool \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_a8e2b9d2b8307c07be2d2cd9cf115560}{createGPUNormalMapResources} (\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} $\ast$g)
+\item 
+void \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_9567d90d8fae8dbd74d05d1e3b8281e4}{remove} ()
+\item 
+void \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_edb7b8614828cda29b62aa6c1509e22a}{update} (const Ogre::Real \&timeSinceLastFrame)
+\item 
+void \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_6e045d4c71f1005305445dbae8701736}{saveCfg} (Ogre::String \&Data)
+\item 
+bool \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_64245b9e56eeb8627ac3f5260dc203dd}{loadCfg} (Ogre::ConfigFile \&CfgFile)
+\item 
+float \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_e7da5bf6c6ebfc9061ed433af6350ea7}{getValue} (const float \&x, const float \&y)
+\item 
+void \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_1d7ec06eb11cda608cc8f73256c35be5}{setOptions} (const \hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options} \&\hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options})
+\item 
+const \hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options} \& \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t_5207977ba1623fef59570e8f2f1c738c}{getOptions} () const 
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_hydrax_1_1_noise_1_1_f_f_t}{FFT} noise module class 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_5e4f2e1075138aa5255e0f2c90f0e004}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!FFT@{FFT}}
+\index{FFT@{FFT}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{FFT}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Noise::FFT::FFT ()}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_5e4f2e1075138aa5255e0f2c90f0e004}
+
+
+Default constructor \hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_39e0f2bd11f4fcd7afab5a0977446c3e}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!FFT@{FFT}}
+\index{FFT@{FFT}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{FFT}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Noise::FFT::FFT (const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_39e0f2bd11f4fcd7afab5a0977446c3e}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options}}]\hyperlink{class_hydrax_1_1_noise_1_1_f_f_t}{FFT} noise options \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_fd96b8a520f12c10d7cffe16a776034e}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!$\sim$FFT@{$\sim$FFT}}
+\index{$\sim$FFT@{$\sim$FFT}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{$\sim$FFT}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::Noise::FFT::$\sim$FFT ()}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_fd96b8a520f12c10d7cffe16a776034e}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_c382e8624b864a32267687592b769bd3}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!create@{create}}
+\index{create@{create}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::FFT::create ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_c382e8624b864a32267687592b769bd3}
+
+
+Create 
+
+Reimplemented from \hyperlink{class_hydrax_1_1_noise_1_1_noise_be9cf8765feed765e6a35b0779125f6a}{Hydrax::Noise::Noise}.\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_a8e2b9d2b8307c07be2d2cd9cf115560}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!createGPUNormalMapResources@{createGPUNormalMapResources}}
+\index{createGPUNormalMapResources@{createGPUNormalMapResources}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{createGPUNormalMapResources}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Noise::FFT::createGPUNormalMapResources ({\bf GPUNormalMapManager} $\ast$ {\em g})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_a8e2b9d2b8307c07be2d2cd9cf115560}
+
+
+Create GPUNormalMap resources \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em g}]\hyperlink{class_hydrax_1_1_g_p_u_normal_map_manager}{GPUNormalMapManager} pointer \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if it needs to be created, false if not \end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_noise_1_1_noise_59f0e03e88a5de69065838adc35ff2d8}{Hydrax::Noise::Noise}.\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_5207977ba1623fef59570e8f2f1c738c}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!getOptions@{getOptions}}
+\index{getOptions@{getOptions}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{getOptions}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Options}\& Hydrax::Noise::FFT::getOptions () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_5207977ba1623fef59570e8f2f1c738c}
+
+
+Get current \hyperlink{class_hydrax_1_1_noise_1_1_f_f_t}{FFT} noise options \begin{Desc}
+\item[Returns:]Current fft noise options \end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_e7da5bf6c6ebfc9061ed433af6350ea7}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!getValue@{getValue}}
+\index{getValue@{getValue}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{getValue}]{\setlength{\rightskip}{0pt plus 5cm}float Hydrax::Noise::FFT::getValue (const float \& {\em x}, \/  const float \& {\em y})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_e7da5bf6c6ebfc9061ed433af6350ea7}
+
+
+Get the especified x/y noise value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]X Coord \item[{\em y}]Y Coord \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_hydrax_1_1_noise_1_1_noise}{Noise} value \end{Desc}
+
+
+Implements \hyperlink{class_hydrax_1_1_noise_1_1_noise_5b18138d5c2c5ea3c3659cef80dd3a3e}{Hydrax::Noise::Noise}.\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_64245b9e56eeb8627ac3f5260dc203dd}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!loadCfg@{loadCfg}}
+\index{loadCfg@{loadCfg}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{loadCfg}]{\setlength{\rightskip}{0pt plus 5cm}bool Hydrax::Noise::FFT::loadCfg (Ogre::ConfigFile \& {\em CfgFile})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_64245b9e56eeb8627ac3f5260dc203dd}
+
+
+Load config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em CgfFile}]Ogre::ConfigFile reference \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]True if is the correct noise config \end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_noise_1_1_noise_5ef6e71282a9dfcefc09e3ba84a7578f}{Hydrax::Noise::Noise}.\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_9567d90d8fae8dbd74d05d1e3b8281e4}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!remove@{remove}}
+\index{remove@{remove}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::FFT::remove ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_9567d90d8fae8dbd74d05d1e3b8281e4}
+
+
+Remove 
+
+Reimplemented from \hyperlink{class_hydrax_1_1_noise_1_1_noise_00c4aaa7604ea492740318d01f651606}{Hydrax::Noise::Noise}.\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_6e045d4c71f1005305445dbae8701736}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!saveCfg@{saveCfg}}
+\index{saveCfg@{saveCfg}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{saveCfg}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::FFT::saveCfg (Ogre::String \& {\em Data})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_6e045d4c71f1005305445dbae8701736}
+
+
+Save config \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]String reference \end{description}
+\end{Desc}
+
+
+Reimplemented from \hyperlink{class_hydrax_1_1_noise_1_1_noise_ac0a9fe1533ddd87467edb954f8abea8}{Hydrax::Noise::Noise}.\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_1d7ec06eb11cda608cc8f73256c35be5}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!setOptions@{setOptions}}
+\index{setOptions@{setOptions}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{setOptions}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::FFT::setOptions (const {\bf Options} \& {\em Options})}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_1d7ec06eb11cda608cc8f73256c35be5}
+
+
+Set/Update fft noise options \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_noise_1_1_f_f_t_1_1_options}{Options}}]\hyperlink{class_hydrax_1_1_noise_1_1_f_f_t}{FFT} noise options \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_noise_1_1_f_f_t_edb7b8614828cda29b62aa6c1509e22a}{
+\index{Hydrax::Noise::FFT@{Hydrax::Noise::FFT}!update@{update}}
+\index{update@{update}!Hydrax::Noise::FFT@{Hydrax::Noise::FFT}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::Noise::FFT::update (const Ogre::Real \& {\em timeSinceLastFrame})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_hydrax_1_1_noise_1_1_f_f_t_edb7b8614828cda29b62aa6c1509e22a}
+
+
+Call it each frame \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timeSinceLastFrame}]Time since last frame(delta) \end{description}
+\end{Desc}
+
+
+Implements \hyperlink{class_hydrax_1_1_noise_1_1_noise_9c32c4c630f193e034c074f69ea10f57}{Hydrax::Noise::Noise}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Noise/FFT/\hyperlink{_f_f_t_8h}{FFT.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/Noise/FFT/\hyperlink{_f_f_t_8cpp}{FFT.cpp}\end{CompactItemize}

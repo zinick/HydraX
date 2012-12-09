@@ -1,0 +1,313 @@
+\hypertarget{class_hydrax_1_1_god_rays_manager}{
+\section{Hydrax::GodRaysManager Class Reference}
+\label{class_hydrax_1_1_god_rays_manager}\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+}
+{\tt \#include $<$GodRaysManager.h$>$}
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \textbf{DepthMapListener}
+\end{CompactItemize}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cb}{MaterialType} \{ \hyperlink{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cbc48ce8001d4a4963cbb2b7ef37dd24dc}{MAT\_\-GODRAYS} =  0, 
+\hyperlink{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cbd4f1fac272fd8b2ec734eeacc3c6bfbd}{MAT\_\-DEPTH} =  1
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_god_rays_manager_f655dc90ddc7963fcdbbe567bc2c2f7a}{GodRaysManager} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h)
+\item 
+\hyperlink{class_hydrax_1_1_god_rays_manager_6c76b08ac42e38a3621eac4f71d7f3ae}{$\sim$GodRaysManager} ()
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_d6e8cfa4b9bde36b668d04ae3cfe8d00}{create} (const \hyperlink{namespace_hydrax_e8e15abf83a51b0cf514c7d1a133650a}{HydraxComponent} \&HC)
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_c4f9cdb2271b323d518c7bc84e3bf2da}{remove} ()
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_90ec2ead8e869ab4388641de1edeba11}{update} (const Ogre::Real \&timeSinceLastFrame)
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_god_rays_manager_2843f0e85cd38ccd93c43698cfddae21}{isCreated} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_be86da8a21691f1bac9d817147c9edba}{addDepthTechnique} (Ogre::Technique $\ast$Technique, const bool \&AutoUpdate=true)
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_b8080a305138ef10e0f18f9037f99a8d}{setSimulationSpeed} (const Ogre::Real \&Speed)
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_god_rays_manager_707a5affb30167956b5d7d0696633ac2}{getSimulationSpeed} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_ed0d897dae3ae6c585a616d071f02c71}{setNumberOfRays} (const int \&NumberOfRays)
+\item 
+const int \& \hyperlink{class_hydrax_1_1_god_rays_manager_b3f75e765c4b537d0c8162591edae631}{getNumberOfRays} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_92f0cf78d74335694d7e81b23e654ee7}{setRaysSize} (const Ogre::Real \&\hyperlink{struct_hydrax_1_1_size}{Size})
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_god_rays_manager_80a4d001a4fd540a73cdbded89660c8d}{getRaysSize} () const 
+\item 
+\hyperlink{class_hydrax_1_1_noise_1_1_perlin}{Noise::Perlin} $\ast$ \hyperlink{class_hydrax_1_1_god_rays_manager_90d9d1c53fc66eae89e4334580cd73bb}{getPerlin} ()
+\item 
+Ogre::SceneNode $\ast$ \hyperlink{class_hydrax_1_1_god_rays_manager_9b94205d807dc98568fe5161a0bbc6d7}{getSceneNode} ()
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_1cf1f1ec683484ee6949a32bb4fe0e62}{setVisible} (const bool \&Visible)
+\item 
+const bool \hyperlink{class_hydrax_1_1_god_rays_manager_b58ff59d51808f29ad9108870200d264}{isVisible} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_4a85152f7e71a50c473ae65b299f3465}{setObjectIntersectionsEnabled} (const bool \&Enable)
+\item 
+const bool \& \hyperlink{class_hydrax_1_1_god_rays_manager_e150748f9126fee118cf9262b76db170}{areObjectsIntersectionsEnabled} () const 
+\item 
+const Ogre::Vector4 \hyperlink{class_hydrax_1_1_god_rays_manager_cbbe97591ed2ce41ff2791c00588823d}{getNoiseParameters} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_god_rays_manager_7ca2848326fa661d5a62a830b108be38}{setNoiseParameters} (Ogre::Vector4 Params)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Underwater god rays manager class God rays 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cb}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!MaterialType@{MaterialType}}
+\index{MaterialType@{MaterialType}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{MaterialType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::GodRaysManager::MaterialType}}}
+\label{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cb}
+
+
+God rays material enumeration \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{MAT\_\-GODRAYS@{MAT\_\-GODRAYS}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!MAT\_\-GODRAYS@{MAT\_\-GODRAYS}}\item[{\em 
+\hypertarget{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cbc48ce8001d4a4963cbb2b7ef37dd24dc}{
+MAT\_\-GODRAYS}
+\label{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cbc48ce8001d4a4963cbb2b7ef37dd24dc}
+}]\index{MAT\_\-DEPTH@{MAT\_\-DEPTH}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!MAT\_\-DEPTH@{MAT\_\-DEPTH}}\item[{\em 
+\hypertarget{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cbd4f1fac272fd8b2ec734eeacc3c6bfbd}{
+MAT\_\-DEPTH}
+\label{class_hydrax_1_1_god_rays_manager_88654235c3d8c74a152a8b81b9a419cbd4f1fac272fd8b2ec734eeacc3c6bfbd}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_god_rays_manager_f655dc90ddc7963fcdbbe567bc2c2f7a}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!GodRaysManager@{GodRaysManager}}
+\index{GodRaysManager@{GodRaysManager}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{GodRaysManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::GodRaysManager::GodRaysManager ({\bf Hydrax} $\ast$ {\em h})}}
+\label{class_hydrax_1_1_god_rays_manager_f655dc90ddc7963fcdbbe567bc2c2f7a}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} parent pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_6c76b08ac42e38a3621eac4f71d7f3ae}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!$\sim$GodRaysManager@{$\sim$GodRaysManager}}
+\index{$\sim$GodRaysManager@{$\sim$GodRaysManager}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{$\sim$GodRaysManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::GodRaysManager::$\sim$GodRaysManager ()}}
+\label{class_hydrax_1_1_god_rays_manager_6c76b08ac42e38a3621eac4f71d7f3ae}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_god_rays_manager_be86da8a21691f1bac9d817147c9edba}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!addDepthTechnique@{addDepthTechnique}}
+\index{addDepthTechnique@{addDepthTechnique}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{addDepthTechnique}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::addDepthTechnique (Ogre::Technique $\ast$ {\em Technique}, \/  const bool \& {\em AutoUpdate} = {\tt true})}}
+\label{class_hydrax_1_1_god_rays_manager_be86da8a21691f1bac9d817147c9edba}
+
+
+Add god rays depth technique to an especified material \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Technique}]Technique where depth technique will be added \item[{\em AutoUpdate}]The technique will be automatically updated when god rays parameters change \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]Call it after \hyperlink{class_hydrax_1_1_hydrax_af840e19208614533a6b344e32965ee2}{Hydrax::create()}/HydraxsetComponents(...)\end{Desc}
+The technique will be automatically updated when god rays parameters change if parameter AutoUpdate == true Add depth technique when a material is not an Ogre::Entity, such terrains, PLSM2 materials, etc. This depth technique will be added with \char`\"{}HydraxGodRaysDepth\char`\"{} scheme in ordeto can use it in the G.R. depth RTT. \hypertarget{class_hydrax_1_1_god_rays_manager_e150748f9126fee118cf9262b76db170}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!areObjectsIntersectionsEnabled@{areObjectsIntersectionsEnabled}}
+\index{areObjectsIntersectionsEnabled@{areObjectsIntersectionsEnabled}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{areObjectsIntersectionsEnabled}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::GodRaysManager::areObjectsIntersectionsEnabled () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_e150748f9126fee118cf9262b76db170}
+
+
+Are rays objects intersections enabled? \begin{Desc}
+\item[Returns:]true if yes, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_d6e8cfa4b9bde36b668d04ae3cfe8d00}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!create@{create}}
+\index{create@{create}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::create (const {\bf HydraxComponent} \& {\em HC})}}
+\label{class_hydrax_1_1_god_rays_manager_d6e8cfa4b9bde36b668d04ae3cfe8d00}
+
+
+Create  Current \hyperlink{class_hydrax_1_1_hydrax}{Hydrax} components \hypertarget{class_hydrax_1_1_god_rays_manager_cbbe97591ed2ce41ff2791c00588823d}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!getNoiseParameters@{getNoiseParameters}}
+\index{getNoiseParameters@{getNoiseParameters}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{getNoiseParameters}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Vector4 Hydrax::GodRaysManager::getNoiseParameters () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_cbbe97591ed2ce41ff2791c00588823d}
+
+
+Get noise params \begin{Desc}
+\item[Returns:]Ogre::Vector4 that stores 4 parameters: x-$>$ \hyperlink{namespace_hydrax_1_1_noise}{Noise} derivation y-$>$ Position multiplier z-$>$ Y normal component multiplier w-$>$ Normal multiplier \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_b3f75e765c4b537d0c8162591edae631}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!getNumberOfRays@{getNumberOfRays}}
+\index{getNumberOfRays@{getNumberOfRays}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{getNumberOfRays}]{\setlength{\rightskip}{0pt plus 5cm}const int\& Hydrax::GodRaysManager::getNumberOfRays () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_b3f75e765c4b537d0c8162591edae631}
+
+
+Get number of god rays \begin{Desc}
+\item[Returns:]Number of god rays \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_90d9d1c53fc66eae89e4334580cd73bb}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!getPerlin@{getPerlin}}
+\index{getPerlin@{getPerlin}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{getPerlin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Noise::Perlin}$\ast$ Hydrax::GodRaysManager::getPerlin ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_90d9d1c53fc66eae89e4334580cd73bb}
+
+
+Get perlin noise module \begin{Desc}
+\item[Returns:]Perlin noise module \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_80a4d001a4fd540a73cdbded89660c8d}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!getRaysSize@{getRaysSize}}
+\index{getRaysSize@{getRaysSize}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{getRaysSize}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::GodRaysManager::getRaysSize () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_80a4d001a4fd540a73cdbded89660c8d}
+
+
+Get god rays size \begin{Desc}
+\item[Returns:]Rays size \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_9b94205d807dc98568fe5161a0bbc6d7}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!getSceneNode@{getSceneNode}}
+\index{getSceneNode@{getSceneNode}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{getSceneNode}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::SceneNode$\ast$ Hydrax::GodRaysManager::getSceneNode ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_9b94205d807dc98568fe5161a0bbc6d7}
+
+
+Get good rays scene node \begin{Desc}
+\item[Returns:]God rays scene node \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_707a5affb30167956b5d7d0696633ac2}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!getSimulationSpeed@{getSimulationSpeed}}
+\index{getSimulationSpeed@{getSimulationSpeed}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{getSimulationSpeed}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::GodRaysManager::getSimulationSpeed () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_707a5affb30167956b5d7d0696633ac2}
+
+
+Get god rays simulation speed \begin{Desc}
+\item[Returns:]Simlation speed \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_2843f0e85cd38ccd93c43698cfddae21}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!isCreated@{isCreated}}
+\index{isCreated@{isCreated}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{isCreated}]{\setlength{\rightskip}{0pt plus 5cm}const bool\& Hydrax::GodRaysManager::isCreated () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_2843f0e85cd38ccd93c43698cfddae21}
+
+
+Has been \hyperlink{class_hydrax_1_1_god_rays_manager_d6e8cfa4b9bde36b668d04ae3cfe8d00}{create()} already called? \begin{Desc}
+\item[Returns:]true If yes \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_b58ff59d51808f29ad9108870200d264}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!isVisible@{isVisible}}
+\index{isVisible@{isVisible}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{isVisible}]{\setlength{\rightskip}{0pt plus 5cm}const bool Hydrax::GodRaysManager::isVisible () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_b58ff59d51808f29ad9108870200d264}
+
+
+Is visible? \begin{Desc}
+\item[Returns:]true if it's visible, false if not \end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_c4f9cdb2271b323d518c7bc84e3bf2da}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!remove@{remove}}
+\index{remove@{remove}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::remove ()}}
+\label{class_hydrax_1_1_god_rays_manager_c4f9cdb2271b323d518c7bc84e3bf2da}
+
+
+Remove \hypertarget{class_hydrax_1_1_god_rays_manager_7ca2848326fa661d5a62a830b108be38}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!setNoiseParameters@{setNoiseParameters}}
+\index{setNoiseParameters@{setNoiseParameters}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{setNoiseParameters}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::setNoiseParameters (Ogre::Vector4 {\em Params})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_7ca2848326fa661d5a62a830b108be38}
+
+
+Set noise params \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Params,:}]x-$>$ \hyperlink{namespace_hydrax_1_1_noise}{Noise} derivation y-$>$ Position multiplier z-$>$ Y normal component multiplier w-$>$ Normal multiplier \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_ed0d897dae3ae6c585a616d071f02c71}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!setNumberOfRays@{setNumberOfRays}}
+\index{setNumberOfRays@{setNumberOfRays}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{setNumberOfRays}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::setNumberOfRays (const int \& {\em NumberOfRays})}}
+\label{class_hydrax_1_1_god_rays_manager_ed0d897dae3ae6c585a616d071f02c71}
+
+
+Set the number of god rays \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em NumberOfRays}]Number of god rays \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_4a85152f7e71a50c473ae65b299f3465}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!setObjectIntersectionsEnabled@{setObjectIntersectionsEnabled}}
+\index{setObjectIntersectionsEnabled@{setObjectIntersectionsEnabled}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{setObjectIntersectionsEnabled}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::setObjectIntersectionsEnabled (const bool \& {\em Enable})}}
+\label{class_hydrax_1_1_god_rays_manager_4a85152f7e71a50c473ae65b299f3465}
+
+
+Set objects intersections enabled \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Enable}]true for yes, false for not \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_92f0cf78d74335694d7e81b23e654ee7}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!setRaysSize@{setRaysSize}}
+\index{setRaysSize@{setRaysSize}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{setRaysSize}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::setRaysSize (const Ogre::Real \& {\em Size})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_92f0cf78d74335694d7e81b23e654ee7}
+
+
+Set god rays size \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{struct_hydrax_1_1_size}{Size}}]God rays size \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_b8080a305138ef10e0f18f9037f99a8d}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!setSimulationSpeed@{setSimulationSpeed}}
+\index{setSimulationSpeed@{setSimulationSpeed}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{setSimulationSpeed}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::setSimulationSpeed (const Ogre::Real \& {\em Speed})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_b8080a305138ef10e0f18f9037f99a8d}
+
+
+Set god rays simulation speed \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Speed}]Simulation speed \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_1cf1f1ec683484ee6949a32bb4fe0e62}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!setVisible@{setVisible}}
+\index{setVisible@{setVisible}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{setVisible}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::setVisible (const bool \& {\em Visible})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_god_rays_manager_1cf1f1ec683484ee6949a32bb4fe0e62}
+
+
+Set visible \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Visible}]true = yes; false = no \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_god_rays_manager_90ec2ead8e869ab4388641de1edeba11}{
+\index{Hydrax::GodRaysManager@{Hydrax::GodRaysManager}!update@{update}}
+\index{update@{update}!Hydrax::GodRaysManager@{Hydrax::GodRaysManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::GodRaysManager::update (const Ogre::Real \& {\em timeSinceLastFrame})}}
+\label{class_hydrax_1_1_god_rays_manager_90ec2ead8e869ab4388641de1edeba11}
+
+
+Call each frame \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timeSinceLastFrame}]Time since last frame \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_god_rays_manager_8h}{GodRaysManager.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_god_rays_manager_8cpp}{GodRaysManager.cpp}\end{CompactItemize}

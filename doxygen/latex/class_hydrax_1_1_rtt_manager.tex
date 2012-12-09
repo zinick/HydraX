@@ -1,0 +1,484 @@
+\hypertarget{class_hydrax_1_1_rtt_manager}{
+\section{Hydrax::RttManager Class Reference}
+\label{class_hydrax_1_1_rtt_manager}\index{Hydrax::RttManager@{Hydrax::RttManager}}
+}
+{\tt \#include $<$RttManager.h$>$}
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \textbf{CDepthListener}
+\item 
+class \textbf{CDepthReflectionListener}
+\item 
+class \textbf{CGPUNormalMapListener}
+\item 
+class \textbf{CReflectionListener}
+\item 
+class \textbf{CRefractionListener}
+\item 
+class \hyperlink{class_hydrax_1_1_rtt_manager_1_1_rtt_listener}{RttListener}
+\item 
+struct \hyperlink{struct_hydrax_1_1_rtt_manager_1_1_rtt_options}{RttOptions}
+\end{CompactItemize}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \{ \par
+\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed46bf97fd6dfb5127e198ba5864d177cf}{RTT\_\-REFLECTION} =  0, 
+\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed19faf1e23955005ac93e096fb9c7745a}{RTT\_\-REFRACTION} =  1, 
+\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed8a220f3d2252dd891f89d11242f9d0f6}{RTT\_\-DEPTH} =  2, 
+\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed307732729f853596d0e8015b707ccea7}{RTT\_\-DEPTH\_\-REFLECTION} =  3, 
+\par
+\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed4d2aa8377c7593dcb15b656f4eb1bf1b}{RTT\_\-DEPTH\_\-AIP} =  4, 
+\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ede6e0cfde4b1fec5edfc11becf329f9b1}{RTT\_\-GPU\_\-NORMAL\_\-MAP} =  5
+ \}
+\item 
+enum \hyperlink{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446e}{BitsPerChannel} \{ \hyperlink{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446ecef13aa48bb44d2dddfce5f2705246de}{BPC\_\-8} =  8, 
+\hyperlink{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446ec40c0b76eaa0f93d42f8ad5835f2e6df}{BPC\_\-16} =  16, 
+\hyperlink{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446edcc7a5caa6ce6602c0029e67e7ff8b52}{BPC\_\-32} =  32
+ \}
+\item 
+enum \hyperlink{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731}{NumberOfChannels} \{ \hyperlink{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731853812ba55b1b6e4ff7a6dc363851d37}{NOC\_\-1} =  1, 
+\hyperlink{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a707312db56c36f66ea12cbdc86c16c9239847}{NOC\_\-2} =  2, 
+\hyperlink{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731d61a5de75944638e15e54f0c87d4d40c}{NOC\_\-3} =  3, 
+\hyperlink{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a7073173ec4033a84d7e46c6bddc956dc1a27f}{NOC\_\-4} =  4
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_hydrax_1_1_rtt_manager_5e3cb1cebd7adf7bf69b7b15e120db71}{RttManager} (\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} $\ast$h)
+\item 
+\hyperlink{class_hydrax_1_1_rtt_manager_bbce4b6993d9362d11366ba11fbee326}{$\sim$RttManager} ()
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_774efa00a79ade65e726ed0774d2ac2e}{initialize} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt)
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_360139ed63706da8ca9ec04716d65574}{remove} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt)
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_ed71ea727ed3c835d655437d1c6de232}{removeAll} ()
+\item 
+const Ogre::String \& \hyperlink{class_hydrax_1_1_rtt_manager_dc5af0a29c8e491e8ea9fba6349e208c}{getRttName} (\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} Rtt) const 
+\item 
+Ogre::TexturePtr \hyperlink{class_hydrax_1_1_rtt_manager_4e672cd4cf5361c48e75b559f841602c}{getTexture} (\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} Rtt)
+\item 
+Ogre::SceneNode $\ast$ \hyperlink{class_hydrax_1_1_rtt_manager_2c97d4371d854526fb5ffdc37a40a595}{getPlanesSceneNode} ()
+\item 
+Ogre::MovablePlane $\ast$ \hyperlink{class_hydrax_1_1_rtt_manager_884250dca579c9cdff85bdec278715fe}{getPlane} (\hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} Rtt)
+\item 
+const \hyperlink{struct_hydrax_1_1_size}{Size} \& \hyperlink{class_hydrax_1_1_rtt_manager_ceb8b7c524ce0e35e493771dab50b4c9}{getTextureSize} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt) const 
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_bf7d8e05771b9f904efa09fe94ab0907}{setTextureSize} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt, const \hyperlink{struct_hydrax_1_1_size}{Size} \&S)
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_d54dd87efa7baa4a5037faa2e5241738}{setTexturesSize} (const \hyperlink{struct_hydrax_1_1_size}{Size} \&S)
+\item 
+const Ogre::PixelFormat \hyperlink{class_hydrax_1_1_rtt_manager_e94c4a88b240d9b7be93aa6c1430d2b6}{getPixelFormat} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt) const 
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_009e9c7631dad8d588790401cab753b6}{setNumberOfChannels} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt, const \hyperlink{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731}{NumberOfChannels} \&NOC)
+\item 
+const \hyperlink{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731}{NumberOfChannels} \& \hyperlink{class_hydrax_1_1_rtt_manager_88b7c387e413cf219f399926c2dbea7e}{getNumberOfChannels} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt) const 
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_fe968a7c8f23a6fa9b0d5b499ef09491}{setBitsPerChannel} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt, const \hyperlink{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446e}{BitsPerChannel} \&BPC)
+\item 
+const \hyperlink{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446e}{BitsPerChannel} \& \hyperlink{class_hydrax_1_1_rtt_manager_a0834735c92a9f72f34eaee8e6478343}{getBitsPerChannel} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt) const 
+\item 
+const \hyperlink{struct_hydrax_1_1_rtt_manager_1_1_rtt_options}{RttOptions} \& \hyperlink{class_hydrax_1_1_rtt_manager_3d6990b4cbbe6da2e1580b289f5329fd}{getRttOptions} (const \hyperlink{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{RttType} \&Rtt) const 
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_7b473a60a06df9d943a50939e3b26377}{setReflectionDisplacementError} (const Ogre::Real \&ReflectionDisplacementError)
+\item 
+const Ogre::Real \& \hyperlink{class_hydrax_1_1_rtt_manager_021cdc044e7f215158dc3747419db037}{getReflectionDisplacementError} () const 
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_46f7b77221e50359657a4ac2f3a2365c}{setDisableReflectionCustomNearCliplPlaneRenderQueues} (const std::vector$<$ Ogre::RenderQueueGroupID $>$ \&DisableReflectionCustomNearClipPlaneRenderQueues)
+\item 
+const std::vector$<$ Ogre::RenderQueueGroupID $>$ \& \hyperlink{class_hydrax_1_1_rtt_manager_8f851b42bccd3653458dad169b6fcff9}{getDisableReflectionCustomNearClipPlaneRenderQueues} ()
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_cd9d1c09314e9ada6f8f646b0b97dc48}{addRttListener} (\hyperlink{class_hydrax_1_1_rtt_manager_1_1_rtt_listener}{RttListener} $\ast$l)
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_9de0d5171c46f27d34493f85e6a4f8c3}{removeRttListener} (\hyperlink{class_hydrax_1_1_rtt_manager_1_1_rtt_listener}{RttListener} $\ast$l, const bool \&releaseMemory=true)
+\item 
+void \hyperlink{class_hydrax_1_1_rtt_manager_4aee49693758d34cdd0b613f251e09cc}{removeAllRttListeners} (const bool \&releaseMemory=true)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rtt's manager class 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446e}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!BitsPerChannel@{BitsPerChannel}}
+\index{BitsPerChannel@{BitsPerChannel}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{BitsPerChannel}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::RttManager::BitsPerChannel}}}
+\label{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446e}
+
+
+Bits per channel \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{BPC\_\-8@{BPC\_\-8}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!BPC\_\-8@{BPC\_\-8}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446ecef13aa48bb44d2dddfce5f2705246de}{
+BPC\_\-8}
+\label{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446ecef13aa48bb44d2dddfce5f2705246de}
+}]\index{BPC\_\-16@{BPC\_\-16}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!BPC\_\-16@{BPC\_\-16}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446ec40c0b76eaa0f93d42f8ad5835f2e6df}{
+BPC\_\-16}
+\label{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446ec40c0b76eaa0f93d42f8ad5835f2e6df}
+}]\index{BPC\_\-32@{BPC\_\-32}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!BPC\_\-32@{BPC\_\-32}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446edcc7a5caa6ce6602c0029e67e7ff8b52}{
+BPC\_\-32}
+\label{class_hydrax_1_1_rtt_manager_ab09efbd8ec25f88656a27d6a4f0446edcc7a5caa6ce6602c0029e67e7ff8b52}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!NumberOfChannels@{NumberOfChannels}}
+\index{NumberOfChannels@{NumberOfChannels}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{NumberOfChannels}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::RttManager::NumberOfChannels}}}
+\label{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731}
+
+
+Number of channels \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NOC\_\-1@{NOC\_\-1}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!NOC\_\-1@{NOC\_\-1}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731853812ba55b1b6e4ff7a6dc363851d37}{
+NOC\_\-1}
+\label{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731853812ba55b1b6e4ff7a6dc363851d37}
+}]\index{NOC\_\-2@{NOC\_\-2}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!NOC\_\-2@{NOC\_\-2}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a707312db56c36f66ea12cbdc86c16c9239847}{
+NOC\_\-2}
+\label{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a707312db56c36f66ea12cbdc86c16c9239847}
+}]\index{NOC\_\-3@{NOC\_\-3}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!NOC\_\-3@{NOC\_\-3}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731d61a5de75944638e15e54f0c87d4d40c}{
+NOC\_\-3}
+\label{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a70731d61a5de75944638e15e54f0c87d4d40c}
+}]\index{NOC\_\-4@{NOC\_\-4}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!NOC\_\-4@{NOC\_\-4}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a7073173ec4033a84d7e46c6bddc956dc1a27f}{
+NOC\_\-4}
+\label{class_hydrax_1_1_rtt_manager_8f74f31025f23f6ed8930a0d79a7073173ec4033a84d7e46c6bddc956dc1a27f}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!RttType@{RttType}}
+\index{RttType@{RttType}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{RttType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hydrax::RttManager::RttType}}}
+\label{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed}
+
+
+Rtt enumeration \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{RTT\_\-REFLECTION@{RTT\_\-REFLECTION}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!RTT\_\-REFLECTION@{RTT\_\-REFLECTION}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed46bf97fd6dfb5127e198ba5864d177cf}{
+RTT\_\-REFLECTION}
+\label{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed46bf97fd6dfb5127e198ba5864d177cf}
+}]\index{RTT\_\-REFRACTION@{RTT\_\-REFRACTION}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!RTT\_\-REFRACTION@{RTT\_\-REFRACTION}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed19faf1e23955005ac93e096fb9c7745a}{
+RTT\_\-REFRACTION}
+\label{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed19faf1e23955005ac93e096fb9c7745a}
+}]\index{RTT\_\-DEPTH@{RTT\_\-DEPTH}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!RTT\_\-DEPTH@{RTT\_\-DEPTH}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed8a220f3d2252dd891f89d11242f9d0f6}{
+RTT\_\-DEPTH}
+\label{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed8a220f3d2252dd891f89d11242f9d0f6}
+}]\index{RTT\_\-DEPTH\_\-REFLECTION@{RTT\_\-DEPTH\_\-REFLECTION}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!RTT\_\-DEPTH\_\-REFLECTION@{RTT\_\-DEPTH\_\-REFLECTION}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed307732729f853596d0e8015b707ccea7}{
+RTT\_\-DEPTH\_\-REFLECTION}
+\label{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed307732729f853596d0e8015b707ccea7}
+}]\index{RTT\_\-DEPTH\_\-AIP@{RTT\_\-DEPTH\_\-AIP}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!RTT\_\-DEPTH\_\-AIP@{RTT\_\-DEPTH\_\-AIP}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed4d2aa8377c7593dcb15b656f4eb1bf1b}{
+RTT\_\-DEPTH\_\-AIP}
+\label{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ed4d2aa8377c7593dcb15b656f4eb1bf1b}
+}]\index{RTT\_\-GPU\_\-NORMAL\_\-MAP@{RTT\_\-GPU\_\-NORMAL\_\-MAP}!Hydrax::RttManager@{Hydrax::RttManager}}\index{Hydrax::RttManager@{Hydrax::RttManager}!RTT\_\-GPU\_\-NORMAL\_\-MAP@{RTT\_\-GPU\_\-NORMAL\_\-MAP}}\item[{\em 
+\hypertarget{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ede6e0cfde4b1fec5edfc11becf329f9b1}{
+RTT\_\-GPU\_\-NORMAL\_\-MAP}
+\label{class_hydrax_1_1_rtt_manager_9753d012b355eba64cff2b19bb6f76ede6e0cfde4b1fec5edfc11becf329f9b1}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hydrax_1_1_rtt_manager_5e3cb1cebd7adf7bf69b7b15e120db71}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!RttManager@{RttManager}}
+\index{RttManager@{RttManager}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{RttManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::RttManager::RttManager ({\bf Hydrax} $\ast$ {\em h})}}
+\label{class_hydrax_1_1_rtt_manager_5e3cb1cebd7adf7bf69b7b15e120db71}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em h}]\hyperlink{class_hydrax_1_1_hydrax}{Hydrax} parent pointer \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_bbce4b6993d9362d11366ba11fbee326}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!$\sim$RttManager@{$\sim$RttManager}}
+\index{$\sim$RttManager@{$\sim$RttManager}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{$\sim$RttManager}]{\setlength{\rightskip}{0pt plus 5cm}Hydrax::RttManager::$\sim$RttManager ()}}
+\label{class_hydrax_1_1_rtt_manager_bbce4b6993d9362d11366ba11fbee326}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hydrax_1_1_rtt_manager_cd9d1c09314e9ada6f8f646b0b97dc48}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!addRttListener@{addRttListener}}
+\index{addRttListener@{addRttListener}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{addRttListener}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::addRttListener ({\bf RttListener} $\ast$ {\em l})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_cd9d1c09314e9ada6f8f646b0b97dc48}
+
+
+Add Rtt listener \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em l}]Rtt listener \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_a0834735c92a9f72f34eaee8e6478343}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getBitsPerChannel@{getBitsPerChannel}}
+\index{getBitsPerChannel@{getBitsPerChannel}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getBitsPerChannel}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BitsPerChannel}\& Hydrax::RttManager::getBitsPerChannel (const {\bf RttType} \& {\em Rtt}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_a0834735c92a9f72f34eaee8e6478343}
+
+
+Get bits per channels  Rtt type \begin{Desc}
+\item[Returns:]Bits per channel \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_8f851b42bccd3653458dad169b6fcff9}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getDisableReflectionCustomNearClipPlaneRenderQueues@{getDisableReflectionCustomNearClipPlaneRenderQueues}}
+\index{getDisableReflectionCustomNearClipPlaneRenderQueues@{getDisableReflectionCustomNearClipPlaneRenderQueues}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getDisableReflectionCustomNearClipPlaneRenderQueues}]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$Ogre::RenderQueueGroupID$>$\& Hydrax::RttManager::getDisableReflectionCustomNearClipPlaneRenderQueues ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_8f851b42bccd3653458dad169b6fcff9}
+
+
+Get disable reflection custom near clip plane render queues \begin{Desc}
+\item[Returns:]Disable reflection custom near clip plane render queues \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_88b7c387e413cf219f399926c2dbea7e}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getNumberOfChannels@{getNumberOfChannels}}
+\index{getNumberOfChannels@{getNumberOfChannels}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getNumberOfChannels}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf NumberOfChannels}\& Hydrax::RttManager::getNumberOfChannels (const {\bf RttType} \& {\em Rtt}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_88b7c387e413cf219f399926c2dbea7e}
+
+
+Get number of channels  Rtt type \begin{Desc}
+\item[Returns:]Number of channels \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_e94c4a88b240d9b7be93aa6c1430d2b6}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getPixelFormat@{getPixelFormat}}
+\index{getPixelFormat@{getPixelFormat}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getPixelFormat}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::PixelFormat Hydrax::RttManager::getPixelFormat (const {\bf RttType} \& {\em Rtt}) const}}
+\label{class_hydrax_1_1_rtt_manager_e94c4a88b240d9b7be93aa6c1430d2b6}
+
+
+Get pixel format \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt type \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Rtt pixel format \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_884250dca579c9cdff85bdec278715fe}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getPlane@{getPlane}}
+\index{getPlane@{getPlane}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getPlane}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::MovablePlane$\ast$ Hydrax::RttManager::getPlane ({\bf RttType} {\em Rtt})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_884250dca579c9cdff85bdec278715fe}
+
+
+Get Rtt plane \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt type \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Rtt plane \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_2c97d4371d854526fb5ffdc37a40a595}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getPlanesSceneNode@{getPlanesSceneNode}}
+\index{getPlanesSceneNode@{getPlanesSceneNode}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getPlanesSceneNode}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::SceneNode$\ast$ Hydrax::RttManager::getPlanesSceneNode ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_2c97d4371d854526fb5ffdc37a40a595}
+
+
+Get planes scene node \begin{Desc}
+\item[Returns:]Planes scene node \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_021cdc044e7f215158dc3747419db037}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getReflectionDisplacementError@{getReflectionDisplacementError}}
+\index{getReflectionDisplacementError@{getReflectionDisplacementError}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getReflectionDisplacementError}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::Real\& Hydrax::RttManager::getReflectionDisplacementError () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_021cdc044e7f215158dc3747419db037}
+
+
+Get reflection displacement error \begin{Desc}
+\item[Returns:]Reflection displacement error \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_dc5af0a29c8e491e8ea9fba6349e208c}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getRttName@{getRttName}}
+\index{getRttName@{getRttName}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getRttName}]{\setlength{\rightskip}{0pt plus 5cm}const Ogre::String\& Hydrax::RttManager::getRttName ({\bf RttType} {\em Rtt}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_dc5af0a29c8e491e8ea9fba6349e208c}
+
+
+Get RTT texture name \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt type \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Rtt texture name \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_3d6990b4cbbe6da2e1580b289f5329fd}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getRttOptions@{getRttOptions}}
+\index{getRttOptions@{getRttOptions}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getRttOptions}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf RttOptions}\& Hydrax::RttManager::getRttOptions (const {\bf RttType} \& {\em Rtt}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_3d6990b4cbbe6da2e1580b289f5329fd}
+
+
+Get Rtt options  Rtt type \begin{Desc}
+\item[Returns:]\hyperlink{struct_hydrax_1_1_rtt_manager_1_1_rtt_options}{RttOptions} \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_4e672cd4cf5361c48e75b559f841602c}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getTexture}]{\setlength{\rightskip}{0pt plus 5cm}Ogre::TexturePtr Hydrax::RttManager::getTexture ({\bf RttType} {\em Rtt})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_4e672cd4cf5361c48e75b559f841602c}
+
+
+Get Rtt texture \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt type \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Rtt texture \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_ceb8b7c524ce0e35e493771dab50b4c9}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!getTextureSize@{getTextureSize}}
+\index{getTextureSize@{getTextureSize}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{getTextureSize}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Size}\& Hydrax::RttManager::getTextureSize (const {\bf RttType} \& {\em Rtt}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_ceb8b7c524ce0e35e493771dab50b4c9}
+
+
+Get Rtt texture size \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt type \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Rtt texture size \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_774efa00a79ade65e726ed0774d2ac2e}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!initialize@{initialize}}
+\index{initialize@{initialize}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::initialize (const {\bf RttType} \& {\em Rtt})}}
+\label{class_hydrax_1_1_rtt_manager_774efa00a79ade65e726ed0774d2ac2e}
+
+
+Initialize a RTT \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt to initialize \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Remarks:]If the RTT is already created, it will be recreated. \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_360139ed63706da8ca9ec04716d65574}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!remove@{remove}}
+\index{remove@{remove}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::remove (const {\bf RttType} \& {\em Rtt})}}
+\label{class_hydrax_1_1_rtt_manager_360139ed63706da8ca9ec04716d65574}
+
+
+Removes a RTT \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt to remove \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_ed71ea727ed3c835d655437d1c6de232}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!removeAll@{removeAll}}
+\index{removeAll@{removeAll}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{removeAll}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::removeAll ()}}
+\label{class_hydrax_1_1_rtt_manager_ed71ea727ed3c835d655437d1c6de232}
+
+
+Remove all \hyperlink{class_hydrax_1_1_rtt_manager}{RttManager} resources \begin{Desc}
+\item[Remarks:]After calling \hyperlink{class_hydrax_1_1_rtt_manager_ed71ea727ed3c835d655437d1c6de232}{removeAll()}, calling initialize(...) is allowed. \end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_4aee49693758d34cdd0b613f251e09cc}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!removeAllRttListeners@{removeAllRttListeners}}
+\index{removeAllRttListeners@{removeAllRttListeners}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{removeAllRttListeners}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::removeAllRttListeners (const bool \& {\em releaseMemory} = {\tt true})}}
+\label{class_hydrax_1_1_rtt_manager_4aee49693758d34cdd0b613f251e09cc}
+
+
+Remove all Rtt listeners \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em releaseMemory}]delete Rtt listeners pointers? \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_9de0d5171c46f27d34493f85e6a4f8c3}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!removeRttListener@{removeRttListener}}
+\index{removeRttListener@{removeRttListener}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{removeRttListener}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::removeRttListener ({\bf RttListener} $\ast$ {\em l}, \/  const bool \& {\em releaseMemory} = {\tt true})}}
+\label{class_hydrax_1_1_rtt_manager_9de0d5171c46f27d34493f85e6a4f8c3}
+
+
+Remove Rtt listener \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em l}]Rtt listener to be removed \item[{\em releaseMemory}]delete Rtt listener pointer? \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_fe968a7c8f23a6fa9b0d5b499ef09491}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!setBitsPerChannel@{setBitsPerChannel}}
+\index{setBitsPerChannel@{setBitsPerChannel}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{setBitsPerChannel}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::setBitsPerChannel (const {\bf RttType} \& {\em Rtt}, \/  const {\bf BitsPerChannel} \& {\em BPC})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_fe968a7c8f23a6fa9b0d5b499ef09491}
+
+
+Set bits per channel  Rtt type  Bits per channel \hypertarget{class_hydrax_1_1_rtt_manager_46f7b77221e50359657a4ac2f3a2365c}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!setDisableReflectionCustomNearCliplPlaneRenderQueues@{setDisableReflectionCustomNearCliplPlaneRenderQueues}}
+\index{setDisableReflectionCustomNearCliplPlaneRenderQueues@{setDisableReflectionCustomNearCliplPlaneRenderQueues}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{setDisableReflectionCustomNearCliplPlaneRenderQueues}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::setDisableReflectionCustomNearCliplPlaneRenderQueues (const std::vector$<$ Ogre::RenderQueueGroupID $>$ \& {\em DisableReflectionCustomNearClipPlaneRenderQueues})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_46f7b77221e50359657a4ac2f3a2365c}
+
+
+Set disable reflection custom near clip plane render queues \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em DisableReflectionCustomNearClipPlaneRenderQueues}]Disable reflection custom near clip plane render queues \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_009e9c7631dad8d588790401cab753b6}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!setNumberOfChannels@{setNumberOfChannels}}
+\index{setNumberOfChannels@{setNumberOfChannels}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{setNumberOfChannels}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::setNumberOfChannels (const {\bf RttType} \& {\em Rtt}, \/  const {\bf NumberOfChannels} \& {\em NOC})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_009e9c7631dad8d588790401cab753b6}
+
+
+Set number of channels  Rtt type  Number of channels \hypertarget{class_hydrax_1_1_rtt_manager_7b473a60a06df9d943a50939e3b26377}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!setReflectionDisplacementError@{setReflectionDisplacementError}}
+\index{setReflectionDisplacementError@{setReflectionDisplacementError}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{setReflectionDisplacementError}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::setReflectionDisplacementError (const Ogre::Real \& {\em ReflectionDisplacementError})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_hydrax_1_1_rtt_manager_7b473a60a06df9d943a50939e3b26377}
+
+
+Set reflection displacement error \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionDisplacementError}]Range \mbox{[}0.05, $\sim$2\mbox{]}, increase if you experiment reflection issues when the camera is near to the water. \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_bf7d8e05771b9f904efa09fe94ab0907}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!setTextureSize@{setTextureSize}}
+\index{setTextureSize@{setTextureSize}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{setTextureSize}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::setTextureSize (const {\bf RttType} \& {\em Rtt}, \/  const {\bf Size} \& {\em S})}}
+\label{class_hydrax_1_1_rtt_manager_bf7d8e05771b9f904efa09fe94ab0907}
+
+
+Set Rtt texture size \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Rtt}]Rtt type \item[{\em S}]New texture size (0,0 -$>$ get main viewport size) \end{description}
+\end{Desc}
+\hypertarget{class_hydrax_1_1_rtt_manager_d54dd87efa7baa4a5037faa2e5241738}{
+\index{Hydrax::RttManager@{Hydrax::RttManager}!setTexturesSize@{setTexturesSize}}
+\index{setTexturesSize@{setTexturesSize}!Hydrax::RttManager@{Hydrax::RttManager}}
+\subsubsection[{setTexturesSize}]{\setlength{\rightskip}{0pt plus 5cm}void Hydrax::RttManager::setTexturesSize (const {\bf Size} \& {\em S})}}
+\label{class_hydrax_1_1_rtt_manager_d54dd87efa7baa4a5037faa2e5241738}
+
+
+Set Rtt textures size \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em S}]New texture size (0,0 -$>$ get main viewport size) \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_rtt_manager_8h}{RttManager.h}\item 
+C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/\hyperlink{_rtt_manager_8cpp}{RttManager.cpp}\end{CompactItemize}

@@ -1,0 +1,170 @@
+\hypertarget{_material_manager_8cpp}{
+\section{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/MaterialManager.cpp File Reference}
+\label{_material_manager_8cpp}\index{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/MaterialManager.cpp@{C:/Hydrax/v0.5.1/Hydrax/src/Hydrax/MaterialManager.cpp}}
+}
+{\tt \#include \char`\"{}MaterialManager.h\char`\"{}}\par
+{\tt \#include \char`\"{}Hydrax.h\char`\"{}}\par
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespace_hydrax}{Hydrax}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{_material_manager_8cpp_3b351b39f4179bba2a2d2b6bbabd2372}{\_\-def\_\-Water\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-Water\_\-Material\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_cf026147989a97aaab548cb57d39f38a}{\_\-def\_\-Water\_\-Shader\_\-VP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Water\_\-VP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_1ca47ab2612551573f8a5ffcc5528cf1}{\_\-def\_\-Water\_\-Shader\_\-FP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Water\_\-FP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_1d934be2c0bd7137acc935391a8e747c}{\_\-def\_\-Depth\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-Depth\_\-Material\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_5964f2e37a39e05b73cd5146057f3c8d}{\_\-def\_\-Depth\_\-Shader\_\-VP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Depth\_\-VP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_5e268aaae5377aaecf478626035af8a9}{\_\-def\_\-Depth\_\-Shader\_\-FP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Depth\_\-FP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_a20fea087c3c0061f90d5825a7227ffc}{\_\-def\_\-DepthTexture\_\-Shader\_\-VP\_\-Name}~\char`\"{}\_\-Hydrax\_\-DepthTexture\_\-VP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_266bab820719f21d98168693d682594a}{\_\-def\_\-DepthTexture\_\-Shader\_\-FP\_\-Name}~\char`\"{}\_\-Hydrax\_\-DepthTexture\_\-FP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_cadec54f37ac406fc0d7483bcf3ab96c}{\_\-def\_\-Underwater\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Material\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_94fc6ee8e38a06020dc0f8ff044a58a3}{\_\-def\_\-Underwater\_\-Shader\_\-VP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Shader\_\-VP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_08fa2260ea5b784c2a611b9c4ad1623e}{\_\-def\_\-Underwater\_\-Shader\_\-FP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Shader\_\-FP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_bd18c556442e2071f72f180e8aff6042}{\_\-def\_\-Underwater\_\-Compositor\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Material\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_b9e273cb2e3077f0e70fd53f2d84125e}{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_66c52ee4bdf4346ba26194c2a506e024}{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\_\-Name}~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_07f44657272d9ddacd508ae844dd01cf}{\_\-def\_\-Underwater\_\-Compositor\_\-Name}~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Name\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_96288ad1ef0d4e3b7a80dee6a1cf3798}{\_\-def\_\-Simple\_\-Red\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-Simple\_\-Red\_\-Material\char`\"{}
+\item 
+\#define \hyperlink{_material_manager_8cpp_91976d6e51a8cc38f42a2cc2b61d30c7}{\_\-def\_\-Simple\_\-Black\_\-Material\_\-Name}~\char`\"{}\_\-Hydrax\_\-Simple\_\-Black\_\-Material\char`\"{}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_material_manager_8cpp_1d934be2c0bd7137acc935391a8e747c}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Depth\_\-Material\_\-Name@{\_\-def\_\-Depth\_\-Material\_\-Name}}
+\index{\_\-def\_\-Depth\_\-Material\_\-Name@{\_\-def\_\-Depth\_\-Material\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Depth\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Depth\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-Depth\_\-Material\char`\"{}}}
+\label{_material_manager_8cpp_1d934be2c0bd7137acc935391a8e747c}
+
+
+\hypertarget{_material_manager_8cpp_5e268aaae5377aaecf478626035af8a9}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Depth\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Depth\_\-Shader\_\-FP\_\-Name}}
+\index{\_\-def\_\-Depth\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Depth\_\-Shader\_\-FP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Depth\_\-Shader\_\-FP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Depth\_\-Shader\_\-FP\_\-Name~\char`\"{}\_\-Hydrax\_\-Depth\_\-FP\char`\"{}}}
+\label{_material_manager_8cpp_5e268aaae5377aaecf478626035af8a9}
+
+
+\hypertarget{_material_manager_8cpp_5964f2e37a39e05b73cd5146057f3c8d}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Depth\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Depth\_\-Shader\_\-VP\_\-Name}}
+\index{\_\-def\_\-Depth\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Depth\_\-Shader\_\-VP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Depth\_\-Shader\_\-VP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Depth\_\-Shader\_\-VP\_\-Name~\char`\"{}\_\-Hydrax\_\-Depth\_\-VP\char`\"{}}}
+\label{_material_manager_8cpp_5964f2e37a39e05b73cd5146057f3c8d}
+
+
+\hypertarget{_material_manager_8cpp_266bab820719f21d98168693d682594a}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-DepthTexture\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-DepthTexture\_\-Shader\_\-FP\_\-Name}}
+\index{\_\-def\_\-DepthTexture\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-DepthTexture\_\-Shader\_\-FP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-DepthTexture\_\-Shader\_\-FP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-DepthTexture\_\-Shader\_\-FP\_\-Name~\char`\"{}\_\-Hydrax\_\-DepthTexture\_\-FP\char`\"{}}}
+\label{_material_manager_8cpp_266bab820719f21d98168693d682594a}
+
+
+\hypertarget{_material_manager_8cpp_a20fea087c3c0061f90d5825a7227ffc}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-DepthTexture\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-DepthTexture\_\-Shader\_\-VP\_\-Name}}
+\index{\_\-def\_\-DepthTexture\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-DepthTexture\_\-Shader\_\-VP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-DepthTexture\_\-Shader\_\-VP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-DepthTexture\_\-Shader\_\-VP\_\-Name~\char`\"{}\_\-Hydrax\_\-DepthTexture\_\-VP\char`\"{}}}
+\label{_material_manager_8cpp_a20fea087c3c0061f90d5825a7227ffc}
+
+
+\hypertarget{_material_manager_8cpp_91976d6e51a8cc38f42a2cc2b61d30c7}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Simple\_\-Black\_\-Material\_\-Name@{\_\-def\_\-Simple\_\-Black\_\-Material\_\-Name}}
+\index{\_\-def\_\-Simple\_\-Black\_\-Material\_\-Name@{\_\-def\_\-Simple\_\-Black\_\-Material\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Simple\_\-Black\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Simple\_\-Black\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-Simple\_\-Black\_\-Material\char`\"{}}}
+\label{_material_manager_8cpp_91976d6e51a8cc38f42a2cc2b61d30c7}
+
+
+\hypertarget{_material_manager_8cpp_96288ad1ef0d4e3b7a80dee6a1cf3798}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Simple\_\-Red\_\-Material\_\-Name@{\_\-def\_\-Simple\_\-Red\_\-Material\_\-Name}}
+\index{\_\-def\_\-Simple\_\-Red\_\-Material\_\-Name@{\_\-def\_\-Simple\_\-Red\_\-Material\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Simple\_\-Red\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Simple\_\-Red\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-Simple\_\-Red\_\-Material\char`\"{}}}
+\label{_material_manager_8cpp_96288ad1ef0d4e3b7a80dee6a1cf3798}
+
+
+\hypertarget{_material_manager_8cpp_bd18c556442e2071f72f180e8aff6042}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Underwater\_\-Compositor\_\-Material\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Material\_\-Name}}
+\index{\_\-def\_\-Underwater\_\-Compositor\_\-Material\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Material\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Underwater\_\-Compositor\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Underwater\_\-Compositor\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Material\char`\"{}}}
+\label{_material_manager_8cpp_bd18c556442e2071f72f180e8aff6042}
+
+
+\hypertarget{_material_manager_8cpp_07f44657272d9ddacd508ae844dd01cf}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Underwater\_\-Compositor\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Name}}
+\index{\_\-def\_\-Underwater\_\-Compositor\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Underwater\_\-Compositor\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Underwater\_\-Compositor\_\-Name~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Name\char`\"{}}}
+\label{_material_manager_8cpp_07f44657272d9ddacd508ae844dd01cf}
+
+
+\hypertarget{_material_manager_8cpp_66c52ee4bdf4346ba26194c2a506e024}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\_\-Name}}
+\index{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\_\-Name~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Shader\_\-FP\char`\"{}}}
+\label{_material_manager_8cpp_66c52ee4bdf4346ba26194c2a506e024}
+
+
+\hypertarget{_material_manager_8cpp_b9e273cb2e3077f0e70fd53f2d84125e}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\_\-Name}}
+\index{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\_\-Name~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Compositor\_\-Shader\_\-VP\char`\"{}}}
+\label{_material_manager_8cpp_b9e273cb2e3077f0e70fd53f2d84125e}
+
+
+\hypertarget{_material_manager_8cpp_cadec54f37ac406fc0d7483bcf3ab96c}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Underwater\_\-Material\_\-Name@{\_\-def\_\-Underwater\_\-Material\_\-Name}}
+\index{\_\-def\_\-Underwater\_\-Material\_\-Name@{\_\-def\_\-Underwater\_\-Material\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Underwater\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Underwater\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Material\char`\"{}}}
+\label{_material_manager_8cpp_cadec54f37ac406fc0d7483bcf3ab96c}
+
+
+\hypertarget{_material_manager_8cpp_08fa2260ea5b784c2a611b9c4ad1623e}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Underwater\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Underwater\_\-Shader\_\-FP\_\-Name}}
+\index{\_\-def\_\-Underwater\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Underwater\_\-Shader\_\-FP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Underwater\_\-Shader\_\-FP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Underwater\_\-Shader\_\-FP\_\-Name~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Shader\_\-FP\char`\"{}}}
+\label{_material_manager_8cpp_08fa2260ea5b784c2a611b9c4ad1623e}
+
+
+\hypertarget{_material_manager_8cpp_94fc6ee8e38a06020dc0f8ff044a58a3}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Underwater\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Underwater\_\-Shader\_\-VP\_\-Name}}
+\index{\_\-def\_\-Underwater\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Underwater\_\-Shader\_\-VP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Underwater\_\-Shader\_\-VP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Underwater\_\-Shader\_\-VP\_\-Name~\char`\"{}\_\-Hydrax\_\-Underwater\_\-Shader\_\-VP\char`\"{}}}
+\label{_material_manager_8cpp_94fc6ee8e38a06020dc0f8ff044a58a3}
+
+
+\hypertarget{_material_manager_8cpp_3b351b39f4179bba2a2d2b6bbabd2372}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Water\_\-Material\_\-Name@{\_\-def\_\-Water\_\-Material\_\-Name}}
+\index{\_\-def\_\-Water\_\-Material\_\-Name@{\_\-def\_\-Water\_\-Material\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Water\_\-Material\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Water\_\-Material\_\-Name~\char`\"{}\_\-Hydrax\_\-Water\_\-Material\char`\"{}}}
+\label{_material_manager_8cpp_3b351b39f4179bba2a2d2b6bbabd2372}
+
+
+\hypertarget{_material_manager_8cpp_1ca47ab2612551573f8a5ffcc5528cf1}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Water\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Water\_\-Shader\_\-FP\_\-Name}}
+\index{\_\-def\_\-Water\_\-Shader\_\-FP\_\-Name@{\_\-def\_\-Water\_\-Shader\_\-FP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Water\_\-Shader\_\-FP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Water\_\-Shader\_\-FP\_\-Name~\char`\"{}\_\-Hydrax\_\-Water\_\-FP\char`\"{}}}
+\label{_material_manager_8cpp_1ca47ab2612551573f8a5ffcc5528cf1}
+
+
+\hypertarget{_material_manager_8cpp_cf026147989a97aaab548cb57d39f38a}{
+\index{MaterialManager.cpp@{MaterialManager.cpp}!\_\-def\_\-Water\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Water\_\-Shader\_\-VP\_\-Name}}
+\index{\_\-def\_\-Water\_\-Shader\_\-VP\_\-Name@{\_\-def\_\-Water\_\-Shader\_\-VP\_\-Name}!MaterialManager.cpp@{MaterialManager.cpp}}
+\subsubsection[{\_\-def\_\-Water\_\-Shader\_\-VP\_\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-def\_\-Water\_\-Shader\_\-VP\_\-Name~\char`\"{}\_\-Hydrax\_\-Water\_\-VP\char`\"{}}}
+\label{_material_manager_8cpp_cf026147989a97aaab548cb57d39f38a}
+
+
